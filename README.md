@@ -1,2 +1,2 @@
 # SIMPEG
-SIMPEG BKD Papua Barat by IMS Jogja (Redesign) 
+SIMPEG BKD Papua Barat (Redesign) 
