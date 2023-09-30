@@ -14,7 +14,7 @@ defineProps({
 });
 
 const form = useForm({
-    nip: '',
+    email: '',
     password: '',
     remember: false,
 });
@@ -24,20 +24,9 @@ const submit = () => {
         ...data,
         remember: form.remember ? 'on' : '',
     })).post(route('login'), {
-        onFinish: () => {
-            form.reset('password');
-            console.log('Login berhasil!');
-        },
-        onError: (errors) => {
-            if (errors.nip) {
-                console.error('Terjadi kesalahan pada NIP:', errors.nip[0]);
-            } else {
-                console.error('Login Gagal: ', errors);
-            }
-        },
+        onFinish: () => form.reset('password'),
     });
 };
-
 </script>
 
 <template>
@@ -54,19 +43,19 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="nip" value="NIP" />
+                <InputLabel for="email" value="Email" />
                 <TextInput
-                    id="nip"
-                    v-model="form.nip"
-                    type="text"
+                    id="email"
+                    v-model="form.email"
+                    type="email"
                     class="mt-1 block w-full"
                     required
                     autofocus
-                    autocomplete="nip"
+                    autocomplete="username"
                 />
-                <InputError class="mt-2" :message="form.errors.nip" />
+                <InputError class="mt-2" :message="form.errors.email" />
             </div>
-            
+
             <div class="mt-4">
                 <InputLabel for="password" value="Password" />
                 <TextInput
@@ -88,9 +77,9 @@ const submit = () => {
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <!-- <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Forgot your password?
-                </Link> -->
+                </Link>
 
                 <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in

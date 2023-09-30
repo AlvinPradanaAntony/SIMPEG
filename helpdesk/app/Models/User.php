@@ -26,8 +26,16 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'nip',
         'password',
     ];
+
+    // public static $rules = [
+    //     'name' => 'required|string|max:255',
+    //     'email' => 'string|email|max:255|unique:users',
+    //     'nip' => 'required|string|max:255|unique:users',
+    //     'password' => 'required|string|confirmed|min:8',
+    // ];
 
     /**
      * The attributes that should be hidden for serialization.
