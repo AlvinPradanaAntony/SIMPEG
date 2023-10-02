@@ -40,32 +40,36 @@ const logout = () => {
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
-                                    <ApplicationMark class="block h-9 w-auto" />
-                                </Link>
+                            <div class="shrink-0 items-center">
+                                
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                <!-- <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
-                                </NavLink>
+                                </NavLink> -->
+                                <img class="img-logo" src="../../images/logo.png" alt="Logo"/>
+                                <div class="text-wrap">
+                                    <h2>Pusat bantuan Kepegawaian</h2>
+                                    <p>Pemerintah Provinsi Papua Barat</p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <div class="ml-3 relative">
                                 <!-- Teams Dropdown -->
+                                <img class="img-alarm" src="../../images/alarm.png" alt="alarm"/>
                                 <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
                                             <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                                 {{ $page.props.auth.user.current_team.name }}
-
                                                 <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
                                                 </svg>
+                                                
                                             </button>
                                         </span>
                                     </template>
@@ -120,9 +124,11 @@ const logout = () => {
                                         <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                             <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.auth.user.profile_photo_url" :alt="$page.props.auth.user.name">
                                         </button>
-
-                                        <span v-else class="inline-flex rounded-md">
-                                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                        
+                                        <!-- Menampilkan gambar default jika profile_photo_url kosong -->
+                                        <span v-else-if="!$page.props.jetstream.managesProfilePhotos" class="inline-flex rounded-md px-4 py-1 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                            <img class="h-8 w-8 rounded-full object-cover" src="../../images/profile.png" alt="Default Photo">
+                                            <button type="button" class="inline-flex items-center ">
                                                 {{ $page.props.auth.user.name }}
 
                                                 <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -135,16 +141,16 @@ const logout = () => {
                                     <template #content>
                                         <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Account
+                                            Kelola Akun
                                         </div>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            Profile
+                                            Profil
                                         </DropdownLink>
-
+<!-- 
                                         <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')">
                                             API Tokens
-                                        </DropdownLink>
+                                        </DropdownLink> -->
 
                                         <div class="border-t border-gray-200" />
 
@@ -287,3 +293,33 @@ const logout = () => {
         </div>
     </div>
 </template>
+
+<style>
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-font);
+    font-family: poppins;
+}
+
+p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-font);
+    font-family: poppins;
+}
+
+.img-logo {
+    max-width: 20%;
+    height: auto;
+    width: auto;
+}
+
+.img-alarm {
+    max-width: 28%;
+    height: auto;
+    width: auto;
+}
+</style>

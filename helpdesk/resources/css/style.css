@@ -1,0 +1,119 @@
+/* .bg-dots-darker {
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+    .dark\:bg-dots-lighter {
+        background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E");
+    }
+} */
+:root {
+    --color-primary: #117c6f;
+    --color-secondary: #289c8e;
+    --color-tertiary: #1e1e1e;
+    --color-font: #1e1e1e;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-font);
+    font-family: poppins;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-font);
+    font-family: poppins;
+}
+
+h6 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-font);
+    font-family: poppins;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-font);
+    font-family: poppins;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: poppins;
+}
+
+.img-logo {
+    max-width: 3.5%;
+    height: auto;
+    margin-left: 50px;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.custom-search-input {
+    width: 700px; /* Sesuaikan ukuran lebar sesuai keinginan Anda */
+    height: 41px;
+    top: 230px;
+    left: 70px;
+    border-radius: 20px;
+    border: 1px solid #e5e5e5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Mengatur gaya tombol pencarian */
+.custom-search-btn {
+    background-color: transparent; /* Hapus latar belakang */
+    border: 1px; /* Hapus garis tepi */
+    border-radius: 20px;
+}
+
+/* Mengatur gambar pencarian */
+.custom-search-btn img {
+    width: 20px; /* Sesuaikan ukuran gambar sesuai keinginan Anda */
+    height: 20px; /* Sesuaikan ukuran gambar sesuai keinginan Anda */
+}
+
+.custom-container {
+    width: 100%;
+    padding: 30px;
+    margin: 0 auto;
+    text-align: center; /* Ini akan membuat kontainer berada di tengah */
+}
+
+.img {
+    max-width: 80%;
+    height: auto;
+    margin-left: 70px;
+}
+
+.btn-success {
+    background-color: #117c72;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    border: #117c72;
+    width: 100px;
+    font-family: poppins;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #117c72;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    border: #117c72;
+    width: 150px;
+    font-family: poppins;
+    font-weight: 500;
+}
