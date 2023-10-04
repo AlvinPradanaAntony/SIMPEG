@@ -27,12 +27,17 @@ body {
 }
 
 #panel-login {
+  background-color: hsla(0, 0%, 0%, 0.425);
   border-radius: 20px;
-  box-shadow: 0 0 13px 0 rgb(82 63 105 / 5%)
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); /* Add prefix for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.192) !important;
 }
 
 #panel-login .card-header {
   background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.192) !important;
 }
 
 #panel-login .form-control-custom {
@@ -85,15 +90,31 @@ body {
 
 #logo-title {
   font-family: InterBold;
-  font-size: 22px;
-  color: #000000;
-
+  font-size: 1.375rem;
+  color: #ffffff;
 }
 
 #logo-subtitle {
   font-family: InterRegular;
-  font-size: 14px;
-  color: #000000;
+  font-size: 0.875rem;
+  color: #ffffff;
 }
 
+#txt-login{
+  font-family: InterBold;
+  font-size: 1.375rem;
+  color: #ffffff;
+}
 
+#txt-desc{
+  font-family: InterRegular;
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+
+.hidden {
+  display: none !important;
+}
+.show {
+  display: inline-block;
+}

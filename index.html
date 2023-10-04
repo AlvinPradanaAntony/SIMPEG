@@ -6,22 +6,32 @@
     <title>Masuk | SIMPEG</title>
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- <link rel="stylesheet" href="assets/css/s.css" /> -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css">
   </head>
   <body>
     <div class="container h-100">
       <div class="row justify-content-center h-100 align-items-center">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <div class="card border-0 px-3"  id="panel-login">
-            <div class="card-header pt-4 d-flex align-items-center border-0">
+            <div class="card-header pt-4 ps-2 d-flex align-items-center">
               <img src="./assets/img/logo-pabar.png" alt="" height="75" />
               <div>
-                <p class="m-0" id="logo-title">Helpdesk Kepegawaian</p>
-                <p class="m-0" id="logo-subtitle">Pemerintah Papua Barat</p>
+                <p class="m-0" id="logo-title">SIMPEG</p>
+                <p class="m-0" id="logo-subtitle">Sistem Informasi Kepegawaian</p>
               </div>
             </div>
             <div class="card-body p-4">
+              <div >
+                <p class="m-0 mt-2" id="txt-login">Masuk</p>
+                <a href="#">
+                  <div class="logo-details d-none">
+                    <img src="Assets/Private/img/logo.png" width="135" alt="Logo" id="logo_sidebar">
+                  </div>
+                </a>
+                <p class="mt-0 mb-4" id="txt-desc">Silakan isi dengan data Anda yang terdaftar.</p>
+              </div>
               <form>
                 <div class="form-floating form-floating-custom mb-3">
                   <input type="text" class="form-control form-control-custom" id="input-username" placeholder="Enter User Name" />
@@ -32,7 +42,7 @@
                 </div>
                 <div class="form-floating form-floating-custom mb-3 auth-pass-inputgroup">
                   <input type="password" class="form-control form-control-custom" id="passInput" placeholder="Enter Password" />
-                  <span class="eye show" id="spanEye" style="display: inline">
+                  <span class="eye hidden" id="spanEye" style="display: inline">
                     <i class="uil uil-eye-slash show-hide" toggle="#passInput" id="iconShowHide"></i>
                   </span>
                   <label for="password-input">Kata Sandi</label>
@@ -40,7 +50,7 @@
                     <i class="uil uil-padlock"></i>
                   </div>
                 </div>
-                <div class="mt-4">
+                <div class="mt-4 mb-3">
                   <button class="btn btn-primary w-100 rounded-pill py-2" type="submit">Login</button>
                 </div>
               </form>
@@ -52,5 +62,6 @@
 
     <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/custom.js"></script>
   </body>
 </html>
