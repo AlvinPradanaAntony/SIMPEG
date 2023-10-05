@@ -18,7 +18,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+body.login-page {
   height: 100vh;
   background-image: url("../img/bg-login.png");
   background-repeat: no-repeat;
@@ -100,13 +100,13 @@ body {
   color: #ffffff;
 }
 
-#txt-login{
+#txt-login {
   font-family: InterBold;
   font-size: 1.375rem;
   color: #ffffff;
 }
 
-#txt-desc{
+#txt-desc {
   font-family: InterRegular;
   font-size: 0.875rem;
   color: #ffffff;
@@ -117,4 +117,73 @@ body {
 }
 .show {
   display: inline-block;
+}
+
+/*==================== FAQ Pages ====================*/
+.search-banner {
+  padding: 120px 0 60px;
+}
+.search-banner.has-bg {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+.search-banner.has-bg .bg-cover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url("../img/bg-login.png");
+  background-position: center;
+  background-position-y: -382px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  filter: brightness(0.7);
+}
+.search-banner.has-bg .container {
+  position: relative;
+}
+.search-banner .h1, .search-banner h1 {
+  color: #fff;
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 10px 0 20px;
+  font-weight: 600;
+}
+.search-banner .input-group {
+  margin-bottom: 30px;
+}
+.search-banner .form-control {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 1rem;
+  border: none;
+  height: 46px;
+  border-radius: 6px;
+}
+.search-banner .btn {
+  background: #fff;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: #000;
+  border-radius: 6px;
+}
+
+/*==================== Media Query ====================*/
+@media (min-width: 768px) {
+  .search-banner .container {
+    max-width: 720px;
+  }
+}
+@media (max-width: 991.98px) {
+  /* .search-banner {
+    padding: 60px 0 30px;
+  }
+  .search-banner .input-group {
+    margin-bottom: 15px;
+  }
+  .search-banner .form-control {
+    height: 40px;
+  } */
 }
