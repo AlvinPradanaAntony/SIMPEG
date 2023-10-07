@@ -135,16 +135,16 @@ body.login-page {
   top: 0;
   bottom: 0;
   background-image: url("../img/bg-login.png");
-  background-position: center;
-  background-position-y: -382px;
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
   filter: brightness(0.7);
+  transition: ease-in-out 0.5s;
 }
 .search-banner.has-bg .container {
   position: relative;
 }
-.search-banner .h1, .search-banner h1 {
+.search-banner .h1,
+.search-banner h1 {
   color: #fff;
   font-size: 2.4rem;
   text-align: center;
@@ -169,11 +169,32 @@ body.login-page {
   color: #000;
   border-radius: 6px;
 }
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+.header-logo a {
+  display: flex;
+  align-items: center;
+}
+.header-logo a .brand-text{
+  font-family: InterBold;
+  font-size: 1.125rem;
+}
+.header-logo a .brand-text small {
+  font-family: InterRegular;
+  display: block;
+  font-size: 0.625rem;
+}
 
 /*==================== Media Query ====================*/
 @media (min-width: 768px) {
   .search-banner .container {
     max-width: 720px;
+  }
+  .search-banner.has-bg .bg-cover {
+    background-position-y: -182px;
+    transition: ease-in-out 0.5s;
   }
 }
 @media (max-width: 991.98px) {
