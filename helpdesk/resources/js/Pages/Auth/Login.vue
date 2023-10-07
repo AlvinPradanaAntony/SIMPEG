@@ -112,7 +112,7 @@ const submit = () => {
 
 <style>
 .background-container {
-    /* background-image: url("../../../images/background.jpg"); Ganti 'path/to/your/image.jpg' dengan path ke gambar Anda */
+    /* background-image: url("../../../images/background.jpg");  */
     background-size: cover; /* Mengatur ukuran gambar agar menutupi seluruh latar belakang */
     background-position: center center; /* Mengatur posisi gambar */
     background-repeat: no-repeat; /* Mencegah gambar diulang */

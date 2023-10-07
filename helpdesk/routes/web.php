@@ -22,3 +22,11 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+// routes/web.php
+
+use App\Http\Controllers\FaqController;
+
+Route::get('/faq', [FaqController::class, 'index']);
+Route::get('/api/faqs', [FaqController::class, 'getAllFAQs']);
+

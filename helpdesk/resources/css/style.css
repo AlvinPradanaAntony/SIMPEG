@@ -1,119 +1,198 @@
-/* .bg-dots-darker {
-    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E");
-}
-@media (prefers-color-scheme: dark) {
-    .dark\:bg-dots-lighter {
-        background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E");
-    }
-} */
+@import url('../css/fonts.css');
+
 :root {
     --color-primary: #117c6f;
     --color-secondary: #289c8e;
-    --color-tertiary: #1e1e1e;
+    --color-tertiary: #2FC4B2;
+    --color-quaternary: #8DE5DB;
+    --color-quinary: #B2F0E8;
     --color-font: #1e1e1e;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray: #777777;
+    --color-dark-gray: #333333;
 }
 
-h1 {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--color-font);
-    font-family: poppins;
+@media (min-width: 746px){
+    
 }
 
-h2 {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--color-font);
-    font-family: poppins;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-h6 {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--color-font);
-    font-family: poppins;
+html {
+  scroll-behavior: smooth;
 }
 
-p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--color-font);
-    font-family: poppins;
+body.login-page {
+  height: 100vh;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
 }
 
-body {
-    background-color: #f5f5f5;
-    font-family: poppins;
+#panel-login {
+  background-color: hsla(0, 0%, 0%, 0.425);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); /* Add prefix for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.192) !important;
 }
 
-.img-logo {
-    max-width: 3.5%;
-    height: auto;
-    margin-left: 50px;
+#panel-login .card-header {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.192) !important;
 }
 
-.logo-wrapper {
-    display: flex;
-    align-items: center;
+#panel-login .form-control-custom {
+  border-radius: 12px;
+  /* color: var(--text-color);
+  background-color: var(--input-color);
+  border: 1px solid var(--input-color); */
+  transition: all 0.5s ease;
 }
 
-.custom-search-input {
-    width: 700px; /* Sesuaikan ukuran lebar sesuai keinginan Anda */
-    height: 41px;
-    top: 230px;
-    left: 70px;
-    border-radius: 20px;
-    border: 1px solid #e5e5e5;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.form-floating-custom .form-floating-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 20px;
+  width: 56px;
+  /* color: var(--text-color-light); */
+}
+.form-floating-custom > .form-control {
+  padding-left: 60px !important;
+}
+.form-floating-custom > label {
+  left: 48px !important;
+  /* color: var(--text-color-light); */
 }
 
-/* Mengatur gaya tombol pencarian */
-.custom-search-btn {
-    background-color: transparent; /* Hapus latar belakang */
-    border: 1px; /* Hapus garis tepi */
-    border-radius: 20px;
+.form-floating-custom span.eye {
+  position: absolute;
+  font-size: 20px;
+  right: 15px;
+  display: flex;
+  transform: translateY(-50%);
+  top: 50%;
+  transition: 0.4s ease-in-out;
+}
+.form-floating-custom span.eye i {
+  cursor: pointer;
+  color: var(--text-color-light);
 }
 
-/* Mengatur gambar pencarian */
-.custom-search-btn img {
-    width: 20px; /* Sesuaikan ukuran gambar sesuai keinginan Anda */
-    height: 20px; /* Sesuaikan ukuran gambar sesuai keinginan Anda */
+#logo-title {
+  font-family: InterBold;
+  font-size: 1.375rem;
+  color: #ffffff;
 }
 
-.custom-container {
-    width: 100%;
-    padding: 30px;
-    margin: 0 auto;
-    text-align: center; /* Ini akan membuat kontainer berada di tengah */
+#logo-subtitle {
+  font-family: InterRegular;
+  font-size: 0.875rem;
+  color: #ffffff;
 }
 
-.img {
-    max-width: 80%;
-    height: auto;
-    margin-left: 70px;
+#txt-login {
+  font-family: InterBold;
+  font-size: 1.375rem;
+  color: #ffffff;
 }
 
-.btn-success {
-    background-color: #117c72;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
-    border: #117c72;
-    width: 100px;
-    font-family: poppins;
-    font-weight: 500;
+#txt-desc {
+  font-family: InterRegular;
+  font-size: 0.875rem;
+  color: #ffffff;
 }
 
-.btn-primary {
-    background-color: #117c72;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
-    border: #117c72;
-    width: 150px;
-    font-family: poppins;
-    font-weight: 500;
+.hidden {
+  display: none !important;
+}
+.show {
+  display: inline-block;
+}
+
+/*==================== FAQ Pages ====================*/
+.search-banner {
+  padding: 120px 0 60px;
+}
+.search-banner.has-bg {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+.search-banner.has-bg .bg-cover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url("../images/background.jpg");
+  background-position: center;
+  background-position-y: -382px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  filter: brightness(0.7);
+}
+.search-banner.has-bg .container {
+  position: relative;
+}
+.search-banner .h1, .search-banner h1 {
+  color: #fff;
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 10px 0 20px;
+  font-weight: 600;
+}
+.search-banner .input-group {
+  margin-bottom: 30px;
+}
+.search-banner .form-control {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 1rem;
+  border: none;
+  height: 46px;
+  border-radius: 6px;
+}
+.search-banner .btn {
+  background: #fff;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: #000;
+  border-radius: 6px;
+}
+
+/*==================== Media Query ====================*/
+@media (min-width: 768px) {
+  .search-banner .container {
+    max-width: 720px;
+  }
+}
+@media (max-width: 991.98px) {
+  /* .search-banner {
+    padding: 60px 0 30px;
+  }
+  .search-banner .input-group {
+    margin-bottom: 15px;
+  }
+  .search-banner .form-control {
+    height: 40px;
+  } */
 }
