@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORM TIKET | SIMPEG</title>
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <img class="me-2" src="./assets/img/logo-pabar.png" width="46" height="46" alt="" />
+          <a class="navbar-brand" href="#">Helpdesk</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"> </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container align-items-start" style="margin-top: 20px;">
+        <div class="row align-items-start">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-header text-center bg-primary text-white">
+                        Pilih Kategori untuk membuat tiket baru
+                    </div>
+                    <div class="card-body">
+                        <div class="category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="categoryRadio" id="category1" value="Sekretariat">
+                                <label class="form-check-label" for="category">
+                                    Sekretariat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="categoryRadio" id="category2" value="Bidang Pembinaan Perpu dan Kesejahteraan Pegawai">
+                                <label class="form-check-label" for="category">
+                                    Bidang Pembinaan Perpu dan Kesejahteraan Pegawai
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="categoryRadio" id="category3" value="Bidang Formasi dan Pengembangan Pegawai">
+                                <label class="form-check-label" for="category">
+                                    Bidang Formasi dan Pengembangan Pegawai
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="categoryRadio" id="category4" value="Bidang Data, Dokumentasi dan Informasi Kepegawaian">
+                                <label class="form-check-label" for="category">
+                                    Bidang Data, Dokumentasi dan Informasi Kepegawaian
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="categoryRadio" id="category5" value="Bidang Mutasi Pegawai">
+                                <label class="form-check-label" for="category">
+                                    Bidang Mutasi Pegawai
+                                </label>
+                            </div>
+                            <!-- <img src="assets/img/kesekretariatan.png" alt="kesekretariatan" width="100" height="100">
+                            <div class="category-name">Sekretariat</div>
+                            <div class="category-description">Pembuatan Surat, dll</div>
+                            <div class="create-tiket">Buat Tiket</div> -->
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-success text-center text-white">
+                        Formulir Tiket Baru
+                    </div>
+                    <div class="card-body">
+                        <form action="POST">
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label" for="category-name">Kategori :</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="category" name="category" readonly disabled>
+                                </div>
+                                <label class="col-sm-2 col-form-label" for="department-name">Bidang :</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="department" value="Sekretariat" name="department" readonly disabled>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="subjek">Subjek*</label>
+                                <input type="text" class="form-control" id="subjek" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="pesan">Pesan*</label>
+                                <textarea class="form-control" id="pesan" rows="10" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="file" class="form-label">Unggah Berkas</label>
+                                <input class="form-control" type="file" id="file" multiple>
+                            </div>
+                            <div id="file-list">
+                            <!-- Daftar file yang dipilih akan ditampilkan di sini -->
+                            </div>
+
+                            <button id="add-file-button" class="btn btn-primary">Tambah Berkas</button>
+                            <div class="text-center">
+                                <button class="btn btn-warning">Hapus</button>
+                                <button class="btn btn-success">Kirim</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+    </main>
+
+    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+    const fileListDiv = document.getElementById('file-list');
+    const addFileButton = document.getElementById('add-file-button');
+    let fileCount = 0; // Menghitung jumlah berkas yang sudah dipilih
+
+    addFileButton.addEventListener('click', function () {
+        // Tambahkan input file baru ke dalam form
+        const newFileInput = document.createElement('input');
+        newFileInput.type = 'file';
+        newFileInput.className = 'form-control';
+        newFileInput.name = `file_${fileCount + 1}`; // Nama unik untuk setiap input file
+        newFileInput.addEventListener('change', function () {
+        const selectedFile = newFileInput.files[0];
+
+        if (selectedFile) {
+            const fileItemDiv = document.createElement('div');
+            fileItemDiv.classList.add('mb-2');
+
+            const fileName = selectedFile.name;
+            const fileNameElement = document.createElement('span');
+            fileNameElement.textContent = fileName;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Hapus';
+            deleteButton.classList.add('btn', 'btn-danger', 'btn-sm', 'ms-2');
+            deleteButton.addEventListener('click', function () {
+            // Hapus file dari daftar saat tombol hapus diklik
+            fileItemDiv.remove();
+            fileCount--;
+            });
+
+            fileItemDiv.appendChild(fileNameElement);
+            fileItemDiv.appendChild(deleteButton);
+
+            fileListDiv.appendChild(fileItemDiv);
+            fileCount++;
+        }
+        });
+
+        newFileInput.click(); // Buka dialog pemilihan file saat input baru dibuat
+    });
+    </script>
+    <script>
+        // Ambil elemen-elemen yang dibutuhkan
+        const categoryInput = document.getElementById('category');
+        const radioButtons = document.querySelectorAll('input[name="categoryRadio"]');
+
+        // Tambahkan event listener pada setiap radio button
+        radioButtons.forEach(radioButton => {
+            radioButton.addEventListener('change', function () {
+                if (this.checked) {
+                    // Saat radio button terpilih, ubah nilai input "Kategori"
+                    categoryInput.value = this.value;
+                }
+            });
+        });
+    </script>
+  </body>
+</html>
