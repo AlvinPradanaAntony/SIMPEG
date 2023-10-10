@@ -20,7 +20,7 @@ html {
 
 body {
   height: 100vh;
-  background-image: url("../img/bg-login.png");
+  /* background-image: url("../img/bg-login.png"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 100%;
@@ -117,4 +117,432 @@ body {
 }
 .show {
   display: inline-block;
+}
+
+/* ================================ Sudah punya tiket kirim=============================== */
+
+body {
+  background-color: #f0f0f0; /* Warna latar belakang */
+  font-family: Inter, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #f4f5f5;
+  color: #fff; 
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; /* Pindahkan semua elemen ke kiri */
+  align-items: center;
+}
+
+.navbar .logo {
+  max-width: 40px;
+  max-height: 40px;
+  margin-right: 7px;
+  margin-left: 20px;
+}
+
+.navbar .titles {
+  display: flex;
+  flex-direction: column;
+  float: left;
+}
+
+.logo2 {
+  width: 25px; /* Sesuaikan lebar sesuai keinginan Anda */
+  height: 25px; /* Sesuaikan tinggi sesuai keinginan Anda */
+  float: right;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.logo3 img {
+  width: 25px; /* Sesuaikan lebar sesuai keinginan Anda */
+  height: 25px; /* Sesuaikan tinggi sesuai keinginan Anda */
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-left: 30px;
+
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 15px;
+  color: #000000;
+  
+}
+
+.navbar h3 {
+  margin: auto;
+  font-size: 10px;
+  color: #000000;
+  margin-right: 10px;
+  font-weight: 400;
+}
+.navbar p {
+  margin: 0;
+  font-size: 11px;
+  color: #6b6a6a;
+}
+
+.chat-container {
+background-color: #fff;
+margin-top: 20px;
+margin-left: 5px;
+margin-right: 5px;
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+border-radius: 5px;
+height: 510px;
+justify-content: flex-end;
+flex-direction: column;
+display: flex;
+width: 645px;
+/* padding: 20px;
+border-radius: 5px;
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+width: 645px;
+text-align: center;
+margin: 20px auto;
+height: 497px; 
+display: flex;
+flex-direction: column; 
+justify-content: flex-end;  */
+}
+
+.tiket-container {
+
+height: 190px; 
+background-color: #ffffff; 
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+padding: 20px;
+border-radius: 5px;
+margin-top: 20px;
+width: 240px;
+}
+
+.tiket-container-right {
+
+height: 510px; 
+background-color: #ffffff; 
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+padding: 0px 0px 0px;
+border-radius: 5px;
+margin-top: 20px;
+width: 240px;
+}
+
+.container-latar {
+height: 100%;
+}
+
+.chat {
+
+overflow-y: auto; /* Membuat pesan-pesan dapat di-scroll jika terlalu banyak */
+align-self: flex-end;
+
+}
+
+.message-input {
+flex-grow: 1; /* Membuat input pesan mengisi ruang yang tersedia */
+overflow-y: auto;
+border: 1px solid #ccc;
+border-radius: 3px;
+margin-right: 10px; /* Mengisi lebar container */
+min-width: 50px;
+height: 10px;
+word-wrap: break-word;
+
+}
+
+/* Ganti tampilan label untuk menggantikan tombol "Send" */
+.send-button {
+display: flex;
+align-items: center;
+justify-content: center;
+border: none;
+border-radius: 20px; /* Membuat label menjadi lingkaran */
+width: 10px; /* Sesuaikan ukuran sesuai keinginan Anda */
+height: 5px; /* Sesuaikan ukuran sesuai keinginan Anda */
+cursor: pointer;
+margin-right: 5px;
+
+}
+
+.send-button img {
+width: 10px; /* Sesuaikan ukuran logo sesuai keinginan Anda */
+height: 10px; /* Sesuaikan ukuran logo sesuai keinginan Anda */
+}
+
+/* Sembunyikan tombol asli */
+.hidden {
+display: none;
+}
+
+.chats-bdg {
+width: 60%;
+word-wrap: normal;
+border-radius: 3px;
+/* background-color: #ffffff; */
+border: 1.5px solid #117C72;
+padding: 10px 10px;
+border-radius: 20px 20px 0px 20px;
+font-size: 8px;
+margin-bottom: 200px;
+float: right;   
+text-align: left;
+font-weight: 600;
+}
+
+.chats-bdg-1 {
+width: 60%;
+word-wrap: normal;
+border-radius: 3px;
+background-color: #81DCD3;
+border: 1.5px solid #117C72;
+padding: 10px 10px;
+border-radius: 20px 20px 20px 0px;
+font-size: 8px;
+margin-bottom: 200px;
+float: left;
+text-align: left;
+font-weight: 600;
+}
+
+/* Pesan yang dikirim */
+.message-sent {
+text-align: left; /* Mengatur teks pesan ke kanan */
+}
+
+/* Pesan yang diterima */
+.message-received {
+text-align: right; /* Mengatur teks pesan ke kanan */
+}
+
+/* Ganti tampilan teks pesan */
+.message-content {
+margin: 10px;
+}
+
+/* Mengatur tata letak input pesan dan tombol "Send" */
+.message-input-container {
+  
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 7px 7px 7px 7px;
+  padding: 10px;
+  margin-right: 10px;
+  width: 98%;
+ 
+
+}
+
+
+
+.send-button img {
+width: 20px;
+height: 20px;
+margin-right: -10px;
+}
+
+.message-input{
+      margin-left: -100px;
+      border: 0px solid transparent;
+
+  }
+.file-upload {
+  border: 1px solid #ccc;
+  width: 50px;
+  height: 32px;
+  margin-top: -12px;
+  margin-left: -11px;
+  margin-bottom: -12px;
+  border-radius: 7px 0px 0px 7px;
+}
+
+.file-upload img {
+width: 20px; /* Sesuaikan lebar sesuai keinginan Anda */
+height: 20px; /* Sesuaikan tinggi sesuai keinginan Anda */
+margin-top: 5px;
+cursor: pointer;
+margin-left: 17px;
+
+}
+
+.tiket-container h3 {
+  margin-top: -5px;
+  font-size: 12px;
+}
+
+.tiket-container p {
+  font-size: 9px;
+  margin-top: -10px;
+  
+}
+
+.bidang {
+  font-size: 10px;
+  margin-top: 20px;
+  font-weight: 500;   
+}
+
+.kesekretariatan {
+  font-size: 10px;
+  margin-top: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.status {
+  margin-top: 25px;
+  font-size: 12px;
+  font-weight: 200;
+  color: #6b6a6a;
+  margin-bottom: 1%;
+}
+
+.badge {
+  
+  font-size: 10px;
+  width: 100px;
+ padding: 5px;
+  margin: 1px;
+  color: #6DA13E;
+  background-color: #DEF7EC;
+
+  
+}
+
+.close-tiket {
+  display: flex;
+  
+}
+
+.btn-close-tiket {
+  width: 170px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 292px;
+  left: 60px;
+  font-size: 12px;
+  padding: 5px;
+  background-color: #FDE8E8;
+  color: #E21C1C;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+.header-logo a {
+  display: flex;
+  align-items: center;
+}
+.header-logo a .brand-text{
+  font-family: InterBold;
+  font-size: 1.125rem;
+}
+.header-logo a .brand-text small {
+  font-family: InterRegular;
+  display: block;
+  font-size: 0.625rem;
+}
+
+
+
+.navbar-status  {
+background-color: #117C72;
+margin-bottom: 5px;
+border-radius: 3px;
+width: 100%;
+height: 32px;
+/* margin-left: -20px; */
+
+color: #f4f5f5;
+font-size: 12px;
+/* text-align: center; */
+display: flex;
+justify-content:center;
+align-items: center;
+font-weight: 600;
+}
+
+.avatar-table img {
+width: 29px; /* Sesuaikan lebar sesuai keinginan Anda */
+height: 29px; /* Sesuaikan tinggi sesuai keinginan Anda */
+margin-left: 2px;
+}
+
+
+.table-tiketaktif tbody tr {
+border-bottom: 1px solid #7b7878; /* Warna dan gaya garis bawah sesuaikan dengan preferensi Anda */
+width: 150%;
+}
+
+
+
+.tiket-number {
+  font-size: 10px;
+  width: 100px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  padding-bottom: 1px;
+
+  
+  /* position: absolute;
+  bottom: 10px; */
+
+  /* img-table avatar-table" */
+}
+.tiket-number p {
+  font-size: 8px;
+  color: #999797;
+  margin: 1px;
+  margin-top: -3px;
+}
+
+
+
+.badge-tiket span {
+margin-top: 7px;
+right: -65px;
+
+}
+
+.table-responsive {
+ width: 230px; /* Elemen akan mengikuti lebar container, tetapi tidak lebih dari 100% */
+ padding: 0px;
+ margin-left: 10px;
+ margin-bottom: 20px;
+}
+
+.btn-new-tiket {
+background-color: #B2F5EF; 
+border-color: #117C72; 
+border-radius: 12px;
+color: #117C72; 
+display: block; 
+margin: 0 auto;
+margin-top: 3px; 
+margin-bottom: 5px;
+text-align: center; 
+font-size: 10px;
+width: 150px;
+font-weight: 800;
+height: 32px;
+}
+
+
+.container-active {
+width: 100%;
+padding: 0px;
+}
+
+.document img{
+width: 170px; /* Sesuaikan lebar sesuai keinginan Anda */
+height: 35px; /* Sesuaikan tinggi sesuai keinginan Anda */
+margin-left: 30px;
+margin-bottom: 10px;
+
 }
