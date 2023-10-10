@@ -1,0 +1,306 @@
+/*==================== BASE ====================*/
+@font-face {
+  font-family: InterBold;
+  src: url(../fonts/Inter-ExtraBold.ttf);
+}
+@font-face {
+  font-family: InterMBold;
+  src: url(../fonts/Inter-Bold.ttf);
+}
+@font-face {
+  font-family: InterRegular;
+  src: url(../fonts/Inter-Regular.ttf);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+h5 {
+  font-size: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.login-page {
+  height: 100vh;
+  background-image: url("../img/bg-login.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
+}
+
+#panel-login {
+  background-color: hsla(0, 0%, 0%, 0.425);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); /* Add prefix for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.192) !important;
+}
+
+#panel-login .card-header {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.192) !important;
+}
+
+#panel-login .form-control-custom {
+  border-radius: 12px;
+  /* color: var(--text-color);
+  background-color: var(--input-color);
+  border: 1px solid var(--input-color); */
+  transition: all 0.5s ease;
+}
+
+.form-floating-custom .form-floating-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 20px;
+  width: 56px;
+  /* color: var(--text-color-light); */
+}
+.form-floating-custom > .form-control {
+  padding-left: 60px !important;
+}
+.form-floating-custom > label {
+  left: 48px !important;
+  /* color: var(--text-color-light); */
+}
+
+.form-floating-custom span.eye {
+  position: absolute;
+  font-size: 20px;
+  right: 15px;
+  display: flex;
+  transform: translateY(-50%);
+  top: 50%;
+  transition: 0.4s ease-in-out;
+}
+.form-floating-custom span.eye i {
+  cursor: pointer;
+  color: var(--text-color-light);
+}
+
+#logo-title {
+  font-family: InterBold;
+  font-size: 1.375rem;
+  color: #ffffff;
+}
+
+#logo-subtitle {
+  font-family: InterRegular;
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+
+#txt-login {
+  font-family: InterBold;
+  font-size: 1.375rem;
+  color: #ffffff;
+}
+
+#txt-desc {
+  font-family: InterRegular;
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+
+.navbar .account-container {
+  height: 36px;
+  padding: 4px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+}
+.navbar .user-img {
+  padding: 2px;
+  object-fit: cover;
+}
+.navbar .user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+.navbar .nav-item .nav__notif {
+  font-size: 22px;
+}
+.navbar .nav-item .nav__notif .badge {
+  font-size: 10px;
+  left: 10px;
+  top: 0px;
+  border: 2px solid #fff;
+}
+
+.navbar .nav-item .nav__notif .bell {
+  -webkit-animation-name: tada;
+  animation-name: tada;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.custom-rounded {
+  background-color: #ffffff;
+  border-radius: 8px !important;
+  box-shadow: 0px 4px 22px rgb(69 69 69 / 8%) !important;
+  transform: translate(0px, 11px);
+}
+.custom-rounded li a.dropdown-item {
+  color: #000000;
+  font-family: InterRegular;
+  font-size: 14px;
+}
+.custom-rounded li a.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+.custom-rounded li .dropdown-divider {
+  border-color: #f1f1f1;
+}
+.dropdown-menu.dropdown-menu-center {
+  left: 50% !important;
+  transform: translate(-60%, 11px);
+}
+.custom-rounded .dropdown-item.noti-title {
+  background-color: transparent;
+  padding: 15px 20px;
+}
+.custom-rounded .noti-body {
+  min-width: 350px !important;
+  max-height: 230px;
+}
+.custom-rounded .notify-item {
+  padding: 10px 20px;
+}
+.custom-rounded .notify-item .notify-icon {
+  float: left;
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  text-align: center;
+  margin-right: 10px;
+  border-radius: 50%;
+  color: #fff;
+}
+.custom-rounded .notify-item p.notify-details {
+  font-size: 0.875rem;
+  margin-bottom: 0;
+  overflow: hidden;
+  margin-left: 45px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.custom-rounded .notify-item .notify-details small {
+  display: block;
+}
+.hidden {
+  display: none !important;
+}
+.show {
+  display: inline-block;
+}
+
+/*==================== FAQ Pages ====================*/
+.search-banner {
+  padding: 120px 0 60px;
+}
+.search-banner.has-bg {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+.search-banner.has-bg .bg-cover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url("../img/bg-login.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(0.7);
+  transition: ease-in-out 0.5s;
+}
+.search-banner.has-bg .container {
+  position: relative;
+}
+.search-banner .h1,
+.search-banner h1 {
+  color: #fff;
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 10px 0 20px;
+  font-weight: 600;
+}
+.search-banner .input-group {
+  margin-bottom: 30px;
+}
+.search-banner .form-control {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 1rem;
+  border: none;
+  height: 46px;
+  border-radius: 6px;
+}
+.search-banner .btn {
+  background: #fff;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: #000;
+  border-radius: 6px;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+.header-logo a {
+  display: flex;
+  align-items: center;
+}
+.header-logo a .brand-text {
+  font-family: InterBold;
+  font-size: 1.125rem;
+}
+.header-logo a .brand-text small {
+  font-family: InterRegular;
+  display: block;
+  font-size: 0.625rem;
+}
+
+/*==================== Media Query ====================*/
+@media (min-width: 768px) {
+  .search-banner .container {
+    max-width: 720px;
+  }
+  .search-banner.has-bg .bg-cover {
+    background-position-y: -182px;
+    transition: ease-in-out 0.5s;
+  }
+}
+@media (max-width: 991.98px) {
+  /* .search-banner {
+    padding: 60px 0 30px;
+  }
+  .search-banner .input-group {
+    margin-bottom: 15px;
+  }
+  .search-banner .form-control {
+    height: 40px;
+  } */
+}

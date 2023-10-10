@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DETAIL TIKET | SIMPEG</title>
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css" />
+    <!-- Font Awesome CSS (untuk ikon bintang) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    
+
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <img class="me-2" src="./assets/img/logo-pabar.png" width="46" height="46" alt="" />
+          <a class="navbar-brand" href="#">Helpdesk</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"> </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container align-items-start" style="margin-top: 20px;">
+        <div class="row align-items-start">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Detail Tiket
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3 row">
+                            <label class="col-md-6 col-form-label" for="id">Nomor Tiket :</label>
+                            <div class="col-md-6">
+                                <span id="id">TK0009</span>
+                            </div>
+                            <label class="col-md-6 col-form-label" for="department">Bidang :</label>
+                            <div class="col-md-6">
+                                <span id="department">Sekretariat</span>
+                            </div>
+                            <label class="col-md-6 col-form-label" for="category">Kategori :</label>
+                            <div class="col-md-6">
+                                <span id="category">Kesekretariatan</span>
+                            </div>
+                            <label class="col-md-6 col-form-label" for="date">Tanggal Dibuat :</label>
+                            <div class="col-md-6">
+                                <span id="date">2 November 2022</span>
+                            </div>
+                            <label class="col-md-6 col-form-label" for="status">Status :</label>
+                            <div class="col-md-6">
+                                <span id="status">Terbalas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#closeTiket">Tutup Tiket</button>
+                <!-- Modal -->
+                <div class="modal fade" id="closeTiket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Anda yakin ingin menutup tiket?</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Setelah ditutup tiket tidak bisa digunakan lagi, anda harus membuat tiket baru jika membutuhkan bantuan
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewTiket">Tutup Tiket</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="reviewTiket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Ulasan</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Bagaimana nilai dan ulasan anda terhadap pelayanan kami?
+                                <div class="rating">
+                                    <i class="fas fa-star" data-rating="1"></i>
+                                    <i class="fas fa-star" data-rating="2"></i>
+                                    <i class="fas fa-star" data-rating="3"></i>
+                                    <i class="fas fa-star" data-rating="4"></i>
+                                    <i class="fas fa-star" data-rating="5"></i>
+                                </div>
+                                <p>Rating: <span id="selected-rating">0</span></p>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewTiket">Kirim</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Dokumen
+                    </div>
+                    <div class="card-body">
+                        File atau dokumen per tiket disini
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        Bidang Sekretariat
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+            
+    </div>
+    </main>
+
+    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+        })
+    </script>
+
+    <!-- JavaScript Kustom untuk Rating Bintang -->
+    <script>
+        $(document).ready(function(){
+            let selectedRating = 0;
+
+            // Fungsi untuk mengatur rating saat pengguna mengklik bintang
+            $(".rating i").click(function() {
+                selectedRating = $(this).data("rating");
+                $("#selected-rating").text(selectedRating);
+
+                // Menghapus class 'selected' dari semua bintang
+                $(".rating i").removeClass("selected");
+
+                // Menambahkan class 'selected' ke bintang yang dipilih
+                $(this).addClass("selected");
+            });
+        });
+    </script>
+    
+    <!-- CSS Kustom untuk Rating Bintang -->
+    <style>
+        .rating i {
+            font-size: 24px;
+            cursor: pointer;
+            color: gray;
+        }
+
+        .rating .selected {
+            color: yellow;
+        }
+    </style>
+  </body>
+</html>
