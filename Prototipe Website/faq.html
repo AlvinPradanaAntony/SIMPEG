@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/6.2.5/simplebar.min.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   </head>
   <body>
@@ -56,85 +57,44 @@
                     <span class="position-absolute bg-danger badge rounded-pill pb-1"> 2 </span>
                   </div>
                 </a>
-                <!-- <div class="dropdown-menu dropdown-menu-center custom-rounded border-0">
-                  
-                </div> -->
-                <div class="dropdown-menu dropdown-menu-center custom-rounded border-0">
-                  <!-- item-->
+                <div class="dropdown-menu dropdown-menu-center custom-rounded border-0 notification pb-3 shadow-lg">
                   <div class="dropdown-item noti-title">
-                    <h5 class="m-0">
+                    <h5 class="m-0 text-dark">
                       <span class="float-end">
-                        <a href="#" class="text-dark">
-                          <small>Clear All</small>
-                        </a>
-                      </span>
-                      Notification
+                        <a href="#" class="text-decoration-none">
+                          <small>Bersihkan Semua</small>
+                        </a> </span
+                      >Notifikasi
                     </h5>
                   </div>
-                  <div class="noti-body">
+                  <div class="noti-body" id="simple-bar">
                     <!-- item-->
-                    <a href="#;" class="dropdown-item notify-item">
-                      <div class="notify-icon bg-primary">
-                        <i class="uil uil-info-circle"></i>
+                    <a href="#" class="dropdown-item notify-item">
+                      <div class="notify-icon bg-warning">
+                        <i class="uil uil-info-circle fs-5"></i>
                       </div>
                       <p class="notify-details">
-                        Notifikasi 1
-                        <small class="text-muted">1 min ago</small>
+                        <strong>Ticket #123:</strong> Surat Tugas, <span class="badge text-bg-warning">Terbalas</span>
+                        <small class="text-muted">
+                          <i class="uil uil-clock"></i>
+                          3 menit yang lalu
+                        </small>
                       </p>
                     </a>
                     <!-- item-->
                     <a href="#" class="dropdown-item notify-item">
-                      <div class="notify-icon bg-info">
-                        <i class="uil uil-info-circle"></i>
+                      <div class="notify-icon bg-success">
+                        <i class="uil uil-info-circle fs-5"></i>
                       </div>
                       <p class="notify-details">
-                        Notifikasi 2
-                        <small class="text-muted">5 hours ago</small>
-                      </p>
-                    </a>
-                    <!-- item-->
-                    <a href="#;" class="dropdown-item notify-item">
-                      <div class="notify-icon bg-primary">
-                        <i class="uil uil-info-circle"></i>
-                      </div>
-                      <p class="notify-details">
-                        Notifikasi 1
-                        <small class="text-muted">1 min ago</small>
-                      </p>
-                    </a>
-                    <!-- item-->
-                    <a href="#" class="dropdown-item notify-item">
-                      <div class="notify-icon bg-info">
-                        <i class="uil uil-info-circle"></i>
-                      </div>
-                      <p class="notify-details">
-                        Notifikasi 2
-                        <small class="text-muted">5 hours ago</small>
-                      </p>
-                    </a>
-                    <!-- item-->
-                    <a href="#;" class="dropdown-item notify-item">
-                      <div class="notify-icon bg-primary">
-                        <i class="uil uil-info-circle"></i>
-                      </div>
-                      <p class="notify-details">
-                        Notifikasi 1
-                        <small class="text-muted">1 min ago</small>
-                      </p>
-                    </a>
-                    <!-- item-->
-                    <a href="#" class="dropdown-item notify-item">
-                      <div class="notify-icon bg-info">
-                        <i class="uil uil-info-circle"></i>
-                      </div>
-                      <p class="notify-details">
-                        Notifikasi 2
-                        <small class="text-muted">5 hours ago</small>
+                        <strong>Ticket #123:</strong> Surat Tugas, <strong>berhasil</strong> dibuat
+                        <small class="text-muted">
+                          <i class="uil uil-clock"></i>
+                          1 menit yang lalu
+                        </small>
                       </p>
                     </a>
                   </div>
-                  <!-- All-->
-                  <a href="#" class="dropdown-item text-center text-primary notify-item notify-all"> View All </a>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -237,5 +197,10 @@
 
     <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/6.2.5/simplebar.min.js"></script>
+    <script>
+      var myElement = document.getElementById("simple-bar");
+      new SimpleBar(myElement, { autoHide: true });
+    </script>
   </body>
 </html>

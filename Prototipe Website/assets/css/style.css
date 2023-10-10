@@ -17,9 +17,6 @@
   padding: 0;
   margin: 0;
 }
-h5 {
-  font-size: 1rem;
-}
 
 html {
   scroll-behavior: smooth;
@@ -161,28 +158,40 @@ body.login-page {
   box-shadow: 0px 4px 22px rgb(69 69 69 / 8%) !important;
   transform: translate(0px, 11px);
 }
-.custom-rounded li a.dropdown-item {
+.custom-rounded li a.dropdown-item,
+.custom-rounded .noti-body .dropdown-item {
   color: #000000;
   font-family: InterRegular;
   font-size: 14px;
 }
-.custom-rounded li a.dropdown-item:hover {
+.custom-rounded li a.dropdown-item:hover,
+.custom-rounded .noti-body .dropdown-item:hover {
   background-color: #f0f0f0;
+}
+.custom-rounded .notify-all.dropdown-item,
+.custom-rounded .notify-all.dropdown-item:hover {
+  background-color: transparent;
 }
 .custom-rounded li .dropdown-divider {
   border-color: #f1f1f1;
 }
 .dropdown-menu.dropdown-menu-center {
   left: 50% !important;
-  transform: translate(-60%, 11px);
+  transform: translate(-58%, 11px);
+}
+.custom-rounded.notification {
+  width: 345px;
 }
 .custom-rounded .dropdown-item.noti-title {
   background-color: transparent;
   padding: 15px 20px;
 }
+.custom-rounded .dropdown-item.noti-title h5 {
+  font-size: 1rem;
+}
 .custom-rounded .noti-body {
-  min-width: 350px !important;
-  max-height: 230px;
+  max-height: 232px;
+  overflow: hidden auto;
 }
 .custom-rounded .notify-item {
   padding: 10px 20px;
@@ -203,7 +212,7 @@ body.login-page {
   overflow: hidden;
   margin-left: 45px;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
 }
 .custom-rounded .notify-item .notify-details small {
   display: block;
