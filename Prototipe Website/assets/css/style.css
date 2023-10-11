@@ -123,6 +123,9 @@ body.login-page {
   background-color: #ffffff;
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
 }
+.navbar.shadowNavbar {
+  box-shadow: 0px 4px 22px rgba(69, 69, 69, 0.08) !important;
+}
 .navbar .user-img {
   padding: 2px;
   object-fit: cover;
@@ -224,7 +227,7 @@ body.login-page {
   display: inline-block;
 }
 
-/*==================== FAQ Pages ====================*/
+  /*==================== FAQ Pages ====================*/
 .search-banner {
   padding: 120px 0 60px;
 }
@@ -291,6 +294,12 @@ body.login-page {
   display: block;
   font-size: 0.625rem;
 }
+
+/*==================== Tiket Pages ====================*/
+.form-question .card{
+  min-height: 550px;
+}
+
 
 /*==================== Media Query ====================*/
 @media (min-width: 768px) {
