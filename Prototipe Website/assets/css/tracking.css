@@ -1,0 +1,175 @@
+/* Elemen utama */
+        .main-container {
+            width: 424px;
+            height: 596px;
+            background: white;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px #777777 solid;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 95px;
+            display: inline-flex;
+        }
+
+        /* Lingkaran di dalam elemen utama */
+        .circle-container {
+            width: 321.67px;
+            height: 321.67px;
+            position: relative;
+        }
+
+        .outer-circle {
+            width: 137.53px;
+            height: 137.53px;
+            left: 91.36px;
+            top: 92.79px;
+            position: absolute;
+            background: #117C72;
+            box-shadow: 24px 24px 24px;
+            border-radius: 9999px;
+            filter: blur(24px);
+        }
+
+        .inner-circle {
+            width: 137.53px;
+            height: 137.53px;
+            left: 91.36px;
+            top: 92.79px;
+            position: absolute;
+            background: white;
+            border-radius: 9999px;
+        }
+
+        .circle-text {
+            left: 130.34px;
+            top: 134.70px;
+            position: absolute;
+            text-align: center;
+            color: black;
+            font-size: 20px;
+            font-family: Inter;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+
+        /* Lingkaran kecil di dalam elemen utama */
+        .small-circle {
+            width: 31px;
+            height: 30px;
+            position: absolute;
+            border-radius: 9999px;
+        }
+
+        .circle-1 {
+            background: #656464;
+            left: 46.34px;
+            top: 223.70px;
+        }
+
+        .circle-2 {
+            background: #DB4747;
+            left: 73.34px;
+            top: 248.70px;
+        }
+
+        .circle-3 {
+            background: #656464;
+            left: 252.34px;
+            top: 79.71px;
+        }
+
+        .circle-4 {
+            background: #DB4747;
+            left: 230.34px;
+            top: 238.70px;
+        }
+
+        .circle-5 {
+            background: #FBD441;
+            left: 253.34px;
+            top: 210.70px;
+        }
+
+        .circle-6 {
+            background: #FBD441;
+            left: 266.34px;
+            top: 180.70px;
+        }
+
+        /* Bagian dalam elemen utama */
+        .inner-content {
+            height: 106px;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            display: inline-flex;
+        }
+
+        /* Kotak-kotak dengan teks */
+        .info-box {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            display: inline-flex;
+        }
+
+        .box-label {
+            text-align: center;
+            color: #656464;
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+
+        .box-value {
+            text-align: center;
+            color: #333333;
+            font-size: 14px;
+            font-family: Inter;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+
+        /* Progress bar */
+        .progress-bar-container {
+            width: 70px;
+            height: 10px;
+            position: relative;
+        }
+
+        .progress-bar-outer {
+            width: 70px;
+            height: 10px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            background: white;
+            border-radius: 15px;
+            border: 1px #6DA13E solid;
+        }
+
+        .progress-bar-inner {
+            width: 14px;
+            height: 10px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            background: #6DA13E;
+            border-radius: 15px;
+            border: 1px #6DA13E solid;
+        }
+
+        /* Angka di bawah kotak */
+        .box-number {
+            text-align: center;
+            color: #333333;
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
