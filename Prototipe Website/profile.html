@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile | SIMPEG</title>
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/tracking.css" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-white shadowNavbar">
+        <div class="container">
+          <div class="header-logo">
+            <a class="navbar-brand p-0" href="#">
+              <img class="me-1" src="./assets/img/logo-pabar.png" width="46" height="46" alt="" />
+              <span class="brand-text">
+                Helpdesk Kepegawaian
+                <small>Pemerintahan Provinsi Papua Barat</small>
+              </span>
+            </a>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"> </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="trackingTiket.html">Beranda</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dukungan </a>
+                <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <i class="uil uil-ticket me-1"></i>
+                      <span>Tiket</span>
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="formtiket.html">
+                      <i class="uil uil-envelope-add me-1"></i>
+                      <span>Buat tiket baru</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown ms-2 me-4">
+                <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="nav__notif">
+                    <i class="bx bx-bell bell"></i>
+                    <span class="position-absolute bg-danger badge rounded-pill pb-1"> 2 </span>
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-center custom-rounded border-0 notification pb-3 shadow-lg">
+                  <div class="dropdown-item noti-title">
+                    <h5 class="m-0 text-dark">
+                      <span class="float-end">
+                        <a href="#" class="text-decoration-none">
+                          <small>Bersihkan Semua</small>
+                        </a> </span
+                      >Notifikasi
+                    </h5>
+                  </div>
+                  <div class="noti-body" id="simple-bar">
+                    <!-- item-->
+                    <a href="#" class="dropdown-item notify-item">
+                      <div class="notify-icon bg-warning">
+                        <i class="uil uil-info-circle fs-5"></i>
+                      </div>
+                      <p class="notify-details">
+                        <strong>Ticket #123:</strong> Surat Tugas, <span class="badge text-bg-warning">Terbalas</span>
+                        <small class="text-muted">
+                          <i class="uil uil-clock"></i>
+                          3 menit yang lalu
+                        </small>
+                      </p>
+                    </a>
+                    <!-- item-->
+                    <a href="#" class="dropdown-item notify-item">
+                      <div class="notify-icon bg-success">
+                        <i class="uil uil-info-circle fs-5"></i>
+                      </div>
+                      <p class="notify-details">
+                        <strong>Ticket #123:</strong> Surat Tugas, <strong>berhasil</strong> dibuat
+                        <small class="text-muted">
+                          <i class="uil uil-clock"></i>
+                          1 menit yang lalu
+                        </small>
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="account-container d-flex gap-1">
+                    <img class="rounded-circle user-img" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
+                    <span class="align-self-center user-name pe-2"> Pegawai 1 </span>
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
+                  <li>
+                    <a class="dropdown-item" href="profile.html">
+                      <i class="uil uil-user me-1"></i>
+                      <span>Lihat Profil</span>
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <i class="uil uil-sign-out-alt me-1"></i>
+                      <span>Keluar</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+        <div class="container align-items-start mt-3">
+            <div class="row align-items-start">
+                <div class="col-md-4 mb-3">
+                    <div class="card p-3 shadow mt-2">
+                        <h5>Profil Saya</h5>
+                        <img  src="../assets/img/Male User.png" alt="photo" width="80px">
+                        <h6>Muhammad Khoirul Rosikin</h6>
+                        <span>NIP.7492644927936425</span>
+                        <span>mkhoirulr97@gmail.com</span>
+                    </div>
+                    <div class="card p-3 shadow mt-2">
+                        
+                    </div>
+                </div>
+                
+
+                <!-- Panel -->
+                <div class="row col-md-8 g-2 m-0 p-0">
+                    <div class="col-12 p-0">
+                        <div class="colorSecondary2 shadow roundedPanel">
+                            <div class="card p-5">
+                                <h6>Data Pribadi</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span>Nama</span>
+                                        <div class="col">
+                                          <input type="text" class="form-control" id="name" value="Muhammad Khoirul Rosikin" name="name" readonly disabled />
+                                        </div>
+                                        <br>
+                                        <span>NIP</span>
+                                        <div class="col">
+                                          <input type="text" class="form-control" id="nip" value="12648567 794686 1 673" name="nip" readonly disabled />
+                                        </div>
+                                        <br>
+                                        <span>Email</span>
+                                        <div class="col">
+                                          <input type="text" class="form-control" id="email" value="mkhoirulr97@gmail.com" name="email" readonly disabled />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>Jenis Kelamin</span>
+                                        <div class="col">
+                                          <input type="text" class="form-control" id="gender" value="Laki-laki" name="gender" readonly disabled />
+                                        </div>
+                                        <br>
+                                        <span>Tempat, Tanggal Lahir</span>
+                                        <div class="col">
+                                          <input type="text" class="form-control" id="ttl" value="Jember, 9 Juli 2023" name="ttl" readonly disabled />
+                                        </div>
+                                        <br>
+                                        <span>Agama</span>
+                                        <div class="col">
+                                          <input type="text" class="form-control" id="religion" value="Islam" name="religion" readonly disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 p-0">
+                        <div class="colorSecondary2 shadow roundedPanel">
+                            <div class="card p-5">
+                                <h6>Data Dukungan</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span>Nomor Telepon</span>
+                                        <div class="col">
+                                          <input type="text" class="form-control" id="phone" value="6285808241204" name="phone" readonly disabled />
+                                        </div>
+                                        <br>
+                                        <span>Alamat</span>
+                                        <div class="col">
+                                          <input type="text" class="form-control" id="address" value="Jember, Jawa Timur" name="address" readonly disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        new DataTable('#myTable1');
+        new DataTable('#myTable2');
+        new DataTable('#myTable3');
+        new DataTable('#myTable4');
+        new DataTable('#myTable5');
+        new DataTable('#myTable6');
+    </script>
+  </body>
+</html>
