@@ -12,45 +12,40 @@
   <body class="login-page">
     <div class="container h-100">
       <div class="row justify-content-center h-100 align-items-center">
-        <div class="col-md-5">
+        <div class="col-10 col-sm-9 col-md-7 col-lg-5">
           <div class="card border-0 px-3" id="panel-login">
             <div class="card-header pt-4 ps-2 d-flex align-items-center">
               <img src="./assets/img/logo-pabar.png" alt="" height="75" />
               <div>
-                <p class="m-0" id="logo-title">SIMPEG</p>
-                <p class="m-0" id="logo-subtitle">Sistem Informasi Kepegawaian</p>
+                <p class="m-0 logo-title">SIMPEG</p>
+                <p class="m-0 logo-subtitle">Sistem Informasi Kepegawaian</p>
               </div>
             </div>
             <div class="card-body p-4">
               <div>
-                <p class="m-0 mt-2" id="txt-login">Masuk</p>
-                <a href="#">
-                  <div class="logo-details d-none">
-                    <img src="Assets/Private/img/logo.png" width="135" alt="Logo" id="logo_sidebar" />
-                  </div>
-                </a>
-                <p class="mt-0 mb-4" id="txt-desc">Silakan isi dengan data Anda yang terdaftar.</p>
+                <p class="m-0 mt-2 txt-login">Masuk</p>
+                <p class="mt-0 mb-4 txt-desc">Silakan isi dengan data Anda yang terdaftar.</p>
               </div>
-              <form action="faq.html">
+              <form onsubmit="buttonSubmit()">
                 <div class="form-floating form-floating-custom mb-3">
-                  <input type="text" class="form-control form-control-custom" id="input-username" placeholder="Enter User Name" />
-                  <label for="input-username">Email</label>
+                  <input type="text" class="form-control form-control-custom" id="nipInput" placeholder="Masukan NIP" />
+                  <label for="nipInput">NIP</label>
                   <div class="form-floating-icon">
                     <i class="uil uil-users-alt"></i>
                   </div>
                 </div>
                 <div class="form-floating form-floating-custom mb-3 auth-pass-inputgroup">
-                  <input type="password" class="form-control form-control-custom" id="passInput" placeholder="Enter Password" />
-                  <span class="eye hidden" id="spanEye">
-                    <i class="uil uil-eye-slash show-hide" toggle="#passInput" id="iconShowHide"></i>
-                  </span>
-                  <label for="password-input">Kata Sandi</label>
+                  <input type="password" class="form-control form-control-custom" id="passInput" placeholder="Masukan Kata Sandi" />
+                  <label for="passInput">Kata Sandi</label>
                   <div class="form-floating-icon">
                     <i class="uil uil-padlock"></i>
                   </div>
-                </div>
+                  <span class="eye hidden" id="spanEye">
+                    <i class="uil uil-eye-slash show-hide" toggle="#passInput" id="iconShowHide"></i>
+                  </span>
+                  </div>
                 <div class="mt-4 mb-3">
-                  <button class="btn btn-primary w-100 rounded-pill py-2" type="submit">Login</button>
+                  <button class="btn btn-primary w-100 rounded-pill py-2 border-0" type="submit">Login</button>
                 </div>
               </form>
             </div>

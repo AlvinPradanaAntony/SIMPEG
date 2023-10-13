@@ -318,12 +318,20 @@
 								</div> -->
                 <div class="p-3 chat-input-section pb-0">
                   <div class="row">
-                    <div class="col">
-                      <div class="position-relative">
-                        <input type="text" class="form-control chat-input rounded" placeholder="Enter Message..." />
+                    <div class="col-auto pe-0">
+                      <div class="file btn btn-primary position-relative overflow-hidden">
+                        <label for="input-files">
+                          <i class="uil uil-paperclip icon-uploud"></i>
+                          <small class="d-none">Upload</small>
+                        </label>
+                        <input type="file" name="file" class="input-files" id="input-files" name="input-files" />
                       </div>
                     </div>
-                    <div class="col-auto">
+
+                    <div class="col">
+                      <input type="text" class="form-control chat-input px-3" placeholder="Masukan Pertanyaan Anda" />
+                    </div>
+                    <div class="col-auto ps-0">
                       <button type="submit" class="btn btn-primary chat-send w-md waves-effect waves-light"><span class="d-none d-sm-inline-block me-2">Send</span> <i class="uil uil-message"></i></button>
                     </div>
                   </div>
@@ -337,6 +345,7 @@
 
     <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/6.2.5/simplebar.min.js"></script>
     <script>
       const myModal = document.getElementById("myModal");
       const myInput = document.getElementById("myInput");
@@ -363,6 +372,11 @@
           $(this).addClass("selected");
         });
       });
+    </script>
+    <script>
+      document.getElementById("input-files").onchange = function () {
+        document.getElementById("fileuploadurl").value = this.value;
+      };
     </script>
 
     <!-- CSS Kustom untuk Rating Bintang -->

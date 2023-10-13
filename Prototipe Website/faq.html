@@ -51,8 +51,8 @@
                 </ul>
               </li>
               <li class="nav-item dropdown ms-2 me-4">
-                <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <div class="nav__notif">
+                <a class="nav-link h-100 p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="nav__notif h-100 d-flex align-items-center">
                     <i class="bx bx-bell bell"></i>
                     <span class="position-absolute bg-danger badge rounded-pill pb-1"> 2 </span>
                   </div>
@@ -97,10 +97,14 @@
                   </div>
                 </div>
               </li>
+              <!-- <li class="nav-item">
+                
+                <a class="nav-link account-container login" aria-current="page" href="#">Masuk</a>
+              </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <div class="account-container d-flex gap-1">
-                    <img class="rounded-circle user-img" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
+                    <img class="rounded-circle object-fit-cover" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
                     <span class="align-self-center user-name pe-2"> Pegawai 1 </span>
                   </div>
                 </a>
@@ -113,7 +117,7 @@
                   </li>
                   <li><hr class="dropdown-divider" /></li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="#" onclick="logout()">
                       <i class="uil uil-sign-out-alt me-1"></i>
                       <span>Keluar</span>
                     </a>
@@ -242,9 +246,16 @@
     <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/6.2.5/simplebar.min.js"></script>
+    <!-- <script src="assets/js/custom.js"></script> -->
     <script>
       var myElement = document.getElementById("simple-bar");
       new SimpleBar(myElement, { autoHide: true });
+    </script>
+    <script>
+      function logout() {
+        localStorage.clear();
+        window.location.href = "index.html";
+      }
     </script>
   </body>
 </html>
