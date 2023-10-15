@@ -44,6 +44,7 @@ function buttonSubmit() {
     window.location.href = "faq.html";
   } else if (nipInput.value == "pegawai" && passInput.value == "pegawai") {
     localStorage.setItem("role", "basic");
+    window.location.href = "faq.html";
   } else if (nipInput.value == "" || passInput.value == "") {
     alert("Tolong Masukan NIP Dan Kata Sandi Anda");
   } else {
@@ -57,10 +58,11 @@ if (localStorage.getItem("nip")) {
     //    showContent.textContent = '"Superadmin"';
     // showContent.style.display = "block";
   }  else if (localStorage.getItem("role") == "basic") {
-    if (nipInput.value == "pegawai") {
+    // if (nipInput.value == "pegawai") {
+      window.location.href = "faq.html";
       // showContent.textContent = "Pegawai 1";
       // showContent.style.display = "block";
-    }
+    // }
   }
 }
 

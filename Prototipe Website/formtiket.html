@@ -30,13 +30,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Beranda</a>
+                <a class="nav-link" aria-current="page" href="trackingtiket.html">Beranda</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dukungan </a>
                 <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="trackingtiket.html">
                       <i class="uil uil-ticket me-1"></i>
                       <span>Tiket</span>
                     </a>
@@ -51,8 +51,8 @@
                 </ul>
               </li>
               <li class="nav-item dropdown ms-2 me-4">
-                <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <div class="nav__notif">
+                <a class="nav-link h-100 p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="nav__notif h-100 d-flex align-items-center">
                     <i class="bx bx-bell bell"></i>
                     <span class="position-absolute bg-danger badge rounded-pill pb-1"> 2 </span>
                   </div>
@@ -69,7 +69,7 @@
                   </div>
                   <div class="noti-body" id="simple-bar">
                     <!-- item-->
-                    <a href="#" class="dropdown-item notify-item">
+                    <a href="detailtiket.html" class="dropdown-item notify-item">
                       <div class="notify-icon bg-warning">
                         <i class="uil uil-info-circle fs-5"></i>
                       </div>
@@ -82,7 +82,7 @@
                       </p>
                     </a>
                     <!-- item-->
-                    <a href="#" class="dropdown-item notify-item">
+                    <a href="detailtiket.html" class="dropdown-item notify-item">
                       <div class="notify-icon bg-success">
                         <i class="uil uil-info-circle fs-5"></i>
                       </div>
@@ -97,10 +97,14 @@
                   </div>
                 </div>
               </li>
+              <!-- <li class="nav-item">
+                
+                <a class="nav-link account-container login" aria-current="page" href="#">Masuk</a>
+              </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <div class="account-container d-flex gap-1">
-                    <img class="rounded-circle user-img" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
+                    <img class="rounded-circle object-fit-cover" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
                     <span class="align-self-center user-name pe-2"> Pegawai 1 </span>
                   </div>
                 </a>
@@ -113,7 +117,7 @@
                   </li>
                   <li><hr class="dropdown-divider" /></li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="#" onclick="logout()">
                       <i class="uil uil-sign-out-alt me-1"></i>
                       <span>Keluar</span>
                     </a>

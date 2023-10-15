@@ -13,199 +13,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <style>
-        /* Chart */
-        .circle-chart {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 2rem;
-            border-radius: 100%
-        }
 
-        .center-date {
-            background: white;
-            position: absolute;
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            top:0;left:0;bottom:0;right:0;
-            width: 95px;
-            height: 95px;
-            margin: auto;
-            border-radius: 50%;
-            line-height: 35px;
-            border: 0,5px solid black;
-            -webkit-box-shadow: 0px 0px 20px 0px #117C72;
-            z-index: 1;
-        }
-
-        p.circle-center {
-            background: white;
-            position: absolute;
-            text-align: center;
-            font-size: 28px;
-            top:0;left:0;bottom:0;right:0;
-            width: 140px;
-            height: 140px;
-            margin: auto;
-            border-radius: 50%;
-            line-height: 35px;
-            padding: 15% 0 0;
-        }
-
-        .center-date span.scnd-font-color {
-            line-height: 0;
-        }
-
-        .cut {
-            border-radius: 50%;
-            clip: rect(0px, 200px, 200px, 100px);
-            height: 100%;
-            position: absolute;
-            width: 100%;
-        }
-        
-        .data {
-            border-radius: 50%;
-            clip: rect(0px, 100px, 200px, 0px);
-            height: 100%;
-            position: absolute;
-            width: 100%;
-            font-family: monospace;
-            font-size: 1.5rem;
-        }
-        
-        #porcionSent {
-            transform: rotate(0deg);
-        }
-        #porcionSent .data {
-            background-color: #6DA13E;
-            transform: rotate(36deg);
-        }
-
-        #porcionMissed {
-            transform: rotate(36deg);
-        }
-        #porcionMissed .data {
-            background-color: #FBD441;
-            transform: rotate(36deg);
-        }
-
-        #porcionUnanswered {
-            transform: rotate(72deg);
-        }
-        #porcionUnanswered .data {
-            background-color: #DB4747;
-            transform: rotate(118deg);
-        }
-
-        #porcionClosed {
-            transform:rotate(180deg);
-        }
-        #porcionClosed .data {
-            background-color: #656464;
-            transform: rotate(180deg);
-        }
-
-        .nota-final {
-            clear: both;
-            color: #4FC4F6;
-            font-size: 1rem;
-            padding: 2rem 0;
-        }
-        
-        .nota-final strong {
-            color: #E64C65;
-        }
-
-        .nota-final a {
-            color: #FCB150;
-            font-size: inherit;
-        }
-
-        .scnd-font-color {
-            color: #9099b7;
-        }
-        
-        .horizontal-list {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
-        
-        .horizontal-list li {
-            float: left;
-        }
-        
-        .block {
-            margin: auto;
-            background: none;
-            border-radius: 5px;
-            width: 300px;
-            overflow: hidden;
-        }
-
-        .circle-chart-block {
-            overflow: hidden;
-        }
-        
-        .circle-chart-block .titular {
-            padding: 10px 0;
-        }
-                    
-        .ticket-percentages li {
-            width: 74px;
-            border-left: 1px solid none;
-            text-align: center;					
-            background: none;
-        }
-        
-        .ticket {
-            margin: 0;
-            padding: 10px 0 5px;
-            font-size: 15px;		
-        }
-
-        .ticket.sent {
-            border-top: 8px solid #6DA13E;
-            border-radius: 10px;
-        }
-
-        .ticket.missed {
-            border-top: 8px solid #FBD441;
-            border-radius: 10px;
-        }
-
-        .ticket.unanswered {
-            border-top: 8px solid #DB4747;
-            border-radius: 10px;
-        }
-
-        .ticket.closed {
-            border-top: 8px solid #656464;
-            border-radius: 10px;
-        }
-
-        .ticket-percentage {
-            margin: 0;
-            padding: 0 0 15px 10px;
-            font-size: 25px;
-        }
-
-        h5 {
-            color: #117C72;
-            font-weight: bold;
-        }
-
-        roundedPanel {
-            color: #117C72;
-        }
-
-        .card-header {
-            height: 45px;   
-        }
-    </style>
   </head>
   <body>
     <header>
@@ -226,13 +34,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="trackingTiket.html">Beranda</a>
+                <a class="nav-link" aria-current="page" href="trackingtiket.html">Beranda</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dukungan </a>
                 <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="trackingtiket.html">
                       <i class="uil uil-ticket me-1"></i>
                       <span>Tiket</span>
                     </a>
@@ -247,8 +55,8 @@
                 </ul>
               </li>
               <li class="nav-item dropdown ms-2 me-4">
-                <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <div class="nav__notif">
+                <a class="nav-link h-100 p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="nav__notif h-100 d-flex align-items-center">
                     <i class="bx bx-bell bell"></i>
                     <span class="position-absolute bg-danger badge rounded-pill pb-1"> 2 </span>
                   </div>
@@ -265,7 +73,7 @@
                   </div>
                   <div class="noti-body" id="simple-bar">
                     <!-- item-->
-                    <a href="#" class="dropdown-item notify-item">
+                    <a href="detailtiket.html" class="dropdown-item notify-item">
                       <div class="notify-icon bg-warning">
                         <i class="uil uil-info-circle fs-5"></i>
                       </div>
@@ -278,7 +86,7 @@
                       </p>
                     </a>
                     <!-- item-->
-                    <a href="#" class="dropdown-item notify-item">
+                    <a href="detailtiket.html" class="dropdown-item notify-item">
                       <div class="notify-icon bg-success">
                         <i class="uil uil-info-circle fs-5"></i>
                       </div>
@@ -293,10 +101,14 @@
                   </div>
                 </div>
               </li>
+              <!-- <li class="nav-item">
+                
+                <a class="nav-link account-container login" aria-current="page" href="#">Masuk</a>
+              </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <div class="account-container d-flex gap-1">
-                    <img class="rounded-circle user-img" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
+                    <img class="rounded-circle object-fit-cover" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
                     <span class="align-self-center user-name pe-2"> Pegawai 1 </span>
                   </div>
                 </a>
@@ -309,7 +121,7 @@
                   </li>
                   <li><hr class="dropdown-divider" /></li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="#" onclick="logout()">
                       <i class="uil uil-sign-out-alt me-1"></i>
                       <span>Keluar</span>
                     </a>
@@ -325,16 +137,16 @@
         <div class="container align-items-start mt-3">
             <div class="row align-items-start">
                 <div class="col-md-4 mb-3">
-                    <div class="card p-3 shadow mt-2">
+                    <div class="card-chart p-3 shadow mt-2">
                         <!-- Chart Circular -->
-                        <div class="circle-chart-block block mt-4"> 
+                        <div class="circle-chart-block block mt-5"> 
                             <div class="circle-chart mt-2">
                                 <div id="porcionSent" class="cut"><div class="data terkirim" data-rel="10"></div></div>
                                 <div id="porcionMissed" class="cut"><div class="data terjawab" data-rel="10"></div></div>
                                 <div id="porcionUnanswered" class="cut"><div class="data terbalas" data-rel="30"></div></div>
                                 <div id="porcionClosed" class="cut"><div class="data tertutup" data-rel="50"></div></div>
-                                <div class="center-date">
-                                    <p class="d-flex justify-content-center h-10  algin">100<span class="scnd-font-color">Tiket</span></p>
+                                <div class="center-date d-flex justify-content-center align-items-center">
+                                    <p>100<span class="scnd-font-color">Tiket</span></p>
                                 </div>
                                 <p class="circle-center"></p>        
                             </div>
@@ -358,8 +170,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="card shadow mt-2">
-                        <div class="card-header bg-success text-white">Dokumen</div>
+                    <div class="card-info shadow mt-2">
+                        <div class="card-header d-flex align-items-center text-white p-3">Dokumen</div>
                         <div class="card-body">
                             <ul>
                                 <li>

@@ -63,6 +63,9 @@
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1.125rem;
+  --h4-font-size: 1rem;
+  --h5-font-size: 0.875rem;
+  --h6-font-size: 0.813rem;
   --normal-font-size: 0.938rem;
   --small-font-size: 0.813rem;
   --smaller-font-size: 0.75rem;
@@ -95,6 +98,9 @@
     --h1-font-size: 2.25rem;
     --h2-font-size: 1.5rem;
     --h3-font-size: 1.25rem;
+    --h4-font-size: 1.125rem;
+    --h5-font-size: 1rem;
+    --h6-font-size: 0.938rem;
     --normal-font-size: 1rem;
     --small-font-size: 0.875rem;
     --smaller-font-size: 0.813rem;
@@ -128,7 +134,9 @@ body.login-page {
 */ h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
 }
@@ -275,10 +283,15 @@ a {
 }
 .navbar .nav-item .account-container.login{
   border: 0;
+  width: 100%;
+  height: 38px;
   background-color: var(--first-color);
   color: #fff;
   font-size: var(--small-font-size);
-  padding: 12px 10px;
+  padding: 6px 25px;
+  display: flex;
+  align-items: center;
+
 }
 .navbar .nav-item .account-container {
   height: auto;
@@ -422,6 +435,206 @@ a {
 .search-banner .btn:hover {
   color: var(--first-color);
   font-weight: 600;
+}
+.btn-create-ticket:link,
+.btn-create-ticket:visited {
+  font-weight: var(--font-semi-bold);
+  color: #117C72;
+  padding: 10px 30px;
+  border: 1px solid;
+  border-radius: 10px;
+  transition: all .2s;
+}
+.btn-create-ticket:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+.btn-create-ticket:active {
+  transform: translateY(-3px);
+}
+.btn-create-ticket::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  transition: all .3s;
+}
+.btn-create-ticket:hover::after {
+  background-color: rgb(0, 238, 255);
+  transform: scaleX(1.4) scaleY(1.5);
+  opacity: 0;
+}
+.about {
+  background-color: #117C72;
+  filter:opacity(0.7);
+}
+
+/*==================== Tracking Tiket Pages ====================*/
+/* Chart */
+.card-chart {
+  height: 450px;
+  border-radius: 10px;
+  border: 1px solid #117C72;
+}
+.circle-chart {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 2rem;
+  /* border-radius: 100% */
+}
+.center-date {
+  position: absolute;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  top:0;left:0;bottom:0;right:0;
+  width: 95px;
+  height: 95px;
+  margin: auto;
+  border-radius: 50%;
+  line-height: 35px;
+  border: 0,5px solid black;
+  -webkit-box-shadow: 0px 0px 20px 0px #117C72;
+  z-index: 1;
+}
+p.circle-center {
+  background: white;
+  position: absolute;
+  text-align: center;
+  font-size: 28px;
+  top:0;left:0;bottom:0;right:0;
+  width: 140px;
+  height: 140px;
+  margin: auto;
+  border-radius: 50%;
+  line-height: 35px;
+  padding: 15% 0 0;
+}
+.center-date span.scnd-font-color {
+  line-height: 0;
+}
+.cut {
+  border-radius: 50%;
+  clip: rect(0px, 200px, 200px, 100px);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.data {
+  border-radius: 50%;
+  clip: rect(0px, 100px, 200px, 0px);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+#porcionSent {
+  transform: rotate(0deg);
+}
+#porcionSent .data {
+  background-color: #6DA13E;
+  transform: rotate(36deg);
+}
+#porcionMissed {
+  transform: rotate(36deg);
+}
+#porcionMissed .data {
+  background-color: #FBD441;
+  transform: rotate(36deg);
+}
+#porcionUnanswered {
+  transform: rotate(72deg);
+}
+#porcionUnanswered .data {
+  background-color: #DB4747;
+  transform: rotate(118deg);
+}
+#porcionClosed {
+  transform:rotate(180deg);
+}
+#porcionClosed .data {
+  background-color: #656464;
+  transform: rotate(180deg);
+}
+.horizontal-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.horizontal-list li {
+  float: left;
+}
+.block {
+  margin: auto;
+  background: none;
+  border-radius: 5px;
+  width: 300px;
+  overflow: hidden;
+}
+.ticket-percentages li {
+  width: 74px;
+  border-left: 1px solid none;
+  text-align: center;					
+            background: none;
+        }
+        
+        .ticket {
+            margin: 0;
+            padding: 10px 0 5px;
+            font-size: 15px;		
+        }
+
+        .ticket.sent {
+            border-top: 8px solid #6DA13E;
+            border-radius: 10px;
+        }
+
+        .ticket.missed {
+            border-top: 8px solid #FBD441;
+            border-radius: 10px;
+        }
+
+        .ticket.unanswered {
+            border-top: 8px solid #DB4747;
+            border-radius: 10px;
+        }
+
+        .ticket.closed {
+            border-top: 8px solid #656464;
+            border-radius: 10px;
+        }
+
+        .ticket-percentage {
+            margin: 0;
+            padding: 0 0 15px 10px;
+            font-size: 25px;
+        }
+
+        h5 {
+            color: #117C72;
+            font-weight: bold;
+        }
+
+        roundedPanel {
+            color: #117C72;
+        }
+.card-info {
+  border-radius: 10px;
+  border: 1px solid #117C72;
+}
+.card-info .card-header {
+  height: 50px;
+  background-color: #117C72;
+}
+.card-info .card-header:first-child{
+  border-radius: 8px 8px 0 0;
 }
 
 /*==================== Tiket Pages ====================*/
@@ -567,6 +780,58 @@ a {
   position: relative;
   vertical-align: middle;
 } */
+.status {
+  background-color: #FDF6B2;
+  border: 1px solid #FACA15;
+  color: #FACA15;
+  border-radius: 18px;
+  display: inline-block;
+  padding: 4px 20px;
+}
+.btn-closed-ticket {
+  background-color: #FBB7B7;
+  border: 1px solid #E21C1C;
+  color: #E21C1C;
+  border-radius: 18px;
+  display: inline-block;
+  padding: 6px 35px;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+}
+.btn-closed-ticket:hover {
+  background-color: #E21C1C;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+.btn-closed {
+  background-color: #E21C1C;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 22px;
+  display: inline-block;
+  padding: 6px 47px;
+}
+.btn-continue {
+  background-color: #117C72;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 22px;
+  display: inline-block;
+  padding: 6px 25px;
+}
+.review {
+  background-color: #dfdfdf;
+  height: 150px;
+}
+.btn-send {
+  background-color: #117C72;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 22px;
+  display: inline-block;
+  padding: 6px 60px;
+}
 
 /*==================== Media Query ====================*/
 @media (min-width: 768px) {

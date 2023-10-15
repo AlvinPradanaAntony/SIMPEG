@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DETAIL TIKET | SIMPEG</title>
+    <title>Detail Ticket | SIMPEG</title>
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
@@ -30,13 +30,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Beranda</a>
+                <a class="nav-link" aria-current="page" href="trackingtiket.html">Beranda</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dukungan </a>
                 <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="trackingtiket.html">
                       <i class="uil uil-ticket me-1"></i>
                       <span>Tiket</span>
                     </a>
@@ -51,8 +51,8 @@
                 </ul>
               </li>
               <li class="nav-item dropdown ms-2 me-4">
-                <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <div class="nav__notif">
+                <a class="nav-link h-100 p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="nav__notif h-100 d-flex align-items-center">
                     <i class="bx bx-bell bell"></i>
                     <span class="position-absolute bg-danger badge rounded-pill pb-1"> 2 </span>
                   </div>
@@ -69,7 +69,7 @@
                   </div>
                   <div class="noti-body" id="simple-bar">
                     <!-- item-->
-                    <a href="#" class="dropdown-item notify-item">
+                    <a href="detailtiket.html" class="dropdown-item notify-item">
                       <div class="notify-icon bg-warning">
                         <i class="uil uil-info-circle fs-5"></i>
                       </div>
@@ -82,7 +82,7 @@
                       </p>
                     </a>
                     <!-- item-->
-                    <a href="#" class="dropdown-item notify-item">
+                    <a href="detailtiket.html" class="dropdown-item notify-item">
                       <div class="notify-icon bg-success">
                         <i class="uil uil-info-circle fs-5"></i>
                       </div>
@@ -97,10 +97,14 @@
                   </div>
                 </div>
               </li>
+              <!-- <li class="nav-item">
+                
+                <a class="nav-link account-container login" aria-current="page" href="#">Masuk</a>
+              </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <div class="account-container d-flex gap-1">
-                    <img class="rounded-circle user-img" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
+                    <img class="rounded-circle object-fit-cover" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
                     <span class="align-self-center user-name pe-2"> Pegawai 1 </span>
                   </div>
                 </a>
@@ -113,7 +117,7 @@
                   </li>
                   <li><hr class="dropdown-divider" /></li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="#" onclick="logout()">
                       <i class="uil uil-sign-out-alt me-1"></i>
                       <span>Keluar</span>
                     </a>
@@ -129,90 +133,94 @@
       <div class="container align-items-start my-4 mb-5">
         <div class="row align-items-start">
           <div class="col-md-4 mb-3">
-            <div class="card">
-              <div class="card-header bg-primary text-white">Detail Tiket</div>
-              <div class="card-body">
+            <div class="card-info p-3 shadow mb-3">
+              <div class="card-body ">
                 <div class="mb-3 row">
-                  <label class="col-md-6 col-form-label" for="id">Nomor Tiket :</label>
+                  <h5 class="col-md-6 col-form-label" for="id">Nomor Tiket :</h5>
                   <div class="col-md-6">
                     <span id="id">TK0009</span>
                   </div>
-                  <label class="col-md-6 col-form-label" for="department">Bidang :</label>
+                  <h5 class="col-md-6 col-form-label" for="department">Bidang :</h5>
                   <div class="col-md-6">
                     <span id="department">Sekretariat</span>
                   </div>
-                  <label class="col-md-6 col-form-label" for="category">Kategori :</label>
+                  <h5 class="col-md-6 col-form-label" for="category">Kategori :</h5>
                   <div class="col-md-6">
                     <span id="category">Kesekretariatan</span>
                   </div>
-                  <label class="col-md-6 col-form-label" for="date">Tanggal Dibuat :</label>
+                  <h5 class="col-md-6 col-form-label" for="date">Tanggal Dibuat :</h5>
                   <div class="col-md-6">
                     <span id="date">2 November 2022</span>
                   </div>
-                  <label class="col-md-6 col-form-label" for="status">Status :</label>
+                  <h5 class="col-md-6 col-form-label" for="status">Status :</h5>
                   <div class="col-md-6">
-                    <span id="status">Terbalas</span>
+                    <span class="status fw-bold" id="status">Terbalas</span>
+                  </div>
+                  <div class="col-12 d-flex align-items-center justify-content-center mt-2">
+                    <button type="button" class="btn-closed-ticket fw-bold" data-bs-toggle="modal" data-bs-target="#closeTiket">Tutup Tiket</button>
                   </div>
                 </div>
               </div>
             </div>
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#closeTiket">Tutup Tiket</button>
             <!-- Modal -->
             <div class="modal fade" id="closeTiket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Anda yakin ingin menutup tiket?</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">Setelah ditutup tiket tidak bisa digunakan lagi, anda harus membuat tiket baru jika membutuhkan bantuan</div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewTiket">Tutup Tiket</button>
+                  <div class="modal-body d-flex flex-column align-items-center text-dark">
+                    <h5 class="text-dark">Anda yakin ingin menutup tiket?</h5>
+                    <p class="text-justify pt-3" style="text-align: center;">Setelah ditutup tiket tidak bisa digunakan lagi, anda harus membuat tiket baru jika membutuhkan bantuan</p>
+                    </div>
+                  <div class="footer d-flex justify-content-center mb-3">
+                    <button type="button" class="btn-closed mx-5" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn-continue mx-5" data-bs-toggle="modal" data-bs-target="#reviewTiket">Tutup Tiket</button>
                   </div>
                 </div>
               </div>
             </div>
             <!-- Modal -->
             <div class="modal fade" id="reviewTiket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog modal-dialog-centered">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ulasan</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    Bagaimana nilai dan ulasan anda terhadap pelayanan kami?
+                  <div class="modal-body d-flex flex-column align-items-center">
+                    <h5 class="text-dark">Berikan nilai anda terhadap pelayanan kami</h5>
                     <div class="rating">
-                      <i class="fas fa-star" data-rating="1"></i>
-                      <i class="fas fa-star" data-rating="2"></i>
-                      <i class="fas fa-star" data-rating="3"></i>
-                      <i class="fas fa-star" data-rating="4"></i>
-                      <i class="fas fa-star" data-rating="5"></i>
+                      <i class="uis uis-star" data-rating="1"></i>
+                      <i class="uis uis-star" data-rating="2"></i>
+                      <i class="uis uis-star" data-rating="3"></i>
+                      <i class="uis uis-star" data-rating="4"></i>
+                      <i class="uis uis-star" data-rating="5"></i>
                     </div>
                     <p>Rating: <span id="selected-rating">0</span></p>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewTiket">Kirim</button>
+                    <h5 class="text-dark">Berikan Ulasan</h5>
+                    <textarea class="review form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <button type="button" class="btn-send fw-bold my-3" data-bs-toggle="modal" data-bs-target="#reviewTiket">Kirim</button>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="card">
-              <div class="card-header bg-primary text-white">Dokumen</div>
-              <div class="card-body">File atau dokumen per tiket disini</div>
+            <div class="card-info shadow">
+              <div class="card-header d-flex p-3 align-items-center text-white">Dokumen</div>
+              <div class="card-body p-3">
+                <ul>
+                  <li>
+                    <a href="#"><i class="uis uis-document-layout-left"></i>Surat Tugas.pdf</a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="uis uis-image-v"></i>Surat Tugas.jpg</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
           <div class="col-md-8">
-            <div class="card">
-              <div class="card-header bg-success text-white">Bidang Sekretariat</div>
-              <div class="card-body">
+            <div class="card-info shadow">
+              <div class="card-header d-flex align-items-center text-white p-3">Bidang Sekretariat</div>
+              <div class="card-body p-3">
                 <div class="px-lg-2">
                   <div class="chat-conversation">
-                    <ul class="list-unstyled mb-0" data-simplebar="init" style="max-height: 455px">
+                    <ul class="list-unstyled mb-0" data-simplebar="init" style="max-height: 380px">
                       <div class="simplebar-wrapper" style="margin: 0px">
                         <div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div>
                         <div class="simplebar-mask">
