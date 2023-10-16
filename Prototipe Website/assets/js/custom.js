@@ -24,50 +24,93 @@ $(".show-hide").click(function () {
   }
 });
 
-let buttonLogout = document.getElementById("buttonLogout");
-let textUsername = document.getElementById("textUsername");
-let textPassword = document.getElementById("textPassword");
-let showContent = document.getElementById("showContent");
-
-function termscheck() {
-  terms.checked = true;
-}
-
-// Sign-In
+// login
 function buttonSubmit() {
-  let nipInput = document.getElementById("nipInput");
-  let passInput = document.getElementById("passInput");
-  localStorage.setItem("nip", nipInput.value);
+  var nipInput = $("#nipInput").val();
+  var passInput = $("#passInput").val();
+  localStorage.setItem("nip", nipInput);
 
-  if (nipInput.value == "superadmin" && passInput.value == "superadmin") {
-    localStorage.setItem("role", "admin");
-    window.location.href = "faq.html";
-  } else if (nipInput.value == "pegawai" && passInput.value == "pegawai") {
-    localStorage.setItem("role", "basic");
-    window.location.href = "faq.html";
-  } else if (nipInput.value == "" || passInput.value == "") {
-    alert("Tolong Masukan NIP Dan Kata Sandi Anda");
+  if (nipInput == "superadmin") {
+    if (passInput == "superadmin") {
+      Swal.fire({
+        icon: "success",
+        title: "Login Berhasil",
+        text: "Selamat Datang Super Admin",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.setItem("role", "admin");
+          window.location.href = "faq.html";
+        }
+      });
+      return false;
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Kata Sandi Salah",
+        text: "Masukan Kata Sandi Dengan Benar",
+      });
+      return false;
+    }
+  } else if (nipInput == "pegawai") {
+    if (passInput == "pegawai") {
+      Swal.fire({
+        icon: "success",
+        title: "Login Berhasil",
+        text: "Selamat Datang Pegawai",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.setItem("role", "basic");
+          window.location.href = "faq.html";
+        }
+      });
+      // localStorage.setItem("role", "basic");
+      // window.location.href = "faq.html";
+      // return false;
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Kata Sandi Salah",
+        text: "Masukan Kata Sandi Dengan Benar",
+      });
+      return false;
+    }
+  } else if (nipInput == "" && passInput == "") {
+    Swal.fire({
+      icon: "warning",
+      title: "NIP atau Kata Sandi Kosong",
+      text: "Masukan NIP dan Kata Sandi Dengan Benar",
+    });
+    return false;
+  } else if (nipInput == "") {
+    Swal.fire({
+      icon: "warning",
+      title: "NIP Kosong",
+      text: "Masukan NIP Dengan Benar",
+    });
+    return false;
+  } else if (passInput == "") {
+    Swal.fire({
+      icon: "warning",
+      title: "Kata Sandi Kosong",
+      text: "Masukan kata sandi dengan Benar",
+    });
+    return false;
   } else {
-    alert("NIP Atau Kata Sandi Anda Salah");
+    Swal.fire({
+      icon: "error",
+      title: "Gagal Login",
+      text: "Akun Tidak Ditemukan",
+    });
+    return false;
   }
+  return false;
 }
-
-if (localStorage.getItem("nip")) {
-  if (localStorage.getItem("role") == "admin") {
-    window.location.href = "faq.html";
-    //    showContent.textContent = '"Superadmin"';
-    // showContent.style.display = "block";
-  }  else if (localStorage.getItem("role") == "basic") {
-    // if (nipInput.value == "pegawai") {
+function checkLogin() {
+  if (localStorage.getItem("nip")) {
+    if (localStorage.getItem("role") == "admin") {
       window.location.href = "faq.html";
-      // showContent.textContent = "Pegawai 1";
-      // showContent.style.display = "block";
-    // }
+    } else if (localStorage.getItem("role") == "basic") {
+      window.location.href = "faq.html";
+    }
   }
-}
-
-// logout
-function logout() {
-  localStorage.clear();
-  location.reload();
 }
