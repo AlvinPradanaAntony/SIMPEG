@@ -124,31 +124,38 @@ body {
   background-color: var(--body-color);
   color: var(--text-color) !important;
 }
-body.login-page {
-  height: 100vh;
+.login__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: url("../img/bg-login.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   background-position: 100%;
 }
-*/ h1,
+.panel__login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease-in-out;
+}
+h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
 }
-
 ul {
   list-style: none;
 }
-
 a {
   text-decoration: none;
 }
-
 #panel-login {
   background-color: hsla(0, 0%, 0%, 0.425);
   border-radius: 20px;
@@ -157,46 +164,43 @@ a {
   -webkit-backdrop-filter: blur(6px); /* Add prefix for Safari */
   border: 1.25px solid rgba(255, 255, 255, 0.192) !important;
 }
-
 #panel-login .card-header {
   background-color: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.192) !important;
 }
-
 #panel-login .logo-title {
   font-family: InterBold;
   font-size: 1.375rem;
   color: #ffffff;
 }
-
 #panel-login .logo-subtitle {
   font-size: 0.875rem;
   color: #ffffff;
 }
-
 #panel-login .txt-login {
   font-family: InterBold;
   font-size: 1.375rem;
   color: #ffffff;
 }
-
 #panel-login .txt-desc {
   font-size: 0.875rem;
   color: #ffffff;
 }
-
 #panel-login .form-control-custom {
   border-radius: 12px;
   background-color: var(--input-color);
   transition: all 0.5s ease;
 }
-#panel-login .card-body button{
+#panel-login .card-body button {
   background-color: var(--first-color);
 }
-#panel-login .card-body button:hover{
+#panel-login .card-body button:hover {
   background-color: var(--first-color-alt);
 }
-
+.form-floating-custom label.label_nip::after,
+.form-floating-custom label.label_pass::after {
+  background-color: transparent !important;
+}
 .form-floating-custom .form-floating-icon {
   position: absolute;
   left: 0;
@@ -233,7 +237,6 @@ a {
   cursor: pointer;
   color: var(--text-color-light);
 }
-
 .hidden {
   display: none !important;
 }
@@ -289,9 +292,6 @@ a {
   color: #fff;
   font-size: var(--small-font-size);
   padding: 6px 25px;
-  display: flex;
-  align-items: center;
-
 }
 .navbar .nav-item .account-container {
   height: auto;
@@ -309,7 +309,6 @@ a {
   font-weight: 600;
   color: var(--title-color);
 }
-
 .custom-rounded {
   background-color: var(--container-color);
   border-radius: 8px !important;
