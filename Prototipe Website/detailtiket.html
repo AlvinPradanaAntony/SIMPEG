@@ -134,7 +134,7 @@
         <div class="row align-items-start">
           <div class="col-md-4 mb-3">
             <div class="card-info p-3 shadow mb-3">
-              <div class="card-body ">
+              <div class="card-body">
                 <div class="mb-3 row">
                   <h5 class="col-md-6 col-form-label" for="id">Nomor Tiket :</h5>
                   <div class="col-md-6">
@@ -168,8 +168,8 @@
                 <div class="modal-content">
                   <div class="modal-body d-flex flex-column align-items-center text-dark">
                     <h5 class="text-dark">Anda yakin ingin menutup tiket?</h5>
-                    <p class="text-justify pt-3" style="text-align: center;">Setelah ditutup tiket tidak bisa digunakan lagi, anda harus membuat tiket baru jika membutuhkan bantuan</p>
-                    </div>
+                    <p class="text-justify pt-3" style="text-align: center">Setelah ditutup tiket tidak bisa digunakan lagi, anda harus membuat tiket baru jika membutuhkan bantuan</p>
+                  </div>
                   <div class="footer d-flex justify-content-center mb-3">
                     <button type="button" class="btn-closed mx-5" data-bs-dismiss="modal">Batal</button>
                     <button type="button" class="btn-continue mx-5" data-bs-toggle="modal" data-bs-target="#reviewTiket">Tutup Tiket</button>
@@ -183,27 +183,13 @@
                 <div class="modal-content">
                   <div class="modal-body d-flex flex-column align-items-center">
                     <h5 class="text-dark">Berikan nilai anda terhadap pelayanan kami</h5>
-                    <!-- <div class="rating-css">
-                      <div class="star-icon">
-                          <input type="radio" value="1" name="product_rating" checked id="rating1">
-                          <label for="rating1" class="fa fa-star"></label>
-                          <input type="radio" value="2" name="product_rating" id="rating2">
-                          <label for="rating2" class="fa fa-star"></label>
-                          <input type="radio" value="3" name="product_rating" id="rating3">
-                          <label for="rating3" class="fa fa-star"></label>
-                          <input type="radio" value="4" name="product_rating" id="rating4">
-                          <label for="rating4" class="fa fa-star"></label>
-                          <input type="radio" value="5" name="product_rating" id="rating5">
-                          <label for="rating5" class="fa fa-star"></label>
-                      </div>
-                  </div> -->
-                      <div class="rating">
-                        <i class="uis uis-star" data-rating="1.0"></i>
-                        <i class="uis uis-star" data-rating="2.0"></i>
-                        <i class="uis uis-star" data-rating="3.0"></i>
-                        <i class="uis uis-star" data-rating="4.0"></i>
-                        <i class="uis uis-star" data-rating="5.0"></i>
-                      </div>
+                    <div class="rating">
+                      <i class="uis uis-star" data-rating="1.0"></i>
+                      <i class="uis uis-star" data-rating="2.0"></i>
+                      <i class="uis uis-star" data-rating="3.0"></i>
+                      <i class="uis uis-star" data-rating="4.0"></i>
+                      <i class="uis uis-star" data-rating="5.0"></i>
+                    </div>
                     <p>Rating: <span id="selected-rating">0</span></p>
                     <h5 class="text-dark">Berikan Ulasan</h5>
                     <textarea class="review form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -212,8 +198,74 @@
                 </div>
               </div>
             </div>
-
-            <div class="card-info shadow">
+            <div class="card card-info">
+              <div class="card-header d-flex p-3 align-items-center text-white">Dokumen</div>
+              <div class="card-body">
+                <!-- <h5 class="card-title mb-3">Files</h5> -->
+                <div class="card mb-1 shadow-none border">
+                  <div class="p-2">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <div class="avatar-sm">
+                          <span class="avatar-title bg-danger rounded"> .PDF </span>
+                        </div>
+                      </div>
+                      <div class="col ps-0">
+                        <a href="#" class="text-muted fw-bold">Surat Tugas.pdf</a>
+                        <p class="mb-0">2.3 MB</p>
+                      </div>
+                      <div class="col-auto">
+                        <!-- Button -->
+                        <a href="#" class="btn btn-link btn-lg text-muted">
+                          <i class="uil uil-import"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-1 shadow-none border">
+                  <div class="p-2">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <img src="assets/img/schedule.png" class="avatar-sm rounded" alt="file-image" />
+                      </div>
+                      <div class="col ps-0">
+                        <a href="#" class="text-muted fw-bold">Jadwal.jpg</a>
+                        <p class="mb-0">3.25 MB</p>
+                      </div>
+                      <div class="col-auto">
+                        <!-- Button -->
+                        <a href="#" class="btn btn-link btn-lg text-muted">
+                          <i class="uil uil-import"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-0 shadow-none border">
+                  <div class="p-2">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <div class="avatar-sm">
+                          <span class="avatar-title bg-danger text-light rounded"> .PDF </span>
+                        </div>
+                      </div>
+                      <div class="col ps-0">
+                        <a href="#" class="text-muted fw-bold">Surat Permohonan Cuti.pdf</a>
+                        <p class="mb-0">7.05 MB</p>
+                      </div>
+                      <div class="col-auto">
+                        <!-- Button -->
+                        <a href="#" class="btn btn-link btn-lg text-muted">
+                          <i class="uil uil-import"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="card-info shadow">
               <div class="card-header d-flex p-3 align-items-center text-white">Dokumen</div>
               <div class="card-body p-3">
                 <ul>
@@ -225,7 +277,7 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="col-md-8">
@@ -379,16 +431,16 @@
 
     <!-- JavaScript Kustom untuk Rating Bintang -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const stars = document.querySelectorAll(".uis-star");
         const selectedRating = document.getElementById("selected-rating");
 
-        stars.forEach(star => {
-          star.addEventListener("click", function() {
+        stars.forEach((star) => {
+          star.addEventListener("click", function () {
             const rating = parseInt(star.getAttribute("data-rating"));
 
             // Hapus kelas "active" dari semua bintang
-            stars.forEach(s => s.classList.remove("active"));
+            stars.forEach((s) => s.classList.remove("active"));
 
             // Tambahkan kelas "active" ke bintang yang dipilih dan bintang sebelumnya
             for (let i = 0; i < rating; i++) {

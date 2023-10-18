@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-
   </head>
   <body>
     <header>
@@ -134,926 +133,979 @@
       </nav>
     </header>
     <main>
-        <div class="container align-items-start mt-3">
-            <div class="row align-items-start">
-                <div class="col-md-4 mb-3">
-                    <div class="card-chart p-3 shadow mt-2">
-                        <!-- Chart Circular -->
-                        <div class="circle-chart-block block mt-5"> 
-                            <div class="circle-chart mt-2">
-                                <div id="porcionSent" class="cut"><div class="data terkirim" data-rel="10"></div></div>
-                                <div id="porcionMissed" class="cut"><div class="data terjawab" data-rel="10"></div></div>
-                                <div id="porcionUnanswered" class="cut"><div class="data terbalas" data-rel="30"></div></div>
-                                <div id="porcionClosed" class="cut"><div class="data tertutup" data-rel="50"></div></div>
-                                <div class="center-date d-flex justify-content-center align-items-center">
-                                    <p>100<span class="scnd-font-color">Tiket</span></p>
-                                </div>
-                                <p class="circle-center"></p>        
-                            </div>
-                            <ul class="ticket-percentages horizontal-list">
-                                <li>
-                                    <p class="sent ticket scnd-font-color">Terkirim</p>
-                                    <p class="ticket-percentage">10</p>
-                                </li>
-                                <li>
-                                    <p class="missed ticket scnd-font-color">Terjawab</p>
-                                    <p class="ticket-percentage">10</p>
-                                </li>
-                                <li>
-                                    <p class="unanswered ticket scnd-font-color">Terbalas</p>
-                                    <p class="ticket-percentage">30</p>
-                                </li>
-                                <li>
-                                    <p class="closed ticket scnd-font-color">Tertutup</p>
-                                    <p class="ticket-percentage">50</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-info shadow mt-2">
-                        <div class="card-header d-flex align-items-center text-white p-3">Dokumen</div>
-                        <div class="card-body">
-                            <ul>
-                                <li>
-                                    <a href="#"><i class="uis uis-document-layout-left"></i>Surat Tugas.pdf</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="uis uis-image-v"></i>Surat Tugas.jpg</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+      <div class="container align-items-start mt-3">
+        <div class="row align-items-start">
+          <div class="col-md-4 mb-3">
+            <div class="card-chart p-3 shadow mt-2">
+              <!-- Chart Circular -->
+              <div class="circle-chart-block block mt-5">
+                <div class="circle-chart mt-2">
+                  <div id="porcionSent" class="cut"><div class="data terkirim" data-rel="10"></div></div>
+                  <div id="porcionMissed" class="cut"><div class="data terjawab" data-rel="10"></div></div>
+                  <div id="porcionUnanswered" class="cut"><div class="data terbalas" data-rel="30"></div></div>
+                  <div id="porcionClosed" class="cut"><div class="data tertutup" data-rel="50"></div></div>
+                  <div class="center-date d-flex justify-content-center align-items-center">
+                    <p>100<span class="scnd-font-color">Tiket</span></p>
+                  </div>
+                  <p class="circle-center"></p>
                 </div>
-                
+                <ul class="ticket-percentages horizontal-list">
+                  <li>
+                    <p class="sent ticket scnd-font-color">Terkirim</p>
+                    <p class="ticket-percentage">10</p>
+                  </li>
+                  <li>
+                    <p class="missed ticket scnd-font-color">Terjawab</p>
+                    <p class="ticket-percentage">10</p>
+                  </li>
+                  <li>
+                    <p class="unanswered ticket scnd-font-color">Terbalas</p>
+                    <p class="ticket-percentage">30</p>
+                  </li>
+                  <li>
+                    <p class="closed ticket scnd-font-color">Tertutup</p>
+                    <p class="ticket-percentage">50</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card card-info mt-4">
+              <div class="card-header d-flex p-3 align-items-center text-white">Dokumen</div>
+              <div class="card-body">
+                <!-- <h5 class="card-title mb-3">Files</h5> -->
+                <div class="card mb-1 shadow-none border">
+                  <div class="p-2">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <div class="avatar-sm">
+                          <span class="avatar-title bg-danger rounded"> .PDF </span>
+                        </div>
+                      </div>
+                      <div class="col ps-0">
+                        <a href="#" class="text-muted fw-bold">Surat Tugas.pdf</a>
+                        <p class="mb-0">2.3 MB</p>
+                      </div>
+                      <div class="col-auto">
+                        <!-- Button -->
+                        <a href="#" class="btn btn-link btn-lg text-muted">
+                          <i class="uil uil-import"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-1 shadow-none border">
+                  <div class="p-2">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <img src="assets/img/schedule.png" class="avatar-sm rounded" alt="file-image" />
+                      </div>
+                      <div class="col ps-0">
+                        <a href="#" class="text-muted fw-bold">Jadwal.jpg</a>
+                        <p class="mb-0">3.25 MB</p>
+                      </div>
+                      <div class="col-auto">
+                        <!-- Button -->
+                        <a href="#" class="btn btn-link btn-lg text-muted">
+                          <i class="uil uil-import"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-0 shadow-none border">
+                  <div class="p-2">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <div class="avatar-sm">
+                          <span class="avatar-title bg-danger text-light rounded"> .PDF </span>
+                        </div>
+                      </div>
+                      <div class="col ps-0">
+                        <a href="#" class="text-muted fw-bold">Surat Permohonan Cuti.pdf</a>
+                        <p class="mb-0">7.05 MB</p>
+                      </div>
+                      <div class="col-auto">
+                        <!-- Button -->
+                        <a href="#" class="btn btn-link btn-lg text-muted">
+                          <i class="uil uil-import"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Panel -->
-                <div class="row col-md-8 g-2 m-0 p-0">
-                    <div class="col-12 p-0">
-                        <div class="colorSecondary2 shadow roundedPanel">
-                            <!-- Tabs Navs -->
-                            <ul class="nav nav-tabs bg-white pt-2 px-4 roundedTab custShadow" id="ex1" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="tab-1" data-bs-toggle="tab" data-bs-target="#tabs-1" type="button" role="tab" aria-controls="tabs-1" aria-selected="true">Semua</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link " id="tab-2" data-bs-toggle="tab" data-bs-target="#tabs-2" type="button" role="tab" aria-controls="tabs-2" aria-selected="false" >Terkirim</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="tab-3" data-bs-toggle="tab" data-bs-target="#tabs-3" type="button" role="tab" aria-controls="tabs-3" aria-selected="false">Terjawab</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="tab-4" data-bs-toggle="tab" data-bs-target="#tabs-4" type="button" role="tab" aria-controls="tabs-4" aria-selected="false">Terbalas</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="tab-5" data-bs-toggle="tab" data-bs-target="#tabs-5" type="button" role="tab" aria-controls="tabs-5" aria-selected="false">Tertutup</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="tab-6" data-bs-toggle="tab" data-bs-target="#tabs-6" type="button" role="tab" aria-controls="tabs-6" aria-selected="false">Dokumen</button>
-                                </li>
-                            </ul>
+          <!-- Panel -->
+          <div class="row col-md-8 g-2 m-0 p-0">
+            <div class="col-12 p-0">
+              <div class="colorSecondary2 shadow roundedPanel">
+                <!-- Tabs Navs -->
+                <ul class="nav nav-tabs bg-white pt-2 px-4 roundedTab custShadow" id="ex1" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-1" data-bs-toggle="tab" data-bs-target="#tabs-1" type="button" role="tab" aria-controls="tabs-1" aria-selected="true">Semua</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-2" data-bs-toggle="tab" data-bs-target="#tabs-2" type="button" role="tab" aria-controls="tabs-2" aria-selected="false">Terkirim</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-3" data-bs-toggle="tab" data-bs-target="#tabs-3" type="button" role="tab" aria-controls="tabs-3" aria-selected="false">Terjawab</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-4" data-bs-toggle="tab" data-bs-target="#tabs-4" type="button" role="tab" aria-controls="tabs-4" aria-selected="false">Terbalas</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-5" data-bs-toggle="tab" data-bs-target="#tabs-5" type="button" role="tab" aria-controls="tabs-5" aria-selected="false">Tertutup</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-6" data-bs-toggle="tab" data-bs-target="#tabs-6" type="button" role="tab" aria-controls="tabs-6" aria-selected="false">Dokumen</button>
+                  </li>
+                </ul>
 
-                            <!-- Tabs Content Semua-->
-                            <div class="tab-content" id="ex1-content">
-                                <div class="tab-pane fade show active" id="tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
-                                    <div class="row g-2 m-0">
-                                        <div class="col-lg-12 m-0 p-0">
-                                            <div class="card mb-4 roundedTabContent">
-                                                <div class="card-header shadow roundedTabContent bg-success text-white">
-                                                    <div class="title float-start">
-                                                        <span class="m-0"><b>Tabel Semua Tiket</b></span>
-                                                    </div>
-                                                    <!-- <div class="btnAction float-end">
+                <!-- Tabs Content Semua-->
+                <div class="tab-content" id="ex1-content">
+                  <div class="tab-pane fade show active" id="tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+                    <div class="row g-2 m-0">
+                      <div class="col-lg-12 m-0 p-0">
+                        <div class="card mb-4 roundedTabContent">
+                          <div class="card-header shadow roundedTabContent bg-success text-white">
+                            <div class="title float-start">
+                              <span class="m-0"><b>Tabel Semua Tiket</b></span>
+                            </div>
+                            <!-- <div class="btnAction float-end">
                                                         <button class="btn btn-light text-dark btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#tambahDataAdministrator"><i class="fas fa-plus" data-bs-toggle="tooltip" title="Tambah Data"></i></button>
                                                     </div> -->
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="myTable1" class="table table-hover dataTable nowrap" width="100%" height="500px">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>No Tiket</th>
-                                                                    <th>Subjek</th>
-                                                                    <th>Kategori</th>
-                                                                    <th>Bidang</th>
-                                                                    <th>Status</th>
-                                                                    <th>Tgl Pengajuan</th>
-                                                                    <th>Aksi</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>TK0001</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tekirim</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0002</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tekirim</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0003</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tekirim</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0004</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tekirim</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0005</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tekirim</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0006</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tekirim</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0007</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tekirim</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0008</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tekirim</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0009</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tekirim</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0010</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tertutup</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0011</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>Tertutup</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>                  
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table id="myTable1" class="table table-hover dataTable nowrap" width="100%" height="500px">
+                                <thead>
+                                  <tr>
+                                    <th>No Tiket</th>
+                                    <th>Subjek</th>
+                                    <th>Kategori</th>
+                                    <th>Bidang</th>
+                                    <th>Status</th>
+                                    <th>Tgl Pengajuan</th>
+                                    <th>Aksi</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>TK0001</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tekirim</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0002</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tekirim</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0003</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tekirim</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0004</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tekirim</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0005</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tekirim</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0006</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tekirim</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0007</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tekirim</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0008</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tekirim</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0009</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tekirim</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0010</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tertutup</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0011</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>Tertutup</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
                             </div>
-
-                            <!-- Tabs Content Terkirim-->
-                            <div class="tab-content" id="ex1-content">
-                                <div class="tab-pane fade" id="tabs-2" role="tabpanel" aria-labelledby="ex1-tab-1">
-                                    <div class="row g-2 m-0">
-                                        <div class="col-lg-12 p-0 m-0 p-0">
-                                            <div class="card mb-4 roundedTabContent">
-                                                <div class="card-header shadow roundedTabContent">
-                                                    <div class="title float-start">
-                                                        <span class="m-0"><b>Tabel Tiket Terkirim</b></span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="myTable2" class="table table-hover dataTable nowrap" width="100%" height="500px">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>No Tiket</th>
-                                                                    <th>Subjek</th>
-                                                                    <th>Kategori</th>
-                                                                    <th>Bidang</th>
-                                                                    <th>Tgl Pengajuan</th>
-                                                                    <th>Aksi</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>TK0001</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0002</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0003</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0004</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0005</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0006</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0007</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0008</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0009</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0010</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0011</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>                  
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Tabs Content Terjawab -->
-                            <div class="tab-content" id="ex1-content">
-                                <div class="tab-pane fade" id="tabs-3" role="tabpanel" aria-labelledby="ex1-tab-1">
-                                    <div class="row g-2 m-0">
-                                        <div class="col-lg-12 p-0 m-0 p-0">
-                                            <div class="card mb-4 roundedTabContent">
-                                                <div class="card-header shadow roundedTabContent">
-                                                    <div class="title float-start">
-                                                        <span class="m-0"><b>Tabel Tiket Terjawab</b></span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="myTable3" class="table table-hover dataTable nowrap" width="100%" height="500px">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>No Tiket</th>
-                                                                    <th>Subjek</th>
-                                                                    <th>Kategori</th>
-                                                                    <th>Bidang</th>
-                                                                    <th>Tgl Pengajuan</th>
-                                                                    <th>Aksi</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>TK0001</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0002</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0003</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0004</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0005</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0006</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0007</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0008</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0009</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0010</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0011</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>                  
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Tabs Content Terbalas -->
-                            <div class="tab-content" id="ex1-content">
-                                <div class="tab-pane fade" id="tabs-4" role="tabpanel" aria-labelledby="ex1-tab-1">
-                                    <div class="row g-2 m-0">
-                                        <div class="col-lg-12 p-0 m-0 p-0">
-                                            <div class="card mb-4 roundedTabContent">
-                                                <div class="card-header shadow roundedTabContent">
-                                                    <div class="title float-start">
-                                                        <span class="m-0"><b>Tabel Tiket Terbalas</b></span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="myTable4" class="table table-hover dataTable nowrap" width="100%" height="500px">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>No Tiket</th>
-                                                                    <th>Subjek</th>
-                                                                    <th>Kategori</th>
-                                                                    <th>Bidang</th>
-                                                                    <th>Tgl Pengajuan</th>
-                                                                    <th>Aksi</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>TK0001</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0002</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0003</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0004</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0005</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0006</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0007</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0008</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0009</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0010</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0011</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>                  
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Tabs Content Tertutup -->
-                            <div class="tab-content" id="ex1-content">
-                                <div class="tab-pane fade" id="tabs-5" role="tabpanel" aria-labelledby="ex1-tab-1">
-                                    <div class="row g-2 m-0">
-                                        <div class="col-lg-12 p-0 m-0 p-0">
-                                            <div class="card mb-4 roundedTabContent">
-                                                <div class="card-header shadow roundedTabContent">
-                                                    <div class="title float-start">
-                                                        <span class="m-0"><b>Tabel Tiket Tertutup</b></span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="myTable5" class="table table-hover dataTable nowrap" width="100%" height="500px">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>No Tiket</th>
-                                                                    <th>Subjek</th>
-                                                                    <th>Kategori</th>
-                                                                    <th>Bidang</th>
-                                                                    <th>Tgl Pengajuan</th>
-                                                                    <th>Aksi</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>TK0001</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0002</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0003</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0004</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0005</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0006</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0007</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0008</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0009</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0010</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>TK0011</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td>Sekretariat</td>
-                                                                    <td>20 September 2023</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>                  
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Tabs Content Dokumen -->
-                            <div class="tab-content" id="ex1-content">
-                                <div class="tab-pane fade" id="tabs-6" role="tabpanel" aria-labelledby="ex1-tab-1">
-                                    <div class="row g-2 m-0">
-                                        <div class="col-lg-12 p-0 m-0 p-0">
-                                            <div class="card mb-4 roundedTabContent">
-                                                <div class="card-header shadow roundedTabContent">
-                                                    <div class="title float-start">
-                                                        <span class="m-0"><b>Tabel Semua Dokumen</b></span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="myTable6" class="table table-hover dataTable nowrap" width="100%">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>No Tiket</th>
-                                                                    <th>Subjek</th>
-                                                                    <th>Kategori</th>
-                                                                    <th>Dokumen</th>
-                                                                    <th>Aksi</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>TK0001</td>
-                                                                    <td>Cuti</td>
-                                                                    <td>Permohonan Cuti</td>
-                                                                    <td><a href="assets/file/contoh.pdf" target="_blank">Contoh.pdf</a></td>
-                                                                    <td>
-                                                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataDokumen"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>                  
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+
+                <!-- Tabs Content Terkirim-->
+                <div class="tab-content" id="ex1-content">
+                  <div class="tab-pane fade" id="tabs-2" role="tabpanel" aria-labelledby="ex1-tab-1">
+                    <div class="row g-2 m-0">
+                      <div class="col-lg-12 p-0 m-0 p-0">
+                        <div class="card mb-4 roundedTabContent">
+                          <div class="card-header shadow roundedTabContent">
+                            <div class="title float-start">
+                              <span class="m-0"><b>Tabel Tiket Terkirim</b></span>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table id="myTable2" class="table table-hover dataTable nowrap" width="100%" height="500px">
+                                <thead>
+                                  <tr>
+                                    <th>No Tiket</th>
+                                    <th>Subjek</th>
+                                    <th>Kategori</th>
+                                    <th>Bidang</th>
+                                    <th>Tgl Pengajuan</th>
+                                    <th>Aksi</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>TK0001</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0002</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0003</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0004</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0005</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0006</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0007</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0008</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0009</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0010</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0011</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tabs Content Terjawab -->
+                <div class="tab-content" id="ex1-content">
+                  <div class="tab-pane fade" id="tabs-3" role="tabpanel" aria-labelledby="ex1-tab-1">
+                    <div class="row g-2 m-0">
+                      <div class="col-lg-12 p-0 m-0 p-0">
+                        <div class="card mb-4 roundedTabContent">
+                          <div class="card-header shadow roundedTabContent">
+                            <div class="title float-start">
+                              <span class="m-0"><b>Tabel Tiket Terjawab</b></span>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table id="myTable3" class="table table-hover dataTable nowrap" width="100%" height="500px">
+                                <thead>
+                                  <tr>
+                                    <th>No Tiket</th>
+                                    <th>Subjek</th>
+                                    <th>Kategori</th>
+                                    <th>Bidang</th>
+                                    <th>Tgl Pengajuan</th>
+                                    <th>Aksi</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>TK0001</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0002</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0003</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0004</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0005</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0006</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0007</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0008</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0009</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0010</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0011</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tabs Content Terbalas -->
+                <div class="tab-content" id="ex1-content">
+                  <div class="tab-pane fade" id="tabs-4" role="tabpanel" aria-labelledby="ex1-tab-1">
+                    <div class="row g-2 m-0">
+                      <div class="col-lg-12 p-0 m-0 p-0">
+                        <div class="card mb-4 roundedTabContent">
+                          <div class="card-header shadow roundedTabContent">
+                            <div class="title float-start">
+                              <span class="m-0"><b>Tabel Tiket Terbalas</b></span>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table id="myTable4" class="table table-hover dataTable nowrap" width="100%" height="500px">
+                                <thead>
+                                  <tr>
+                                    <th>No Tiket</th>
+                                    <th>Subjek</th>
+                                    <th>Kategori</th>
+                                    <th>Bidang</th>
+                                    <th>Tgl Pengajuan</th>
+                                    <th>Aksi</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>TK0001</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0002</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0003</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0004</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0005</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0006</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0007</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0008</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0009</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0010</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0011</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tabs Content Tertutup -->
+                <div class="tab-content" id="ex1-content">
+                  <div class="tab-pane fade" id="tabs-5" role="tabpanel" aria-labelledby="ex1-tab-1">
+                    <div class="row g-2 m-0">
+                      <div class="col-lg-12 p-0 m-0 p-0">
+                        <div class="card mb-4 roundedTabContent">
+                          <div class="card-header shadow roundedTabContent">
+                            <div class="title float-start">
+                              <span class="m-0"><b>Tabel Tiket Tertutup</b></span>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table id="myTable5" class="table table-hover dataTable nowrap" width="100%" height="500px">
+                                <thead>
+                                  <tr>
+                                    <th>No Tiket</th>
+                                    <th>Subjek</th>
+                                    <th>Kategori</th>
+                                    <th>Bidang</th>
+                                    <th>Tgl Pengajuan</th>
+                                    <th>Aksi</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>TK0001</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0002</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0003</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0004</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0005</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0006</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0007</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0008</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0009</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0010</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>TK0011</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td>Sekretariat</td>
+                                    <td>20 September 2023</td>
+                                    <td>
+                                      <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tabs Content Dokumen -->
+                <div class="tab-content" id="ex1-content">
+                  <div class="tab-pane fade" id="tabs-6" role="tabpanel" aria-labelledby="ex1-tab-1">
+                    <div class="row g-2 m-0">
+                      <div class="col-lg-12 p-0 m-0 p-0">
+                        <div class="card mb-4 roundedTabContent">
+                          <div class="card-header shadow roundedTabContent">
+                            <div class="title float-start">
+                              <span class="m-0"><b>Tabel Semua Dokumen</b></span>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table id="myTable6" class="table table-hover dataTable nowrap" width="100%">
+                                <thead>
+                                  <tr>
+                                    <th>No Tiket</th>
+                                    <th>Subjek</th>
+                                    <th>Kategori</th>
+                                    <th>Dokumen</th>
+                                    <th>Aksi</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>TK0001</td>
+                                    <td>Cuti</td>
+                                    <td>Permohonan Cuti</td>
+                                    <td><a href="assets/file/contoh.pdf" target="_blank">Contoh.pdf</a></td>
+                                    <td>
+                                      <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataDokumen"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </main>
 
     <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
@@ -1062,12 +1114,12 @@
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script>
-        new DataTable('#myTable1');
-        new DataTable('#myTable2');
-        new DataTable('#myTable3');
-        new DataTable('#myTable4');
-        new DataTable('#myTable5');
-        new DataTable('#myTable6');
+      new DataTable("#myTable1");
+      new DataTable("#myTable2");
+      new DataTable("#myTable3");
+      new DataTable("#myTable4");
+      new DataTable("#myTable5");
+      new DataTable("#myTable6");
     </script>
   </body>
 </html>

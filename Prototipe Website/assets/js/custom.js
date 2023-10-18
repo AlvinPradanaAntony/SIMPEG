@@ -32,13 +32,14 @@ function buttonSubmit() {
 
   if (nipInput == "superadmin") {
     if (passInput == "superadmin") {
+      localStorage.setItem("role", "admin");
+      localStorage.setItem("user", "superadmin");
       Swal.fire({
         icon: "success",
         title: "Login Berhasil",
-        text: "Selamat Datang Super Admin",
+        html: `Selamat Datang <strong>${capitalizeEachWord(localStorage.getItem("user"))}</strong>`,
       }).then((result) => {
         if (result.isConfirmed) {
-          localStorage.setItem("role", "admin");
           window.location.href = "faq.html";
         }
       });
@@ -53,13 +54,13 @@ function buttonSubmit() {
     }
   } else if (nipInput == "pegawai") {
     if (passInput == "pegawai") {
+      localStorage.setItem("role", "basic");
       Swal.fire({
         icon: "success",
         title: "Login Berhasil",
         text: "Selamat Datang Pegawai",
       }).then((result) => {
         if (result.isConfirmed) {
-          localStorage.setItem("role", "basic");
           window.location.href = "faq.html";
         }
       });
@@ -159,3 +160,13 @@ $(document).ready(function () {
     }
   });
 });
+
+function capitalizeEachWord(string) {
+  return string
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}

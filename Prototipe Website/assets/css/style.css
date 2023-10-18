@@ -124,6 +124,21 @@ body {
   background-color: var(--body-color);
   color: var(--text-color) !important;
 }
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+/* ==================== Login Pages==================== */
 .login__background {
   position: absolute;
   top: 0;
@@ -143,25 +158,12 @@ body {
   transform: translate(-50%, -50%);
   transition: all 0.5s ease-in-out;
 }
-h1,
-h2,
-h3,
-h4 {
-  color: var(--title-color);
-  font-weight: var(--font-semi-bold);
-}
-ul {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-}
 #panel-login {
   background-color: hsla(0, 0%, 0%, 0.425);
   border-radius: 20px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.410);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px); /* Add prefix for Safari */
+  -webkit-backdrop-filter: blur(6px);
   border: 1.25px solid rgba(255, 255, 255, 0.192) !important;
 }
 #panel-login .card-header {
@@ -170,20 +172,21 @@ a {
 }
 #panel-login .logo-title {
   font-family: InterBold;
-  font-size: 1.375rem;
+  font-size: var(--h2-font-size);
   color: #ffffff;
+  line-height: 1.2;
 }
 #panel-login .logo-subtitle {
-  font-size: 0.875rem;
+  font-size: var(--small-font-size);
   color: #ffffff;
 }
 #panel-login .txt-login {
   font-family: InterBold;
-  font-size: 1.375rem;
+  font-size: var(--h3-font-size);
   color: #ffffff;
 }
 #panel-login .txt-desc {
-  font-size: 0.875rem;
+  font-size: var(--small-font-size);
   color: #ffffff;
 }
 #panel-login .form-control-custom {
@@ -841,6 +844,32 @@ roundedPanel {
   padding: 6px 60px;
 }
 
+.avatar-sm {
+  height: 3rem;
+  width: 3rem;
+}
+.avatar-title {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #727cf5;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 600;
+  height: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+.btn-link {
+  font-weight: 400;
+  color: #727cf5 !important;
+  text-decoration: none;
+}
+
 /*==================== Media Query ====================*/
 @media (min-width: 768px) {
   .search-banner .container {
@@ -942,16 +971,17 @@ roundedPanel {
   font-size: 0.825rem;
 }
 .swal2-title {
+  font-family: NunitoSans ExtraBold;
   font-size: var(--h3-font-size);
   font-weight: 600;
   color: var(--title-color);
 }
 .swal2-html-container {
-  margin-top: 10px !important;
+  margin-top: 6px !important;
 }
 .swal2-confirm {
   min-width: 100px;
-  border-radius: 15px !important;
+  border-radius: 20px !important;
 }
 .swal2-cancel {
   min-width: 100px;
