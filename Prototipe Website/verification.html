@@ -10,90 +10,35 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css" />
   </head>
-  <body class="bg-white">
-    <div class="container ">
-      <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12">
-          <div class="card-body">
-            <div class="row autoHeigth">
-              <div class="col-md-4 d-lg-flex px-0 justify-content-center colorPrimary">
-                <img src="./assets/img/bg-verif.jpg" alt="bg-cover" width="100%">
-                <div class="banner py-5 position-fixed">
-                  <div class="banner_content d-flex flex-column align-items-center">
-                    <img src="./assets/img/logo-pabar.png" alt="" height="120px" width="120px" />
-                    <h3 class="m-0 logo-title text-white">SIMPEG</h3>
-                    <h5 class="m-0 logo-subtitle text-white">Helpdesk Kepegawaian</h5>
-                    <h6 class="m-0 logo-subsubtitle text-white">Pemerintah Provisi Papua Barat</h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-8 p-4 py-3 colorSecondary bg-white">
-                <div class="panelVerification o-hidden border-0 shadow">
-                  <div class="p-5 d-flex flex-column align-items-center justify-content-center text-center">
-                    <img src="./assets/img/logo-verif.png" alt="logo-verif" class="img-fluid" width="248px">
-                    <div class="title">
-                      <h3>Verifikasi Akun</h3>
-                      <p>Silakan isi dengan data Anda yang terdaftar.</p>
-                      <input type="email" class="form-control form-control-custom text-center shadow" id="inputEmail" name="txtEmail" placeholder="mkhoirulr97@gmail.com">
-                      <div class="create-tiket py-5">
-                        <a href="profile.html" class="btn-verification d-inline-block position-relative">Selanjutnya</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+  <body>
+    <div class="row w-100 vh-100">
+      <div class="col-md-4 p-0 position-relative">
+        <img src="./assets/img/bg-verif.jpg" alt="bg-cover" class="bg-cover-verif" />
+        <div class="banner_content d-flex flex-column justify-content-center align-items-center">
+          <img src="./assets/img/logo-pabar.png" alt="" height="120px" width="120px" />
+          <div class="mt-4 text-center">
+            <h3 class="m-0 text-white">SIMPEG</h3>
+            <h5 class="m-0 text-white">Helpdesk Kepegawaian</h5>
+            <small class="m-0 text-white">Pemerintah Provisi Papua Barat</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 d-flex flex-column justify-content-center align-items-center">
+        <div class="card m-auto" style="width: 35rem">
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <img src="./assets/img/logo-verif.png" alt="logo-verif" class="img-fluid" width="248px" />
+            <div class="text-center">
+              <h3>Verifikasi Akun</h3>
+              <p>Silakan isi dengan data Anda yang terdaftar.</p>
+              <input type="email" class="form-control form-control-custom text-center shadow" id="inputEmail" name="txtEmail" placeholder="mkhoirulr97@gmail.com" />
+              <div class="py-5">
+                <a href="profile.html" class="btn-verification d-inline-block position-relative">Selanjutnya</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <div id="wrapper" style="display: none;">
-      <div class="login__background"></div>
-      <div class="container panel__login">
-        <div class="row justify-content-center h-100 align-items-center">
-          <div class="col-10 col-sm-9 col-md-7 col-lg-5">
-            <div class="card border-0 px-3" id="panel-login">
-              <div class="card-header pt-4 ps-2 d-flex align-items-center">
-                <img src="./assets/img/logo-pabar.png" alt="" height="75" />
-                <div>
-                  <p class="m-0 logo-title">SIMPEG</p>
-                  <p class="m-0 logo-subtitle">Sistem Informasi Kepegawaian</p>
-                </div>
-              </div>
-              <div class="card-body p-4">
-                <div>
-                  <p class="m-0 mt-2 txt-login">Masuk</p>
-                  <p class="mt-0 mb-4 txt-desc">Silakan isi dengan data Anda yang terdaftar.</p>
-                </div>
-                <form onsubmit="return buttonSubmit()">
-                  <div class="form-floating form-floating-custom mb-3">
-                    <input type="text" class="form-control form-control-custom" id="nipInput" placeholder="Masukan NIP" />
-                    <label class="label_nip" for="nipInput">NIP</label>
-                    <div class="form-floating-icon">
-                      <i class="uil uil-users-alt"></i>
-                    </div>
-                  </div>
-                  <div class="form-floating form-floating-custom mb-3 auth-pass-inputgroup">
-                    <input type="password" class="form-control form-control-custom" id="passInput" placeholder="Masukan Kata Sandi"  />
-                    <label class="label_pass" for="passInput">Kata Sandi</label>
-                    <div class="form-floating-icon">
-                      <i class="uil uil-padlock"></i>
-                    </div>
-                    <span class="eye hidden" id="spanEye">
-                      <i class="uil uil-eye-slash show-hide" toggle="#passInput" id="iconShowHide"></i>
-                    </span>
-                  </div>
-                  <div class="mt-4 mb-3">
-                    <button class="btn btn-primary w-100 rounded-pill py-2 border-0" type="submit">Login</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
     <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery-3.7.1.min.js"></script>
@@ -102,12 +47,10 @@
 
     <script>
       checkLogin();
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         var loginForm = document.getElementById("wrapper");
         loginForm.style.display = "block";
       });
-
-    
     </script>
   </body>
 </html>
