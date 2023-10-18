@@ -957,3 +957,21 @@ roundedPanel {
   min-width: 100px;
   border-radius: 20px !important;
 }
+
+/* rating */
+
+.rating {
+  font-size: 24px;
+  color: #ddd;
+}
+
+.uis-star {
+  cursor: pointer;
+}
+
+.uis-star.active {
+  color: gold; 
+}
+
+/* End of Star Rating */
+

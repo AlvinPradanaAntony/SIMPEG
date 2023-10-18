@@ -183,13 +183,27 @@
                 <div class="modal-content">
                   <div class="modal-body d-flex flex-column align-items-center">
                     <h5 class="text-dark">Berikan nilai anda terhadap pelayanan kami</h5>
-                    <div class="rating">
-                      <i class="uis uis-star" data-rating="1"></i>
-                      <i class="uis uis-star" data-rating="2"></i>
-                      <i class="uis uis-star" data-rating="3"></i>
-                      <i class="uis uis-star" data-rating="4"></i>
-                      <i class="uis uis-star" data-rating="5"></i>
-                    </div>
+                    <!-- <div class="rating-css">
+                      <div class="star-icon">
+                          <input type="radio" value="1" name="product_rating" checked id="rating1">
+                          <label for="rating1" class="fa fa-star"></label>
+                          <input type="radio" value="2" name="product_rating" id="rating2">
+                          <label for="rating2" class="fa fa-star"></label>
+                          <input type="radio" value="3" name="product_rating" id="rating3">
+                          <label for="rating3" class="fa fa-star"></label>
+                          <input type="radio" value="4" name="product_rating" id="rating4">
+                          <label for="rating4" class="fa fa-star"></label>
+                          <input type="radio" value="5" name="product_rating" id="rating5">
+                          <label for="rating5" class="fa fa-star"></label>
+                      </div>
+                  </div> -->
+                      <div class="rating">
+                        <i class="uis uis-star" data-rating="1.0"></i>
+                        <i class="uis uis-star" data-rating="2.0"></i>
+                        <i class="uis uis-star" data-rating="3.0"></i>
+                        <i class="uis uis-star" data-rating="4.0"></i>
+                        <i class="uis uis-star" data-rating="5.0"></i>
+                      </div>
                     <p>Rating: <span id="selected-rating">0</span></p>
                     <h5 class="text-dark">Berikan Ulasan</h5>
                     <textarea class="review form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -365,19 +379,26 @@
 
     <!-- JavaScript Kustom untuk Rating Bintang -->
     <script>
-      $(document).ready(function () {
-        let selectedRating = 0;
+        document.addEventListener("DOMContentLoaded", function() {
+        const stars = document.querySelectorAll(".uis-star");
+        const selectedRating = document.getElementById("selected-rating");
 
-        // Fungsi untuk mengatur rating saat pengguna mengklik bintang
-        $(".rating i").click(function () {
-          selectedRating = $(this).data("rating");
-          $("#selected-rating").text(selectedRating);
+        stars.forEach(star => {
+          star.addEventListener("click", function() {
+            const rating = parseInt(star.getAttribute("data-rating"));
 
-          // Menghapus class 'selected' dari semua bintang
-          $(".rating i").removeClass("selected");
+            // Hapus kelas "active" dari semua bintang
+            stars.forEach(s => s.classList.remove("active"));
 
-          // Menambahkan class 'selected' ke bintang yang dipilih
-          $(this).addClass("selected");
+            // Tambahkan kelas "active" ke bintang yang dipilih dan bintang sebelumnya
+            for (let i = 0; i < rating; i++) {
+              stars[i].classList.add("active");
+            }
+
+            const formattedRating = rating === 1 ? rating.toFixed(1) : rating;
+            // Perbarui jumlah rating yang dipilih
+            selectedRating.textContent = rating;
+          });
         });
       });
     </script>
@@ -386,18 +407,5 @@
         document.getElementById("fileuploadurl").value = this.value;
       };
     </script>
-
-    <!-- CSS Kustom untuk Rating Bintang -->
-    <style>
-      .rating i {
-        font-size: 24px;
-        cursor: pointer;
-        color: gray;
-      }
-
-      .rating .selected {
-        color: yellow;
-      }
-    </style>
   </body>
 </html>
