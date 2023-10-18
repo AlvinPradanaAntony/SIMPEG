@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css" />
   </head>
   <body>
-    <div id="wrapper" style="display: none;">
+    <div class="d-none" id="wrapper">
       <div class="login__background"></div>
       <div class="container panel__login">
         <div class="row justify-content-center h-100 align-items-center">
@@ -38,7 +38,7 @@
                     </div>
                   </div>
                   <div class="form-floating form-floating-custom mb-3 auth-pass-inputgroup">
-                    <input type="password" class="form-control form-control-custom" id="passInput" placeholder="Masukan Kata Sandi"  />
+                    <input type="password" class="form-control form-control-custom" id="passInput" placeholder="Masukan Kata Sandi" />
                     <label class="label_pass" for="passInput">Kata Sandi</label>
                     <div class="form-floating-icon">
                       <i class="uil uil-padlock"></i>
@@ -65,12 +65,9 @@
 
     <script>
       checkLogin();
-      document.addEventListener("DOMContentLoaded", function() {
-        var loginForm = document.getElementById("wrapper");
-        loginForm.style.display = "block";
+      $(document).ready(function () {
+        $("#wrapper").removeClass("d-none");
       });
-
-    
     </script>
   </body>
 </html>

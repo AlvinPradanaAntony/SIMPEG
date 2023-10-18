@@ -284,7 +284,7 @@ a {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
-.navbar .nav-item .account-container.login{
+.navbar .nav-item .account-container.login {
   border: 0;
   width: 100%;
   height: 38px;
@@ -435,18 +435,21 @@ a {
   color: var(--first-color);
   font-weight: 600;
 }
+.create-tiket{
+  display: none;
+}
 .btn-create-ticket:link,
 .btn-create-ticket:visited {
   font-weight: var(--font-semi-bold);
-  color: #117C72;
+  color: #117c72;
   padding: 10px 30px;
   border: 1px solid;
   border-radius: 10px;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 .btn-create-ticket:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+  box-shadow: 0 10px 20px rgba(27, 27, 27, 0.5);
 }
 .btn-create-ticket:active {
   transform: translateY(-3px);
@@ -461,7 +464,7 @@ a {
   left: 0;
   position: absolute;
   z-index: -1;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .btn-create-ticket:hover::after {
   background-color: rgb(0, 238, 255);
@@ -469,8 +472,8 @@ a {
   opacity: 0;
 }
 .about {
-  background-color: #117C72;
-  filter:opacity(0.7);
+  background-color: #117c72;
+  filter: opacity(0.7);
 }
 
 /*==================== Tracking Tiket Pages ====================*/
@@ -478,7 +481,7 @@ a {
 .card-chart {
   height: 450px;
   border-radius: 10px;
-  border: 1px solid #117C72;
+  border: 1px solid #117c72;
 }
 .circle-chart {
   position: relative;
@@ -492,14 +495,17 @@ a {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-  top:0;left:0;bottom:0;right:0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   width: 95px;
   height: 95px;
   margin: auto;
   border-radius: 50%;
   line-height: 35px;
-  border: 0,5px solid black;
-  -webkit-box-shadow: 0px 0px 20px 0px #117C72;
+  border: 0, 5px solid black;
+  -webkit-box-shadow: 0px 0px 20px 0px #117c72;
   z-index: 1;
 }
 p.circle-center {
@@ -507,7 +513,10 @@ p.circle-center {
   position: absolute;
   text-align: center;
   font-size: 28px;
-  top:0;left:0;bottom:0;right:0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   width: 140px;
   height: 140px;
   margin: auto;
@@ -538,25 +547,25 @@ p.circle-center {
   transform: rotate(0deg);
 }
 #porcionSent .data {
-  background-color: #6DA13E;
+  background-color: #6da13e;
   transform: rotate(36deg);
 }
 #porcionMissed {
   transform: rotate(36deg);
 }
 #porcionMissed .data {
-  background-color: #FBD441;
+  background-color: #fbd441;
   transform: rotate(36deg);
 }
 #porcionUnanswered {
   transform: rotate(72deg);
 }
 #porcionUnanswered .data {
-  background-color: #DB4747;
+  background-color: #db4747;
   transform: rotate(118deg);
 }
 #porcionClosed {
-  transform:rotate(180deg);
+  transform: rotate(180deg);
 }
 #porcionClosed .data {
   background-color: #656464;
@@ -580,59 +589,59 @@ p.circle-center {
 .ticket-percentages li {
   width: 74px;
   border-left: 1px solid none;
-  text-align: center;					
-            background: none;
-        }
-        
-        .ticket {
-            margin: 0;
-            padding: 10px 0 5px;
-            font-size: 15px;		
-        }
+  text-align: center;
+  background: none;
+}
 
-        .ticket.sent {
-            border-top: 8px solid #6DA13E;
-            border-radius: 10px;
-        }
+.ticket {
+  margin: 0;
+  padding: 10px 0 5px;
+  font-size: 15px;
+}
 
-        .ticket.missed {
-            border-top: 8px solid #FBD441;
-            border-radius: 10px;
-        }
+.ticket.sent {
+  border-top: 8px solid #6da13e;
+  border-radius: 10px;
+}
 
-        .ticket.unanswered {
-            border-top: 8px solid #DB4747;
-            border-radius: 10px;
-        }
+.ticket.missed {
+  border-top: 8px solid #fbd441;
+  border-radius: 10px;
+}
 
-        .ticket.closed {
-            border-top: 8px solid #656464;
-            border-radius: 10px;
-        }
+.ticket.unanswered {
+  border-top: 8px solid #db4747;
+  border-radius: 10px;
+}
 
-        .ticket-percentage {
-            margin: 0;
-            padding: 0 0 15px 10px;
-            font-size: 25px;
-        }
+.ticket.closed {
+  border-top: 8px solid #656464;
+  border-radius: 10px;
+}
 
-        h5 {
-            color: #117C72;
-            font-weight: bold;
-        }
+.ticket-percentage {
+  margin: 0;
+  padding: 0 0 15px 10px;
+  font-size: 25px;
+}
 
-        roundedPanel {
-            color: #117C72;
-        }
+h5 {
+  color: #117c72;
+  font-weight: bold;
+}
+
+roundedPanel {
+  color: #117c72;
+}
 .card-info {
   border-radius: 6px;
-  border: 1px solid #117C72;
+  border: 1px solid #117c72;
 }
 .card-info .card-header {
   height: 50px;
-  background-color: #117C72;
+  background-color: #117c72;
 }
-.card-info .card-header:first-child{
+.card-info .card-header:first-child {
   border-radius: 5px 5px 0 0;
 }
 
@@ -780,41 +789,41 @@ p.circle-center {
   vertical-align: middle;
 } */
 .status {
-  background-color: #FDF6B2;
-  border: 1px solid #FACA15;
-  color: #FACA15;
+  background-color: #fdf6b2;
+  border: 1px solid #faca15;
+  color: #faca15;
   border-radius: 18px;
   display: inline-block;
   padding: 4px 20px;
 }
 .btn-closed-ticket {
-  background-color: #FBB7B7;
-  border: 1px solid #E21C1C;
-  color: #E21C1C;
+  background-color: #fbb7b7;
+  border: 1px solid #e21c1c;
+  color: #e21c1c;
   border-radius: 18px;
   display: inline-block;
   padding: 6px 35px;
-  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 .btn-closed-ticket:hover {
-  background-color: #E21C1C;
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  background-color: #e21c1c;
+  color: #ffffff;
+  border: 1px solid #ffffff;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
 .btn-closed {
-  background-color: #E21C1C;
-  color: #FFFFFF;
-  border: 2px solid #FFFFFF;
+  background-color: #e21c1c;
+  color: #ffffff;
+  border: 2px solid #ffffff;
   border-radius: 22px;
   display: inline-block;
   padding: 6px 47px;
 }
 .btn-continue {
-  background-color: #117C72;
-  color: #FFFFFF;
-  border: 2px solid #FFFFFF;
+  background-color: #117c72;
+  color: #ffffff;
+  border: 2px solid #ffffff;
   border-radius: 22px;
   display: inline-block;
   padding: 6px 25px;
@@ -824,9 +833,9 @@ p.circle-center {
   height: 150px;
 }
 .btn-send {
-  background-color: #117C72;
-  color: #FFFFFF;
-  border: 2px solid #FFFFFF;
+  background-color: #117c72;
+  color: #ffffff;
+  border: 2px solid #ffffff;
   border-radius: 22px;
   display: inline-block;
   padding: 6px 60px;
@@ -856,44 +865,45 @@ p.circle-center {
 
 /*==================== Form Tiket Pages ====================*/
 .card-head {
-  border: 1px solid #117C72;
+  border: 1px solid #117c72;
 }
 .card-form {
-  border: 1px solid #117C72;
+  border: 1px solid #117c72;
 }
 .btn-clear {
-  background-color: #FBB7B7;
-  border: 1px solid #E21C1C;
-  color: #E21C1C;
+  background-color: #fbb7b7;
+  border: 1px solid #e21c1c;
+  color: #e21c1c;
   border-radius: 18px;
   display: inline-block;
   padding: 6px 35px;
-  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 .btn-clear:hover {
-  background-color: #E21C1C;
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  background-color: #e21c1c;
+  color: #ffffff;
+  border: 1px solid #ffffff;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
-.btn-submit{
-  background-color: #81DCD3;
-  border: 1px solid #117C72;
-  color: #117C72;
+.btn-submit {
+  background-color: #81dcd3;
+  border: 1px solid #117c72;
+  color: #117c72;
   border-radius: 18px;
   display: inline-block;
   padding: 6px 35px;
-  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 .btn-submit:hover {
-  background-color: #117C72;
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  background-color: #117c72;
+  color: #ffffff;
+  border: 1px solid #ffffff;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
 
+<<<<<<< HEAD
 /*==================== Verification Pages ====================*/
 .btn-verification {
   background-color: #117C72;
@@ -913,3 +923,26 @@ p.circle-center {
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
+=======
+/*==================== Sweetalert Custom ====================*/
+.swal2-popup {
+  border-radius: 20px;
+  font-size: 0.825rem;
+}
+.swal2-title {
+  font-size: var(--h3-font-size);
+  font-weight: 600;
+  color: var(--title-color);
+}
+.swal2-html-container {
+ margin-top: 10px !important;
+}
+.swal2-confirm{
+  min-width: 100px;
+  border-radius: 15px !important;
+}
+.swal2-cancel{
+  min-width: 100px;
+  border-radius: 20px !important;
+}
+>>>>>>> 5bea0645f5e6dcbc5e98ba3f5fbddbdca517bc97

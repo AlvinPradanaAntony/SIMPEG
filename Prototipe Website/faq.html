@@ -12,328 +12,335 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg bg-white shadowNavbar">
-        <div class="container">
-          <div class="header-logo">
-            <a class="navbar-brand p-0" href="#">
-              <img class="me-1" src="./assets/img/logo-pabar.png" width="46" height="46" alt="" />
-              <span class="brand-text">
-                Helpdesk Kepegawaian
-                <small>Pemerintahan Provinsi Papua Barat</small>
-              </span>
-            </a>
+    <div class="d-none" id="wrapper">
+      <header>
+        <nav class="navbar navbar-expand-lg bg-white shadowNavbar">
+          <div class="container">
+            <div class="header-logo">
+              <a class="navbar-brand p-0" href="#">
+                <img class="me-1" src="./assets/img/logo-pabar.png" width="46" height="46" alt="" />
+                <span class="brand-text">
+                  Helpdesk Kepegawaian
+                  <small>Pemerintahan Provinsi Papua Barat</small>
+                </span>
+              </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"> </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="https://simpeg.bkdpapuabarat.cloud/">Beranda</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dukungan </a>
+                  <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
+                    <li>
+                      <a class="dropdown-item" href="trackingtiket.html">
+                        <i class="uil uil-ticket me-1"></i>
+                        <span>Tiket</span>
+                      </a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="formtiket.html">
+                        <i class="uil uil-envelope-add me-1"></i>
+                        <span>Buat tiket baru</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown ms-2 me-4">
+                  <a class="nav-link h-100 p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="nav__notif h-100 d-flex align-items-center">
+                      <i class="bx bx-bell bell"></i>
+                      <span class="position-absolute bg-danger badge rounded-pill pb-1"> 2 </span>
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-center custom-rounded border-0 notification pb-3 shadow-lg">
+                    <div class="dropdown-item noti-title">
+                      <h5 class="m-0 text-dark">
+                        <span class="float-end">
+                          <a href="#" class="text-decoration-none">
+                            <small>Bersihkan Semua</small>
+                          </a> </span
+                        >Notifikasi
+                      </h5>
+                    </div>
+                    <div class="noti-body" id="simple-bar">
+                      <!-- item-->
+                      <a href="detailtiket.html" class="dropdown-item notify-item">
+                        <div class="notify-icon bg-warning">
+                          <i class="uil uil-info-circle fs-5"></i>
+                        </div>
+                        <p class="notify-details">
+                          <strong>Ticket #123:</strong> Surat Tugas, <span class="badge text-bg-warning">Terbalas</span>
+                          <small class="text-muted">
+                            <i class="uil uil-clock"></i>
+                            3 menit yang lalu
+                          </small>
+                        </p>
+                      </a>
+                      <!-- item-->
+                      <a href="detailtiket.html" class="dropdown-item notify-item">
+                        <div class="notify-icon bg-success">
+                          <i class="uil uil-info-circle fs-5"></i>
+                        </div>
+                        <p class="notify-details">
+                          <strong>Ticket #123:</strong> Surat Tugas, <strong>berhasil</strong> dibuat
+                          <small class="text-muted">
+                            <i class="uil uil-clock"></i>
+                            1 menit yang lalu
+                          </small>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item" id="btn_login">
+                  <a class="nav-link d-flex align-items-center account-container login" aria-current="page" href="index.html">Masuk</a>
+                </li>
+                <li class="nav-item dropdown d-none" id="account_login">
+                  <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="account-container d-flex gap-1">
+                      <img class="rounded-circle object-fit-cover" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
+                      <span class="align-self-center user-name pe-2" id="user_account"> User </span>
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
+                    <li>
+                      <a class="dropdown-item" href="profile.html">
+                        <i class="uil uil-user me-1"></i>
+                        <span>Lihat Profil</span>
+                      </a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#" onclick="logout()">
+                        <i class="uil uil-sign-out-alt me-1"></i>
+                        <span>Keluar</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"> </span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="https://simpeg.bkdpapuabarat.cloud/">Beranda</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dukungan </a>
-                <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
-                  <li>
-                    <a class="dropdown-item" href="trackingtiket.html">
-                      <i class="uil uil-ticket me-1"></i>
-                      <span>Tiket</span>
-                    </a>
-                  </li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="formtiket.html">
-                      <i class="uil uil-envelope-add me-1"></i>
-                      <span>Buat tiket baru</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown ms-2 me-4">
-                <a class="nav-link h-100 p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <div class="nav__notif h-100 d-flex align-items-center">
-                    <i class="bx bx-bell bell"></i>
-                    <span class="position-absolute bg-danger badge rounded-pill pb-1"> 2 </span>
-                  </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-center custom-rounded border-0 notification pb-3 shadow-lg">
-                  <div class="dropdown-item noti-title">
-                    <h5 class="m-0 text-dark">
-                      <span class="float-end">
-                        <a href="#" class="text-decoration-none">
-                          <small>Bersihkan Semua</small>
-                        </a> </span
-                      >Notifikasi
-                    </h5>
-                  </div>
-                  <div class="noti-body" id="simple-bar">
-                    <!-- item-->
-                    <a href="detailtiket.html" class="dropdown-item notify-item">
-                      <div class="notify-icon bg-warning">
-                        <i class="uil uil-info-circle fs-5"></i>
-                      </div>
-                      <p class="notify-details">
-                        <strong>Ticket #123:</strong> Surat Tugas, <span class="badge text-bg-warning">Terbalas</span>
-                        <small class="text-muted">
-                          <i class="uil uil-clock"></i>
-                          3 menit yang lalu
-                        </small>
-                      </p>
-                    </a>
-                    <!-- item-->
-                    <a href="detailtiket.html" class="dropdown-item notify-item">
-                      <div class="notify-icon bg-success">
-                        <i class="uil uil-info-circle fs-5"></i>
-                      </div>
-                      <p class="notify-details">
-                        <strong>Ticket #123:</strong> Surat Tugas, <strong>berhasil</strong> dibuat
-                        <small class="text-muted">
-                          <i class="uil uil-clock"></i>
-                          1 menit yang lalu
-                        </small>
-                      </p>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="nav-item" id="btn_login">
-                <a class="nav-link d-flex align-items-center account-container login" aria-current="page" href="index.html">Masuk</a>
-              </li>
-              <li class="nav-item dropdown d-none" id="account_login">
-                <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <div class="account-container d-flex gap-1">
-                    <img class="rounded-circle object-fit-cover" src="assets/img/placeholder_profile.png" width="28" height="28" alt="logo-profile" />
-                    <span class="align-self-center user-name pe-2" id="user_account"> User </span>
-                  </div>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
-                  <li>
-                    <a class="dropdown-item" href="profile.html">
-                      <i class="uil uil-user me-1"></i>
-                      <span>Lihat Profil</span>
-                    </a>
-                  </li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#" onclick="logout()">
-                      <i class="uil uil-sign-out-alt me-1"></i>
-                      <span>Keluar</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="search-banner has-bg">
+          <div class="bg-cover" data-paroller="true" data-paroller-factor="0.5" data-paroller-factor-xs="0.01"></div>
+          <div class="container">
+            <h1 class="text-center">Hai, Ada yang bisa kami bantu?</h1>
+            <div class="input-group">
+              <input type="text" class="form-control form-control-lg" placeholder="Cari informasi anda disini...." />
+              <button type="submit" class="btn btn-lg" title="Search"><i class="ui uil-search"></i></button>
+            </div>
           </div>
         </div>
-      </nav>
-    </header>
-    <main>
-      <div class="search-banner has-bg">
-        <div class="bg-cover" data-paroller="true" data-paroller-factor="0.5" data-paroller-factor-xs="0.01"></div>
-        <div class="container">
-          <h1 class="text-center">Hai, Ada yang bisa kami bantu?</h1>
-          <div class="input-group">
-            <input type="text" class="form-control form-control-lg" placeholder="Cari informasi anda disini...." />
-            <button type="submit" class="btn btn-lg" title="Search"><i class="ui uil-search"></i></button>
-          </div>
-        </div>
-      </div>
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-12">
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                  <button class="accordion-button bg-body-tertiary text-body fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="uil uil-question-circle me-2"></i>Bagaimana cara saya mengajukan izin tahunan?</button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Jawaban : </strong> Untuk mengajukan izin tahunan, silakan akses portal kepegawaian kami dan masuk ke akun Anda. Di sana, Anda akan menemukan opsi "Pengajuan Izin" di mana Anda dapat mengisi formulir pengajuan izin dengan rincian tanggal, alasan, dan durasi izin. Pengajuan Anda akan diproses
-                    oleh tim HR dan Anda akan menerima pemberitahuan lebih lanjut.
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-12">
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="uil uil-question-circle me-2"></i>Bagaimana cara saya mengajukan izin tahunan?</button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>Jawaban : </strong> Untuk mengajukan izin tahunan, silakan akses portal kepegawaian kami dan masuk ke akun Anda. Di sana, Anda akan menemukan opsi "Pengajuan Izin" di mana Anda dapat mengisi formulir pengajuan izin dengan rincian tanggal, alasan, dan durasi izin. Pengajuan Anda akan
+                      diproses oleh tim HR dan Anda akan menerima pemberitahuan lebih lanjut.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="uil uil-question-circle me-2"></i>Bagaimana cara melihat slip gaji saya?</button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">Untuk melihat slip gaji Anda, Anda dapat masuk ke portal kepegawaian kami. Di sana, Anda akan menemukan opsi "Slip Gaji" atau "Penggajian" yang akan memberi Anda akses ke slip gaji Anda. Anda dapat mengunduh dan mencetak slip gaji sesuai kebutuhan.</div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                  <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="uil uil-question-circle me-2"></i> Bagaimana cara membuat tiket?</button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Cara Membuat Tiket:</strong> Untuk membuat tiket baru, ikuti langkah-langkah berikut:
-                    <ol>
-                      <li>Login ke akun Anda.</li>
-                      <li>Pilih opsi 'Buat Tiket' pada halaman utama.</li>
-                      <li>Isi formulir tiket dengan informasi yang relevan, seperti judul, deskripsi, dan kategori.</li>
-                      <li>Klik 'Kirim' untuk mengirimkan tiket Anda.</li>
-                      <li>Anda akan menerima konfirmasi dan nomor referensi tiket. Kami akan segera meninjau dan menanggapi tiket Anda.</li>
-                    </ol>
-                    Kami selalu siap membantu Anda, jadi jangan ragu untuk membuat tiket untuk pertanyaan atau masalah apa pun yang Anda hadapi.
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="uil uil-question-circle me-2"></i>Bagaimana cara melihat slip gaji saya?</button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">Untuk melihat slip gaji Anda, Anda dapat masuk ke portal kepegawaian kami. Di sana, Anda akan menemukan opsi "Slip Gaji" atau "Penggajian" yang akan memberi Anda akses ke slip gaji Anda. Anda dapat mengunduh dan mencetak slip gaji sesuai kebutuhan.</div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour">
-                  <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="uil uil-question-circle me-2"></i> Bagaimana cara melihat tiket yang sudah dibuat?</button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Cara Melihat Tiket yang Sudah Dibuat:</strong> Untuk melihat tiket yang telah Anda buat, ikuti langkah-langkah berikut:
-                    <ol>
-                      <li>Login ke akun Anda.</li>
-                      <li>Pilih opsi 'Tiket Saya' atau 'Riwayat Tiket' pada halaman utama.</li>
-                      <li>Anda akan melihat daftar tiket yang telah Anda buat, termasuk status dan nomor referensi tiket.</li>
-                      <li>Klik pada tiket yang ingin Anda lihat untuk melihat detailnya.</li>
-                    </ol>
-                    Di halaman tiket, Anda dapat melihat status, tanggapan, dan riwayat percakapan terkait tiket tersebut. Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami melalui tiket tersebut.
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="uil uil-question-circle me-2"></i> Bagaimana cara membuat tiket?</button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>Cara Membuat Tiket:</strong> Untuk membuat tiket baru, ikuti langkah-langkah berikut:
+                      <ol>
+                        <li>Login ke akun Anda.</li>
+                        <li>Pilih opsi 'Buat Tiket' pada halaman utama.</li>
+                        <li>Isi formulir tiket dengan informasi yang relevan, seperti judul, deskripsi, dan kategori.</li>
+                        <li>Klik 'Kirim' untuk mengirimkan tiket Anda.</li>
+                        <li>Anda akan menerima konfirmasi dan nomor referensi tiket. Kami akan segera meninjau dan menanggapi tiket Anda.</li>
+                      </ol>
+                      Kami selalu siap membantu Anda, jadi jangan ragu untuk membuat tiket untuk pertanyaan atau masalah apa pun yang Anda hadapi.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFive">
-                  <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"><i class="uil uil-question-circle me-2"></i> Bagaimana cara mengubah profil?</button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Cara Mengubah Profil:</strong> Untuk memperbarui informasi profil Anda, ikuti langkah-langkah berikut:
-                    <ol>
-                      <li>Login ke akun Anda.</li>
-                      <li>Pilih opsi 'Profil Saya' atau 'Pengaturan Profil' pada halaman utama.</li>
-                      <li>Pada halaman profil, Anda dapat mengedit informasi seperti foto profil, nama, alamat email, atau informasi lainnya sesuai kebutuhan.</li>
-                      <li>Klik 'Simpan' atau 'Perbarui Profil' setelah Anda selesai mengubah informasi.</li>
-                    </ol>
-                    Pastikan untuk memverifikasi perubahan yang Anda buat. Profil Anda sekarang telah diperbarui. Jika Anda mengalami masalah atau memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      <i class="uil uil-question-circle me-2"></i> Bagaimana cara melihat tiket yang sudah dibuat?
+                    </button>
+                  </h2>
+                  <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>Cara Melihat Tiket yang Sudah Dibuat:</strong> Untuk melihat tiket yang telah Anda buat, ikuti langkah-langkah berikut:
+                      <ol>
+                        <li>Login ke akun Anda.</li>
+                        <li>Pilih opsi 'Tiket Saya' atau 'Riwayat Tiket' pada halaman utama.</li>
+                        <li>Anda akan melihat daftar tiket yang telah Anda buat, termasuk status dan nomor referensi tiket.</li>
+                        <li>Klik pada tiket yang ingin Anda lihat untuk melihat detailnya.</li>
+                      </ol>
+                      Di halaman tiket, Anda dapat melihat status, tanggapan, dan riwayat percakapan terkait tiket tersebut. Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami melalui tiket tersebut.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingSix">
-                  <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                    <i class="uil uil-question-circle me-2"></i> Apa yang harus saya lakukan jika saya lupa kata sandi?
-                  </button>
-                </h2>
-                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Jika Anda Lupa Kata Sandi:</strong> Jika Anda lupa kata sandi akun Anda, Anda dapat mengikuti langkah-langkah berikut untuk meresetnya:
-                    <ol>
-                      <li>Pada halaman login, klik opsi 'Lupa Kata Sandi' atau 'Lupa Sandi?'.</li>
-                      <li>Anda akan diminta untuk memasukkan alamat email yang terkait dengan akun Anda.</li>
-                      <li>Klik 'Kirim' atau 'Reset Kata Sandi'.</li>
-                      <li>Anda akan menerima email dengan tautan reset kata sandi. Klik tautan tersebut.</li>
-                      <li>Ikuti petunjuk untuk membuat kata sandi yang baru.</li>
-                      <li>Login ke akun Anda dengan kata sandi yang baru.</li>
-                    </ol>
-                    Jika Anda mengalami kesulitan dalam proses ini, jangan ragu untuk menghubungi tim dukungan kami untuk bantuan lebih lanjut.
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"><i class="uil uil-question-circle me-2"></i> Bagaimana cara mengubah profil?</button>
+                  </h2>
+                  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>Cara Mengubah Profil:</strong> Untuk memperbarui informasi profil Anda, ikuti langkah-langkah berikut:
+                      <ol>
+                        <li>Login ke akun Anda.</li>
+                        <li>Pilih opsi 'Profil Saya' atau 'Pengaturan Profil' pada halaman utama.</li>
+                        <li>Pada halaman profil, Anda dapat mengedit informasi seperti foto profil, nama, alamat email, atau informasi lainnya sesuai kebutuhan.</li>
+                        <li>Klik 'Simpan' atau 'Perbarui Profil' setelah Anda selesai mengubah informasi.</li>
+                      </ol>
+                      Pastikan untuk memverifikasi perubahan yang Anda buat. Profil Anda sekarang telah diperbarui. Jika Anda mengalami masalah atau memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingSeven">
-                  <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven"><i class="uil uil-question-circle me-2"></i> Bagaimana cara menghubungi tim dukungan?</button>
-                </h2>
-                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Cara Menghubungi Tim Dukungan:</strong> Jika Anda memerlukan bantuan atau memiliki pertanyaan, Anda dapat menghubungi tim dukungan kami dengan cara berikut:
-                    <ol>
-                      <li>Login ke akun Anda (jika Anda memiliki akun).</li>
-                      <li>Pilih opsi 'Hubungi Kami' atau 'Layanan Dukungan' pada halaman utama.</li>
-                      <li>Anda dapat mengirimkan pesan atau membuat tiket dukungan baru untuk pertanyaan Anda.</li>
-                      <li>Jika Anda tidak memiliki akun, Anda juga dapat menghubungi kami melalui alamat email dukungan atau nomor telepon yang tercantum di situs web.</li>
-                    </ol>
-                    Tim dukungan kami siap membantu Anda dengan masalah atau pertanyaan apa pun yang Anda hadapi. Jangan ragu untuk menghubungi kami.
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                      <i class="uil uil-question-circle me-2"></i> Apa yang harus saya lakukan jika saya lupa kata sandi?
+                    </button>
+                  </h2>
+                  <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>Jika Anda Lupa Kata Sandi:</strong> Jika Anda lupa kata sandi akun Anda, Anda dapat mengikuti langkah-langkah berikut untuk meresetnya:
+                      <ol>
+                        <li>Pada halaman login, klik opsi 'Lupa Kata Sandi' atau 'Lupa Sandi?'.</li>
+                        <li>Anda akan diminta untuk memasukkan alamat email yang terkait dengan akun Anda.</li>
+                        <li>Klik 'Kirim' atau 'Reset Kata Sandi'.</li>
+                        <li>Anda akan menerima email dengan tautan reset kata sandi. Klik tautan tersebut.</li>
+                        <li>Ikuti petunjuk untuk membuat kata sandi yang baru.</li>
+                        <li>Login ke akun Anda dengan kata sandi yang baru.</li>
+                      </ol>
+                      Jika Anda mengalami kesulitan dalam proses ini, jangan ragu untuk menghubungi tim dukungan kami untuk bantuan lebih lanjut.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingEight">
-                  <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight"><i class="uil uil-question-circle me-2"></i> Bagaimana proses kenaikan pangkat berlangsung?</button>
-                </h2>
-                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>Proses Kenaikan Pangkat:</strong> Proses kenaikan pangkat dijelaskan di bawah ini:
-                    <ol>
-                      <li>Pegawai harus memenuhi syarat-syarat yang ditentukan untuk kenaikan pangkat, seperti masa kerja dan penilaian kinerja yang baik.</li>
-                      <li>Pegawai mengajukan permohonan kenaikan pangkat sesuai dengan prosedur yang berlaku, biasanya melalui sistem helpdesk atau formulir khusus.</li>
-                      <li>Permohonan akan diproses dan dievaluasi oleh departemen kepegawaian atau unit yang berwenang.</li>
-                      <li>Jika disetujui, pegawai akan menerima pemberitahuan resmi dan kenaikan pangkat akan diberlakukan sesuai dengan jadwal yang ditentukan.</li>
-                      <li>Jika permohonan ditolak, pegawai akan menerima pemberitahuan dan dapat meminta klarifikasi atau mengikuti proses perbaikan kinerja jika diperlukan.</li>
-                    </ol>
-                    Pastikan untuk selalu memeriksa pedoman dan kebijakan yang berlaku untuk mengetahui persyaratan kenaikan pangkat yang spesifik di organisasi Anda.
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven"><i class="uil uil-question-circle me-2"></i> Bagaimana cara menghubungi tim dukungan?</button>
+                  </h2>
+                  <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>Cara Menghubungi Tim Dukungan:</strong> Jika Anda memerlukan bantuan atau memiliki pertanyaan, Anda dapat menghubungi tim dukungan kami dengan cara berikut:
+                      <ol>
+                        <li>Login ke akun Anda (jika Anda memiliki akun).</li>
+                        <li>Pilih opsi 'Hubungi Kami' atau 'Layanan Dukungan' pada halaman utama.</li>
+                        <li>Anda dapat mengirimkan pesan atau membuat tiket dukungan baru untuk pertanyaan Anda.</li>
+                        <li>Jika Anda tidak memiliki akun, Anda juga dapat menghubungi kami melalui alamat email dukungan atau nomor telepon yang tercantum di situs web.</li>
+                      </ol>
+                      Tim dukungan kami siap membantu Anda dengan masalah atau pertanyaan apa pun yang Anda hadapi. Jangan ragu untuk menghubungi kami.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingEight">
+                    <button class="accordion-button text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                      <i class="uil uil-question-circle me-2"></i> Bagaimana proses kenaikan pangkat berlangsung?
+                    </button>
+                  </h2>
+                  <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>Proses Kenaikan Pangkat:</strong> Proses kenaikan pangkat dijelaskan di bawah ini:
+                      <ol>
+                        <li>Pegawai harus memenuhi syarat-syarat yang ditentukan untuk kenaikan pangkat, seperti masa kerja dan penilaian kinerja yang baik.</li>
+                        <li>Pegawai mengajukan permohonan kenaikan pangkat sesuai dengan prosedur yang berlaku, biasanya melalui sistem helpdesk atau formulir khusus.</li>
+                        <li>Permohonan akan diproses dan dievaluasi oleh departemen kepegawaian atau unit yang berwenang.</li>
+                        <li>Jika disetujui, pegawai akan menerima pemberitahuan resmi dan kenaikan pangkat akan diberlakukan sesuai dengan jadwal yang ditentukan.</li>
+                        <li>Jika permohonan ditolak, pegawai akan menerima pemberitahuan dan dapat meminta klarifikasi atau mengikuti proses perbaikan kinerja jika diperlukan.</li>
+                      </ol>
+                      Pastikan untuk selalu memeriksa pedoman dan kebijakan yang berlaku untuk mengetahui persyaratan kenaikan pangkat yang spesifik di organisasi Anda.
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="create-tiket py-5">
-        <div class="justify-content-center text-center">
-          <h2>Ada pertanyaan lain ?</h2>
-          <p>Anda dapat bertanya pertanyaan yang belum tersedia di FAQ dan meminta bantuan dengan tiket.</p>
-          <a href="formtiket.html" class="btn-create-ticket d-inline-block position-relative">Buat Tiket Baru</a>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <div class="about row p-5 text-white">
-        <!-- begin col-4 -->
-        <div class="col-md-8 px-5">
-          <!-- begin section-container -->
-          <div class="section-container text-justify">
-            <h4 class="footer-title">Tentang Helpdesk</h4>
-            <p>
-              Kami berkomitmen untuk menyediakan layanan kepegawaian yang berkualitas dan efisien untuk mendukung visi Pemerintah Provinsi Papua Barat dalam membangun birokrasi yang transparan dan berdaya saing. Helpdesk Kepegawaian Provinsi Papua Barat adalah mitra yang siap membantu dalam berbagai kebutuhan
-              kepegawaian, mulai dari penyelesaian tiket dan permintaan, hingga memberikan solusi terkait administrasi dan manajemen kepegawaian. Dengan fokus pada pelayanan pelanggan yang prima, kami berupaya untuk memberikan jawaban yang memadai dan cepat bagi setiap pertanyaan dan permintaan, serta berperan aktif
-              dalam memudahkan proses-proses kepegawaian di seluruh provinsi.
-            </p>
+        <div class="create-tiket py-5">
+          <div class="justify-content-center text-center">
+            <h2>Ada pertanyaan lain ?</h2>
+            <p>Anda dapat bertanya pertanyaan yang belum tersedia di FAQ dan meminta bantuan dengan tiket.</p>
+            <a href="formtiket.html" class="btn-create-ticket d-inline-block position-relative">Buat Tiket Baru</a>
           </div>
-          <!-- end section-container -->
         </div>
-        <!-- end col-4 -->
-        <!-- begin col-4 -->
-        <div class="col-md-4 px-3">
-          <!-- begin section-container -->
-          <div class="section-container">
-            <h4 class="footer-title">Bidang Terkait</h4>
-            <ul class="new-user">
-              <li>
-                <a><img src="../assets/img/user/user-1.jpg" alt="" />Sekretariat</a>
-              </li>
-              <li>
-                <a><img src="../assets/img/user/user-2.jpg" alt="" />Bidang Pembinaan Perundang-Undangan dan Kesejahteraan Pegawai</a>
-              </li>
-              <li>
-                <a><img src="../assets/img/user/user-3.jpg" alt="" />Bidang Formasi dan Pengembangan Pegawai</a>
-              </li>
-              <li>
-                <a><img src="../assets/img/user/user-4.jpg" alt="" />Bidang Data, Dokumentasi dan Informasi Kepegawaian</a>
-              </li>
-              <li>
-                <a><img src="../assets/img/user/user-5.jpg" alt="" />Bidang Mutasi Pegawai</a>
-              </li>
-            </ul>
+      </main>
+      <footer>
+        <div class="about row p-5 text-white">
+          <!-- begin col-4 -->
+          <div class="col-md-8 px-5">
+            <!-- begin section-container -->
+            <div class="section-container text-justify">
+              <h4 class="footer-title">Tentang Helpdesk</h4>
+              <p>
+                Kami berkomitmen untuk menyediakan layanan kepegawaian yang berkualitas dan efisien untuk mendukung visi Pemerintah Provinsi Papua Barat dalam membangun birokrasi yang transparan dan berdaya saing. Helpdesk Kepegawaian Provinsi Papua Barat adalah mitra yang siap membantu dalam berbagai kebutuhan
+                kepegawaian, mulai dari penyelesaian tiket dan permintaan, hingga memberikan solusi terkait administrasi dan manajemen kepegawaian. Dengan fokus pada pelayanan pelanggan yang prima, kami berupaya untuk memberikan jawaban yang memadai dan cepat bagi setiap pertanyaan dan permintaan, serta berperan aktif
+                dalam memudahkan proses-proses kepegawaian di seluruh provinsi.
+              </p>
+            </div>
+            <!-- end section-container -->
           </div>
-          <!-- end section-container -->
+          <!-- end col-4 -->
+          <!-- begin col-4 -->
+          <div class="col-md-4 px-3">
+            <!-- begin section-container -->
+            <div class="section-container">
+              <h4 class="footer-title">Bidang Terkait</h4>
+              <ul class="new-user">
+                <li>
+                  <a><img src="../assets/img/user/user-1.jpg" alt="" />Sekretariat</a>
+                </li>
+                <li>
+                  <a><img src="../assets/img/user/user-2.jpg" alt="" />Bidang Pembinaan Perundang-Undangan dan Kesejahteraan Pegawai</a>
+                </li>
+                <li>
+                  <a><img src="../assets/img/user/user-3.jpg" alt="" />Bidang Formasi dan Pengembangan Pegawai</a>
+                </li>
+                <li>
+                  <a><img src="../assets/img/user/user-4.jpg" alt="" />Bidang Data, Dokumentasi dan Informasi Kepegawaian</a>
+                </li>
+                <li>
+                  <a><img src="../assets/img/user/user-5.jpg" alt="" />Bidang Mutasi Pegawai</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end section-container -->
+          </div>
+          <!-- end col-4 -->
         </div>
-        <!-- end col-4 -->
-      </div>
-      <div class="bg-dark py-3 text-center text-white justify-content-center">
-        <i class=""></i>
-        <p>&copy; 2023 - Integra Multi Solusindo | VIPER TEAM</p>
-      </div>
-    </footer>
+        <div class="bg-dark py-3 text-center text-white justify-content-center">
+          <i class=""></i>
+          <p>&copy; 2023 - Integra Multi Solusindo | VIPER TEAM</p>
+        </div>
+      </footer>
+    </div>
 
     <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/6.2.5/simplebar.min.js"></script>
+    <script src="assets/js/custom.js"></script>
     <script>
       console.log(localStorage.getItem("nip"));
       var myElement = document.getElementById("simple-bar");
@@ -346,10 +353,13 @@
         if (localStorage.getItem("nip")) {
           if (localStorage.getItem("role") == "admin" || localStorage.getItem("role") == "basic") {
             btnLogin.addClass("d-none");
+            $("#wrapper").removeClass("d-none");
             accountLogin.removeClass("d-none");
             userAccount.text(localStorage.getItem("nip"));
           }
-        }
+        } else{
+          $("#wrapper").removeClass("d-none");
+        } 
       });
       function logout() {
         localStorage.clear();

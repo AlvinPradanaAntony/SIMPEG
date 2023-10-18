@@ -63,9 +63,7 @@ function buttonSubmit() {
           window.location.href = "faq.html";
         }
       });
-      // localStorage.setItem("role", "basic");
-      // window.location.href = "faq.html";
-      // return false;
+      return false;
     } else {
       Swal.fire({
         icon: "error",
@@ -79,6 +77,7 @@ function buttonSubmit() {
       icon: "warning",
       title: "NIP atau Kata Sandi Kosong",
       text: "Masukan NIP dan Kata Sandi Dengan Benar",
+      showCancelButton: true,
     });
     return false;
   } else if (nipInput == "") {
@@ -103,7 +102,6 @@ function buttonSubmit() {
     });
     return false;
   }
-  return false;
 }
 function checkLogin() {
   if (localStorage.getItem("nip")) {
@@ -114,3 +112,50 @@ function checkLogin() {
     }
   }
 }
+
+// Searching in FAQ
+$(document).ready(function () {
+  // Dapatkan input pencarian dari pengguna
+  const searchInput = $(".form-control");
+  const accordionItems = $(".accordion-item");
+  const createTicketSection = $(".create-tiket");
+
+  // Tambahkan event listener untuk input pencarian
+  searchInput.on("input", function () {
+    const searchInputValue = $(this).val().toLowerCase();
+    let hasMatch = false;
+
+    // Loop melalui setiap item accordion
+    accordionItems.each(function () {
+      const accordionBody = $(this).find(".accordion-body");
+      const accordionCollapse = $(this).find(".accordion-collapse");
+      const accordionButton = $(this).find(".accordion-button");
+      const accordionText = accordionBody.text().toLowerCase();
+
+      // Periksa apakah teks pencarian cocok dengan konten item
+      if (accordionText.includes(searchInputValue)) {
+        $(this).css("display", "block");
+        accordionButton.removeClass("collapsed");
+        accordionCollapse.addClass("show");
+        hasMatch = true;
+      } else {
+        $(this).css("display", "none");
+        accordionButton.addClass("collapsed");
+        accordionCollapse.removeClass("show");
+      }
+    });
+
+    // Jika tidak ada kecocokan, tampilkan elemen alternatif
+    if (!hasMatch) {
+      createTicketSection.css("display", "block");
+    } else {
+      createTicketSection.css("display", "none");
+    }
+
+    // Jika input pencarian kosong, atur kembali tampilan semua item accordion
+    if (searchInputValue === "") {
+      accordionItems.find(".accordion-button").addClass("collapsed");
+      accordionItems.find(".accordion-collapse").removeClass("show");
+    }
+  });
+});
