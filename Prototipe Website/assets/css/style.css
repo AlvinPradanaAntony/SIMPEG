@@ -893,3 +893,23 @@ p.circle-center {
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
+
+/*==================== Verification Pages ====================*/
+.btn-verification {
+  background-color: #117C72;
+  color: #FFFFFF;
+  border-radius: 22px;
+  display: inline-block;
+  padding: 6px 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+.btn-verification:hover{
+  background-color: #FFFFFF;
+  color: #117C72;
+  border: 2px solid #117C72;
+  border-radius: 22px;
+  display: inline-block;
+  padding: 6px 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
