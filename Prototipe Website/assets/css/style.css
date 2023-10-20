@@ -51,9 +51,10 @@
   --input-color: hsl(var(--hue-color), 70%, 96%);
   --body-color: hsl(var(--hue-color), 60%, 99%);
   --container-color: #fff;
+  --container-color-light:#f2f3f4;
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
-  --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
-  --scroll-thumb-hover-color: hsl(var(--hue-color), 8%, 65%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 60%);
+  --scroll-thumb-hover-color: hsl(var(--hue-color), 8%, 50%);
 
   /*========== Font and typography ==========*/
   --body-font: NunitoSans Regular;
@@ -122,7 +123,9 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
-  color: var(--text-color) !important;
+}
+body.faq{
+  overflow: hidden;
 }
 h1,
 h2,
@@ -136,6 +139,21 @@ ul {
 }
 a {
   text-decoration: none;
+  color: var(--text-color);
+}
+
+/*========== SCROLL BAR ==========*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: var(--scroll-bar-color);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-thumb-hover-color);
 }
 
 /* ==================== Login Pages==================== */
@@ -161,7 +179,7 @@ a {
 #panel-login {
   background-color: hsla(0, 0%, 0%, 0.425);
   border-radius: 20px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.410);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.310);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1.25px solid rgba(255, 255, 255, 0.192) !important;
@@ -190,6 +208,7 @@ a {
   color: #ffffff;
 }
 #panel-login .form-control-custom {
+  color: var(--title-color) !important;
   border-radius: 12px;
   background-color: var(--input-color);
   transition: all 0.5s ease;
@@ -220,6 +239,7 @@ a {
   justify-content: center;
   font-size: 20px;
   width: 56px;
+  color: var(--title-color);
 }
 .form-floating-custom > .form-control {
   padding-left: 60px !important;
@@ -248,6 +268,10 @@ a {
 }
 
 /*==================== FAQ Pages ====================*/
+.wrapper{
+  height: 100vh;
+  overflow: auto;
+}
 .navbar.shadowNavbar {
   box-shadow: 0px 4px 22px rgba(69, 69, 69, 0.08) !important;
 }
@@ -259,11 +283,11 @@ a {
   display: flex;
   align-items: center;
 }
-.navbar .header-logo a .brand-text {
+.brand-text {
   font-family: InterBold;
   font-size: 1.125rem;
 }
-.navbar .header-logo a .brand-text small {
+.brand-text small {
   font-family: InterRegular;
   display: block;
   font-size: 0.625rem;
@@ -474,11 +498,24 @@ a {
   transform: scaleX(1.4) scaleY(1.5);
   opacity: 0;
 }
-.about {
-  background-color: #117c72;
-  filter: opacity(0.7);
+.footer {
+  background-color: var(--container-color-light);
 }
-
+.footer .nav-link {
+  color: var(--text-color);
+}
+.accordion-custom .accordion-item{
+  border: none !important;
+  -webkit-box-shadow: 0px 4px 20px 0px rgba(44, 101, 144, 0.1);
+  box-shadow: 0px 4px 20px 0px rgba(44, 101, 144, 0.1);
+  border-radius: 1.25rem !important;
+}
+.accordion-custom .accordion-button{
+  border-radius: 1.25rem !important;
+}
+.accordion-custom .accordion-button:focus{
+  box-shadow: none !important;
+}
 /*==================== Tracking Tiket Pages ====================*/
 /* Chart */
 .card-chart {
@@ -1005,3 +1042,16 @@ roundedPanel {
 
 /* End of Star Rating */
 
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="checkbox"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="search"]:focus {
+  border-color: var(--first-color) !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px #527bdd !important;
+  outline: 0 none !important;
+  transition: 0.4s ease-in-out !important;
+}
