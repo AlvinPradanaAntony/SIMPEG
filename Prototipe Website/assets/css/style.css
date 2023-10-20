@@ -124,7 +124,7 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
 }
-body.faq{
+body.page-wrapper{
   overflow: hidden;
 }
 h1,
