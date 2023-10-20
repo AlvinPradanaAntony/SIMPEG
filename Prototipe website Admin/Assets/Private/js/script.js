@@ -44,7 +44,8 @@ $(document).ready(function () {
     $("body").addClass("dark-theme");
     $("#dark-dropdownItem").removeClass("uil-moon");
     $("#dark-dropdownItem").addClass("uil-sun");
-    $(".nameItem").text("Tema Terang");
+    $(".nameItem-profile").text("My Profile");
+    $(".nameItem-logout").text("Logout");
     $("#theme-button").removeClass("uil-moon");
     $("#theme-button").addClass("uil-sun");
     $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
@@ -82,7 +83,8 @@ $(document).ready(function () {
     if ($("body").hasClass("dark-theme")) {
       $("#dark-dropdownItem").removeClass("uil-sun");
       $("#dark-dropdownItem").addClass("uil-moon");
-      $(".nameItem").text("Tema Gelap");
+      $(".nameItem-profile").text("My profile");
+      $(".nameItem-logout").text("Logout");
       $("#theme-button").removeClass("uil-sun");
       $("#theme-button").addClass("uil-moon");
       $("body").removeClass("dark-theme");
@@ -116,7 +118,8 @@ $(document).ready(function () {
     } else {
       $("#dark-dropdownItem").removeClass("uil-moon");
       $("#dark-dropdownItem").addClass("uil-sun");
-      $(".nameItem").text("Tema Terang");
+      $(".nameItem-profile").text("My profile");
+      $(".nameItem-logout").text("Logout");
       $("#theme-button").removeClass("uil-moon");
       $("#theme-button").addClass("uil-sun");
       $("body").addClass("dark-theme");
