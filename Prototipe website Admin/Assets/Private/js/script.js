@@ -47,25 +47,21 @@ $(document).ready(function () {
     $(".nameItem").text("Tema Terang");
     $("#theme-button").removeClass("uil-moon");
     $("#theme-button").addClass("uil-sun");
-    $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
+    $("#logo_sidebar").attr("src", "Assets/Private/img/logoW.png");
     $("#img_login").attr("src", "Assets/Private/img/auth-img-dark.png");
     
-    
-
     if ($("#sidebar").hasClass("close")) {
       $("#logo_sidebar")
         .fadeOut(150, function () {
-          $("#logo_sidebar").attr("src", "Assets/Private/img/logo-pabar.png");
+          $("#logo_sidebar").attr("src", "Assets/Private/img/logoLtW.png");
           $("#logo_sidebar").attr("width", "40");
-          $("#logo_sidebar").css("margin-right", "200px");
         })
         .fadeIn(150);
     } else {
       $("#logo_sidebar")
         .fadeOut(150, function () {
-          $("#logo_sidebar").attr("src", "Assets/Private/img/logo1.png");
-          $("#logo_sidebar").attr("width", "227");
-          $("#logo_sidebar").css("margin-left", "1px");
+          $("#logo_sidebar").attr("src", "Assets/Private/img/logoW.png");
+          $("#logo_sidebar").attr("width", "135");
         })
         .fadeIn(150);
       $("#img_login")
@@ -88,9 +84,8 @@ $(document).ready(function () {
       if ($("#sidebar").hasClass("close")) {
         $("#logo_sidebar")
           .fadeOut(150, function () {
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
+            $("#logo_sidebar").attr("src", "Assets/Private/img/logoLt.png");
             $("#logo_sidebar").attr("width", "40");
-            
           })
           .fadeIn(150);
       } else {
@@ -98,7 +93,6 @@ $(document).ready(function () {
           .fadeOut(150, function () {
             $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
             $("#logo_sidebar").attr("width", "227");
-            
           })
           .fadeIn(150);
         $("#img_login")
@@ -120,18 +114,16 @@ $(document).ready(function () {
       if ($("#sidebar").hasClass("close")) {
         $("#logo_sidebar")
           .fadeOut(150, function () {
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logo-pabar.png");
+            $("#logo_sidebar").attr("src", "Assets/Private/img/logoLtW.png");
             $("#logo_sidebar").attr("width", "40");
-            $("#logo_sidebar").css("margin-right", "400px");
           })
           .fadeIn(100);
       } else {
         $("#logo_sidebar")
           .fadeOut(150, function () {
             $("#img_login").attr("src", "Assets/Private/img/auth-img-dark.png");
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logo1.png");
-            $("#logo_sidebar").attr("width", "227");
-            
+            $("#logo_sidebar").attr("src", "Assets/Private/img/logoW.png");
+            $("#logo_sidebar").attr("width", "135");
           })
           .fadeIn(150);
         $("#img_login")
@@ -150,12 +142,12 @@ $(document).ready(function () {
       .fadeOut(150, function () {
         if ($("#sidebar").hasClass("close")) {
           if ($("body").hasClass("dark-theme")) {
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logo-pabar.png");
+            $("#logo_sidebar").attr("src", "Assets/Private/img/logoLtW.png");
             $("#logo_sidebar").attr("width", "40");
             $("#logo_sidebar").css("margin-right", "60px");
             $("#logo_sidebar").css("margin-left", "1px");
           } else {
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logo-pabar.png");
+            $("#logo_sidebar").attr("src", "Assets/Private/img/logoLt.png");
             $("#logo_sidebar").attr("width", "40");
             $("#logo_sidebar").css("margin-right", "62px");
             $("#logo_sidebar").css("margin-left", "1px");
@@ -163,9 +155,8 @@ $(document).ready(function () {
         } else {
           if ($("body").hasClass("dark-theme")) {
             $("#img_login").attr("src", "Assets/Private/img/auth-img-dark.png");
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logo1.png");
-            $("#logo_sidebar").attr("width", "227");
-            $("#logo_sidebar").css("margin-left", "40px");
+            $("#logo_sidebar").attr("src", "Assets/Private/img/logoW.png");
+            $("#logo_sidebar").attr("width", "135");
           } else {
             $("#img_login").attr("src", "Assets/Private/img/auth-img.png");
             $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
