@@ -49,7 +49,7 @@ $(document).ready(function () {
     $("#theme-button").addClass("uil-sun");
     $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
     $("#img_login").attr("src", "Assets/Private/img/auth-img-dark.png");
-    $("#logo_sidebar").css("margin-left", "50px");
+    
     
 
     if ($("#sidebar").hasClass("close")) {
@@ -90,7 +90,7 @@ $(document).ready(function () {
           .fadeOut(150, function () {
             $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
             $("#logo_sidebar").attr("width", "40");
-            $("#logo_sidebar").css("margin-left", "50px");
+            
           })
           .fadeIn(150);
       } else {
@@ -98,7 +98,7 @@ $(document).ready(function () {
           .fadeOut(150, function () {
             $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
             $("#logo_sidebar").attr("width", "227");
-            $("#logo_sidebar").css("margin-left", "50px");
+            
           })
           .fadeIn(150);
         $("#img_login")
@@ -153,10 +153,12 @@ $(document).ready(function () {
             $("#logo_sidebar").attr("src", "Assets/Private/img/logo-pabar.png");
             $("#logo_sidebar").attr("width", "40");
             $("#logo_sidebar").css("margin-right", "60px");
+            $("#logo_sidebar").css("margin-left", "1px");
           } else {
             $("#logo_sidebar").attr("src", "Assets/Private/img/logo-pabar.png");
             $("#logo_sidebar").attr("width", "40");
             $("#logo_sidebar").css("margin-right", "62px");
+            $("#logo_sidebar").css("margin-left", "1px");
           }
         } else {
           if ($("body").hasClass("dark-theme")) {
@@ -168,7 +170,7 @@ $(document).ready(function () {
             $("#img_login").attr("src", "Assets/Private/img/auth-img.png");
             $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
             $("#logo_sidebar").attr("width", "227");
-            $("#logo_sidebar").css("margin-left", "50 px");
+            $("#logo_sidebar").css("margin-left", "50px");
           }
         }
       })
