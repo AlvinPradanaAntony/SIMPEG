@@ -138,6 +138,7 @@ $(document).ready(function () {
         $(this).css("display", "block");
         accordionButton.removeClass("collapsed");
         accordionCollapse.addClass("show");
+        $(".accordion-item").addClass("accordion-shadow");
         hasMatch = true;
       } else {
         $(this).css("display", "none");
@@ -157,6 +158,7 @@ $(document).ready(function () {
     if (searchInputValue === "") {
       accordionItems.find(".accordion-button").addClass("collapsed");
       accordionItems.find(".accordion-collapse").removeClass("show");
+      $(".accordion-item").removeClass("accordion-shadow");
     }
   });
 });

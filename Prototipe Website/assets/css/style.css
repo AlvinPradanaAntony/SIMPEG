@@ -49,7 +49,8 @@
   --text-color: hsl(var(--hue-color), 8%, 45%);
   --text-color-light: hsl(var(--hue-color), 8%, 65%);
   --input-color: hsl(var(--hue-color), 70%, 96%);
-  --body-color: hsl(var(--hue-color), 60%, 99%);
+  /* --body-color: hsl(var(--hue-color), 60%, 99%); */
+  --body-color: #fafbfe;
   --container-color: #fff;
   --container-color-light:#f2f3f4;
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
@@ -122,7 +123,7 @@ html {
 body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  background-color: var(--body-color);
+  background-color: var(--container-color);
 }
 body.page-wrapper{
   overflow: hidden;
@@ -451,12 +452,24 @@ a {
   height: 46px;
   border-radius: 6px;
 }
+.search-banner .form-control:focus {
+  box-shadow: none !important;
+}
 .search-banner .btn {
   background: #fff;
   padding-top: 6px;
   padding-bottom: 6px;
   color: var(--text-color);
   border-radius: 6px;
+  border: none;
+}
+.search-banner .btn:active {
+  background: #fff;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: var(--first-color);
+  border-radius: 6px;
+  border: none;
 }
 .search-banner .btn:hover {
   color: var(--first-color);
@@ -499,22 +512,48 @@ a {
   opacity: 0;
 }
 .footer {
-  background-color: var(--container-color-light);
+  background-color: #fafbfe;
 }
 .footer .nav-link {
   color: var(--text-color);
 }
 .accordion-custom .accordion-item{
   border: none !important;
-  -webkit-box-shadow: 0px 4px 20px 0px rgba(44, 101, 144, 0.1);
-  box-shadow: 0px 4px 20px 0px rgba(44, 101, 144, 0.1);
   border-radius: 1.25rem !important;
+}
+.accordion-custom .accordion-button.collapsed{
+  background-color: var(--container-color);
+  border-radius: 1.25rem !important;
+  color: var(--title-color) !important;
+}
+.accordion-custom .accordion-button.collapsed::after{
+  filter: none;
+}
+.accordion-custom .accordion-button::after{
+  filter: brightness(0) invert(1);
 }
 .accordion-custom .accordion-button{
+  background-color: var(--first-color-alt);
+  color: #fff !important;
   border-radius: 1.25rem !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
+
 .accordion-custom .accordion-button:focus{
   box-shadow: none !important;
+}
+.accordion-shadow{
+  box-shadow: 0rem 0.3125rem 0.3125rem 0rem hsl(173deg 25% 33% / 5%);
+}
+.social-list-item {
+  height: 2rem;
+  width: 2rem;
+  line-height: calc(2rem - 2px);
+  display: block;
+  border: 2px solid #adb5bd;
+  border-radius: 50%;
+  color: #adb5bd;
 }
 /*==================== Tracking Tiket Pages ====================*/
 /* Chart */
