@@ -486,14 +486,16 @@ a {
 .btn-create-ticket:link,
 .btn-create-ticket:visited {
   font-weight: var(--font-semi-bold);
-  color: #117c72;
+  color: var(--first-color);
   padding: 10px 30px;
-  border: 1px solid;
+  border: 1px solid var(--first-color);
   border-radius: 10px;
   transition: all 0.2s;
 }
 .btn-create-ticket:hover {
+  background-color: var(--first-color);
   transform: translateY(-5px);
+  color: #fff;
   box-shadow: 0 10px 20px rgba(27, 27, 27, 0.5);
 }
 .btn-create-ticket:active {
@@ -511,11 +513,11 @@ a {
   z-index: -1;
   transition: all 0.3s;
 }
-.btn-create-ticket:hover::after {
+/* .btn-create-ticket:hover::after {
   background-color: rgb(0, 238, 255);
   transform: scaleX(1.4) scaleY(1.5);
   opacity: 0;
-}
+} */
 .footer {
   background-color: #fafbfe;
 }

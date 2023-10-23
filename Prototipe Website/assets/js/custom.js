@@ -149,9 +149,14 @@ $(document).ready(function () {
 
     // Jika tidak ada kecocokan, tampilkan elemen alternatif
     if (!hasMatch) {
+      $(".faq-content").removeClass("py-5");
       createTicketSection.css("display", "block");
+      createTicketSection.css("padding-top", "6rem");
+      createTicketSection[0].scrollIntoView({ behavior: "smooth" });
     } else {
+      $(".faq-content").addClass("py-5");
       createTicketSection.css("display", "none");
+
     }
 
     // Jika input pencarian kosong, atur kembali tampilan semua item accordion
