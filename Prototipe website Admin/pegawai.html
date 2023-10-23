@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin - Dashboard</title>
+  <title>Admin - Pengguna</title>
   <link rel="shortcut icon" type="image/png" href="Assets/Private/img/logo-pabar.png">
   <link rel="stylesheet" href="Assets/Private/css/Dashboard.css" />
   <link rel="stylesheet" href="Assets/css/bootstrap.min.css" />
@@ -22,16 +22,16 @@
       </div>
       <ul class="nav-links m-0" id="main">
         <li class="nav-item">
-          <a href="index.html" class="nav-link active">
+          <a href="index.html" class="nav-link">
             <i class="uil-apps"></i>
-            <span style="vertical-align: middle" class="link_name"> Beranda </span>
+            <span style="vertical-align: middle" class="link_name">Beranda</span>
           </a>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="index.html">Beranda</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a data-bs-toggle="collapse" href="#data" aria-expanded="false" aria-controls="data" class="nav-link">
+          <a data-bs-toggle="collapse" href="#data" aria-expanded="false" aria-controls="data" class="nav-link active">
             <i class="uil uil-users-alt"></i>
             <span style="vertical-align: middle" class="link_name">Pengguna</span>
             <span class="menu-arrow uil-angle-right"></span>
@@ -75,7 +75,7 @@
         <li class="nav-item">
           <a href="tiket.html" class="nav-link">
             <i class="uil uil-ticket"></i>
-            <span style="vertical-align: middle" class="link_name"> Tiket </span>
+            <span style="vertical-align: middle" class="link_name">Tiket</span>
           </a>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="tiket.html">Tiket</a></li>
@@ -84,7 +84,7 @@
         <li class="nav-item">
           <a href="faq.html" class="nav-link">
             <i class="uil uil-question-circle"></i>
-            <span style="vertical-align: middle" class="link_name"> FAQ</span>
+            <span style="vertical-align: middle" class="link_name">FAQ</span>
           </a>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="faq.html">FAQ</a></li>
@@ -140,14 +140,14 @@
                       <a class="text-decoration-none" href="/profile">
                         <div class="dropdown-item custom-item-dropdown d-flex align-items-center">
                           <i class="uil uil-user me-2"></i>
-                          <span class="nameItem">My Profile</span>
+                          <span class="nameItem-profile">My Profile</span>
                         </div>
                       </a>
                     </li>
                     <li>
                       <a class="dropdown-item custom-item-dropdown d-flex align-items-center" href="/#">
                         <i class="uil uil-sign-out-alt me-2"></i>
-                        <span class="nameItem">Logout</span>
+                        <span class="nameItem-logout">Sign Out</span>
                       </a>
                     </li>
                   </ul>
@@ -235,7 +235,7 @@
         </div>
         <div class="row gx-4 pt-4">
           <div class="col-lg-9">
-            
+
           </div>
           <div class="col-lg-3 m-0"></div>
         </div>
