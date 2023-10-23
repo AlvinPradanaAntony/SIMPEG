@@ -268,7 +268,8 @@
             userAccount.text(localStorage.getItem("nip"));
           }
         } else {
-          $("#wrapper").removeClass("d-none");
+          /*$("#wrapper").removeClass("d-none");*/
+          window.location.href = "faq.html";
         }
       });
       function logout() {
