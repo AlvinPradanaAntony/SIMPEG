@@ -52,7 +52,7 @@
   /* --body-color: hsl(var(--hue-color), 60%, 99%); */
   --body-color: #fafbfe;
   --container-color: #fff;
-  --container-color-light:#f2f3f4;
+  --container-color-light: #f2f3f4;
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 60%);
   --scroll-thumb-hover-color: hsl(var(--hue-color), 8%, 50%);
@@ -126,7 +126,7 @@ body {
   background-color: var(--container-color);
   color: var(--text-color);
 }
-body.page-wrapper{
+body.page-wrapper {
   overflow: hidden;
 }
 h1,
@@ -181,7 +181,7 @@ a {
 #panel-login {
   background-color: hsla(0, 0%, 0%, 0.425);
   border-radius: 20px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.310);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.31);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1.25px solid rgba(255, 255, 255, 0.192) !important;
@@ -270,7 +270,7 @@ a {
 }
 
 /*==================== FAQ Pages ====================*/
-.wrapper{
+.wrapper {
   height: 100vh;
   overflow: auto;
 }
@@ -285,7 +285,7 @@ a {
   display: flex;
   align-items: center;
 }
-.navbar-toggler:focus{
+.navbar-toggler:focus {
   box-shadow: none;
 }
 .brand-text {
@@ -525,22 +525,22 @@ a {
 .footer .nav-link {
   color: var(--text-color-light);
 }
-.accordion-custom .accordion-item{
+.accordion-custom .accordion-item {
   border: none !important;
   border-radius: 1.25rem !important;
 }
-.accordion-custom .accordion-button.collapsed{
+.accordion-custom .accordion-button.collapsed {
   background-color: var(--container-color);
   border-radius: 1.25rem !important;
   color: var(--title-color) !important;
 }
-.accordion-custom .accordion-button.collapsed::after{
+.accordion-custom .accordion-button.collapsed::after {
   filter: none;
 }
-.accordion-custom .accordion-button::after{
+.accordion-custom .accordion-button::after {
   filter: brightness(0) invert(1);
 }
-.accordion-custom .accordion-button{
+.accordion-custom .accordion-button {
   background-color: var(--first-color-alt);
   color: #fff !important;
   border-radius: 1.25rem !important;
@@ -548,10 +548,10 @@ a {
   border-bottom-right-radius: 0 !important;
 }
 
-.accordion-custom .accordion-button:focus{
+.accordion-custom .accordion-button:focus {
   box-shadow: none !important;
 }
-.accordion-shadow{
+.accordion-shadow {
   box-shadow: 0rem 0.3125rem 0.3125rem 0rem hsl(173deg 25% 33% / 5%);
 }
 .social-list-item {
@@ -736,14 +736,9 @@ roundedPanel {
 .form-question .card {
   min-height: 550px;
 }
-
-.chat-conversation .chat-day-title {
-  position: relative;
-  text-align: center;
-  margin-bottom: 24px;
-  border: none;
+.chat-conversation{
+  height: 400px;
 }
-
 .chat-conversation li {
   clear: both;
 }
@@ -752,14 +747,12 @@ roundedPanel {
   margin-bottom: 24px;
   position: relative;
 }
-
 .chat-conversation .conversation-list .ctext-wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-bottom: 10px;
 }
 .chat-conversation .conversation-list .ctext-wrap-content {
+  max-width: 350px;
   padding: 12px 20px;
   background-color: rgba(91, 115, 232, 0.1);
   border-radius: 0 8px 8px 8px;
@@ -794,12 +787,11 @@ roundedPanel {
   -webkit-box-ordinal-group: 3;
   -ms-flex-order: 2;
   order: 2;
-  background-color: #d3f6ec;
+  background-color: #f5f6f8;
   text-align: right;
   border-radius: 8px 0 8px 8px;
   margin-left: 0;
   margin-right: 16px;
-  color: #000;
 }
 .chat-conversation .right .conversation-list .ctext-wrap-content:before {
   content: "";
@@ -1084,7 +1076,7 @@ roundedPanel {
 }
 
 .uis-star.active {
-  color: gold; 
+  color: gold;
 }
 
 /* End of Star Rating */
