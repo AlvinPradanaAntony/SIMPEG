@@ -23,10 +23,4 @@ Route::middleware([
     })->name('dashboard');
 });
 
-// routes/web.php
-
-use App\Http\Controllers\FaqController;
-
-Route::get('/faq', [FaqController::class, 'index']);
-Route::get('/api/faqs', [FaqController::class, 'getAllFAQs']);
-
+// Route ::get('/faq', 'FaqController@index'); // Menampilkan semua data FAQ

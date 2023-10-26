@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// menambahkan route untuk person
+Route::get('/person','PersonController@all');
+Route::get('/person/{id}','PersonController@show');
+Route::post('/person','PersonController@store');
+Route::put('/person/{id}','PersonController@update');

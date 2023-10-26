@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('marital_status');
             $table->string('department_id');
             $table->string('position_id');
+            $table->integer('level_id');
+            $table->string('category_id');
             $table->string('phone');
             $table->string('address');
             $table->string('email')->unique();

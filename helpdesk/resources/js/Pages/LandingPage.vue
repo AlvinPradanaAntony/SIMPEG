@@ -1,173 +1,120 @@
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
-import AccordionComponentFaq from "../Components/AccordionComponentFaq.vue";
 import Navbar from "../Components/Navbar.vue";
-import("../../css/style.css")
-import("../custom.js")
+import Accordion from "../Components/Accordion.vue";
+import('./../../assets/css/bootstrap/bootstrap.min.css');
+import("./../../assets/css/style.css");
+import("./../../assets/js/custom.js");
+import ("https://cdnjs.cloudflare.com/ajax/libs/simplebar/6.2.5/simplebar.min.js");
 
 defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
+  canLogin: Boolean,
+  canRegister: Boolean,
+  laravelVersion: String,
+  phpVersion: String,
 });
 
 </script>
 
 <template>
-    <Head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>FAQ | SIMPEG</title>
-        <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css" />
-        <link rel="stylesheet" href="assets/css/style.css" />
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css" />
-    </Head>
-    <body>
-        <header>
-            <!--Navbar -->
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container">
-                    <img class="me-2" src="../../images/logo.png" width="46" height="46" alt="" />
-                    <div>
-                        <h2>Pusat Bantuan Kepegawaian</h2>
-                        <p>Pemerintah Provinsi Papua Barat</p>
-                    </div>
-                    <div v-if="canLogin" class="sm:right-0 p-3"> 
-                        <a v-if="$page.props.auth.user" class="btn btn-primary" href="/dashboard" role="button">Dashboard</a>
-                        <template v-else>
-                            <a class="btn btn-primary" href="/login" role="button">Masuk</a>
-                        </template>
-                    </div>
-                </div>
-            </nav>
-            <!-- <div class="pace pace-inactive">
-                <div>
-                    Navbar
-                    <div id="header" class="header navbar navbar-default navbar-fixed-top navbar-expand-lg">
-                        <div class="container sm:flex">
-                            <div class="logo-wrapper">
-                                <img class="img-logo" src="../../images/logo.png" alt="Logo"/>
-                                <div class="logo-text">
-                                    <h2>Pusat Bantuan Kepegawaian</h2>
-                                    <p>Pemerintah Provinsi Papua Barat</p>
-                                </div>
-                            </div>
-                            <div v-if="canLogin" class="sm:right-0 p-3"> 
-                                <a v-if="$page.props.auth.user" class="btn btn-primary" href="/dashboard" role="button">Dashboard</a>
-                                <template v-else>
-                                    <a class="btn btn-primary" href="/login" role="button">Masuk</a>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        </header>
-        <main>
-            <!-- Section Search-->
-            <section>
-                <!-- bg search -->
-                <div class="search-banner has-bg">
-                    <div class="bg-cover" data-paroller="true" data-paroller-factor="0.5" data-paroller-factor-xs="0.01"></div>
-                    <div class="container">
-                    <h1 class="text-center">Hai, ada yang bisa kami bantu?</h1>
-                    <div class="input-group">
-                        <input type="text" class="form-control form-control-lg" placeholder="Cari informasi anda disini..." />
-                        <button type="submit" class="btn btn-lg" title="Search"><i class="ui uil-search"></i></button>
-                    </div>
-                    </div>
-                </div> 
-            </section>
-
-            <!-- Section FAQ -->
-            <section class="section-faq">
-                <div class="container py-5">
-                    <div class="row">
-                    <div class="col-12">
-                        <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button bg-body-tertiary text-body fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="uil uil-question-circle me-2"></i> Apa itu Helpdesk?</button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body"><strong>Helpdesk</strong> adalah sebuah aplikasi yang memudahkan anda dalam mengelola tiket yang masuk, sehingga memudahkan anda dalam memantau tiket yang masuk.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="uil uil-question-circle me-2"></i> Bagaimana cara menggunakan Helpdesk?</button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">Untuk menggunakan Helpdesk, anda bisa mendaftar di halaman <a href="register.php">register</a> atau jika sudah memiliki akun anda bisa langsung login di halaman <a href="login.php">login</a>.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="uil uil-question-circle me-2"></i> Bagaimana cara membuat tiket?</button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
-                                with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="uil uil-question-circle me-2"></i> Bagaimana cara melihat tiket yang sudah dibuat?</button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
-                                with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button bg-body-tertiary text-body fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"><i class="uil uil-question-circle me-2"></i> Bagaimana cara mengubah profil?</button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
-                                with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section tiket -->
-            <section class="section-tiket">
-                <template>
-                <div>
-                    <AccordionComponentFaq :data="dataFromLaravel" />
-                </div>
-                </template>
-                <h2>Ada pertanyaan lain?</h2>
-                <p>Anda dapat bertanya pertanyaan yang belum tersedia di FAQ dan meminta bantuan dengan tiket </p>
-                <!-- <a class="btn btn-primary" href="/login" role="button">Buat Tiket</a> -->
-                <div v-if="canLogin" class="sm:right-0 p-3"> 
-                    <a v-if="$page.props.auth.user" class="btn btn-primary" href="/dashboard" role="button">Dashboard</a>
-                    <template v-else>
-                        <a class="btn btn-primary" href="/login" role="button">Buat Tiket</a>
-                    </template>
-                </div>
-            </section>
-        </main>
-        
-    </body>
-
-    <footer>
-        <div class="footer">
-
+  <Head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>FAQ | SIMPEG</title>
+  </Head>
+  <body>
+    <Navbar></Navbar>
+    <main>
+      <!-- Search Banner -->
+      <div class="search-banner has-bg">
+        <div class="bg-cover" data-paroller="true" data-paroller-factor="0.5" data-paroller-factor-xs="0.01"></div>
+        <div class="container">
+          <h1 class="text-center mt-5">Hai, Ada yang bisa kami bantu?</h1>
+          <div class="input-group">
+            <input type="text" class="form-control form-control-lg" placeholder="Cari informasi anda disini...." />
+            <button type="submit" class="btn btn-lg" title="Search" @click="search"><i class="ui uil-search"></i></button>
+          </div>
         </div>
+      </div>
+      <!-- Faq -->
+      <Accordion></Accordion>
+      <div class="create-tiket py-5">
+          <div class="justify-content-center text-center">
+            <h2>Ada pertanyaan lain ?</h2>
+            <p>Anda dapat bertanya pertanyaan yang belum tersedia di FAQ dan meminta bantuan dengan tiket.</p>
+            <a href="#" class="btn btn-create-ticket d-inline-block position-relative">Buat Tiket Baru</a>
+          </div>
+        </div>
+    </main>
+    <footer>
+      <div class="about py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="d-flex gap-2 align-items-center mb-3">
+                <img src="./../../assets/images/logo.png" alt="" height="50" width="40"/>
+                <span class="brand-text">
+                  Helpdesk Kepegawaian
+                  <small>Pemerintahan Provinsi Papua Barat</small>
+                </span>
+              </div>
+              <p class="mt-4 pe-lg-5">Helpdesk Kepegawaian Provinsi Papua Barat adalah mitra yang siap membantu dalam berbagai kebutuhan kepegawaian, mulai dari penyelesaian tiket dan permintaan, hingga memberikan solusi terkait administrasi dan manajemen kepegawaian.</p>
+              <ul class="social-list list-inline mt-3">
+                <li class="list-inline-item text-center">
+                  <a href="#" class="social-list-item border-primary text-primary"><i class="uil uil-facebook-f"></i></a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a href="#" class="social-list-item border-danger text-danger"><i class="bx bxl-google"></i></a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a href="#" class="social-list-item border-info text-info"><i class="bx bxl-twitter"></i></a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a href="#" class="social-list-item border-secondary text-secondary"><i class="bx bxl-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-2 mt-3 mt-lg-0">
+              <h5 class="mb-3">Link</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item"><a href="https://simpeg.bkdpapuabarat.cloud/" class="nav-link px-0 py-1">SIMPEG</a></li>
+                <li class="nav-item"><a href="http://45.32.102.16/dms/login" class="nav-link px-0 py-1">DMS</a></li>
+                <li class="nav-item"><a href="http://45.32.102.16/sikkepo" class="nav-link px-0 py-1">SIKKEPO</a></li>
+                <li class="nav-item"><a href="http://bkd.papuabaratprov.go.id/bkd/penilaian-layanan-kepegawaian/" class="nav-link px-0 py-1">Penilaian Layanan</a></li>
+                <li class="nav-item"><a href="https://kinerja.bkn.go.id/login" class="nav-link px-0 py-1">E-KINERJA</a></li>
+                <li class="nav-item"><a href="https://www.lapor.go.id/" class="nav-link px-0 py-1">LAPOR</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 mt-3 mt-lg-0">
+              <h5 class="mb-3">Bidang</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item"><a href="#" class="nav-link px-0 py-1">Sekretariat</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-0 py-1">Bidang Pengembangan Aparatur</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-0 py-1">Bidang Mutasi dan Promosi</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-0 py-1">Bidang Penilaian Kinerja Aparatur dan Penghargaan</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-0 py-1">Bidang Pengadaan, Pemberhentian dan Informasi Kepegawaian</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 mt-3 mt-lg-0">
+              <h5 class="mb-3">Bantuan</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item"><a href="#" class="nav-link px-0 py-1">FAQ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-0 py-1">Buat Tiket Baru</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="mt-5">
+                <p class="text-muted mt-4 text-center mb-0">©2023 - Integra Multi Solusindo | VIPER TEAM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </footer>
+  </body>
 </template>
 
 <style>
@@ -180,29 +127,3 @@ defineProps({
     }
 }
 </style>
-
-<script>
-import AccordionComponent from '../Components/AccordionComponentFaq.vue'; // Sesuaikan dengan path komponen accordion Anda
-
-export default {
-  components: {
-    AccordionComponent,
-  },
-  data() {
-    return {
-      dataFromLaravel: [], // Data dari Laravel akan disimpan di sini
-    };
-  },
-  mounted() {
-    // Lakukan permintaan HTTP GET untuk mengambil data dari Laravel.
-    fetch('/faq') // Sesuaikan dengan rute yang telah Anda definisikan di Laravel.
-      .then((response) => response.json())
-      .then((data) => {
-        this.dataFromLaravel = data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  },
-};
-</script>

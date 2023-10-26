@@ -10,13 +10,6 @@ class FaqController extends Controller
     {
         $faqs = Faq::all(); // Mengambil semua data FAQ
 
-        return view('faq.index', compact('faqs'));
-    }
-
-    public function getAllFAQs()
-    {
-        $faqs = Faq::all(); // Mengambil semua data FAQ
-
-        return response()->json(['faqs' => $faqs]);
+        return response()->json($faqs, 200); // Mengirim data FAQ dalam bentuk JSON
     }
 }

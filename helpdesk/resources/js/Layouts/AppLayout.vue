@@ -7,6 +7,7 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import Navbar from '@/Components/Navbar.vue';
 
 defineProps({
     title: String,
@@ -30,9 +31,7 @@ const logout = () => {
 <template>
     <div>
         <Head :title="title" />
-
         <Banner />
-
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
@@ -49,9 +48,9 @@ const logout = () => {
                                 <!-- <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink> -->
-                                <img class="img-logo" src="../../images/logo.png" alt="Logo"/>
+                                <img class="img-logo" src="./../../assets/images/logo.png" alt="Logo" height="10"/>
                                 <div class="text-wrap">
-                                    <h2>Pusat bantuan Kepegawaian</h2>
+                                    <h2>Helpdesk Kepegawaian</h2>
                                     <p>Pemerintah Provinsi Papua Barat</p>
                                 </div>
                             </div>
@@ -60,7 +59,7 @@ const logout = () => {
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <div class="ml-3 relative">
                                 <!-- Teams Dropdown -->
-                                <img class="img-alarm" src="../../images/alarm.png" alt="alarm"/>
+                                <img class="img-alarm" src="./../../assets/images/alarm.png" alt="alarm"/>
                                 <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
@@ -127,7 +126,7 @@ const logout = () => {
                                         
                                         <!-- Menampilkan gambar default jika profile_photo_url kosong -->
                                         <span v-else-if="!$page.props.jetstream.managesProfilePhotos" class="inline-flex rounded-md px-4 py-1 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                            <img class="h-8 w-8 rounded-full object-cover" src="../../images/profile.png" alt="Default Photo">
+                                            <img class="h-8 w-8 rounded-full object-cover" src="./../../assets/images/profile.png" alt="Default Photo">
                                             <button type="button" class="inline-flex items-center ">
                                                 {{ $page.props.auth.user.name }}
 
