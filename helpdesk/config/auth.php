@@ -1,5 +1,7 @@
 <?php
 
+use function Laravel\Prompts\table;
+
 return [
 
     /*
@@ -40,6 +42,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        
+        'api' => [
+            'driver' => 'session',
+            'provider' => 'users',
+            'hash' => false,
+        ]
     ],
 
     /*
@@ -63,6 +71,8 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+            'table' => 'users',
+            'username' => 'nip',
         ],
 
         // 'users' => [

@@ -8,7 +8,7 @@ defineProps({
     phpVersion: String,
 });
 </script>
-
+  
 <template>
     <Head title="Welcome" />
 
