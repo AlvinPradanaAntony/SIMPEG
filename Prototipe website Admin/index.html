@@ -256,11 +256,25 @@
           <div id="interactive-chart" class="h-300px"></div>
         </div>
       </div> -->
-      <div class="chart-container">
-        <h2>Rating pelayanan tiket perbidang</h2>
+      <!-- <div class="container chart-rating"> -->
+        <div class="container ">
+          <div class="row">
+            <div class="col-7 chart-rating">
+            <h2>Rating pelayanan tiket perbidang</h2>
         <canvas id="myChart" style="width:100%; max-width:560px; height:230px;"></canvas>
       </div>
-      
+        <div class="col-4 new-tiket">
+        <h2>Banyaknya pegawai yang telah membuat tiket</h2>
+      </div>
+      <div class="container ">
+        <div class="row">
+          <div class="col-7 chart-rating">
+          <h2>Ulasan pegawai pada pelayanan tiket</h2>
+      <canvas id="myChart" style="width:100%; max-width:560px; height:230px;"></canvas>
+    </div>
+      <div class="col-4 new-tiket">
+      <h2>Tiket yang masuk perbidangnya</h2>
+    </div>
         
     </section>
   </div>
@@ -376,9 +390,9 @@ new Chart(ctx, {
   options: {
     scales: {
       x: {
-        ticks: {
-            color: 'black'
-        },
+        // ticks: {
+        //     color: 'black'
+        // },
         beginAtZero: true,
         grid: {
           display: false,
