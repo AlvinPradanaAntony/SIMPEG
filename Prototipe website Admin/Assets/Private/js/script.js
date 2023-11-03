@@ -324,3 +324,4 @@ var handleInteractiveChart = function () {
 		});
 	}
 };
+

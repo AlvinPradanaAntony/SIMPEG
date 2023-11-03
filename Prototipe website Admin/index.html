@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
 </head>
 
 <body>
@@ -259,18 +263,19 @@
       <!-- <div class="container chart-rating"> -->
         <div class="container ">
           <div class="row">
-            <div class="col-7 chart-rating">
+      <div class="col-7 chart-rating">
             <h2>Rating pelayanan tiket perbidang</h2>
         <canvas id="myChart" style="width:100%; max-width:560px; height:230px;"></canvas>
       </div>
         <div class="col-4 new-tiket">
         <h2>Banyaknya pegawai yang telah membuat tiket</h2>
+        <div id="chartdiv" style="width:100%; max-width:560px; height:230px;"></div>
       </div>
       <div class="container ">
         <div class="row">
           <div class="col-7 chart-rating">
           <h2>Ulasan pegawai pada pelayanan tiket</h2>
-      <canvas id="myChart" style="width:100%; max-width:560px; height:230px;"></canvas>
+      <div id="" style="width:100%; max-width:560px; height:230px;"></div>
     </div>
       <div class="col-4 new-tiket">
       <h2>Tiket yang masuk perbidangnya</h2>
@@ -286,41 +291,9 @@
 <script src="Assets/Private/js/script.js"></script>
 <script src="Assets/Private/js/changeIconMenu.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
-  const ctx = document.getElementById('myChart');
-
-//   const legendMargin = {
-//   id: 'legendMargin',
-//   beforeInit(chart, legend, options) {
-//     legend.options.margin = 40;
-//   }
-// };
-  
-//   const data = [
-//   [1, ''],
-//   [2, ''],
-//   [3, '2 okt'],
-//   [4, ''],
-//   [5, ''],
-//   [6, '6 okt'],
-//   [7, ''],
-//   [8, ''],
-//   [9, '9 okt'],
-//   [10, ''],
-//   [11, ''],
-//   [12, '12 okt'],
-//   [13, ''],
-//   [14, ''],
-//   [15, '16 okt'],
-//   [16, ''],
-// ];
-
-// const labels = data.map(item => item[1]);
-
-// const labelTooltip =(tooltipItems) => {
-//   return '';
-// };
-
+const ctx = document.getElementById('myChart');
 new Chart(ctx, {
   type: 'bar',
   data: {
@@ -445,96 +418,140 @@ new Chart(ctx, {
       borderColor
     return tooltipBackgroundColor
   }
-
 </script>
 
+<script>
+  am5.ready(function() {
+    // Create root element
+    var root = am5.Root.new("chartdiv");
+  
+    // Set themes
+    root.setThemes([
+      am5themes_Animated.new(root)
+    ]);
+  
+    // Create chart
+    var chart = root.container.children.push(
+      am5percent.PieChart.new(root, {
+        layout: root.verticalLayout
+      })
+    );
+  
+    // Create series
+    var series0 = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        valueField: "value",
+        categoryField: "category",
+        alignLabels: false,
+        radius: am5.percent(100),
+        innerRadius: am5.percent(80)
+      })
+    );
 
+    // Nonaktifkan label pada series0
+    series0.labels.template.text = "";
+  
+    series0.states.create("hidden", {
+      startAngle: 200,
+      endAngle: 180
+    });
+  
+    series0.slices.template.setAll({
+      fillOpacity: 0.5,
+      strokeOpacity: 0,
+      templateField: "settings"
+    });
+  
+    series0.slices.template.states.create("hover", { scale: 1 });
+    series0.slices.template.states.create("active", { shiftRadius: 0 });
+  
+    series0.labels.template.setAll({
+      templateField: "settings"
+    });
+  
+    series0.ticks.template.setAll({
+      templateField: "settings"
+    });
+  
+    series0.labels.template.setAll({
+      textType: "circular",
+      radius: 20
+    });
+  
+    // Set data
+    series0.data.setAll([
+      {
+        category: "Membuat tiket",
+        value: 40
+      },
+      {
+        category: "Unused",
+        value: 60,
+        settings: { forceHidden: true }
+      }
+    ]);
+  
+    // Create series
+    var series1 = chart.series.push(
+      am5percent.PieSeries.new(root, {
+        radius: am5.percent(95),
+        innerRadius: am5.percent(70),
+        valueField: "value",
+        categoryField: "category",
+        alignLabels: false
+      })
+    );
+  
+    // Nonaktifkan label pada series1
+    series1.labels.template.text = "";
+
+    series1.states.create("hidden", {
+      startAngle: 200,
+      endAngle: 180
+    });
+  
+    series1.slices.template.setAll({
+      templateField: "sliceSettings",
+      strokeOpacity: 0
+    });
+  
+    series1.labels.template.setAll({
+      textType: "circular"
+    });
+  
+    series1.labels.template.adapters.add("radius", function (radius, target) {
+      var dataItem = target.dataItem;
+      var slice = dataItem.get("slice");
+      return -(slice.get("radius") - slice.get("innerRadius")) / 1 - 10;
+    });
+  
+    series1.slices.template.states.create("hover", { scale: 1 });
+    series1.slices.template.states.create("active", { shiftRadius: 0 });
+  
+    series1.ticks.template.setAll({
+      forceHidden: true
+    });
+  
+    // Set data
+    series1.data.setAll([
+      {
+        category: "",
+        value: 30,
+      },
+      {
+        category: "",
+        value: 49,
+        sliceSettings: { fill: am5.color(0xdedede) }
+      }
+    ]);
+});
+
+  </script>
 
 <!-- /*==================== LORDICON ====================*/ -->
 <script src="https://cdn.lordicon.com/fudrjiwc.js"></script>
 
-<!-- 
 
-<script>
-  var handleInteractiveChart = function () {
-	"use strict";
-	$('#interactive-chart').empty();
-	
-	function showTooltip(x, y, contents) {
-		$('<div id="tooltip" class="flot-tooltip">' + contents + '</div>').css( {
-			top: y - 45,
-			left: x - 55
-		}).appendTo("body").fadeIn(200);
-	}
-	if ($('#interactive-chart').length !== 0) {
-	
-		var data1 = [ 
-			[1, 40], [2, 50], [3, 60], [4, 60], [5, 60], [6, 65], [7, 75], [8, 90], [9, 100], [10, 105], 
-			[11, 110], [12, 110], [13, 120], [14, 130], [15, 135],[16, 145], [17, 132], [18, 123], [19, 135], [20, 150] 
-		];
-		var data2 = [
-			[1, 10],  [2, 6], [3, 10], [4, 12], [5, 18], [6, 20], [7, 25], [8, 23], [9, 24], [10, 25], 
-			[11, 18], [12, 30], [13, 25], [14, 25], [15, 30], [16, 27], [17, 20], [18, 18], [19, 31], [20, 23]
-		];
-		var xLabel = [
-			[1,''],[2,''],[3,'May 15'],[4,''],[5,''],[6,'May 19'],[7,''],[8,''],[9,'May 22'],[10,''],
-			[11,''],[12,'May 25'],[13,''],[14,''],[15,'May 28'],[16,''],[17,''],[18,'May 31'],[19,''],[20,'']
-		];
-		
-		$.plot($("#interactive-chart"), [{
-				data: data1, 
-				label: "Page Views", 
-				color: app.color.blue,
-				lines: { show: true, fill:false, lineWidth: 2 },
-				points: { show: true, radius: 3, fillColor: app.color.componentBg },
-				shadowSize: 0
-			}, {
-				data: data2,
-				label: 'Visitors',
-				color: app.color.green,
-				lines: { show: true, fill:false, lineWidth: 2 },
-				points: { show: true, radius: 3, fillColor: app.color.componentBg },
-				shadowSize: 0
-			}], {
-			xaxis: {  ticks:xLabel, tickDecimals: 0, tickColor: 'rgba('+ app.color.darkRgb + ', .2)' },
-			yaxis: {  ticks: 10, tickColor: 'rgba('+ app.color.darkRgb + ', .2)', min: 0, max: 200 },
-			grid: { 
-				hoverable: true, 
-				clickable: true,
-				tickColor: 'rgba('+ app.color.darkRgb + ', .2)',
-				borderWidth: 1,
-				backgroundColor: 'transparent',
-				borderColor: 'rgba('+ app.color.darkRgb + ', .2)'
-			},
-			legend: {
-				labelBoxBorderColor: 'rgba('+ app.color.darkRgb + ', .2)',
-				margin: 10,
-				noColumns: 1,
-				show: true
-			}
-		});
-		var previousPoint = null;
-		$("#interactive-chart").bind("plothover", function (event, pos, item) {
-			$("#x").text(pos.x.toFixed(2));
-			$("#y").text(pos.y.toFixed(2));
-			if (item) {
-				if (previousPoint !== item.dataIndex) {
-					previousPoint = item.dataIndex;
-					$("#tooltip").remove();
-					var y = item.datapoint[1].toFixed(2);
-
-					var content = item.series.label + " " + y;
-					showTooltip(item.pageX, item.pageY, content);
-				}
-			} else {
-				$("#tooltip").remove();
-				previousPoint = null;            
-			}
-			event.preventDefault();
-		});
-	}
-};
-</script> -->
 
 
 </html>
