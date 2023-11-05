@@ -9,15 +9,19 @@ const hasActions = computed(() => !! useSlots().actions);
 
 <template>
     <div class="md:grid md:grid-cols-3 md:gap-6">
-        <SectionTitle>
-            <template #title>
-                <slot name="title" />
-            </template>
-            <template #description>
-                <slot name="description" />
-            </template>
-        </SectionTitle>
-
+        <div class="mt-5 md:mt-0 md:col-span-1">
+            <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded-md">
+                <SectionTitle class="text-center">
+                    <template #title>
+                        <slot name="title" />
+                    </template>
+                    <template #description>
+                        <slot name="description" />
+                    </template>
+                </SectionTitle>
+            </div>
+        </div>
+        
         <div class="mt-5 md:mt-0 md:col-span-2">
             <form @submit.prevent="$emit('submitted')">
                 <div
@@ -36,3 +40,11 @@ const hasActions = computed(() => !! useSlots().actions);
         </div>
     </div>
 </template>
+
+<script>
+export default {
+  props: {
+    profileImage: String, // Prop untuk gambar profil
+  },
+};
+</script>

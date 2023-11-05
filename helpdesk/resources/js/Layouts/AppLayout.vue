@@ -45,9 +45,9 @@ const logout = () => {
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <!-- <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
-                                </NavLink> -->
+                                </NavLink>
                                 <img class="img-logo" src="./../../assets/images/logo.png" alt="Logo" height="10"/>
                                 <div class="text-wrap">
                                     <h2>Helpdesk Kepegawaian</h2>
@@ -146,10 +146,10 @@ const logout = () => {
                                         <DropdownLink :href="route('profile.show')">
                                             Profil
                                         </DropdownLink>
-<!-- 
+
                                         <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')">
                                             API Tokens
-                                        </DropdownLink> -->
+                                        </DropdownLink>
 
                                         <div class="border-t border-gray-200" />
 

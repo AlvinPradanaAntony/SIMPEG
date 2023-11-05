@@ -6,7 +6,7 @@ import FormSection from '@/Components/FormSection.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
+import DangerButton from '@/Components/DangerButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
 const props = defineProps({
@@ -16,7 +16,14 @@ const props = defineProps({
 const form = useForm({
     _method: 'PUT',
     name: props.user.name,
+    gender: props.user.gender,
+    nip: props.user.nip,
+    birth_place: props.user.birth_place,
+    birth_date: props.user.birth_date,
     email: props.user.email,
+    address: props.user.address,
+    phone: props.user.phone,
+    religion: props.user.religion,
     photo: null,
 });
 
@@ -78,28 +85,30 @@ const clearPhotoFileInput = () => {
 <template>
     <FormSection @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            <span class="mt-1 block w-full p-2">{{ form.name }}</span>
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            Perbarui informasi profil dan alamat email akun Anda.
         </template>
+
 
         <template #form>
             <!-- Profile Photo -->
             <div v-if="$page.props.jetstream.managesProfilePhotos" class="col-span-6 sm:col-span-4">
+                <!-- v-if="$page.props.jetstream.managesProfilePhotos" -->
                 <!-- Profile Photo File Input -->
                 <input
                     ref="photoInput"
                     type="file"
                     class="hidden"
+                    name="photo"
                     @change="updatePhotoPreview"
                 >
 
-                <InputLabel for="photo" value="Photo" />
-
                 <!-- Current Profile Photo -->
                 <div v-show="! photoPreview" class="mt-2">
+                {{ console.log("Profile Photo URL: ", user.profile_photo_url) }}
                     <img :src="user.profile_photo_url" :alt="user.name" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
@@ -111,25 +120,28 @@ const clearPhotoFileInput = () => {
                     />
                 </div>
 
-                <SecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
-                    Select A New Photo
-                </SecondaryButton>
+                <PrimaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
+                    Pilih Foto Baru
+                </PrimaryButton>
 
-                <SecondaryButton
+                <DangerButton
                     v-if="user.profile_photo_path"
                     type="button"
                     class="mt-2"
                     @click.prevent="deletePhoto"
                 >
-                    Remove Photo
-                </SecondaryButton>
+                    Hapus Foto
+                </DangerButton>
 
                 <InputError :message="form.errors.photo" class="mt-2" />
             </div>
 
+            <div class="col-span-6 sm:col-span-6">
+                <h2>Data Utama</h2>
+            </div>
             <!-- Name -->
-            <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="name" value="Name" />
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="name" value="Nama" />
                 <TextInput
                     id="name"
                     v-model="form.name"
@@ -141,8 +153,63 @@ const clearPhotoFileInput = () => {
                 <InputError :message="form.errors.name" class="mt-2" />
             </div>
 
+            <!-- Gender -->
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="gender" value="Jenis Kelamin" />
+                <select id="gender" v-model="form.gender" class=" mt-1 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full">
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+                <InputError :message="form.errors.gender" class="mt-2" />
+            </div>
+
+            <!-- NIP -->
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="nip" value="NIP" />
+                <TextInput
+                    id="nip"
+                    v-model="form.nip"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="nip"
+                />
+                <InputError :message="form.errors.nip" class="mt-2" />
+            </div>
+
+            <!-- Birth Place -->
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="birth_place" value="Tempat Lahir" />
+                <TextInput
+                    id="birth_place"
+                    v-model="form.birth_place"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="birth_place"
+                />
+                <InputError :message="form.errors.birth_place" class="mt-2" />
+            </div>
+
+            <!-- Birth Date -->
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="birth_date" value="Tanggal Lahir" />
+                <TextInput
+                    id="birth_date"
+                    v-model="form.birth_date"
+                    type="date"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="birth_date"
+                />
+                <InputError :message="form.errors.birth_date" class="mt-2" />
+            </div>
+            <div class="col-span-6 sm:col-span-6">
+                <h2>Data Pendukung</h2>
+            </div>
+            
             <!-- Email -->
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6 sm:col-span-3">
                 <InputLabel for="email" value="Email" />
                 <TextInput
                     id="email"
@@ -156,8 +223,7 @@ const clearPhotoFileInput = () => {
 
                 <div v-if="$page.props.jetstream.hasEmailVerification && user.email_verified_at === null">
                     <p class="text-sm mt-2">
-                        Your email address is unverified.
-
+                        Alamat email Anda belum terverifikasi.
                         <Link
                             :href="route('verification.send')"
                             method="post"
@@ -165,7 +231,7 @@ const clearPhotoFileInput = () => {
                             class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             @click.prevent="sendEmailVerification"
                         >
-                            Click here to re-send the verification email.
+                            Klik di sini untuk mengirim ulang email verifikasi.
                         </Link>
                     </p>
 
@@ -174,15 +240,57 @@ const clearPhotoFileInput = () => {
                     </div>
                 </div>
             </div>
+
+            <!-- Address -->
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="address" value="Alamat" />
+                <TextInput
+                    id="address"
+                    v-model="form.address"
+                    type="text"
+                    class="mt-1 block w-full text-left-top h-20"
+                    required
+                    autocomplete="address"
+                />
+                <InputError :message="form.errors.address" class="mt-2" />
+            </div>
+
+            <!-- Phone -->
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="phone" value="Nomor Telepon" />
+                <TextInput
+                    id="phone"
+                    v-model="form.phone"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="phone"
+                />
+                <InputError :message="form.errors.phone" class="mt-2" />
+            </div>
+
+            <!-- Religion -->
+            <div class="col-span-6 sm:col-span-3">
+                <InputLabel for="religion" value="Agama" />
+                <TextInput
+                    id="religion"
+                    v-model="form.religion"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="religion"
+                />
+                <InputError :message="form.errors.religion" class="mt-2" />
+            </div>
         </template>
 
         <template #actions>
             <ActionMessage :on="form.recentlySuccessful" class="mr-3">
-                Saved.
+                Data berhasil disimpan.
             </ActionMessage>
 
             <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                Simpan
             </PrimaryButton>
         </template>
     </FormSection>

@@ -21,6 +21,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+    Route::get('/verification', function () {
+        return Inertia::render('Verification');
+    })->name('verification');
 });
 
 // Route ::get('/faq', 'FaqController@index'); // Menampilkan semua data FAQ
