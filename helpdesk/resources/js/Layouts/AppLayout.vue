@@ -9,6 +9,11 @@ import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import Navbar from '@/Components/Navbar.vue';
 
+// import('./../../assets/css/bootstrap/bootstrap.min.css');
+// import("./../../assets/css/style.css");
+// import("./../../assets/js/custom.js");
+// import ("https://cdnjs.cloudflare.com/ajax/libs/simplebar/6.2.5/simplebar.min.js");
+
 defineProps({
     title: String,
 });
@@ -32,35 +37,49 @@ const logout = () => {
     <div>
         <Head :title="title" />
         <Banner />
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100 fixed-top shadow">
             <nav class="bg-white border-b border-gray-100">
-                <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
+                <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between h-14">
                         <div class="flex">
                             <!-- Logo -->
-                            <div class="shrink-0 items-center">
-                                
+                            <div class="shrink-0 items-center p-1">
+                                <img src="./../../assets/images/logo.png" alt="logo-pabar" width="34">
                             </div>
-
-                            <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </NavLink>
-                                <img class="img-logo" src="./../../assets/images/logo.png" alt="Logo" height="10"/>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-1 sm:flex py-1">
                                 <div class="text-wrap">
-                                    <h2>Helpdesk Kepegawaian</h2>
-                                    <p>Pemerintah Provinsi Papua Barat</p>
+                                    <h6 class="font-bold text-lg">Helpdesk Kepegawaian</h6>
+                                    <small class="mt-0">Pemerintah Provinsi Papua Barat</small>
                                 </div>
                             </div>
                         </div>
-
+                        
+                        <!-- Navigation Links -->
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <NavLink :href="route('dashboard')" :active="route().current('dashboard')">Beranda</NavLink>
                             <div class="ml-3 relative">
-                                <!-- Teams Dropdown -->
-                                <img class="img-alarm" src="./../../assets/images/alarm.png" alt="alarm"/>
-                                <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
+                                <!-- Ticket Dropdown -->
+                                <Dropdown align="right" width="48">
+                                    <template #trigger>
+                                        <span class="inline-flex rounded-md">
+                                            <button type="button" class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150"> Tiket
+                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                </svg>  
+                                            </button>
+                                        </span>
+                                    </template>
+
+                                    <template #content>
+                                        <div class="block px-4 py-2 text-sm text-gray-400">Tiket</div>
+                                        <div class="border-t border-gray-200"></div>
+                                        <DropdownLink><i class="uil uil-ticket me-1"></i> Semua Tiket</DropdownLink>
+                                            <div class="border-t border-gray-200"></div>
+                                        <DropdownLink><i class="uil uil-envelope-add me-1"></i>Buat Tiket Baru</DropdownLink>
+                                    </template>
+                                </Dropdown>
+                                <!-- <img class="img-alarm" src="./../../assets/images/alarm.png" alt="alarm"/> -->
+                                <!-- <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
                                             <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
@@ -75,12 +94,10 @@ const logout = () => {
 
                                     <template #content>
                                         <div class="w-60">
-                                            <!-- Team Management -->
                                             <div class="block px-4 py-2 text-xs text-gray-400">
                                                 Manage Team
                                             </div>
 
-                                            <!-- Team Settings -->
                                             <DropdownLink :href="route('teams.show', $page.props.auth.user.current_team)">
                                                 Team Settings
                                             </DropdownLink>
@@ -89,7 +106,6 @@ const logout = () => {
                                                 Create New Team
                                             </DropdownLink>
 
-                                            <!-- Team Switcher -->
                                             <template v-if="$page.props.auth.user.all_teams.length > 1">
                                                 <div class="border-t border-gray-200" />
 
@@ -113,19 +129,20 @@ const logout = () => {
                                             </template>
                                         </div>
                                     </template>
-                                </Dropdown>
+                                </Dropdown> -->
                             </div>
 
-                            <!-- Settings Dropdown -->
+                            <!-- Profile Dropdown -->
                             <div class="ml-3 relative">
                                 <Dropdown align="right" width="48">
                                     <template #trigger>
-                                        <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                            <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.auth.user.profile_photo_url" :alt="$page.props.auth.user.name">
+                                        <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 p-1 pr-3 pl-2 rounded-full border-green-700 shadow focus:outline-none focus:border-green-900 transition inline-flex items-center">
+                                            <img class="h-8 w-8 rounded-full object-cover mr-2" :src="$page.props.auth.user.profile_photo_url" :alt="$page.props.auth.user.name">
+                                            {{ $page.props.auth.user.name }}
                                         </button>
                                         
-                                        <!-- Menampilkan gambar default jika profile_photo_url kosong -->
-                                        <span v-else-if="!$page.props.jetstream.managesProfilePhotos" class="inline-flex rounded-md px-4 py-1 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                        <!-- Default Photo Profile -->
+                                        <span v-else-if="!$page.props.jetstream.managesProfilePhotos" class="inline-flex rounded-md  px-4 py-1 border text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                             <img class="h-8 w-8 rounded-full object-cover" src="./../../assets/images/profile.png" alt="Default Photo">
                                             <button type="button" class="inline-flex items-center ">
                                                 {{ $page.props.auth.user.name }}
@@ -138,25 +155,24 @@ const logout = () => {
                                     </template>
 
                                     <template #content>
-                                        <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
                                             Kelola Akun
                                         </div>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            Profil
+                                            Lihat Profil
                                         </DropdownLink>
 
-                                        <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')">
+                                        <!-- <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')">
                                             API Tokens
-                                        </DropdownLink>
+                                        </DropdownLink> -->
 
                                         <div class="border-t border-gray-200" />
 
                                         <!-- Authentication -->
                                         <form @submit.prevent="logout">
                                             <DropdownLink as="button">
-                                                Log Out
+                                                Keluar
                                             </DropdownLink>
                                         </form>
                                     </template>
@@ -197,7 +213,7 @@ const logout = () => {
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                            Beranda
                         </ResponsiveNavLink>
                     </div>
 
@@ -220,17 +236,17 @@ const logout = () => {
 
                         <div class="mt-3 space-y-1">
                             <ResponsiveNavLink :href="route('profile.show')" :active="route().current('profile.show')">
-                                Profile
+                                Lihat Profil
                             </ResponsiveNavLink>
 
-                            <ResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')" :active="route().current('api-tokens.index')">
+                            <!-- <ResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')" :active="route().current('api-tokens.index')">
                                 API Tokens
-                            </ResponsiveNavLink>
+                            </ResponsiveNavLink> -->
 
                             <!-- Authentication -->
                             <form method="POST" @submit.prevent="logout">
                                 <ResponsiveNavLink as="button">
-                                    Log Out
+                                    Keluar
                                 </ResponsiveNavLink>
                             </form>
 

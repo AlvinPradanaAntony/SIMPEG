@@ -1,7 +1,6 @@
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
 import Navbar from "../Components/Navbar.vue";
-import Accordion from "../Components/Accordion.vue";
 import('./../../assets/css/bootstrap/bootstrap.min.css');
 import("./../../assets/css/style.css");
 import("./../../assets/js/custom.js");
@@ -37,7 +36,6 @@ defineProps({
         </div>
       </div>
       <!-- Faq -->
-      <Accordion></Accordion>
       <div class="create-tiket py-5">
           <div class="justify-content-center text-center">
             <h2>Ada pertanyaan lain ?</h2>

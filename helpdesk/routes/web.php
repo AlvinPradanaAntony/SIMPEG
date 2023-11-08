@@ -3,6 +3,9 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\LevelController;
 
 Route::get('/', function () {
     return Inertia::render('LandingPage', [
@@ -26,4 +29,6 @@ Route::middleware([
     })->name('verification');
 });
 
-// Route ::get('/faq', 'FaqController@index'); // Menampilkan semua data FAQ
+Route::get("/tickets", [TicketController::class, 'index']);
+Route::get("/statuses", [StatusController::class, 'index']);
+Route::get("/levels", [LevelController::class, 'index']);

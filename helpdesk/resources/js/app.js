@@ -25,3 +25,5 @@ createInertiaApp({
         color: "#4B5563",
     },
 });
+
+Vue.component('ticket-index', require('./components/TicketIndex.vue').default);
