@@ -25,15 +25,20 @@ use Inertia\Inertia;
 // });
 
 Route::get('/', function () {
-    return Inertia::render('LandingPageFAQ');
-})->name('landingpagefaq');
+    return Inertia::render('LandingPage',[
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+})->name('landingpage');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-});
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/faq', function () {
+//         return Inertia::render('LandingPage');
+//     })->name('faq');
+// });

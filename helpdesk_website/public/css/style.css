@@ -12,7 +12,7 @@
   src: url(../fonts/Inter-Regular.ttf);
 }
 @font-face {
-  font-family: NunitoSans Regular;
+  font-family: NunitoSansRegular;
   src: url(../fonts/NunitoSans_10pt-Regular.ttf);
 }
 @font-face {
@@ -20,15 +20,15 @@
   src: url(../fonts/NunitoSans_10pt-Bold.ttf);
 }
 @font-face {
-  font-family: NunitoSans SemiBold;
+  font-family: NunitoSansSemiBold;
   src: url(../fonts/NunitoSans_10pt-SemiBold.ttf);
 }
 @font-face {
-  font-family: NunitoSans ExtraBold;
+  font-family: NunitoSansExtraBold;
   src: url(../fonts/NunitoSans_10pt-ExtraBold.ttf);
 }
 @font-face {
-  font-family: NunitoSans Light;
+  font-family: NunitoSansLight;
   src: url(../fonts/NunitoSans_10pt-Light.ttf);
 }
 
@@ -58,7 +58,7 @@
   --scroll-thumb-hover-color: hsl(var(--hue-color), 8%, 50%);
 
   /*========== Font and typography ==========*/
-  --body-font: NunitoSans Regular;
+  --body-font: NunitoSansRegular;
 
   /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
   --big-font-size: 2rem;
@@ -272,6 +272,305 @@ a {
   cursor: pointer;
 }
 
+/*==================== FAQ Pages ====================*/
+/* .wrapper {
+  height: 100vh;
+  overflow: auto;
+} */
+.navbar{
+  padding: 10px !important;
+}
+.navbar.shadowNavbar {
+  box-shadow: 0px 4px 22px rgba(69, 69, 69, 0.08) !important;
+}
+.navbar .header-logo {
+  display: flex;
+  align-items: center;
+}
+.navbar .header-logo a {
+  display: flex;
+  align-items: center;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.brand-text {
+  font-family: InterBold;
+  font-size: 1.125rem;
+  color: var(--title-color);
+}
+.brand-text small {
+  font-family: InterRegular;
+  display: block;
+  font-size: 0.625rem;
+}
+.navbar .nav-item .nav__notif {
+  font-size: 1.375rem;
+}
+.navbar .nav-item .nav__notif .badge {
+  font-size: 0.625rem;
+  left: 10px;
+  top: 0px;
+  border: 2px solid #fff;
+}
+.navbar .nav-item .nav__notif .bell {
+  -webkit-animation-name: tada;
+  animation-name: tada;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.navbar .nav-item .account-container.login {
+  border: 0;
+  width: 100%;
+  height: 38px;
+  background-color: var(--first-color);
+  color: #fff;
+  font-size: var(--small-font-size);
+  padding: 6px 25px;
+}
+.navbar .nav-item .account-container {
+  height: auto;
+  padding: 4px;
+  border-radius: 30px;
+  background-color: var(--container-color);
+  border: 1px solid var(--first-color);
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+}
+.navbar .nav-item .account-container img {
+  padding: 2px;
+}
+.navbar .nav-item .account-container .user-name {
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  color: var(--title-color);
+}
+.custom-rounded {
+  background-color: var(--container-color);
+  border-radius: 8px !important;
+  box-shadow: 0px 4px 22px rgb(69 69 69 / 8%) !important;
+  transform: translate(0px, 11px);
+}
+.custom-rounded li a.dropdown-item,
+.custom-rounded .noti-body .dropdown-item {
+  color: var(--title-color);
+  font-family: InterRegular;
+  font-size: var(--small-font-size);
+}
+.custom-rounded li a.dropdown-item:hover,
+.custom-rounded .noti-body .dropdown-item:hover {
+  background-color: #f8f8f8;
+  color: var(--first-color);
+  font-weight: 600;
+}
+.custom-rounded .notify-all.dropdown-item,
+.custom-rounded .notify-all.dropdown-item:hover {
+  background-color: transparent;
+}
+.custom-rounded li .dropdown-divider {
+  border-color: #f1f1f1;
+}
+.dropdown-menu.dropdown-menu-end{
+  transform: translate(0, 13px);
+}
+.dropdown-menu.dropdown-menu-center {
+  transform: translate(-58%, 13px);
+}
+.custom-rounded.notification {
+  width: 345px;
+}
+.notification .dropdown-item.noti-title {
+  background-color: transparent;
+  padding: 15px 20px;
+}
+.notification .dropdown-item.noti-title h5 {
+  font-size: var(--normal-font-size);
+  font-weight: 700;
+}
+.notification .dropdown-item.noti-title h5 span {
+  font-size: var(--small-font-size);
+  font-weight: 500;
+}
+.notification .noti-body {
+  max-height: 232px;
+  overflow: hidden auto;
+}
+.notification .notify-item {
+  padding: 10px 20px;
+}
+.notification .notify-item .notify-icon {
+  float: left;
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  margin-right: 10px;
+  border-radius: 50%;
+  color: #fff;
+}
+.notification .notify-item p.notify-details {
+  font-size: var(--small-font-size);
+  margin-bottom: 0;
+  overflow: hidden;
+  margin-left: 45px;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+.custom-rounded .notify-item .notify-details small {
+  display: block;
+}
+.search-banner {
+  padding: 120px 0 60px;
+}
+.search-banner.has-bg {
+  position: relative;
+  overflow: hidden;
+  color: var(--title-color);
+}
+.search-banner.has-bg .bg-cover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url("../img/bg-login.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(0.7);
+  transition: ease-in-out 0.5s;
+}
+.search-banner.has-bg .container {
+  position: relative;
+}
+
+.search-banner h1 {
+  color: #fff;
+  font-family: NunitoSans ExtraBold;
+  font-size: var(--h1-font-size);
+  text-align: center;
+  margin: 10px 0 20px;
+  text-shadow: 5px 5px 15px rgb(0, 0, 0);
+}
+.search-banner .input-group {
+  margin-bottom: 30px;
+}
+.search-banner .form-control {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 1rem;
+  border: none;
+  height: 46px;
+  border-radius: 6px;
+}
+.search-banner .form-control:focus {
+  box-shadow: none !important;
+}
+.search-banner .btn {
+  background: #fff;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: var(--text-color);
+  border-radius: 6px;
+  border: none;
+}
+.search-banner .btn:active {
+  background: #fff;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: var(--first-color);
+  border-radius: 6px;
+  border: none;
+}
+.search-banner .btn:hover {
+  color: var(--first-color);
+  font-weight: 600;
+}
+.create-tiket {
+  display: none;
+}
+.btn-create-ticket:link,
+.btn-create-ticket:visited {
+  font-weight: var(--font-semi-bold);
+  color: var(--first-color);
+  padding: 10px 30px;
+  border: 1px solid var(--first-color);
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+.btn-create-ticket:hover {
+  background-color: var(--first-color);
+  transform: translateY(-5px);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(27, 27, 27, 0.5);
+}
+.btn-create-ticket:active {
+  transform: translateY(-3px);
+}
+.btn-create-ticket::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s;
+}
+/* .btn-create-ticket:hover::after {
+  background-color: rgb(0, 238, 255);
+  transform: scaleX(1.4) scaleY(1.5);
+  opacity: 0;
+} */
+.footer {
+  background-color: #fafbfe;
+}
+.footer p,
+.footer .nav-link {
+  color: var(--text-color-light);
+}
+.accordion-custom .accordion-item {
+  border: none !important;
+  border-radius: 1.25rem !important;
+}
+.accordion-custom .accordion-button.collapsed {
+  background-color: var(--container-color);
+  border-radius: 1.25rem !important;
+  color: var(--title-color) !important;
+}
+.accordion-custom .accordion-button.collapsed::after {
+  filter: none;
+}
+.accordion-custom .accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+.accordion-custom .accordion-button {
+  background-color: var(--first-color-alt);
+  color: #fff !important;
+  border-radius: 1.25rem !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.accordion-custom .accordion-button:focus {
+  box-shadow: none !important;
+}
+.accordion-shadow {
+  box-shadow: 0rem 0.3125rem 0.3125rem 0rem hsl(173deg 25% 33% / 5%);
+}
+.social-list-item {
+  height: 2rem;
+  width: 2rem;
+  line-height: calc(2rem - 2px);
+  display: block;
+  border: 2px solid #adb5bd;
+  border-radius: 50%;
+  color: #adb5bd;
+}
+
 
 /*==================== Sweetalert Custom ====================*/
 .swal2-popup {
@@ -279,7 +578,7 @@ a {
   font-size: 0.825rem;
 }
 .swal2-title {
-  font-family: NunitoSans ExtraBold;
+  font-family: NunitoSansExtraBold;
   font-size: var(--h3-font-size);
   font-weight: 600;
   color: var(--title-color);

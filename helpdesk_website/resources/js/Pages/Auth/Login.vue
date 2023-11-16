@@ -31,8 +31,7 @@ const submit = () => {
 };
 </script>
 <script>
-// Import fungsi dari custom2.js
-import customScript from "../../../../public/js/custom"; // Sesuaikan path sesuai dengan struktur proyek Anda
+import customScript from '@js/custom';
 
 export default {
   data() {
@@ -56,7 +55,6 @@ export default {
     }
   },
   mounted() {
-    // Panggil fungsi setelah komponen dimuat
     customScript();
   }
 };

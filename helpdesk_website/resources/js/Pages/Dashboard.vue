@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Welcome from '@/Components/Welcome.vue';
 </script>
@@ -18,9 +18,12 @@ import Welcome from '@/Components/Welcome.vue';
           <div class="p-6 bg-white border-b border-gray-200">
             You're logged in!
           </div>
-          <!-- <Welcome /> -->
+          <Welcome />
         </div>
       </div>
     </div>
   </AppLayout>
+</template> -->
+<template>
+  <h1>Dashboard</h1>
 </template>
