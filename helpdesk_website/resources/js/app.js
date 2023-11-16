@@ -1,17 +1,21 @@
 import './bootstrap';
-import '../css/app.css';
+import '../../public/css/style.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../../public/js/custom2'
+// import '../css/app.css';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import Unicon from 'vue-unicons'
-import { uniLayerGroupMonochrome, uniCarWash } from 'vue-unicons/dist/icons'
+import { uniUsersAlt, uniPadlock, uniEye, uniEyeSlash } from 'vue-unicons/dist/icons'
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle';
 
 
+
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
-Unicon.add([uniLayerGroupMonochrome, uniCarWash])
+Unicon.add([uniUsersAlt, uniPadlock, uniEye, uniEyeSlash])
 
 createInertiaApp({
     title: (title) => `${title} - Helpdesk`,
