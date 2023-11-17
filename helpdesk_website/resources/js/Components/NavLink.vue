@@ -1,6 +1,9 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
 
+defineProps({
+  canLogin: Boolean,
+});
 </script>
 
 <template>
@@ -82,37 +85,38 @@ import { Link } from '@inertiajs/vue3';
           </div>
         </div>
       </li>
-      <li class="nav-item" id="btn_login">
-        <Link class="nav-link d-flex align-items-center account-container login" aria-current="page" href="/login">Masuk
-        </Link>
-      </li>
-      <li class="nav-item dropdown d-none" id="account_login">
-        <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          <div class="account-container d-flex gap-1">
-            <img class="rounded-circle object-fit-cover" src="img/placeholder_profile.png" width="28" height="28"
-              alt="logo-profile" />
-            <span class="align-self-center user-name pe-2" id="user_account"> User </span>
-          </div>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
-          <li>
-            <a class="dropdown-item" href="#">
-              <i class="uil uil-user me-1"></i>
-              <span>Lihat Profil</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-          <li>
-            <Link class="dropdown-item" href="/">
-            <i class="uil uil-sign-out-alt me-1"></i>
-            <span>Keluar</span>
-            </Link>
-          </li>
-        </ul>
-      </li>
+      <div v-if="canLogin">
+        <li v-if="$page.props.auth.user" class="nav-item dropdown" id="account_login">
+          <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <div class="account-container d-flex gap-1">
+              <img class="rounded-circle object-fit-cover" src="img/placeholder_profile.png" width="28" height="28"
+                alt="logo-profile" />
+              <span class="align-self-center user-name pe-2" id="user_account"> User </span>
+            </div>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
+            <li>
+              <a class="dropdown-item" href="#">
+                <i class="uil uil-user me-1"></i>
+                <span>Lihat Profil</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <Link class="dropdown-item" href="/">
+              <i class="uil uil-sign-out-alt me-1"></i>
+              <span>Keluar</span>
+              </Link>
+            </li>
+          </ul>
+        </li>
+        <li v-else class="nav-item" id="btn_login">
+          <Link class="nav-link d-flex align-items-center account-container login" href="/login">Masuk</Link>
+        </li>
+      </div>
     </ul>
   </div>
 </template>

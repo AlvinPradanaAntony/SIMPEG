@@ -121,10 +121,10 @@ html {
 }
 
 body {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  background-color: var(--container-color);
-  color: var(--text-color);
+  font-family: var(--body-font) !important;
+  font-size: var(--normal-font-size) !important;
+  background-color: var(--container-color) !important;
+  color: var(--text-color) !important;
 }
 body.page-wrapper {
   overflow: hidden;
@@ -281,7 +281,7 @@ a {
   padding: 10px !important;
 }
 .navbar.shadowNavbar {
-  box-shadow: 0px 4px 22px rgba(69, 69, 69, 0.08) !important;
+  box-shadow: 0px 4px 10px rgba(69, 69, 69, 0.08) !important;
 }
 .navbar .header-logo {
   display: flex;
@@ -447,7 +447,7 @@ a {
 
 .search-banner h1 {
   color: #fff;
-  font-family: NunitoSans ExtraBold;
+  font-family: NunitoSansExtraBold;
   font-size: var(--h1-font-size);
   text-align: center;
   margin: 10px 0 20px;
@@ -537,7 +537,7 @@ a {
   border-radius: 1.25rem !important;
 }
 .accordion-custom .accordion-button.collapsed {
-  background-color: var(--container-color);
+  background-color: var(--container-color) !important;
   border-radius: 1.25rem !important;
   color: var(--title-color) !important;
 }
@@ -548,7 +548,7 @@ a {
   filter: brightness(0) invert(1);
 }
 .accordion-custom .accordion-button {
-  background-color: var(--first-color-alt);
+  background-color: var(--first-color-alt) !important;
   color: #fff !important;
   border-radius: 1.25rem !important;
   border-bottom-left-radius: 0 !important;
@@ -593,6 +593,17 @@ a {
 .swal2-cancel {
   min-width: 100px;
   border-radius: 20px !important;
+}
+
+/*==================== Media Query ====================*/
+@media (min-width: 768px) {
+  .search-banner .container {
+    max-width: 720px;
+  }
+  .search-banner.has-bg .bg-cover {
+    background-position-y: -182px;
+    transition: ease-in-out 0.5s;
+  }
 }
 
 /*==================== Rating Custom ====================*/
