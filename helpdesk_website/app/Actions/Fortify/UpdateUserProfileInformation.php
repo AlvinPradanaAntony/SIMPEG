@@ -20,6 +20,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'nip' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'max:255'],
+            'birth_place' => ['required', 'string', 'max:255'],
+            'birth_date' => ['required', 'date'],
+            'address' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
+            'religion' => ['required', 'string', 'max:255'],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
@@ -34,6 +41,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'nip' => $input['nip'],
+                'gender' => $input['gender'],
+                'birth_place' => $input['birth_place'],
+                'birth_date' => $input['birth_date'],
+                'address' => $input['address'],
+                'phone' => $input['phone'],
+                'religion' => $input['religion'],
             ])->save();
         }
     }
@@ -48,6 +62,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $user->forceFill([
             'name' => $input['name'],
             'email' => $input['email'],
+            'nip' => $input['nip'],
+            'gender' => $input['gender'],
+            'birth_place' => $input['birth_place'],
+            'birth_date' => $input['birth_date'],
+            'address' => $input['address'],
+            'phone' => $input['phone'],
+            'religion' => $input['religion'],
             'email_verified_at' => null,
         ])->save();
 
