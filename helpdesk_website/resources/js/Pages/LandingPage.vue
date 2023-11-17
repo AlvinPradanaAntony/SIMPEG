@@ -1,4 +1,5 @@
 <script setup>
+import { Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Footer from '@/Components/Footer.vue';
 defineProps({
@@ -211,7 +212,7 @@ export default {
           <img src="img/abstract_question.svg" alt="" height="300">
           <h2>Ada pertanyaan lain ?</h2>
           <p>Anda dapat bertanya pertanyaan yang belum tersedia di FAQ dan meminta bantuan dengan tiket.</p>
-          <a href="formtiket.html" class="btn-create-ticket d-inline-block position-relative mt-3">Buat Tiket Baru</a>
+          <Link href="/formticket" class="btn-create-ticket d-inline-block position-relative mt-3">Buat Tiket Baru</Link>
         </div>
       </div>
     </div>

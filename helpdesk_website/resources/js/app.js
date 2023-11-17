@@ -33,7 +33,10 @@ Unicon.add([
 ]);
 
 createInertiaApp({
-    title: (title) => `${title} - Helpdesk`,
+    title: (title) => {
+        const isAdminRoute = window.location.pathname.startsWith("/admin");
+        return isAdminRoute ? `${title} - Helpdesk Admin` : `${title} - Helpdesk`;
+    },
     resolve: (name) =>
         resolvePageComponent(
             `./Pages/${name}.vue`,

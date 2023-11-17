@@ -33,6 +33,28 @@ Route::get('/', function () {
     ]);
 })->name('landingpage');
 
+Route::get('/trackingticket', function () {
+    return Inertia::render('Ticket/TrackingTicket',[
+        'canLogin' => Route::has('login'),
+    ]);
+})->name('trackingticket');
+
+Route::get('/formticket', function () {
+    return Inertia::render('Ticket/Index',[
+        'canLogin' => Route::has('login'),
+    ]);
+})->name('formticket');
+
+Route::get('/detailticket', function () {
+    return Inertia::render('Ticket/DetailTicket',[
+        'canLogin' => Route::has('login'),
+    ]);
+})->name('detailticket');
+
+Route::get('/admin/dashboard', function () {
+    return Inertia::render('Admin/Index');
+})->name('admin.dashboard');
+
 
 // Route::middleware([
 //     'auth:sanctum',
