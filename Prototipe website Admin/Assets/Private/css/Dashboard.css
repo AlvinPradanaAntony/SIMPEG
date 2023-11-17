@@ -670,11 +670,11 @@ input[type="search"]:focus {
 }
 
 #myChart1 {
-  width: 270px !important;
-  height: 250px !important;
+  width: 200px !important;
+  height: 200px !important;
   margin-left: 100px ;
   
-  margin-top: 20px;
+  margin-top: 30px;
   
     /* Tambahkan aturan CSS lainnya sesuai keinginan Anda */
 }
@@ -712,6 +712,8 @@ button:active {
     background-color: #263238 ;
     color: #fefefe;
     
+    
+    
   }
 
 .chart-rating {
@@ -725,6 +727,7 @@ button:active {
 
 .card-chart {
   padding: 0px !important;
+  
 }
 .chart-pegawai {
   margin-top: 10px !important;
@@ -754,9 +757,14 @@ button:active {
   background-color: #263238 ;
   color: #fefefe;
   
+  
+  
 }
 
-
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
 
 .new-tiket h2 {
   font-size: 10px ;
@@ -766,5 +774,43 @@ button:active {
   padding: 10px;
   background-color: #263238 ;
   color: #fefefe;
+  margin-bottom: 20px;
 }
 
+.review {
+  border-bottom:   1px solid rgb(100, 98, 98);
+  padding: 1px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: space-between; /* Menempatkan elemen sejajar dengan sebelah kiri dan kanan */
+  align-items: start; /* Memastikan elemen sejajar secara vertikal */
+}
+
+.profile-image {
+  width: 60px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.reviewer-rating {
+  display: flex;
+  align-items: end;
+}
+
+
+.reviewer {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.rating {
+  color: #FFD700; /* Warna kuning untuk bintang */
+  margin-right: 20px;
+}
+
+.comment {
+  margin-top: 5px;
+  font-size: 10px;
+}

@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.189/pdf_viewer.min.css" integrity="sha512-9uknW5oN7ouvfOCw5wxRC3O9LmGrH3jhuCjcHnAHNvkP4s7Z5X0rWXxHHM0LcyWT/aBIMan/lCJHJtQx8eEAyg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.189/pdf.min.mjs"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
- 
+  
 
 </head>
 
@@ -257,7 +257,7 @@
           <div class="row">
             <div class="col-12 chart-tiket">
               <h2>Tiket yang masuk ke bidang perbulannya
-                <!-- <div class="dropdown dropdown-laporan ">
+                <div class="dropdown dropdown-laporan ">
                   <button class="btn dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Unduh Laporan
                   </button>
@@ -266,10 +266,10 @@
                     <li><a class="dropdown-item" href="javascript:void(0);" onclick="downloadReport('bulanan')">Bulanan</a></li>
                     <li><a class="dropdown-item" href="javascript:void(0);" onclick="downloadReport('tahunan')">Tahunan</a></li>
                   </ul>
-                </div> -->
-                <div class="button-container">
-                  <button onclick="downloadPDF()">Unduh Laporan</button>
                 </div>
+                <!-- <div class="button-container">
+                  <button onclick="downloadPDF()">Unduh Laporan</button>
+                </div> -->
                 
               </h2>
               
@@ -300,24 +300,72 @@
                   <div class="card chart-rating">
                     <div class="card-body card-chart">
                       <h2>Banyaknya pegawai yang telah membuat tiket</h2>
-                       <canvas id="myChart3" style="width: 200px; max-width: 160px; height: 50px;"></canvas>
+                       <canvas id="myChart3" style="width: 400px; max-width: 460px; height: 400px; margin-top: 28px;"></canvas>
+                        - Percentage pegawai and tiket-
+                        ////////////////////////////////
+                        ////////////////////////////////
+                        ////////////////////////////////
+                        ////////////////////////////////
+                        ////////////////////////////////
+                        ////////////////////////////////
+                        ////////////////////////////////
+                       
+                       
+                     
+
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 new-tiket">
+            <div class="col-md-5 new-tiket">
               <div class="card ">
                 <div class="card-body card-chart">
                   <h2>Ulasan pegawai pada pelayanan tiket</h2>
-              aaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaa
-              aaaaaaaaaaaaaaaaaaaa
+                  <div class="review">
+                    <img class="profile-image" src="Assets/Private/img/cat.png" alt="Profile Image">
+                    <div>
+                        <div class="reviewer">Pegawai 2</div>
+                        <div class="comment">Lorem ipsum dolor sit amet consectetur. Odio amet nibh est eget pharetra aliquam velit amet. Platea lorem arcu id sagittis mauris cursus maecenas.</div>
+                    </div>
+                    <div class="rating">★★★★★</div>
+                </div>
+            
+                <div class="review">
+                  <img class="profile-image" src="Assets/Private/img/female.png" alt="Profile Image">
+                  <div>
+                      <div class="reviewer">Pegawai 3</div>
+                      <div class="comment">Lorem ipsum dolor sit amet consectetur. Odio amet nibh est eget pharetra aliquam velit amet. Platea lorem arcu id sagittis mauris cursus maecenas.</div>
+                  </div>
+                  <div class="rating">★★★☆☆</div>
+              </div>
+            
+                <div class="review">
+                  <img class="profile-image" src="Assets/Private/img/male.png" alt="Profile Image">
+                  <div>
+                      <div class="reviewer">Pegawai 5</div>
+                      <div class="comment">Lorem ipsum dolor sit amet consectetur. Odio amet nibh est eget pharetra aliquam velit amet. Platea lorem arcu id sagittis mauris cursus maecenas.</div>
+                  </div>
+                  <div class="rating">★★★☆☆</div>
+              </div>
+
+              <div class="review">
+                <img class="profile-image" src="Assets/Private/img/cat.png" alt="Profile Image">
+                <div>
+                    <div class="reviewer">Pegawai 2</div>
+                    <div class="comment">Lorem ipsum dolor sit amet consectetur. Odio amet nibh est eget pharetra aliquam velit amet. Platea lorem arcu id sagittis mauris cursus maecenas.</div>
+                </div>
+                <div class="rating">★★☆☆☆</div>
+            </div>
+
+            <div class="review">
+              <img class="profile-image" src="Assets/Private/img/cat.png" alt="Profile Image">
+              <div>
+                  <div class="reviewer">Pegawai 3</div>
+                  <div class="comment">Lorem ipsum dolor sit amet consectetur. Odio amet nibh est eget pharetra aliquam velit amet. Platea lorem arcu id sagittis mauris cursus maecenas.</div>
+              </div>
+              <div class="rating">★★★★★</div>
+          </div>
                 </div>
               </div>
             </div>
@@ -336,7 +384,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
 
+
+
 <script>
+ //=======================================================//
+     //Tiket Yang masuk ke bidang perbulannya (myChart)
+
   function downloadChartReport(reportType) {
     const chartCanvas = document.getElementById('myChart');
     html2canvas(chartCanvas).then(canvas => {
@@ -347,6 +400,8 @@
     });
   }
   
+
+// const singleData = { x: 'Bidang satu', y: 4 };
 const ctx = document.getElementById('myChart');
 new Chart(ctx, {
   type: 'bar',
@@ -403,7 +458,7 @@ new Chart(ctx, {
       {
         label: 'Bidang lima',
         data: [
-          { x: 'Bidang lima', y: 0.3 },
+          { x: 'Bidang lima', y: 4 },
         ],
         backgroundColor: 'rgba(151, 71, 255, 1)', // Warna Bidang 5
         borderColor: 'rgba(151, 71, 255, 1)',
@@ -469,14 +524,56 @@ new Chart(ctx, {
       borderColor
     return tooltipBackgroundColor
   }
-</script>
 
-<script>
+         //=======================================================//
+              //Tiket Yang masuk ke bidang perbulannya (myChart1)
+
+              const datapoint1 = [4, 5, 8, 5.1, 4, ];
+  const ctx1 = document.getElementById('myChart1');
+
+  // Warna yang sesuai dengan jumlah data pada datapoint1
+  const colors = ['rgba(109, 161, 62, 1)', 'rgba(19, 128, 255, 1)', 'rgba(212, 89, 0, 1)', 'rgba(251, 212, 65, 1)', 'rgba(151, 71, 255, 1)'];
+
+  new Chart(ctx1, {
+    type: 'doughnut',
+    data: {
+      labels: ['Bidang Satu', 'Bidang Dua', 'Bidang Tiga', 'Bidang Empat', 'Bidang Lima',],
+      datasets: [{
+        label: '# of Votes',
+        data: datapoint1,
+        backgroundColor: colors,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      cutout: '73%',
+      elements: {
+        arc: {
+          borderWidth: 0
+        }
+      },
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'black',
+          fontSize: 14,
+          position: 'outside'
+        }
+      }
+    }
+  });
+
+  //=======================================================//
+        //Rating Pelayanan tiket perbidang (myChart2)
+
   const ctx2 = document.getElementById('myChart2');
   new Chart(ctx2, {
     type: 'bar',
     data: {
-      datasets: [
+      datasets: [ 
         {
           label: 'Bidang satu',
           data: [
@@ -579,7 +676,7 @@ new Chart(ctx, {
         callbacks: {
             label: function(context) {
               // context adalah objek yang berisi informasi tooltip
-              return 'Star ' + context.parsed.y;
+              return '★★★★★ ' + context.parsed.y;
             }
           }
       }  
@@ -594,65 +691,56 @@ new Chart(ctx, {
         borderColor
       return tooltipBackgroundColor
     }
-  </script>
-<script>
-  const datapoint1 = [12, 19, 3, 5, 2, 3];
-  const ctx1 = document.getElementById('myChart1');
+ 
 
-  new Chart(ctx1, {
-    type: 'doughnut',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+     //=======================================================//
+        //Banyaknya pegawai yang telah membuat tiket (myChart3)
+
+
+   // const labels = [
+    //   'January',
+    //   'February',
+    //   'March',
+    //   'April',
+    //   'May',
+    //   'June',
+    // ];
+  
+    const data = {
+      labels: ['status'],
       datasets: [{
-        label: '# of Votes',
-        data: datapoint1,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      cutout: '73%',
-      elements: {
-        arc: {
-          borderWidth: 0
-        }
+        label: 'Bidang Satu',
+        data: [10],
+        backgroundColor: 'RGB(251, 212, 65)',
+        
+        
       },
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'black',
-          fontSize: 14,
-          position: 'outside'
-        }
-      }
-    }
-  });
-</script>
-
-
-<script>
-  const ctx3 = document.getElementById('myChart3');
-
-  new Chart(ctx3, {
-  type: 'bar',
-  data: {
-    labels: ['Red', 'Blue'],
-    datasets: [{
-      label: '# of Votes',
-      data: [4,3],
-      borderWidth: 1,
-      barPercentage: 0.5,
-      categoryPercentage: 1.0,
-      backgroundColor: ['rgba(93, 167, 184)', 'rgba(226, 28, 28)'], // Warna latar belakang berbeda untuk setiap data
-      borderColor: ['rgba(93, 167, 184)', 'rgba(226, 28, 28)'], // Warna tepi berbeda untuk setiap data
-      fill: false,
-    }]
-  },
-    options: {
+      {
+        label: 'Pegawai',
+        data: [40],
+        backgroundColor: ' RGB(93, 167, 184)',
+        
+        
+      }]
+    };
+  
+    const config = {
+      type: 'bar',
+      data: data,
+      options: {
       indexAxis: 'y',
+      aspectRatio: 9,
       scales: {
+        y: {
+          beginAtZero: true,
+            stacked: true,
+          ticks: {
+            display: false,
+            stepSize: 1,
+            max: 40, 
+            min: 0
+          }
+        },
         x: {
           beginAtZero: true,
           display: false,
@@ -660,25 +748,7 @@ new Chart(ctx, {
             display: false,
           }
         },
-        y: {
-          beginAtZero: true,
-          grid: {
-            display: false,
-            drawTicks: true,
-          },
-          plugins: {
-            legend: {
-              display: false
-            },
-            
-          },
-          ticks: {
-            display: false,
-            stepSize: 1,
-            max: 40, // Sesuaikan nilai maksimum sesuai kebutuhan
-            min: 0
-          }
-        }
+        
       },
       plugins: {
         legend: {
@@ -686,9 +756,60 @@ new Chart(ctx, {
         },
       },
     },
-    // plugins: [ChartDataLabels]
+    };
+
+    const myChart = new Chart(
+      document.getElementById('myChart3'),
+      config
+    );
+  // const ctx3 = document.getElementById('');
+
+  // new Chart(ctx3, {
+  // type: 'bar',
+  // data: {
+  //   labels: ['Red', 'Blue'],
+  //   datasets: [{
+  //     label: '# of Votes',
+  //     data: [4,3],
+  //     borderWidth: 1,
+  //     barPercentage: 0.5,
+  //     categoryPercentage: 1.0,
+  //     backgroundColor: ['rgba(93, 167, 184)', 'rgba(226, 28, 28)'], 
+  //     borderColor: ['rgba(93, 167, 184)', 'rgba(226, 28, 28)'], 
+  //     fill: false,
+  //   }]
+  // },
+  //   options: {
+  //     indexAxis: 'y',
+  //     scales: {
+  //       y: {
+  //         beginAtZero: true,
+  //           stacked: true,
+  //         ticks: {
+  //           display: false,
+  //           stepSize: 1,
+  //           max: 40, 
+  //           min: 0
+  //         }
+  //       },
+  //       x: {
+  //         beginAtZero: true,
+  //         display: false,
+  //         grid: {
+  //           display: false,
+  //         }
+  //       },
+        
+  //     },
+  //     plugins: {
+  //       legend: {
+  //         display: false,
+  //       },
+  //     },
+  //   },
     
-  });
+    
+  // });
 </script>
 
 <!-- /*==================== LORDICON ====================*/ -->
