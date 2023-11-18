@@ -17,6 +17,10 @@ import {
     uniEnvelopeAdd,
     uniInfoCircle,
     uniClock,
+    uniApps, 
+    uniQuestionCircle,
+    uniBellSchool, 
+    uniSignOutAlt
 } from "vue-unicons/dist/icons";
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle";
 
@@ -30,6 +34,10 @@ Unicon.add([
     uniEnvelopeAdd,
     uniInfoCircle,
     uniClock,
+    uniApps, 
+    uniQuestionCircle,
+    uniBellSchool,
+    uniSignOutAlt
 ]);
 
 createInertiaApp({

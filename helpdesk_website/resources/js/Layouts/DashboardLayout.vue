@@ -2,6 +2,7 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import "../../../public/css/dashboard.css";
 
+
 defineProps({
   title: String,
 });
@@ -11,27 +12,26 @@ const logout = () => {
 };
 </script>
 <script>
-import dasboardScript from '@js/dashboard';
+import scriptDashboard from '@js/dashboard';
 
 export default {
   mounted() {
-    dasboardScript();
+    scriptDashboard();
   }
 };
 </script>
 
 <template>
   <div>
-
     <Head :title="title" />
     <div class="sidebar me-0" id="sidebar">
       <div class="logo-details">
-        <img src="/img/dashboard/logo.png" width="135" alt="Logo" id="logo_sidebar" />
+        <img src="/img/dashboard/logo.png" width="200" alt="Logo" id="logo_sidebar" />
       </div>
       <ul class="nav-links m-0" id="main">
         <li class="nav-item active">
           <a href="#" class="nav-link">
-            <i class="uil-apps"></i>
+            <unicon name="apps" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> Beranda </span>
           </a>
           <ul class="sub-menu blank">
@@ -40,7 +40,7 @@ export default {
         </li>
         <li class="nav-item">
           <a data-bs-toggle="collapse" href="#data" aria-expanded="false" aria-controls="data" class="nav-link">
-            <i class="uil uil-database"></i>
+            <unicon name="users-alt" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> Pengguna </span>
             <span class="menu-arrow uil-angle-right"></span>
           </a>
@@ -58,7 +58,7 @@ export default {
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="uil uil-ticket"></i>
+            <unicon name="ticket" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> Tiket </span>
           </a>
           <ul class="sub-menu blank">
@@ -67,7 +67,7 @@ export default {
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="uil uil-question-circle"></i>
+            <unicon name="question-circle" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> FAQ </span>
           </a>
           <ul class="sub-menu blank">
@@ -76,7 +76,7 @@ export default {
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="uil uil-bell-school"></i>
+            <unicon name="bell-school" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> Dukungan </span>
           </a>
           <ul class="sub-menu blank">
@@ -87,7 +87,7 @@ export default {
           <hr class="sidebar-divider">
           <li class="nav-item">
             <a href="#" class="nav-link sign-out">
-              <i class="uil uil-sign-out-alt"></i>
+              <unicon name="sign-out-alt" class="me-2 unicon" width="20" height="30"/>
               <span style="vertical-align: middle" class="link_name">Logout</span>
             </a>
             <ul class="sub-menu blank">
@@ -118,7 +118,7 @@ export default {
                   <a class="nav-link dropdown-toggle nav-user" href="/#" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="account-user-avatar d-inline-block"><img
-                        src="https://lh3.googleusercontent.com/a-/AFdZucqo6Dh9Ac4R3nu0r3zqSf_tTEckvSc_0Vpdv8VGZA=s96-c"
+                        src="https://ui-avatars.com/api/?name=S+A&color=7F9CF5&background=EBF4FF"
                         class="cust-avatar img-fluid rounded-circle" /></span>
                     <span class="account-user-name">Alvin Pradana Antony</span><span
                       class="account-position">Student</span>

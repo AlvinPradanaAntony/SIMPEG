@@ -213,9 +213,9 @@ input[type="search"]:focus {
   box-shadow: 2px 0px 20px rgb(69 69 69 / 8%);
 }
 .sidebar .logo-details {
-  height: 60px;
+  height: 70px;
   width: 100%;
-  padding: 10px 40px 0 40px;
+  padding: 40px 40px 0 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -247,7 +247,9 @@ input[type="search"]:focus {
   list-style: none;
   transition: all 0.5s ease;
 }
-.sidebar .nav-item > .nav-link.sign-out {
+.sidebar .nav-item > .nav-link.sign-out,
+.sidebar .nav-item > .nav-link.sign-out .unicon{
+  fill: var(--first-color-second);
   color: var(--first-color-second);
 }
 .sidebar .nav-item .nav-link i {
@@ -257,6 +259,9 @@ input[type="search"]:focus {
   font-size: var(--h3-font-size);
   width: 20px !important;
   height: 30px !important;
+}
+.sidebar .nav-item .nav-link .unicon {
+  fill: var(--text-color-light);
 }
 .sidebar .nav-item .nav-link .link_name {
   font-size: var(--small-font-size);
@@ -316,6 +321,11 @@ input[type="search"]:focus {
 .sidebar .nav-item.active .nav-link {
   color: #ffffff !important;
   font-weight: var(--font-extra-bold) !important;
+}
+.sidebar .nav-item.active .nav-link .unicon{
+  fill: #ffffff;
+  stroke: #ffffff;
+  stroke-width: 0.5px;
 }
 .sidebar .nav-item.active:hover {
   border-radius: 25px;
@@ -492,7 +502,7 @@ input[type="search"]:focus {
   width: 78px;
 }
 .sidebar.close .sub-menu {
-  display: none;
+  display: none ;
 }
 .sidebar.close .sub-menu li a:hover {
   color: var(--first-color) !important;

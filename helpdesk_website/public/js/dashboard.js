@@ -1,5 +1,6 @@
 /*========== SHOW/HIDE PASSWORD INPUT ==========*/
 import $ from "jquery";
+import moment from "moment";
 
 const scriptDashboard = () => {
   /*========== SIDEBAR ACTIVE/DEACTIVATE ==========*/
@@ -7,6 +8,24 @@ const scriptDashboard = () => {
     $("#sidebar").toggleClass("close");
   });
 
+  /*========== COLLAPSE/ACCORDION ==========*/
+  // $(".collapse").on("show.bs.collapse", function () {
+  //   $(".collapse.show").each(function () {
+  //     $(this).collapse("hide");
+  //   });
+  // });
+
+  $(".nav-link").click(function () {
+    if ($(this).hasClass("collapsed")) {
+        $(this).parent().removeClass("nav-item-active");
+    } else {
+        $(this).parent().addClass("nav-item-active");
+        $(".accordion-item").not($(this).parent()).removeClass("nav-item-active");
+    }
+});
+
+
+  /*==================== DARK LIGHT THEME ====================*/
   var darkMode;
   if (localStorage.getItem("dark-mode")) {
     darkMode = localStorage.getItem("dark-mode");
@@ -22,27 +41,22 @@ const scriptDashboard = () => {
     $(".nameItem").text("Tema Terang");
     $("#theme-button").removeClass("uil-moon");
     $("#theme-button").addClass("uil-sun");
-    $("#logo_sidebar").attr("src", "Assets/Private/img/logoW.png");
-    $("#img_login").attr("src", "Assets/Private/img/auth-img-dark.png");
+    $("#logo_sidebar").attr("src", "img/logo.png");
 
     if ($("#sidebar").hasClass("close")) {
-      $("#logo_sidebar").fadeOut(150, function () {
-          $("#logo_sidebar").attr("src", "Assets/Private/img/logoLtW.png");
+      $("#logo_sidebar")
+        .fadeOut(150, function () {
+          $("#logo_sidebar").attr("src", "../img/dashboard/logo-pabar.png");
           $("#logo_sidebar").attr("width", "40");
         })
         .fadeIn(150);
     } else {
       $("#logo_sidebar")
         .fadeOut(150, function () {
-          $("#logo_sidebar").attr("src", "Assets/Private/img/logoW.png");
-          $("#logo_sidebar").attr("width", "135");
+          $("#logo_sidebar").attr("src", "../img/dashboard/logo1.png");
+          $("#logo_sidebar").attr("width", "200");
         })
         .fadeIn(150);
-      $("#img_login")
-        .fadeOut(100, function () {
-          $("#img_login").attr("src", "Assets/Private/img/auth-img-dark.png");
-        })
-        .fadeIn(100);
     }
   }
 
@@ -58,24 +72,18 @@ const scriptDashboard = () => {
       if ($("#sidebar").hasClass("close")) {
         $("#logo_sidebar")
           .fadeOut(150, function () {
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logoLt.png");
+            $("#logo_sidebar").attr("src", "../img/logo-pabar.png");
             $("#logo_sidebar").attr("width", "40");
           })
           .fadeIn(150);
       } else {
         $("#logo_sidebar")
           .fadeOut(150, function () {
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
-            $("#logo_sidebar").attr("width", "135");
+            $("#logo_sidebar").attr("src", "../img/dashboard/logo.png");
+            $("#logo_sidebar").attr("width", "200");
           })
           .fadeIn(150);
-        $("#img_login")
-          .fadeOut(100, function () {
-            $("#img_login").attr("src", "Assets/Private/img/auth-img.png");
-          })
-          .fadeIn(100);
       }
-      // set stored value to 'light'
       localStorage.setItem("dark-mode", "light");
     } else {
       $("#dark-dropdownItem").removeClass("uil-moon");
@@ -88,23 +96,17 @@ const scriptDashboard = () => {
       if ($("#sidebar").hasClass("close")) {
         $("#logo_sidebar")
           .fadeOut(150, function () {
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logoLtW.png");
+            $("#logo_sidebar").attr("src", "../img/logo-pabar.png");
             $("#logo_sidebar").attr("width", "40");
           })
           .fadeIn(100);
       } else {
         $("#logo_sidebar")
           .fadeOut(150, function () {
-            $("#img_login").attr("src", "Assets/Private/img/auth-img-dark.png");
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logoW.png");
-            $("#logo_sidebar").attr("width", "135");
+            $("#logo_sidebar").attr("src", "../img/dashboard/logo1.png");
+            $("#logo_sidebar").attr("width", "200");
           })
           .fadeIn(150);
-        $("#img_login")
-          .fadeOut(100, function () {
-            $("#img_login").attr("src", "Assets/Private/img/auth-img-dark.png");
-          })
-          .fadeIn(100);
       }
       // set stored value to 'dark'
       localStorage.setItem("dark-mode", "dark");
@@ -116,21 +118,19 @@ const scriptDashboard = () => {
       .fadeOut(150, function () {
         if ($("#sidebar").hasClass("close")) {
           if ($("body").hasClass("dark-theme")) {
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logoLtW.png");
+            $("#logo_sidebar").attr("src", "../img/dashboard/logo-pabar.png");
             $("#logo_sidebar").attr("width", "40");
           } else {
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logoLt.png");
+            $("#logo_sidebar").attr("src", "../img/dashboard/logo-pabar.png");
             $("#logo_sidebar").attr("width", "40");
           }
         } else {
           if ($("body").hasClass("dark-theme")) {
-            $("#img_login").attr("src", "Assets/Private/img/auth-img-dark.png");
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logoW.png");
-            $("#logo_sidebar").attr("width", "135");
+            $("#logo_sidebar").attr("src", "../img/dashboard/logo1.png");
+            $("#logo_sidebar").attr("width", "200");
           } else {
-            $("#img_login").attr("src", "Assets/Private/img/auth-img.png");
-            $("#logo_sidebar").attr("src", "Assets/Private/img/logo.png");
-            $("#logo_sidebar").attr("width", "135");
+            $("#logo_sidebar").attr("src", "../img/dashboard/logo.png");
+            $("#logo_sidebar").attr("width", "200");
           }
         }
       })
@@ -138,7 +138,7 @@ const scriptDashboard = () => {
   });
 
   /*==================== Waktu ====================*/
-  var interval = setInterval(function () {
+  setInterval(function () {
     var momentNow = moment();
     $("#date-part").html(momentNow.format("dddd").substring(0, 20) + ", " + momentNow.format("DD MMMM YYYY"));
     $("#time-part").html(momentNow.format("hh:mm:ss A"));
