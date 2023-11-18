@@ -4,12 +4,13 @@ defineProps({
   icon: String,
   title: String,
   data: String,
-  id: String,
+  color1: String,
+  color2: String,
 });
 </script>
 
 <template>
-  <div class="card status_dashboard" :id=id>
+  <div class="card status_dashboard" :style="{'--bg-card-color1': color1, '--bg-card-color2': color2}">
     <div class="card-body p-3">
       <div class="d-flex align-items-center">
         <div class="card-icon text-white">

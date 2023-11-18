@@ -97,6 +97,8 @@
   --body-color: #fafbfc;
   --container-color: #fff;
   --container-color2: #fff;
+  --bg-card-color1: #fff;
+  --bg-card-color2: #797373;
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
   --scroll-thumb-hover-color: hsl(var(--hue-color), 8%, 65%);
@@ -625,17 +627,8 @@ input[type="search"]:focus {
   border: none;
   box-shadow: 2px 0px 20px rgb(69 69 69 / 8%);
 }
-.home-section .content .card.status_dashboard#data1 {
-  background: linear-gradient(102.27deg, #29bb89 0%, #66e7ba 100%);
-}
-.home-section .content .card.status_dashboard#data2 {
-  background: linear-gradient(102.27deg, #8364e8 0%, #d397fa 100%);
-}
-.home-section .content .card.status_dashboard#data3 {
-  background: linear-gradient(102.27deg, #307bf4 0%, #19b0ec 100%);
-}
-.home-section .content .card.status_dashboard#data4 {
-  background: linear-gradient(102.27deg, #f64c18 0%, #ee9539 100%);
+.home-section .content .card.status_dashboard {
+  background: linear-gradient(102.27deg, var(--bg-card-color1) 0%, var(--bg-card-color2) 100%);
 }
 .home-section .content .card.status_dashboard .card-icon {
   width: 54px;
