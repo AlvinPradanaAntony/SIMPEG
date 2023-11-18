@@ -128,15 +128,17 @@ export default {
                     <li>
                       <a class="text-decoration-none" href="/profile">
                         <div class="dropdown-item custom-item-dropdown d-flex align-items-center">
-                          <i class="uil uil-user me-2"></i>
+                          <unicon name="user" class="me-2 unicon" width="14" height="14"/>
                           <span class="nameItem">My Profile</span>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item custom-item-dropdown d-flex align-items-center" href="/#">
-                        <i class="uil uil-sign-out-alt me-2"></i>
-                        <span class="nameItem">Sign Out</span>
+                      <a class="text-decoration-none" href="/profile">
+                        <div class="dropdown-item custom-item-dropdown d-flex align-items-center">
+                          <unicon name="sign-out-alt" class="me-2 unicon" width="14" height="14"/>
+                          <span class="nameItem">Logout</span>
+                        </div>
                       </a>
                     </li>
                   </ul>
