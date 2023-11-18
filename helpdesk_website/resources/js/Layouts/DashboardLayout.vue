@@ -46,7 +46,7 @@ export default {
           </a>
           <div class="collapse" id="data">
             <ul class="sub-menu">
-              <li><a class="link_name" href="#">DATA</a></li>
+              <li><a class="link_name" href="#">Pengguna</a></li>
               <li>
                 <a href="dataset.php">Lihat Dataset</a>
               </li>
@@ -62,7 +62,7 @@ export default {
             <span style="vertical-align: middle" class="link_name"> Tiket </span>
           </a>
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">TIKET</a></li>
+            <li><a class="link_name" href="#">Tiket</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -85,8 +85,8 @@ export default {
         </li>
         <div class="setting mt-5">
           <hr class="sidebar-divider">
-          <li class="nav-item">
-            <a href="#" class="nav-link sign-out">
+          <li class="nav-item sign-out">
+            <a href="#" class="nav-link">
               <unicon name="sign-out-alt" class="me-2 unicon" width="20" height="30"/>
               <span style="vertical-align: middle" class="link_name">Logout</span>
             </a>

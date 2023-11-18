@@ -9,21 +9,16 @@ const scriptDashboard = () => {
   });
 
   /*========== COLLAPSE/ACCORDION ==========*/
-  // $(".collapse").on("show.bs.collapse", function () {
-  //   $(".collapse.show").each(function () {
-  //     $(this).collapse("hide");
-  //   });
-  // });
-
   $(".nav-link").click(function () {
-    if ($(this).hasClass("collapsed")) {
+    if ($(this).attr("data-bs-toggle") == "collapse") {
+      if ($(this).hasClass("collapsed")) {
         $(this).parent().removeClass("nav-item-active");
-    } else {
+      } else {
         $(this).parent().addClass("nav-item-active");
         $(".accordion-item").not($(this).parent()).removeClass("nav-item-active");
+      }
     }
-});
-
+  });
 
   /*==================== DARK LIGHT THEME ====================*/
   var darkMode;
