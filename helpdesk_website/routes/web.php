@@ -15,15 +15,6 @@ use Inertia\Inertia;
 |
 */
 
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
-
 Route::get('/', function () {
     return Inertia::render('LandingPage',[
         'canLogin' => Route::has('login'),
@@ -54,6 +45,21 @@ Route::get('/detailticket', function () {
 Route::get('/admin/dashboard', function () {
     return Inertia::render('Admin/Index');
 })->name('admin.dashboard');
+Route::get('/admin/pengguna/pegawai', function () {
+    return Inertia::render('Admin/Pegawai');
+})->name('admin.pegawai');
+Route::get('/admin/pengguna/petugas', function () {
+    return Inertia::render('Admin/Petugas');
+})->name('admin.petugas');
+Route::get('/admin/ticket', function () {
+    return Inertia::render('Admin/Tiket');
+})->name('admin.tiket');
+Route::get('/admin/faq', function () {
+    return Inertia::render('Admin/Faq');
+})->name('admin.faq');
+Route::get('/admin/dukungan', function () {
+    return Inertia::render('Admin/Dukungan');
+})->name('admin.dukungan');
 
 
 // Route::middleware([

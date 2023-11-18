@@ -30,10 +30,10 @@ export default {
       </div>
       <ul class="nav-links m-0" id="main">
         <li class="nav-item active">
-          <a href="#" class="nav-link">
+          <Link :href="route('admin.dashboard')" class="nav-link">
             <unicon name="apps" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> Beranda </span>
-          </a>
+          </Link>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="#">Beranda</a></li>
           </ul>
@@ -48,37 +48,37 @@ export default {
             <ul class="sub-menu">
               <li><a class="link_name" href="#">Pengguna</a></li>
               <li>
-                <a href="dataset.php">Lihat Dataset</a>
+                <Link :href="route('admin.pegawai')">Pegawai</Link>
               </li>
               <li>
-                <a href="apps-ecommerce-products-details.html">Import Dataset</a>
+                <Link :href="route('admin.petugas')">Petugas (Bidang)</Link>
               </li>
             </ul>
           </div>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <Link :href="route('admin.tiket')" class="nav-link">
             <unicon name="ticket" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> Tiket </span>
-          </a>
+          </Link>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="#">Tiket</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <Link :href="route('admin.faq')" class="nav-link">
             <unicon name="question-circle" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> FAQ </span>
-          </a>
+          </Link>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="#">FAQ</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <Link :href="route('admin.dukungan')" class="nav-link">
             <unicon name="bell-school" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> Dukungan </span>
-          </a>
+          </Link>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="#">Dukungan</a></li>
           </ul>

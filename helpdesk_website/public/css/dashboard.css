@@ -611,6 +611,13 @@ input[type="search"]:focus {
 }
 
 /*==================== CONTENT ====================*/
+.home-section .content .card{
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  box-shadow: 2px 0px 20px rgb(69 69 69 / 8%);
+}
 .home-section .content .card.status_dashboard {
   border-radius: 16px;
   overflow: hidden;
