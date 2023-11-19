@@ -1,11 +1,15 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { Link, router } from '@inertiajs/vue3';
+import DropdownLink from '@/Components/DropdownLink.vue';
 
 defineProps({
   canLogin: Boolean,
 });
-</script>
 
+const logout = () => {
+  router.post(route('logout'));
+};
+</script>
 <template>
   <div>
     <ul class="navbar-nav">
@@ -90,26 +94,29 @@ defineProps({
           <a class="nav-link h-100 d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             <div class="account-container d-flex gap-1">
-              <img class="rounded-circle object-fit-cover" src="img/placeholder_profile.png" width="28" height="28"
-                alt="logo-profile" />
-              <span class="align-self-center user-name pe-2" id="user_account"> User </span>
+              <img class="rounded-circle object-fit-cover" :src="$page.props.auth.user.profile_photo_url"
+                :alt="$page.props.auth.user.name" width="28" height="28"
+                onerror="this.onerror=null; this.src='img/placeholder_profile.png';" />
+              <span class="align-self-center user-name pe-2" id="user_account"> {{ $page.props.auth.user.name }} </span>
             </div>
           </a>
-          <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
+          <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0" id="settings">
             <li>
               <a class="dropdown-item" href="#">
                 <i class="uil uil-user me-1"></i>
                 <span>Lihat Profil</span>
-              </a>
-            </li>
-            <li>
+            </a>
+          </li>
+          <li>
               <hr class="dropdown-divider" />
             </li>
             <li>
-              <Link class="dropdown-item" href="/">
-              <i class="uil uil-sign-out-alt me-1"></i>
-              <span>Keluar</span>
-              </Link>
+              <form @submit.prevent="logout">
+                <button class="dropdown-item" type="submit" id="logout">
+                    <i class="uil uil-sign-out-alt me-1"></i>
+                    <span>Keluar</span>
+                </button>
+              </form>
             </li>
           </ul>
         </li>

@@ -348,6 +348,15 @@ a {
   font-weight: 600;
   color: var(--title-color);
 }
+.navbar .nav-item .dropdown-item:active#logout{
+  color: var(--text-color);
+  background-color: #f8f8f8;
+}
+.navbar .nav-item .dropdown-item:hover#logout{
+  background-color: #f8f8f8 !important;
+  color: #fd5353 !important;
+  font-weight: 600 !important;
+}
 .custom-rounded {
   background-color: var(--container-color);
   border-radius: 8px !important;
@@ -375,6 +384,9 @@ a {
 }
 .dropdown-menu.dropdown-menu-end{
   transform: translate(0, 13px);
+}
+.dropdown-menu.dropdown-menu-end#settings{
+  transform: translate(0, 15px);
 }
 .dropdown-menu.dropdown-menu-center {
   transform: translate(-58%, 13px);
