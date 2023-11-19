@@ -23,8 +23,8 @@ const customScript = () => {
             input.attr("type", "password");
         }
     });
-    const searchInput = $(".form-control");
-    const accordionItems = $(".accordion-item");
+    const searchInput = $("#search_faq");
+    const accordionItems = $(".faq-content .accordion-item");
     const createTicketSection = $(".create-tiket");
     // Tambahkan event listener untuk input pencarian
     searchInput.on("input", function () {
@@ -43,7 +43,7 @@ const customScript = () => {
                 $(this).css("display", "block");
                 accordionButton.removeClass("collapsed");
                 accordionCollapse.addClass("show");
-                $(".accordion-item").addClass("accordion-shadow");
+                accordionItems.addClass("accordion-shadow");
                 hasMatch = true;
             } else {
                 $(this).css("display", "none");
@@ -67,17 +67,15 @@ const customScript = () => {
         if (searchInputValue === "") {
             accordionItems.find(".accordion-button").addClass("collapsed");
             accordionItems.find(".accordion-collapse").removeClass("show");
-            $(".accordion-item").removeClass("accordion-shadow");
+            accordionItems.removeClass("accordion-shadow");
         }
     });
-    $(".accordion-button").click(function () {
+    $(".faq-content .accordion-item .accordion-button").click(function () {
         if ($(this).hasClass("collapsed")) {
             $(this).closest(".accordion-item").removeClass("accordion-shadow");
         } else {
             $(this).closest(".accordion-item").addClass("accordion-shadow");
-            $(".accordion-item")
-                .not($(this).closest(".accordion-item"))
-                .removeClass("accordion-shadow");
+            $(".accordion-item").not($(this).closest(".accordion-item")).removeClass("accordion-shadow");
         }
     });
 };

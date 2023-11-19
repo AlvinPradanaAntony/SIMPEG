@@ -21,7 +21,7 @@ export default {
       <div class="container">
         <h1 class="text-center">Hai, Ada yang bisa kami bantu?</h1>
         <div class="input-group">
-          <input type="text" class="form-control form-control-lg" placeholder="Cari informasi anda disini...." />
+          <input type="text" class="form-control form-control-lg" id="search_faq" placeholder="Cari informasi anda disini...." />
           <button type="submit" class="btn btn-lg" title="Search"><i class="ui uil-search"></i></button>
         </div>
       </div>
@@ -33,8 +33,10 @@ export default {
             <div class="accordion-item mb-3">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button text-body fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i
-                    class="uil uil-question-circle me-2"></i>Bagaimana cara saya mengajukan izin tahunan?</button>
+                  data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  <i class="uil uil-question-circle me-2"></i>
+                  Bagaimana cara saya mengajukan izin tahunan?
+                </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                 data-bs-parent="#accordionExample">

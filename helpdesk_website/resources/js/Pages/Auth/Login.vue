@@ -1,5 +1,9 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import TextInput from '@/Components/TextInput.vue';
 import Swal from 'sweetalert2'
 
 
@@ -9,7 +13,7 @@ defineProps({
 });
 
 const form = useForm({
-  email: '',
+  nip: '',
   password: '',
   remember: false,
 });
@@ -73,21 +77,20 @@ export default {
                 <p class="m-0 mt-2 txt-login">Masuk</p>
                 <p class="mt-0 mb-4 txt-desc">Silakan isi dengan data Anda yang terdaftar.</p>
               </div>
-              <form onsubmit="return buttonSubmit()">
+              <form @submit.prevent="submit">
                 <div class="form-floating form-floating-custom mb-3">
-                  <input type="text" class="form-control form-control-custom" id="nipInput" placeholder="Masukan NIP" />
-                  <label class="label_nip" for="nipInput">NIP</label>
+                  <TextInput id="nip" v-model="form.nip" class="form-control form-control-custom" type="text" required autofocus autocomplete="nip" placeholder="Masukan NIP"/>
+                  <InputLabel class="label_nip" for="nipInput" value="NIP" />
                   <div class="form-floating-icon">
-                    <!-- <i class="uil uil-users-alt"></i> -->
                     <unicon name="users-alt" fill="var(--title-color)" width="20"></unicon>
                   </div>
                 </div>
+                <InputError class="mt-2" :message="form.errors.nip"/>
                 <div class="form-floating form-floating-custom mb-3 auth-pass-inputgroup">
-                  <input type="password" class="form-control form-control-custom" id="passInput"
-                    placeholder="Masukan Kata Sandi" />
-                  <label class="label_pass" for="passInput">Kata Sandi</label>
+                  <TextInput id="passInput" v-model="form.password" class="form-control form-control-custom" type="password" required autocomplete="password" placeholder="Masukan Kata Sandi"/>
+                  <InputLabel class="label_pass" for="passInput" value="Kata Sandi" />
+                  
                   <div class="form-floating-icon">
-                    <!-- <i class="uil uil-padlock"></i> -->
                     <unicon name="padlock" fill="var(--title-color)" width="20"></unicon>
                   </div>
                   <span class="eye hidden" id="spanEye">
@@ -96,8 +99,9 @@ export default {
                     </i>
                   </span>
                 </div>
+                <InputError class="mt-2" :message="form.errors.password"/>
                 <div class="mt-4 mb-3">
-                  <button class="btn btn-primary w-100 rounded-pill py-2 border-0" id="myButton" type="submit" @click="login">Login</button>
+                  <PrimaryButton class="btn btn-primary w-100 rounded-pill border-0 p-2"  :disabled="form.processing" id="myButton">Login</PrimaryButton>
                 </div>
               </form>
             </div>
