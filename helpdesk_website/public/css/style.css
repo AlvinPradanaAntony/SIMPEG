@@ -352,10 +352,10 @@ a {
   color: var(--text-color);
   background-color: #f8f8f8;
 }
-.navbar .nav-item .dropdown-item:hover#logout{
-  background-color: #f8f8f8 !important;
-  color: #fd5353 !important;
-  font-weight: 600 !important;
+.navbar .nav-item .dropdown-item#logout,
+.navbar .nav-item .dropdown-item#logout .unicon{
+  color: #fd5353;
+  fill: #fd5353;
 }
 .custom-rounded {
   background-color: var(--container-color);
@@ -372,8 +372,6 @@ a {
 .custom-rounded li a.dropdown-item:hover,
 .custom-rounded .noti-body .dropdown-item:hover {
   background-color: #f8f8f8;
-  color: var(--first-color);
-  font-weight: 600;
 }
 .custom-rounded .notify-all.dropdown-item,
 .custom-rounded .notify-all.dropdown-item:hover {

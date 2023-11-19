@@ -103,7 +103,8 @@ const logout = () => {
           <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0" id="settings">
             <li>
               <a class="dropdown-item" href="#">
-                <i class="uil uil-user me-1"></i>
+                <!-- <i class="uil uil-user me-1"></i> -->
+                <unicon name="user" class="me-2" width="18" fill="var(--text-color)"/>
                 <span>Lihat Profil</span>
             </a>
           </li>
@@ -113,7 +114,8 @@ const logout = () => {
             <li>
               <form @submit.prevent="logout">
                 <button class="dropdown-item" type="submit" id="logout">
-                    <i class="uil uil-sign-out-alt me-1"></i>
+                    <!-- <i class="uil uil-sign-out-alt me-1"></i> -->
+                    <unicon name="sign-out-alt" class="me-2 unicon" width="18" fill="var(--text-color)"/>
                     <span>Keluar</span>
                 </button>
               </form>

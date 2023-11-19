@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     handlePopstate(event) {
-      const title = `FAQ - Helpdesk`;
+      const title = `Helpdesk App`;
       this.$inertia.reload();
       document.title = title;
     },
