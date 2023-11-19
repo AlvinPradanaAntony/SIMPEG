@@ -11,7 +11,16 @@ import customScript from '../../../public/js/custom';
 export default {
   mounted() {
     customScript();
-  }
+    window.addEventListener('popstate', this.handlePopstate);
+    
+  },
+  methods: {
+    handlePopstate(event) {
+      const title = `FAQ - Helpdesk`;
+      this.$inertia.reload();
+      document.title = title;
+    },
+  },
 };
 </script>
 <template>
