@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
+use Nette\Utils\Random;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -21,12 +22,22 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
+            'nip' => $this->faker->unique()->randomNumber(8, true),
             'name' => $this->faker->name(),
+            'gender' => $this->faker->randomElement(['Laki-laki', 'Perempuan']),
+            'birth_place' => $this->faker->city(),
+            'birth_date' => $this->faker->date(),
+            'religion' => $this->faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']),
+            'marital_status' => $this->faker->randomElement(['Belum Menikah', 'Menikah', 'Cerai Hidup', 'Cerai Mati']),
+            'department_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
+            'position_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
+            'level_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
+            'category_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
+            'phone' => $this->faker->phoneNumber(),
+            'address' => $this->faker->address(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'two_factor_secret' => null,
-            'two_factor_recovery_codes' => null,
+            'password' => bcrypt('password'),
+            'email_verified_at' => $this->faker->randomElement([now(), null]),
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
             'current_team_id' => null,

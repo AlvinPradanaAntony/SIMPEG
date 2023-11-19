@@ -20,7 +20,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'nip' => ['required', 'string', 'max:255'],
+            'nip' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($user->id)],
             'gender' => ['required', 'string', 'max:255'],
             'birth_place' => ['required', 'string', 'max:255'],
             'birth_date' => ['required', 'date'],

@@ -89,7 +89,6 @@ export default {
                 <div class="form-floating form-floating-custom mb-3 auth-pass-inputgroup">
                   <TextInput id="passInput" v-model="form.password" class="form-control form-control-custom" type="password" required autocomplete="password" placeholder="Masukan Kata Sandi"/>
                   <InputLabel class="label_pass" for="passInput" value="Kata Sandi" />
-                  
                   <div class="form-floating-icon">
                     <unicon name="padlock" fill="var(--title-color)" width="20"></unicon>
                   </div>
