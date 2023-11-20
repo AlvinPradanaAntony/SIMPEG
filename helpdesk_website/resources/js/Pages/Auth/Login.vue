@@ -1,6 +1,5 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
@@ -83,7 +82,6 @@ export default {
                     <unicon name="users-alt" fill="var(--title-color)" width="20"></unicon>
                   </div>
                 </div>
-                <InputError class="mt-2" :message="form.errors.nip" />
                 <div class="form-floating form-floating-custom mb-3 auth-pass-inputgroup">
                   <TextInput id="passInput" v-model="form.password" class="form-control form-control-custom"
                     type="password" required autocomplete="password" placeholder="Masukan Kata Sandi" />
@@ -97,7 +95,6 @@ export default {
                     </i>
                   </span>
                 </div>
-                <InputError class="mt-2" :message="form.errors.password" />
                 <div class="mt-4 mb-3">
                   <PrimaryButton class="btn btn-primary w-100 rounded-pill border-0 p-2" :disabled="form.processing"
                     id="myButton">Login</PrimaryButton>

@@ -19,7 +19,7 @@ const logout = () => {
       <div class="container">
         <div class="header-logo">
           <Link :href="route('landingpage')" class="navbar-brand p-0">
-          <img class="me-1" src="img/logo-pabar.png" width="46" height="46" alt="" />
+          <img class="me-1" src="/img/logo-pabar.png" width="46" height="46" alt="" />
           <span class="brand-text">
             Helpdesk Kepegawaian
             <small>Pemerintahan Provinsi Papua Barat</small>

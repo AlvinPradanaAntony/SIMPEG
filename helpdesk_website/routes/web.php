@@ -61,7 +61,6 @@ Route::get('/admin/dukungan', function () {
     return Inertia::render('Admin/Dukungan');
 })->name('admin.dukungan');
 
-
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),

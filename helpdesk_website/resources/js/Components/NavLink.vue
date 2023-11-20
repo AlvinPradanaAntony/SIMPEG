@@ -21,7 +21,7 @@ const logout = () => {
           Dukungan </a>
         <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0">
           <li>
-            <Link class="dropdown-item" href="/trackingticket">
+            <Link class="dropdown-item" :href="route('trackingticket')">
             <unicon name="ticket" class="me-1" width="18" />
             <span>Tiket</span>
             </Link>
@@ -30,7 +30,7 @@ const logout = () => {
             <hr class="dropdown-divider" />
           </li>
           <li>
-            <Link class="dropdown-item" href="/formticket">
+            <Link class="dropdown-item" :href="route('formticket')">
             <unicon name="envelope-add" class="me-1" width="18" />
             <span>Buat tiket baru</span>
             </Link>
@@ -102,11 +102,10 @@ const logout = () => {
           </a>
           <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0" id="settings">
             <li>
-              <a class="dropdown-item" href="#">
-                <!-- <i class="uil uil-user me-1"></i> -->
+              <Link class="dropdown-item" :href="route('profile.show')">
                 <unicon name="user" class="me-2" width="18" fill="var(--text-color)"/>
                 <span>Lihat Profil</span>
-            </a>
+            </Link>
           </li>
           <li>
               <hr class="dropdown-divider" />
@@ -114,7 +113,6 @@ const logout = () => {
             <li>
               <form @submit.prevent="logout">
                 <button class="dropdown-item" type="submit" id="logout">
-                    <!-- <i class="uil uil-sign-out-alt me-1"></i> -->
                     <unicon name="sign-out-alt" class="me-2 unicon" width="18" fill="var(--text-color)"/>
                     <span>Keluar</span>
                 </button>
