@@ -16,7 +16,7 @@
   src: url(../fonts/NunitoSans_10pt-Regular.ttf);
 }
 @font-face {
-  font-family: NunitoSans Bold;
+  font-family: NunitoSansBold;
   src: url(../fonts/NunitoSans_10pt-Bold.ttf);
 }
 @font-face {
@@ -30,6 +30,50 @@
 @font-face {
   font-family: NunitoSansLight;
   src: url(../fonts/NunitoSans_10pt-Light.ttf);
+}
+@font-face {
+  font-family: Gilroy-Black;
+  src: url(../fonts/Gilroy-Black.ttf);
+}
+@font-face {
+  font-family: Gilroy-Bold;
+  src: url(../../fonts/Gilroy-Bold.ttf);
+}
+@font-face {
+  font-family: Gilroy-ExtraBold;
+  src: url(../fonts/Gilroy-ExtraBold.otf);
+}
+@font-face {
+  font-family: Gilroy-Light;
+  src: url(../fonts/Gilroy-Light.otf);
+}
+@font-face {
+  font-family: Gilroy-Medium;
+  src: url(../fonts/Gilroy-Medium.ttf);
+}
+@font-face {
+  font-family: Gilroy-SemiBold;
+  src: url(../fonts/Gilroy-SemiBold.ttf);
+}
+@font-face {
+  font-family: Gilroy-Regular;
+  src: url(../fonts/Gilroy-Regular.ttf);
+}
+@font-face {
+  font-family: UniformRounded-Black;
+  src: url(../fonts/UniformRounded-Black.otf);
+}
+@font-face {
+  font-family: UniformRounded-Bold;
+  src: url(../fonts/UniformRounded-Bold.otf);
+}
+@font-face {
+  font-family: UniformRounded-Medium;
+  src: url(../fonts/UniformRounded-Medium.otf);
+}
+@font-face {
+  font-family: UniformRounded-Black;
+  src: url(../fonts/UniformRounded-Regular.otf);
 }
 
 /*==================== VARIABLES CSS ====================*/
@@ -49,7 +93,7 @@
   --text-color: hsl(var(--hue-color), 8%, 32%);
   --text-color-light: hsl(var(--hue-color), 8%, 55%);
   --input-color: hsl(var(--hue-color), 70%, 96%);
-  /* --body-color: hsl(var(--hue-color), 60%, 99%); */
+  --body-color2: #fafbfc;
   --body-color: #fafbfe;
   --container-color: #fff;
   --container-color-light: #f2f3f4;
@@ -627,6 +671,7 @@ a {
 }
 
 textarea:focus,
+select:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
@@ -635,7 +680,47 @@ input[type="date"]:focus,
 input[type="time"]:focus,
 input[type="search"]:focus {
   border-color: var(--first-color) !important;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px #527bdd !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px var(--first-color) !important;
   outline: 0 none !important;
   transition: 0.4s ease-in-out !important;
+}
+
+
+
+/*==================== Profile Pages ====================*/
+.profile_page{
+  height: calc(100vh - 66px);
+  background-color: var(--body-color2);
+}
+
+.profile_page .card{
+  border-radius: 8px;
+  border: none;
+  box-shadow: 2px 0px 20px rgb(69 69 69 / 8%);
+}
+.profile_page .card .background-cover{
+  position: relative;
+}
+.profile_page .card .background-cover img{
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  filter: brightness(0.7) blur(0.5px);
+}
+.profile_page .card .profile_image{
+  position: relative !important;
+  margin-top: -3rem;
+  text-align: center;
+}
+.profile_page .card small,
+.profile_page .card .status-ticket p{
+  color: var(--text-color-light);
+}
+.profile_page .card .status-ticket p{
+  font-size: var(--h6-font-size);
+}
+.profile_page  .detail_profile .card .card-title{
+  font-family: NunitoSansExtraBold;
+  letter-spacing: -0.75px;
 }
