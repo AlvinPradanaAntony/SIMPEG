@@ -61,6 +61,19 @@ Route::get('/admin/dukungan', function () {
     return Inertia::render('Admin/Dukungan');
 })->name('admin.dukungan');
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/user/profile', function () {
+        return Inertia::render('Profile/Show',[
+            'canLogin' => Route::has('login'),
+        ]);
+    })->name('profile.show');
+});
+
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
