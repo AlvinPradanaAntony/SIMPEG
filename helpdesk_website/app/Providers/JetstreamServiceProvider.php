@@ -6,6 +6,12 @@ use App\Actions\Jetstream\DeleteUser;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
 
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Fortify\Fortify;
+use Illuminate\Validation\ValidationException;
+
 class JetstreamServiceProvider extends ServiceProvider
 {
     /**
@@ -24,6 +30,24 @@ class JetstreamServiceProvider extends ServiceProvider
         $this->configurePermissions();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);
+
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('nip', $request->nip)->first();
+
+            if (!$user || !Hash::check($request->password, $user->password)) {
+                $errors = [];
+                if (!$user) {
+                    // $errors[Fortify::username()] = [__('auth.failed')];
+                    $errors[Fortify::username()] = ['Email Tidak Terdaftar'];
+                }
+                if ($user && !Hash::check($request->password, $user->password)) {
+                    // $errors['password'] = [__('auth.password')];
+                    $errors['password'] = ['Password anda salah'];
+                }
+                throw ValidationException::withMessages($errors);
+            }
+            return $user;
+        });
     }
 
     /**
@@ -33,11 +57,6 @@ class JetstreamServiceProvider extends ServiceProvider
     {
         Jetstream::defaultApiTokenPermissions(['read']);
 
-        Jetstream::permissions([
-            'create',
-            'read',
-            'update',
-            'delete',
-        ]);
+        Jetstream::permissions(['create', 'read', 'update', 'delete']);
     }
 }
