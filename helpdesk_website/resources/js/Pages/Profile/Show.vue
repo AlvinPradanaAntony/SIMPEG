@@ -10,7 +10,7 @@ defineProps({
     <div class="profile_page ">
       <div class="container pt-4">
         <div class="row">
-          <col-12>
+          <div class="col-12">
             <div class="row">
               <div class="col-lg-4 mb-3 mb-lg-0">
                 <div class="card">
@@ -110,11 +110,11 @@ defineProps({
                           <label for="inputRelegion" class="form-label small">Agama</label>
                           <select class="form-select" aria-label="Default select example" id="inputRelegion">
                             <option value="" selected class="hidden"></option>
-                            <option value="Laki-laki">Islam</option>
-                            <option value="Perempuan">Kristen</option>
-                            <option value="Laki-laki">Katolik</option>
-                            <option value="Perempuan">Hindu</option>
-                            <option value="Laki-laki">Budha</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
                           </select>
                         </div>
                       </div>
@@ -123,9 +123,10 @@ defineProps({
                 </div>
               </div>
             </div>
-          </col-12>
+          </div>
         </div>
+      </div>
     </div>
-  </div>
 
-</AppLayout></template>
+  </AppLayout>
+</template>
