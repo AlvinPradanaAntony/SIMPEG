@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,12 +67,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/user/profile', function () {
-        return Inertia::render('Profile/Show',[
-            'canLogin' => Route::has('login'),
-        ]);
-    })->name('profile.show');
+    Route::get('/user/profile', [ProfileController::class, 'show'])->name('profile.show');
 });
+
+
 
 
 // Route::middleware([

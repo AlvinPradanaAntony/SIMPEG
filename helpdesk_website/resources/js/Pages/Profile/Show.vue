@@ -127,6 +127,5 @@ defineProps({
         </div>
       </div>
     </div>
-
   </AppLayout>
 </template>
