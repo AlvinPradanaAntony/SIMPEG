@@ -10,14 +10,21 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
 const props = defineProps({
-    user: Object,
+  user: Object,
 });
 
 const form = useForm({
-    _method: 'PUT',
-    name: props.user.name,
-    email: props.user.email,
-    photo: null,
+  _method: 'PUT',
+  nip: props.user.nip,
+  name: props.user.name,
+  birth_place: props.user.birth_place,
+  birth_date: props.user.birth_date,
+  gender: props.user.gender,
+  email: props.user.email,
+  address: props.user.address,
+  phone_number: props.user.phone,
+  religion: props.user.religion,
+  photo: null,
 });
 
 const verificationLinkSent = ref(null);
@@ -25,166 +32,158 @@ const photoPreview = ref(null);
 const photoInput = ref(null);
 
 const updateProfileInformation = () => {
-    if (photoInput.value) {
-        form.photo = photoInput.value.files[0];
-    }
+  if (photoInput.value) {
+    form.photo = photoInput.value.files[0];
+  }
 
-    form.post(route('user-profile-information.update'), {
-        errorBag: 'updateProfileInformation',
-        preserveScroll: true,
-        onSuccess: () => clearPhotoFileInput(),
-    });
+  form.post(route('user-profile-information.update'), {
+    errorBag: 'updateProfileInformation',
+    preserveScroll: true,
+    onSuccess: () => clearPhotoFileInput(),
+  });
 };
 
 const sendEmailVerification = () => {
-    verificationLinkSent.value = true;
+  verificationLinkSent.value = true;
 };
 
 const selectNewPhoto = () => {
-    photoInput.value.click();
+  photoInput.value.click();
 };
 
 const updatePhotoPreview = () => {
-    const photo = photoInput.value.files[0];
+  const photo = photoInput.value.files[0];
 
-    if (! photo) return;
+  if (!photo) return;
 
-    const reader = new FileReader();
+  const reader = new FileReader();
 
-    reader.onload = (e) => {
-        photoPreview.value = e.target.result;
-    };
+  reader.onload = (e) => {
+    photoPreview.value = e.target.result;
+  };
 
-    reader.readAsDataURL(photo);
+  reader.readAsDataURL(photo);
 };
 
 const deletePhoto = () => {
-    router.delete(route('current-user-photo.destroy'), {
-        preserveScroll: true,
-        onSuccess: () => {
-            photoPreview.value = null;
-            clearPhotoFileInput();
-        },
-    });
+  router.delete(route('current-user-photo.destroy'), {
+    preserveScroll: true,
+    onSuccess: () => {
+      photoPreview.value = null;
+      clearPhotoFileInput();
+    },
+  });
 };
 
 const clearPhotoFileInput = () => {
-    if (photoInput.value?.value) {
-        photoInput.value.value = null;
-    }
+  if (photoInput.value?.value) {
+    photoInput.value.value = null;
+  }
 };
 </script>
 
 <template>
-    <FormSection @submitted="updateProfileInformation">
-        <template #title>
-            Profile Information
-        </template>
-
-        <template #description>
-            Update your account's profile information and email address.
-        </template>
-
-        <template #form>
-            <!-- Profile Photo -->
-            <div v-if="$page.props.jetstream.managesProfilePhotos" class="col-span-6 sm:col-span-4">
-                <!-- Profile Photo File Input -->
-                <input
-                    id="photo"
-                    ref="photoInput"
-                    type="file"
-                    class="hidden"
-                    @change="updatePhotoPreview"
-                >
-
-                <InputLabel for="photo" value="Photo" />
-
-                <!-- Current Profile Photo -->
-                <div v-show="! photoPreview" class="mt-2">
-                    <img :src="user.profile_photo_url" :alt="user.name" class="rounded-full h-20 w-20 object-cover">
+  <div>
+    <div class="card detail_profile">
+      <div class="card-body px-4">
+        <FormSection @submitted="updateProfileInformation">
+          <template #form>
+            <div>
+              <h4 class="card-title mt-2 mb-4">Data Utama</h4>
+              <div class="row">
+                <div class="col-lg-6 mb-3">
+                  <InputLabel for="inputnip" class="form-label small" value="NIP" />
+                  <TextInput type="text" class="form-control" id="inputnip" v-model="form.nip" required
+                    autocomplete="nip" />
+                  <InputError :message="form.errors.nip" class="mt-2" />
                 </div>
-
-                <!-- New Profile Photo Preview -->
-                <div v-show="photoPreview" class="mt-2">
-                    <span
-                        class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
-                        :style="'background-image: url(\'' + photoPreview + '\');'"
-                    />
+                <div class="col-lg-6 mb-3">
+                  <InputLabel for="inputname" class="form-label small" value="Nama" />
+                  <input type="text" class="form-control" id="inputname" v-model="form.name" required autocomplete="name">
+                  <InputError :message="form.errors.name" class="mt-2" />
                 </div>
-
-                <SecondaryButton class="mt-2 me-2" type="button" @click.prevent="selectNewPhoto">
-                    Select A New Photo
-                </SecondaryButton>
-
-                <SecondaryButton
-                    v-if="user.profile_photo_path"
-                    type="button"
-                    class="mt-2"
-                    @click.prevent="deletePhoto"
-                >
-                    Remove Photo
-                </SecondaryButton>
-
-                <InputError :message="form.errors.photo" class="mt-2" />
+              </div>
+              <div class="row">
+                <div class="col-lg-6 mb-3">
+                  <InputLabel for="inputBirthPlace" class="form-label small" value="Tempat Lahir" />
+                  <input type="text" class="form-control" id="inputBirthPlace" v-model="form.birth_place" required
+                    autocomplete="place">
+                  <InputError :message="form.errors.birth_place" class="mt-2" />
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <label for="inputDate" class="form-label small">Tanggal Lahir</label>
+                  <input type="date" class="form-control" id="inputDate" v-model="form.birth_date" required
+                    autocomplete="date">
+                  <InputError :message="form.errors.birth_date" class="mt-2" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 mb-3">
+                  <InputLabel for="inputGender" class="form-label small" value="Tempat Lahir" />
+                  <select class="form-select" aria-label="Default select example" id="inputGender" v-model="form.gender"
+                    required autocomplete="gender">
+                    <option value="" selected class="hidden"></option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </select>
+                </div>
+              </div>
             </div>
 
-            <!-- Name -->
-            <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="name" value="Name" />
-                <TextInput
-                    id="name"
-                    v-model="form.name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="name"
-                />
-                <InputError :message="form.errors.name" class="mt-2" />
-            </div>
-
-            <!-- Email -->
-            <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="email" value="Email" />
-                <TextInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="username"
-                />
-                <InputError :message="form.errors.email" class="mt-2" />
-
-                <div v-if="$page.props.jetstream.hasEmailVerification && user.email_verified_at === null">
-                    <p class="text-sm mt-2">
-                        Your email address is unverified.
-
-                        <Link
-                            :href="route('verification.send')"
-                            method="post"
-                            as="button"
-                            class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                            @click.prevent="sendEmailVerification"
-                        >
-                            Click here to re-send the verification email.
-                        </Link>
+            <div class="mt-4">
+              <h4 class="card-title mt-2 mb-4">Data Pendukung</h4>
+              <div class="row">
+                <div class="col-lg-6 mb-3">
+                  <InputLabel for="inputemail" class="form-label small" value="Email" />
+                  <TextInput type="email" class="form-control" id="inputemail" v-model="form.email" required
+                    autocomplete="username" />
+                  <InputError :message="form.errors.email" class="mt-2" />
+                  <div v-if="$page.props.jetstream.hasEmailVerification && user.email_verified_at === null">
+                    <p class="small mt-2 mb-1 text-danger">
+                      Your email address is unverified.
+                      
                     </p>
-
+                    <Link :href="route('verification.send')" method="post" as="button"
+                        class="btn btn-primary"
+                        @click.prevent="sendEmailVerification">
+                      Verifikasi Sekarang
+                      </Link>
                     <div v-show="verificationLinkSent" class="mt-2 font-medium text-sm text-green-600">
-                        A new verification link has been sent to your email address.
+                      A new verification link has been sent to your email address.
                     </div>
+                  </div>
                 </div>
+                <div class="col-lg-6 mb-3">
+                  <InputLabel for="inputaddress" class="form-label small" value="Alamat" />
+                  <textarea class="form-control" id="inputaddress" v-model="form.address" required
+                    autocomplete="address"></textarea>
+                  <InputError :message="form.errors.address" class="mt-2" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 mb-3">
+                  <InputLabel for="inputnumber" class="form-label small" value="Nomer HP" />
+                  <TextInput type="text" class="form-control" id="inputnumber" v-model="form.phone_number" required
+                    autocomplete="phonenumber" />
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <InputLabel for="inputRelegion" class="form-label small" value="Agama" />
+                  <select class="form-select" aria-label="Default select example" id="inputRelegion"
+                    v-model="form.religion" required autocomplete="religion">
+                    <option value="" selected class="hidden"></option>
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Katolik">Katolik</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Budha">Budha</option>
+                  </select>
+                </div>
+              </div>
             </div>
-        </template>
 
-        <template #actions>
-            <ActionMessage :on="form.recentlySuccessful" class="me-3">
-                Saved.
-            </ActionMessage>
+          </template>
+        </FormSection>
 
-            <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
-            </PrimaryButton>
-        </template>
-    </FormSection>
-</template>
+      </div>
+    </div>
+</div></template>

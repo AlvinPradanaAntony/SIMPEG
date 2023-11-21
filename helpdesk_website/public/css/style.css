@@ -689,12 +689,12 @@ input[type="search"]:focus {
 
 /*==================== Profile Pages ====================*/
 .profile_page{
-  height: calc(100vh - 66px);
+  min-height: 100vh;
   background-color: var(--body-color2);
 }
 
 .profile_page .card{
-  border-radius: 8px;
+  border-radius: 12px;
   border: none;
   box-shadow: 2px 0px 20px rgb(69 69 69 / 8%);
 }
@@ -720,7 +720,10 @@ input[type="search"]:focus {
 .profile_page .card .status-ticket p{
   font-size: var(--h6-font-size);
 }
-.profile_page  .detail_profile .card .card-title{
+.card.detail_profile .card-title{
   font-family: NunitoSansExtraBold;
   letter-spacing: -0.75px;
+}
+.section-border{
+  border-bottom: 1px solid rgba(128, 128, 128, 0.295) !important;
 }
