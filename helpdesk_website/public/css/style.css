@@ -727,3 +727,10 @@ input[type="search"]:focus {
 .section-border{
   border-bottom: 1px solid rgba(128, 128, 128, 0.295) !important;
 }
+.btn-custom{
+  border-radius: 6px !important;
+}
+.footer-form-action{
+  background-color: #F9FAFB;
+  border-radius:  0 0 12px 12px;
+}

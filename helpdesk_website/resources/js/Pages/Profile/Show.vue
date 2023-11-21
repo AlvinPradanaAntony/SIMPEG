@@ -1,6 +1,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import CardProfile from '@/Components/CardProfile.vue';
+import UpdatePasswordForm from '@/Pages/Profile/Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from '@/Pages/Profile/Partials/UpdateProfileInformationForm.vue';
 import SectionBorder from '@/Components/SectionBorder.vue';
 defineProps({
@@ -22,12 +23,15 @@ defineProps({
               </div>
               <div class="col-lg-8">
                 <UpdateProfileInformationForm :user="$page.props.auth.user" />
-
               </div>
             </div>
           </div>
         
           <SectionBorder class="py-5"/>
+        
+          <div class="col-12">
+            <UpdatePasswordForm class="mt-10 sm:mt-0" />
+          </div>
         
         </div>
       </div>
