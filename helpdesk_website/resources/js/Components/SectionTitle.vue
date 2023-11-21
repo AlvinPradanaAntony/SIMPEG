@@ -1,11 +1,18 @@
+<style scoped>
+h3 {
+    font-size: var(--h3-font-size);
+    font-family: NunitoSansExtraBold;
+}
+</style>
+
 <template>
-    <div class="md:col-span-1 flex justify-between">
-        <div class="px-4 sm:px-0">
-            <h3 class="text-lg font-medium text-gray-900">
+    <div class="card pt-2">
+        <div class="card-body">
+            <h3>
                 <slot name="title" />
             </h3>
 
-            <p class="mt-1 text-sm text-gray-600">
+            <p class="small">
                 <slot name="description" />
             </p>
         </div>
