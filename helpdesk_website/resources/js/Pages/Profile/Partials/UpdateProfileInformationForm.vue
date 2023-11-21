@@ -102,21 +102,19 @@ const clearPhotoFileInput = () => {
               </div>
               <div class="col-lg-6 mb-3">
                 <InputLabel for="inputname" class="form-label small" value="Nama" />
-                <input type="text" class="form-control" id="inputname" v-model="form.name" required autocomplete="name">
+                <TextInput type="text" class="form-control" id="inputname" v-model="form.name" required autocomplete="name"/>
                 <InputError :message="form.errors.name" class="mt-2" />
               </div>
             </div>
             <div class="row">
               <div class="col-lg-6 mb-3">
                 <InputLabel for="inputBirthPlace" class="form-label small" value="Tempat Lahir" />
-                <input type="text" class="form-control" id="inputBirthPlace" v-model="form.birth_place" required
-                  autocomplete="place">
+                <TextInput type="text" class="form-control" id="inputBirthPlace" v-model="form.birth_place" required autocomplete="place" />
                 <InputError :message="form.errors.birth_place" class="mt-2" />
               </div>
               <div class="col-lg-6 mb-3">
-                <label for="inputDate" class="form-label small">Tanggal Lahir</label>
-                <input type="date" class="form-control" id="inputDate" v-model="form.birth_date" required
-                  autocomplete="date">
+                <InputLabel for="inputDate" class="form-label small" value="Tanggal Lahir"/>
+                <TextInput type="date" class="form-control" id="inputDate" v-model="form.birth_date" required autocomplete="date"/>
                 <InputError :message="form.errors.birth_date" class="mt-2" />
               </div>
             </div>

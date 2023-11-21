@@ -61,12 +61,15 @@ export default {
       <div class="row justify-content-center h-100 align-items-center">
         <div class="col-10 col-sm-9 col-md-7 col-lg-5">
           <div class="card border-0 px-3" id="panel-login">
-            <div class="card-header pt-4 ps-2 d-flex align-items-center">
-              <img src="img/logo-pabar.png" alt="logo" height="75" />
+            <div class="card-header pt-4 ps-2">
+              <Link href="/" class="nav-link d-flex align-items-center">
+                <img src="img/logo-pabar.png" alt="logo" height="75" />
               <div>
                 <p class="m-0 logo-title">SIMPEG</p>
                 <p class="m-0 logo-subtitle">Sistem Informasi Kepegawaian</p>
-              </div>
+              </div>  
+              </Link>
+
             </div>
             <div class="card-body p-4">
               <div>

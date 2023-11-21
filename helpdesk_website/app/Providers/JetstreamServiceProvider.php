@@ -38,7 +38,7 @@ class JetstreamServiceProvider extends ServiceProvider
                 $errors = [];
                 if (!$user) {
                     // $errors[Fortify::username()] = [__('auth.failed')];
-                    $errors[Fortify::username()] = ['Email Tidak Terdaftar'];
+                    $errors[Fortify::username()] = ['NIP / Akun Tidak Terdaftar'];
                 }
                 if ($user && !Hash::check($request->password, $user->password)) {
                     // $errors['password'] = [__('auth.password')];
