@@ -1,11 +1,11 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import AppLayout from '@/Layouts/DashboardLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import StatusCard from '@/Pages/Admin/Partials/StatusCard.vue';
 
 </script>
 <template>
-  <AppLayout title="Beranda">
+  <DashboardLayout title="Beranda">
     <div class="row">
       <div class="col-xl-3 col-md-6 mb-4">
         <StatusCard icon="bring-front" title="Tiket Baru" data="0" color1="#29bb89" color2="#66e7ba"/>
@@ -25,5 +25,5 @@ import StatusCard from '@/Pages/Admin/Partials/StatusCard.vue';
         <h3 class="m-0 fw-bold fs-5">Halaman Dashboard</h3>
       </div>
     </div>
-  </AppLayout>
+  </DashboardLayout>
 </template>

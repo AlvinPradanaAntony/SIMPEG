@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { Head, Link, useForm, } from '@inertiajs/vue3';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
 import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
 import Checkbox from '@/Components/Checkbox.vue';
@@ -9,104 +9,100 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
 const form = useForm({
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
-    terms: false,
+  name: '',
+  email: '',
+  password: '',
+  password_confirmation: '',
+  terms: false,
 });
 
 const submit = () => {
-    form.post(route('register'), {
-        onFinish: () => form.reset('password', 'password_confirmation'),
-    });
+  form.post(route('register'), {
+    onFinish: () => form.reset('password', 'password_confirmation'),
+    onError: (error) => {
+      console.log(error.password);
+      Swal.fire({
+        icon: "error",
+        title: error.nip || error.password,
+        text: error.nip ? 'Silakan hubungi administrator untuk didaftarkan' : '' || error.password ? 'Masukan Kata Sandi Dengan Benar' : '',
+      });
+    },
+  });
+};
+</script>
+<script>
+import customScript from '@js/custom';
+
+export default {
+  data() {
+    return {
+      iconName: 'eye-slash'
+    };
+  },
+  methods: {
+    toggleIcon() { this.iconName = (this.iconName === 'eye-slash') ? 'eye' : 'eye-slash'; },
+  },
+  mounted() {
+    customScript();
+  }
 };
 </script>
 
 <template>
-    <Head title="Register" />
+  <div>
 
-    <AuthenticationCard>
-        <template #logo>
-            <AuthenticationCardLogo />
-        </template>
+    <Head title="Log in" />
+    <div class="login__background"></div>
+    <div class="container panel__login">
+      <div class="row justify-content-center h-100 align-items-center">
+        <div class="col-10 col-sm-9 col-md-7 col-lg-5">
+          <div class="card border-0 px-3" id="panel-login">
+            <div class="card-header pt-4 ps-2">
+              <Link href="/" class="nav-link d-flex align-items-center">
+              <img src="img/logo-pabar.png" alt="logo" height="75" />
+              <div>
+                <p class="m-0 logo-title">SIMPEG</p>
+                <p class="m-0 logo-subtitle">Sistem Informasi Kepegawaian</p>
+              </div>
+              </Link>
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="name" value="Name" />
-                <TextInput
-                    id="name"
-                    v-model="form.name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
-                <InputError class="mt-2" :message="form.errors.name" />
             </div>
-
-            <div class="mt-4">
-                <InputLabel for="email" value="Email" />
-                <TextInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="username"
-                />
-                <InputError class="mt-2" :message="form.errors.email" />
+            <div class="card-body p-4">
+              <div>
+                <p class="m-0 mt-2 txt-login">Masuk</p>
+                <p class="mt-0 mb-4 txt-desc">Silakan isi dengan data Anda yang terdaftar.</p>
+              </div>
+              <form @submit.prevent="submit">
+                <div class="form-floating form-floating-custom mb-3">
+                  <TextInput id="nip" v-model="form.nip" class="form-control form-control-custom" type="text" required
+                    autofocus autocomplete="nip" placeholder="Masukan NIP" />
+                  <InputLabel class="label_nip" for="nipInput" value="NIP" />
+                  <div class="form-floating-icon">
+                    <unicon name="users-alt" fill="var(--title-color)" width="20"></unicon>
+                  </div>
+                </div>
+                <div class="form-floating form-floating-custom mb-3 auth-pass-inputgroup">
+                  <TextInput id="passInput" v-model="form.password" class="form-control form-control-custom"
+                    type="password" required autocomplete="password" placeholder="Masukan Kata Sandi" />
+                  <InputLabel class="label_pass" for="passInput" value="Kata Sandi" />
+                  <div class="form-floating-icon">
+                    <unicon name="padlock" fill="var(--title-color)" width="20"></unicon>
+                  </div>
+                  <span class="eye hidden" id="spanEye">
+                    <i class="show-hide" toggle="#passInput" id="iconShowHide" @click="toggleIcon">
+                      <unicon :name="iconName" fill="var(--title-color)" width="20"></unicon>
+                    </i>
+                  </span>
+                </div>
+                <div class="mt-4 mb-3">
+                  <PrimaryButton class="btn btn-primary w-100 rounded-pill border-0 p-2" :disabled="form.processing"
+                    id="myButton">Login</PrimaryButton>
+                </div>
+              </form>
             </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-                <TextInput
-                    id="password"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="new-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-                <TextInput
-                    id="password_confirmation"
-                    v-model="form.password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="new-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div>
-
-            <div v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature" class="mt-4">
-                <InputLabel for="terms">
-                    <div class="flex items-center">
-                        <Checkbox id="terms" v-model:checked="form.terms" name="terms" required />
-
-                        <div class="ms-2">
-                            I agree to the <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Terms of Service</a> and <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Privacy Policy</a>
-                        </div>
-                    </div>
-                    <InputError class="mt-2" :message="form.errors.terms" />
-                </InputLabel>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Already registered?
-                </Link>
-
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </PrimaryButton>
-            </div>
-        </form>
-    </AuthenticationCard>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

@@ -36,19 +36,19 @@ const scriptDashboard = () => {
     $(".nameItem").text("Tema Terang");
     $("#theme-button").removeClass("uil-moon");
     $("#theme-button").addClass("uil-sun");
-    $("#logo_sidebar").attr("src", "img/logo.png");
+    $("#logo_sidebar").attr("src", "/img/dashboard/logo1.png");
 
     if ($("#sidebar").hasClass("close")) {
       $("#logo_sidebar")
         .fadeOut(150, function () {
-          $("#logo_sidebar").attr("src", "../img/dashboard/logo-pabar.png");
+          $("#logo_sidebar").attr("src", "/img/dashboard/logo-pabar.png");
           $("#logo_sidebar").attr("width", "40");
         })
         .fadeIn(150);
     } else {
       $("#logo_sidebar")
         .fadeOut(150, function () {
-          $("#logo_sidebar").attr("src", "../img/dashboard/logo1.png");
+          $("#logo_sidebar").attr("src", "/img/dashboard/logo1.png");
           $("#logo_sidebar").attr("width", "200");
         })
         .fadeIn(150);
@@ -67,14 +67,14 @@ const scriptDashboard = () => {
       if ($("#sidebar").hasClass("close")) {
         $("#logo_sidebar")
           .fadeOut(150, function () {
-            $("#logo_sidebar").attr("src", "../img/logo-pabar.png");
+            $("#logo_sidebar").attr("src", "/img/logo-pabar.png");
             $("#logo_sidebar").attr("width", "40");
           })
           .fadeIn(150);
       } else {
         $("#logo_sidebar")
           .fadeOut(150, function () {
-            $("#logo_sidebar").attr("src", "../img/dashboard/logo.png");
+            $("#logo_sidebar").attr("src", "/img/dashboard/logo.png");
             $("#logo_sidebar").attr("width", "200");
           })
           .fadeIn(150);
@@ -91,14 +91,14 @@ const scriptDashboard = () => {
       if ($("#sidebar").hasClass("close")) {
         $("#logo_sidebar")
           .fadeOut(150, function () {
-            $("#logo_sidebar").attr("src", "../img/logo-pabar.png");
+            $("#logo_sidebar").attr("src", "/img/logo-pabar.png");
             $("#logo_sidebar").attr("width", "40");
           })
           .fadeIn(100);
       } else {
         $("#logo_sidebar")
           .fadeOut(150, function () {
-            $("#logo_sidebar").attr("src", "../img/dashboard/logo1.png");
+            $("#logo_sidebar").attr("src", "/img/dashboard/logo1.png");
             $("#logo_sidebar").attr("width", "200");
           })
           .fadeIn(150);
@@ -113,18 +113,18 @@ const scriptDashboard = () => {
       .fadeOut(150, function () {
         if ($("#sidebar").hasClass("close")) {
           if ($("body").hasClass("dark-theme")) {
-            $("#logo_sidebar").attr("src", "../img/dashboard/logo-pabar.png");
+            $("#logo_sidebar").attr("src", "/img/dashboard/logo-pabar.png");
             $("#logo_sidebar").attr("width", "40");
           } else {
-            $("#logo_sidebar").attr("src", "../img/dashboard/logo-pabar.png");
+            $("#logo_sidebar").attr("src", "/img/dashboard/logo-pabar.png");
             $("#logo_sidebar").attr("width", "40");
           }
         } else {
           if ($("body").hasClass("dark-theme")) {
-            $("#logo_sidebar").attr("src", "../img/dashboard/logo1.png");
+            $("#logo_sidebar").attr("src", "/img/dashboard/logo1.png");
             $("#logo_sidebar").attr("width", "200");
           } else {
-            $("#logo_sidebar").attr("src", "../img/dashboard/logo.png");
+            $("#logo_sidebar").attr("src", "/img/dashboard/logo.png");
             $("#logo_sidebar").attr("width", "200");
           }
         }

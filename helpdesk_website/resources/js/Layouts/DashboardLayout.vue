@@ -29,7 +29,7 @@ export default {
         <img src="/img/dashboard/logo.png" width="200" alt="Logo" id="logo_sidebar" />
       </div>
       <ul class="nav-links m-0" id="main">
-        <li class="nav-item active">
+        <li class="nav-item" :class="{'active' : (title === 'Beranda')}">
           <Link :href="route('admin.dashboard')" class="nav-link">
             <unicon name="apps" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> Beranda </span>
@@ -56,7 +56,7 @@ export default {
             </ul>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"  :class="{'active' : (title === 'Tiket')}">
           <Link :href="route('admin.tiket')" class="nav-link">
             <unicon name="ticket" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> Tiket </span>
@@ -65,7 +65,7 @@ export default {
             <li><a class="link_name" href="#">Tiket</a></li>
           </ul>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"  :class="{'active' : (title === 'FAQ')}">
           <Link :href="route('admin.faq')" class="nav-link">
             <unicon name="question-circle" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> FAQ </span>
@@ -74,7 +74,7 @@ export default {
             <li><a class="link_name" href="#">FAQ</a></li>
           </ul>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" :class="{'active' : (title === 'Dukungan')}">
           <Link :href="route('admin.dukungan')" class="nav-link">
             <unicon name="bell-school" class="me-2 unicon" width="20" height="30"/>
             <span style="vertical-align: middle" class="link_name"> Dukungan </span>
