@@ -739,6 +739,7 @@ input[type="search"]:focus {
 }
 .dialogModal .modal-footer{
   background-color: #F9FAFB;
+  border-radius: 0 0 12px 12px;
 }
 .dialogModal .modal-header button{
   width: 18px  !important;
