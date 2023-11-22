@@ -52,7 +52,7 @@ const updatePassword = () => {
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="mb-3">
-              <InputLabel for="current_password" class="form-label small" value="Current Password" />
+              <InputLabel for="current_password" class="form-label small" value="Kata Sandi Saat Ini" />
               <TextInput id="current_password" class="form-control" ref="currentPasswordInput"
                 v-model="form.current_password" type="password" autocomplete="current-password" />
               <InputError :message="form.errors.current_password" class="mt-2" />
@@ -62,7 +62,7 @@ const updatePassword = () => {
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="mb-3">
-              <InputLabel for="password" class="form-label small" value="New Password" />
+              <InputLabel for="password" class="form-label small" value="Kata Sandi Baru" />
               <TextInput id="password" class="form-control" ref="passwordInput" v-model="form.password" type="password"
                 autocomplete="new-password" />
               <InputError :message="form.errors.password" class="mt-2" />
@@ -72,9 +72,9 @@ const updatePassword = () => {
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="mb-3">
-              <InputLabel for="password_confirmation" class="form-label small" value="Confirm Password" />
+              <InputLabel for="password_confirmation" class="form-label small" value="Konfirmasi Kata Sandi" />
               <TextInput id="password_confirmation" class="form-control" v-model="form.password_confirmation"
-                type="password" autocomplete="new-password" />
+                type="password" autocomplete="new-password"/>
               <InputError :message="form.errors.password_confirmation" class="mt-2" />
             </div>
           </div>

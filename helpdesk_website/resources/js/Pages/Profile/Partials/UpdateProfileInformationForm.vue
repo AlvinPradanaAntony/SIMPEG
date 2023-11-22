@@ -23,7 +23,7 @@ const form = useForm({
   gender: props.user.gender,
   email: props.user.email,
   address: props.user.address,
-  phone_number: props.user.phone,
+  phone: props.user.phone,
   religion: props.user.religion,
   photo: null,
 });
@@ -81,6 +81,8 @@ const clearPhotoFileInput = () => {
     photoInput.value.value = null;
   }
 };
+
+
 </script>
 
 <template>
@@ -163,8 +165,9 @@ const clearPhotoFileInput = () => {
             <div class="row">
               <div class="col-lg-6 mb-3">
                 <InputLabel for="inputnumber" class="form-label small" value="Nomer HP" />
-                <TextInput type="text" class="form-control" id="inputnumber" v-model="form.phone_number" required
+                <TextInput type="text" class="form-control" id="inputnumber" v-model="form.phone" required
                   autocomplete="phonenumber" />
+                <InputError :message="form.errors.phone" class="mt-2" />
               </div>
               <div class="col-lg-6 mb-3">
                 <InputLabel for="inputRelegion" class="form-label small" value="Agama" />
