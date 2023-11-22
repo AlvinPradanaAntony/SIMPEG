@@ -685,6 +685,13 @@ button:active {
   
 }
 
+.center-top {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px; /* Sesuaikan dengan margin yang diinginkan */
+}
+
   .dropdown-laporan {
     display:flex;
     justify-content: flex-end;
@@ -726,7 +733,12 @@ button:active {
 }
 
 .card-chart {
-  padding: 0px !important;
+  padding: 1px !important;
+  
+}
+.card-table {
+  padding: 1px !important;
+
   
 }
 .chart-pegawai {
@@ -748,6 +760,11 @@ button:active {
   
 }
 
+.card-table p {
+  font-size: 13px;
+  font-family: 'Arial', sans-serif;
+}
+
 .chart-rating h2 {
   font-size: 10px ;
   height: 40px;
@@ -761,6 +778,12 @@ button:active {
   
 }
 
+.head-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  
+}
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
@@ -813,4 +836,37 @@ body {
 .comment {
   margin-top: 5px;
   font-size: 10px;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+th, td {
+  text-align: center;
+}
+
+.profile {
+  width: 30px;
+  height: 50px;
+  
+  margin-right: 5px;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #dee2e6; /* Atur batas untuk seluruh th dan td */
+  font-size: 13px;
+}
+
+.table-bordered th[scope="row"] {
+  font-weight: normal; /* atau font-weight: lighter; */
+}
+
+.table-bordered td[colspan="1"] {
+  border-right: none; /* Menghapus border kanan pada elemen dengan colspan="1" (Detail) */
+}
+
+.table-bordered td[colspan="2"] {
+  border: none; /* Menghapus border pada elemen dengan colspan="2" (Hapus) */
 }
