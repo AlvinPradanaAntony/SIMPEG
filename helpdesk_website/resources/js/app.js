@@ -23,7 +23,8 @@ import {
     uniSignOutAlt,
     uniUser,
     uniBringFront, 
-    uniNotebooks
+    uniNotebooks, 
+    uniTimes
 } from "vue-unicons/dist/icons";
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle";
 
@@ -43,7 +44,8 @@ Unicon.add([
     uniSignOutAlt,
     uniUser,
     uniBringFront, 
-    uniNotebooks
+    uniNotebooks, 
+    uniTimes
 ]);
 
 createInertiaApp({

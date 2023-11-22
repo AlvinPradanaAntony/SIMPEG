@@ -1,47 +1,29 @@
 <script setup>
-import Modal from './Modal.vue';
-
-const emit = defineEmits(['close']);
 
 defineProps({
-    show: {
-        type: Boolean,
-        default: false,
-    },
-    maxWidth: {
-        type: String,
-        default: '2xl',
-    },
-    closeable: {
-        type: Boolean,
-        default: true,
-    },
+  target: String,
 });
-
-const close = () => {
-    emit('close');
-};
 </script>
 
 <template>
-    <Modal
-        :show="show"
-        :max-width="maxWidth"
-        :closeable="closeable"
-        @close="close"
-    >
-        <div class="px-6 py-4">
-            <div class="text-lg font-medium text-gray-900">
-                <slot name="title" />
-            </div>
-
-            <div class="mt-4 text-sm text-gray-600">
-                <slot name="content" />
-            </div>
+  <div class="dialogModal"> 
+  <div class="modal fade" :id="target" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-2">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"><slot name="title" /></h1>
+          <button type="button" class="btn border-0 rounded-circle bg-danger" data-bs-dismiss="modal" aria-label="Close">
+            <unicon class="close" name="times" fill="white"/>
+          </button>
         </div>
-
-        <div class="flex flex-row justify-end px-6 py-4 bg-gray-100 text-end">
-            <slot name="footer" />
+        <div class="modal-body small pt-1 pb-0">
+          <slot name="content" />
         </div>
-    </Modal>
+        <div class="modal-footer">
+          <slot name="footer" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </template>

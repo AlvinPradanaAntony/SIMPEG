@@ -645,17 +645,6 @@ a {
   border-radius: 20px !important;
 }
 
-/*==================== Media Query ====================*/
-@media (min-width: 768px) {
-  .search-banner .container {
-    max-width: 720px;
-  }
-  .search-banner.has-bg .bg-cover {
-    background-position-y: -182px;
-    transition: ease-in-out 0.5s;
-  }
-}
-
 /*==================== Rating Custom ====================*/
 .rating {
   font-size: 24px;
@@ -740,3 +729,40 @@ input[type="search"]:focus {
 .session_ip span{
   color: #28C365;
 }
+
+
+.dialogModal .modal-content{
+  border-radius: 12px !important;
+}
+.dialogModal .modal-header{
+  font-family: NunitoSansExtraBold;
+}
+.dialogModal .modal-header button{
+  width: 18px  !important;
+  height: 18px !important;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dialogModal .modal-header .close{
+  width: 18px;
+  height: 18px !important;
+}
+
+/*==================== Media Query ====================*/
+@media (min-width: 768px) {
+  .search-banner .container {
+    max-width: 720px;
+  }
+  .search-banner.has-bg .bg-cover {
+    background-position-y: -182px;
+    transition: ease-in-out 0.5s;
+  }
+}
+@media (min-width: 576px){
+  .dialogModal .modal-dialog {
+    max-width: 42rem !important;
+  }
+}
+
