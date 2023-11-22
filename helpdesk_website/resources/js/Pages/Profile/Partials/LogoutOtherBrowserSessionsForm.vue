@@ -95,7 +95,7 @@ const closeModal = () => {
       </div>
 
       <div class="d-flex align-items-center mt-4">
-        <PrimaryButton @click="confirmLogout" class="btn btn-primary btn-custom" data-bs-toggle="modal"
+        <PrimaryButton @click="confirmLogout" class="btn btn-primary border-0 p-2 px-4 btn-sm btn-custom" data-bs-toggle="modal"
           data-bs-target="#modalLogoutSession">
           Keluarkan sesi akun disemua browser
         </PrimaryButton>
@@ -106,7 +106,7 @@ const closeModal = () => {
       </div>
 
       <!-- Log Out Other Devices Confirmation Modal -->
-      <DialogModal target="modalLogoutSession">
+      <DialogModal target="modalLogoutSession" :hasErrors="form.hasErrors">
         <template #title>
           Keluarkan sesi akun dari semua browser
         </template>
@@ -128,7 +128,7 @@ const closeModal = () => {
             Batal
           </SecondaryButton>
 
-          <PrimaryButton class="ms-3 btn btn-primary btn-custom" :class="{ 'opacity-25': form.processing }"
+          <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
             :disabled="form.processing" @click="logoutOtherBrowserSessions">
             <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
             Keluarkan sesi

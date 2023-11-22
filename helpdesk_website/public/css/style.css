@@ -737,6 +737,9 @@ input[type="search"]:focus {
 .dialogModal .modal-header{
   font-family: NunitoSansExtraBold;
 }
+.dialogModal .modal-footer{
+  background-color: #F9FAFB;
+}
 .dialogModal .modal-header button{
   width: 18px  !important;
   height: 18px !important;

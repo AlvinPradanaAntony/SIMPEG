@@ -52,7 +52,7 @@ const closeModal = () => {
       </div>
 
       <div class="mt-4">
-        <DangerButton @click="confirmUserDeletion" class="btn btn-danger" data-bs-toggle="modal"
+        <DangerButton @click="confirmUserDeletion" class="btn btn-danger border-0 p-2 px-4 btn-sm btn-custom" data-bs-toggle="modal"
           data-bs-target="#modalDeleteUser">
           Hapus Akun
         </DangerButton>
@@ -82,7 +82,7 @@ const closeModal = () => {
             Batal
           </SecondaryButton>
 
-          <DangerButton class="ms-3 btn btn-primary btn-custom" :class="{ 'opacity-25': form.processing }"
+          <DangerButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
             :disabled="form.processing" @click="deleteUser">
             <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
             Hapus
