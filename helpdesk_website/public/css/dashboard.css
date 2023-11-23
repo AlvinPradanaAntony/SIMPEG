@@ -554,10 +554,6 @@ input[type="search"]:focus {
   margin-top: -3px;
   color: var(--text-color);
 }
-.account-user-avatar img {
-  height: 32px;
-  width: 32px;
-}
 .frameProfile .dropdown-toggle::after {
   display: inline-block;
   position: absolute;

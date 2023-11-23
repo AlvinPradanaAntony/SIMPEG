@@ -89,8 +89,9 @@ const clearPhotoFileInput = () => {
     photoInput.value.value = null;
   }
 };
-
-
+const handleImageError = (event) => {
+  event.target.src = '/img/placeholder_profile.png'
+};
 </script>
 
 <template>
@@ -102,7 +103,7 @@ const clearPhotoFileInput = () => {
             <div class="profile_image">
               <input id="photo" ref="photoInput" type="file" class="hidden" @change="updatePhotoPreview">
               <div v-show="!photoPreview">
-                <img :src="user.profile_photo_url" :alt="user.name" width="100" height="100" class="rounded-circle img-thumbnail d-inline-block" />
+                <img :src="user.profile_photo_url" :alt="user.name" width="100" height="100" class="rounded-circle img-thumbnail d-inline-block" @error="handleImageError"/>
               </div>
               <div v-show="photoPreview">
                 <div class="d-inline-block img-thumbnail rounded-circle new_profile_image">
@@ -110,7 +111,6 @@ const clearPhotoFileInput = () => {
                     :style="'background-image: url(\'' + photoPreview + '\');'" />
                 </div>
               </div>
-
               <div class="py-3 pb-1">
                 <h5 class="mb-0 fw-bolder">{{ user.name }}</h5>
                 <small>Administrator</small>

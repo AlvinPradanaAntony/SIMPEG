@@ -9,6 +9,9 @@ defineProps({
 const logout = () => {
   router.post(route('logout'));
 };
+const handleImageError = (event) => {
+  event.target.src = '/img/placeholder_profile.png'
+};
 </script>
 <template>
   <div>
@@ -95,8 +98,7 @@ const logout = () => {
             aria-expanded="false">
             <div class="account-container d-flex gap-1">
               <img class="rounded-circle object-fit-cover" :src="$page.props.auth.user.profile_photo_url"
-                :alt="$page.props.auth.user.name" width="28" height="28"
-                onerror="this.onerror=null; this.src='/img/placeholder_profile.png';" />
+                :alt="$page.props.auth.user.name" width="28" height="28" @error="handleImageError"/>
               <span class="align-self-center user-name pe-2" id="user_account"> {{ $page.props.auth.user.name }} </span>
             </div>
           </a>

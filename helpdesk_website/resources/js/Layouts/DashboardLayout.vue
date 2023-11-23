@@ -10,6 +10,9 @@ defineProps({
 const logout = () => {
   router.post(route('logout'));
 };
+const handleImageError = (event) => {
+  event.target.src = '/img/placeholder_profile.png'
+};
 </script>
 <script>
 import scriptDashboard from '@js/dashboard';
@@ -23,16 +26,17 @@ export default {
 
 <template>
   <div>
+
     <Head :title="title" />
     <div class="sidebar me-0" id="sidebar">
       <div class="logo-details">
         <img src="/img/dashboard/logo.png" width="200" alt="Logo" id="logo_sidebar" />
       </div>
       <ul class="nav-links m-0" id="main">
-        <li class="nav-item" :class="{'active' : (title === 'Beranda')}">
+        <li class="nav-item" :class="{ 'active': (title === 'Beranda') }">
           <Link :href="route('admin.dashboard')" class="nav-link">
-            <unicon name="apps" class="me-2 unicon" width="20" height="30"/>
-            <span style="vertical-align: middle" class="link_name"> Beranda </span>
+          <unicon name="apps" class="me-2 unicon" width="20" height="30" />
+          <span style="vertical-align: middle" class="link_name"> Beranda </span>
           </Link>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="#">Beranda</a></li>
@@ -40,7 +44,7 @@ export default {
         </li>
         <li class="nav-item">
           <a data-bs-toggle="collapse" href="#data" aria-expanded="false" aria-controls="data" class="nav-link">
-            <unicon name="users-alt" class="me-2 unicon" width="20" height="30"/>
+            <unicon name="users-alt" class="me-2 unicon" width="20" height="30" />
             <span style="vertical-align: middle" class="link_name"> Pengguna </span>
             <span class="menu-arrow uil-angle-right"></span>
           </a>
@@ -56,28 +60,28 @@ export default {
             </ul>
           </div>
         </li>
-        <li class="nav-item"  :class="{'active' : (title === 'Tiket')}">
+        <li class="nav-item" :class="{ 'active': (title === 'Tiket') }">
           <Link :href="route('admin.tiket')" class="nav-link">
-            <unicon name="ticket" class="me-2 unicon" width="20" height="30"/>
-            <span style="vertical-align: middle" class="link_name"> Tiket </span>
+          <unicon name="ticket" class="me-2 unicon" width="20" height="30" />
+          <span style="vertical-align: middle" class="link_name"> Tiket </span>
           </Link>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="#">Tiket</a></li>
           </ul>
         </li>
-        <li class="nav-item"  :class="{'active' : (title === 'FAQ')}">
+        <li class="nav-item" :class="{ 'active': (title === 'FAQ') }">
           <Link :href="route('admin.faq')" class="nav-link">
-            <unicon name="question-circle" class="me-2 unicon" width="20" height="30"/>
-            <span style="vertical-align: middle" class="link_name"> FAQ </span>
+          <unicon name="question-circle" class="me-2 unicon" width="20" height="30" />
+          <span style="vertical-align: middle" class="link_name"> FAQ </span>
           </Link>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="#">FAQ</a></li>
           </ul>
         </li>
-        <li class="nav-item" :class="{'active' : (title === 'Dukungan')}">
+        <li class="nav-item" :class="{ 'active': (title === 'Dukungan') }">
           <Link :href="route('admin.dukungan')" class="nav-link">
-            <unicon name="bell-school" class="me-2 unicon" width="20" height="30"/>
-            <span style="vertical-align: middle" class="link_name"> Dukungan </span>
+          <unicon name="bell-school" class="me-2 unicon" width="20" height="30" />
+          <span style="vertical-align: middle" class="link_name"> Dukungan </span>
           </Link>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="#">Dukungan</a></li>
@@ -87,7 +91,7 @@ export default {
           <hr class="sidebar-divider">
           <li class="nav-item sign-out">
             <a href="#" class="nav-link">
-              <unicon name="sign-out-alt" class="me-2 unicon" width="20" height="30"/>
+              <unicon name="sign-out-alt" class="me-2 unicon" width="20" height="30" />
               <span style="vertical-align: middle" class="link_name">Logout</span>
             </a>
             <ul class="sub-menu blank">
@@ -117,18 +121,19 @@ export default {
                 <li class="nav-item dropdown frameProfile">
                   <a class="nav-link dropdown-toggle nav-user" href="/#" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="account-user-avatar d-inline-block"><img
-                        src="https://ui-avatars.com/api/?name=S+A&color=7F9CF5&background=EBF4FF"
-                        class="cust-avatar img-fluid rounded-circle" /></span>
-                    <span class="account-user-name">Alvin Pradana Antony</span><span
-                      class="account-position">Student</span>
+                    <span class="account-user-avatar d-inline-block">
+                      <img class="rounded-circle object-fit-cover" :src="$page.props.auth.user.profile_photo_url"
+                        :alt="$page.props.auth.user.name" @error="handleImageError" />
+                    </span>
+                    <span class="account-user-name">{{ $page.props.auth.user.name }}</span><span
+                      class="account-position">Administrator</span>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end me-1 border border-0 custom-rounded"
                     aria-labelledby="navbarDropdown" style="">
                     <li>
                       <a class="text-decoration-none" href="/profile">
                         <div class="dropdown-item custom-item-dropdown d-flex align-items-center">
-                          <unicon name="user" class="me-2 unicon" width="14" height="14"/>
+                          <unicon name="user" class="me-2 unicon" width="14" height="14" />
                           <span class="nameItem">My Profile</span>
                         </div>
                       </a>
@@ -136,7 +141,7 @@ export default {
                     <li>
                       <a class="text-decoration-none" href="/profile">
                         <div class="dropdown-item custom-item-dropdown d-flex align-items-center">
-                          <unicon name="sign-out-alt" class="me-2 unicon" width="14" height="14"/>
+                          <unicon name="sign-out-alt" class="me-2 unicon" width="14" height="14" />
                           <span class="nameItem">Logout</span>
                         </div>
                       </a>
