@@ -250,6 +250,7 @@ input[type="search"]:focus {
   align-items: center;
   text-decoration: none;
   list-style: none;
+  border-radius: 18px;
   transition: all 0.5s ease;
 }
 .sidebar .nav-item.sign-out .nav-link .unicon,
@@ -286,7 +287,7 @@ input[type="search"]:focus {
   transform: translate(0, 0);
 }
 .sidebar .nav-item > a[aria-expanded="true"] {
-  color: var(--text-color) !important;
+  color: var(--text-color);
   font-weight: var(--font-bold) !important;
   transition: none !important;
 }
@@ -299,17 +300,29 @@ input[type="search"]:focus {
   background-color: var(--input-color);
 }
 .sidebar .nav-item-active {
+  border-radius: 18px !important;
+  background-color: var(--input-color) !important;
+  transition: none !important;
+  color: #ffffff !important;
+}
+.sidebar .nav-item-active .nav-link .unicon{
+  fill: #ffffff !important;
+}
+.sidebar .nav-item-active .nav-link {
   border-radius: 18px;
+  background-color: var(--first-color) !important;
   transition: all 0.5s ease;
-  background-color: var(--input-color);
+  color: #ffffff !important;
 }
 .sidebar .nav-item-active:hover {
   border-radius: 18px;
-  transition: all 0.5s ease;
   background-color: var(--input-color);
 }
 .sidebar-divider {
   border-top: 1px solid var(--text-color-light);
+}
+.sub-menu .active{
+  color: var(--first-color);
 }
 
 /*==================== SIDEBAR CLOSING ====================*/
@@ -422,8 +435,8 @@ input[type="search"]:focus {
 /*==================== ITEM ACTIVE in SIDEBAR ====================*/
 .sidebar .nav-item.active {
   border-radius: 25px;
-  transition: all 0.5s ease;
   background-color: var(--first-color);
+  transition: all 0.5s ease;
 }
 .sidebar .nav-item.active .nav-link {
   color: #ffffff !important;
@@ -609,12 +622,15 @@ input[type="search"]:focus {
 }
 
 /*==================== CONTENT ====================*/
-.home-section .content .card{
-  border-radius: 8px;
+.home-section .content .card.custom{
+  border-radius: 16px;
   overflow: hidden;
   position: relative;
   border: none;
+  background-color: var(--container-color);
+  color: var(--text-color);
   box-shadow: 2px 0px 20px rgb(69 69 69 / 8%);
+  transition: all 0.5s ease;
 }
 .home-section .content .card.status_dashboard {
   border-radius: 16px;

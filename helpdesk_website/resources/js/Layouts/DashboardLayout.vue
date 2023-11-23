@@ -42,7 +42,7 @@ export default {
             <li><a class="link_name" href="#">Beranda</a></li>
           </ul>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"  :class="{ 'active': (title === 'Pegawai') }">
           <a data-bs-toggle="collapse" href="#data" aria-expanded="false" aria-controls="data" class="nav-link">
             <unicon name="users-alt" class="me-2 unicon" width="20" height="30" />
             <span style="vertical-align: middle" class="link_name"> Pengguna </span>
@@ -52,10 +52,10 @@ export default {
             <ul class="sub-menu">
               <li><a class="link_name" href="#">Pengguna</a></li>
               <li>
-                <Link :href="route('admin.pegawai')">Pegawai</Link>
+                <Link :href="route('admin.pegawai')" :class="{ 'active': (title === 'Pegawai') }">Pegawai</Link>
               </li>
               <li>
-                <Link :href="route('admin.petugas')">Petugas (Bidang)</Link>
+                <Link :href="route('admin.petugas')" :class="{ 'active': (title === 'Petugas') }">Petugas (Bidang)</Link>
               </li>
             </ul>
           </div>
