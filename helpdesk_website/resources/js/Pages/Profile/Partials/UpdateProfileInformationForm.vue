@@ -89,7 +89,39 @@ const clearPhotoFileInput = () => {
   <div>
     <FormSection @submitted="updateProfileInformation">
       <template #cardProfile>
-        <CardProfile :user="user"/>
+        <!-- <CardProfile :user="user"/> -->
+        <CardProfile>
+          <template #photoPreview>
+            <div class="profile_image">
+              <input id="photo" ref="photoInput" type="file" class="hidden" @change="updatePhotoPreview">
+              <div v-show="!photoPreview">
+                <img :src="user.profile_photo_url" :alt="user.name" width="100" height="100" class="rounded-circle img-thumbnail d-inline-block" />
+              </div>
+              <div v-show="photoPreview">
+                <div class="d-inline-block img-thumbnail rounded-circle new_profile_image">
+                  <span class="custom d-block rounded-circle"
+                    :style="'background-image: url(\'' + photoPreview + '\');'" />
+                </div>
+              </div>
+
+              <div class="py-3 pb-1">
+                <h5 class="mb-0 fw-bolder">{{ user.name }}</h5>
+                <small>Administrator</small>
+              </div>
+            </div>
+          </template>
+          <template #btnAction>
+            <PrimaryButton class="btn btn-primary rounded-pill border-0 p-2 px-3 mt-3 me-2" type="button"
+              @click.prevent="selectNewPhoto">
+              Edit Foto Profil
+            </PrimaryButton>
+
+            <SecondaryButton v-if="user.profile_photo_path" type="button" class="rounded-pill p-2 px-3 mt-3" @click.prevent="deletePhoto">
+              Remove Photo
+            </SecondaryButton>
+            <!-- <button class="btn btn-primary w-100 rounded-pill border-0 p-2 mt-3">Edit Foto Profil</button> -->
+          </template>
+        </CardProfile>
       </template>
       <template #form>
         <div class="p-4">
@@ -104,19 +136,22 @@ const clearPhotoFileInput = () => {
               </div>
               <div class="col-lg-6 mb-3">
                 <InputLabel for="inputname" class="form-label small" value="Nama" />
-                <TextInput type="text" class="form-control" id="inputname" v-model="form.name" required autocomplete="name"/>
+                <TextInput type="text" class="form-control" id="inputname" v-model="form.name" required
+                  autocomplete="name" />
                 <InputError :message="form.errors.name" class="mt-2" />
               </div>
             </div>
             <div class="row">
               <div class="col-lg-6 mb-3">
                 <InputLabel for="inputBirthPlace" class="form-label small" value="Tempat Lahir" />
-                <TextInput type="text" class="form-control" id="inputBirthPlace" v-model="form.birth_place" required autocomplete="place" />
+                <TextInput type="text" class="form-control" id="inputBirthPlace" v-model="form.birth_place" required
+                  autocomplete="place" />
                 <InputError :message="form.errors.birth_place" class="mt-2" />
               </div>
               <div class="col-lg-6 mb-3">
-                <InputLabel for="inputDate" class="form-label small" value="Tanggal Lahir"/>
-                <TextInput type="date" class="form-control" id="inputDate" v-model="form.birth_date" required autocomplete="date"/>
+                <InputLabel for="inputDate" class="form-label small" value="Tanggal Lahir" />
+                <TextInput type="date" class="form-control" id="inputDate" v-model="form.birth_date" required
+                  autocomplete="date" />
                 <InputError :message="form.errors.birth_date" class="mt-2" />
               </div>
             </div>

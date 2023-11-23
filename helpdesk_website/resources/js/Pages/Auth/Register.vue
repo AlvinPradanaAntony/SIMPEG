@@ -18,7 +18,6 @@ const submit = () => {
   form.post(route('register'), {
     onFinish: () => form.reset('password', 'password_confirmation'),
     onError: (error) => {
-      console.log(error.password);
       Swal.fire({
         icon: "error",
         title: error.password,

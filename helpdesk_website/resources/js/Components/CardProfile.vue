@@ -1,24 +1,11 @@
-<script setup>
-
-defineProps({
-  user: Object,
-});
-</script>
-
 <template>
   <div>
     <div class="card">
       <div class="card-body p-0">
         <div class="background-cover">
-          <img src="/img/bg-login.png" alt="...">
+          <img src="/img/bg-login.png" alt="cover">
         </div>
-        <div class="profile_image">
-          <img :src="user.profile_photo_url" alt="" width="100" class="rounded-circle img-thumbnail" />
-          <div class="py-3">
-            <h5 class="mb-1 fw-bolder">{{ user.name }}</h5>
-            <small>Administrator</small>
-          </div>
-        </div>
+        <slot name="photoPreview"/>
         <div class="p-3 text-center py-2 pb-4">
           <div class="row status-ticket">
             <div class="col border-end">
@@ -40,7 +27,7 @@ defineProps({
               </div>
             </div>
           </div>
-          <button class="btn btn-primary w-100 rounded-pill border-0 p-2 mt-3">Edit Foto Profil</button>
+         <slot name="btnAction"/>
         </div>
       </div>
     </div>

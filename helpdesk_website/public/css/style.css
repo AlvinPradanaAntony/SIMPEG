@@ -692,6 +692,14 @@ input[type="search"]:focus {
   margin-top: -3rem;
   text-align: center;
 }
+.profile_page .card .profile_image .custom{
+  width: 90px !important;
+  height: 90px !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .profile_page .card small,
 .profile_page .card .status-ticket p{
   color: var(--text-color-light);
