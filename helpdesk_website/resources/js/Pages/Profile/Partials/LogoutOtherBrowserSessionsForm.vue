@@ -22,7 +22,7 @@ const form = useForm({
 });
 
 const confirmLogout = () => {
-  setTimeout(() => passwordInput.value.focus(), 250);
+  setTimeout(() => passwordInput.value.focus(), 550);
 };
 
 const logoutOtherBrowserSessions = () => {

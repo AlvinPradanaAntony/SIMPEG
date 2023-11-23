@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
+import { Modal } from "bootstrap/dist/js/bootstrap.bundle";
 import ActionSection from '@/Components/ActionSection.vue';
 import DangerButton from '@/Components/DangerButton.vue';
 import DialogModal from '@/Components/DialogModal.vue';
@@ -16,7 +17,7 @@ const form = useForm({
 });
 
 const confirmUserDeletion = () => {
-  setTimeout(() => passwordInput.value.focus(), 250);
+  setTimeout(() => passwordInput.value.focus(), 550);
 };
 
 const deleteUser = () => {
@@ -59,7 +60,7 @@ const closeModal = () => {
       </div>
 
       <!-- Delete Account Confirmation Modal -->
-      <DialogModal target="modalDeleteUser">
+      <DialogModal target="modalDeleteUser" :hasErrors="form.hasErrors">
         <template #title>
           Hapus Akun
         </template>
@@ -70,9 +71,8 @@ const closeModal = () => {
           menghapus akun Anda secara permanen.
 
           <div class="mt-4">
-            <TextInput ref="passwordInput" v-model="form.password" type="password" class="form-control"
+            <TextInput ref="passwordInput" v-model="form.password" type="password" class="form-control" autofocus
               placeholder="Password" autocomplete="current-password" @keyup.enter="deleteUser" />
-
             <InputError :message="form.errors.password" class="mt-2" />
           </div>
         </template>
