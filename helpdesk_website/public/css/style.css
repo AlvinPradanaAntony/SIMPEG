@@ -204,36 +204,27 @@ a {
 
 /* ==================== Login Pages==================== */
 .login__background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background-image: url("../img/bg-login.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-position: 100%;
 }
-.panel__login {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.5s ease-in-out;
-}
 #panel-login {
+  width: 28rem !important;
   background-color: hsla(0, 0%, 0%, 0.425);
   border-radius: 20px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.31);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border: 1.25px solid rgba(255, 255, 255, 0.192) !important;
+  border: 1.25px solid rgba(255, 255, 255, 0.192);
+  transition: all 0.5s ease;
 }
 #panel-login .card-header {
   background-color: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.192) !important;
 }
+
 #panel-login .logo-title {
   font-family: InterBold;
   font-size: var(--h2-font-size);
@@ -265,8 +256,7 @@ a {
 #panel-login .card-body button:hover {
   background-color: var(--first-color-alt);
 }
-.form-floating-custom label.label_nip::after,
-.form-floating-custom label.label_pass::after {
+.form-floating-custom label.label_custom::after {
   background-color: transparent !important;
 }
 .form-floating-custom .form-floating-icon {
@@ -755,6 +745,17 @@ input[type="search"]:focus {
 }
 
 /*==================== Media Query ====================*/
+@media (max-width: 576px) {
+  #panel-login{
+    width: 100% !important;
+    transition: all 0.5s ease;
+  }
+}
+@media (min-width: 576px){
+  .dialogModal .modal-dialog {
+    max-width: 42rem !important;
+  }
+}
 @media (min-width: 768px) {
   .search-banner .container {
     max-width: 720px;
@@ -764,9 +765,5 @@ input[type="search"]:focus {
     transition: ease-in-out 0.5s;
   }
 }
-@media (min-width: 576px){
-  .dialogModal .modal-dialog {
-    max-width: 42rem !important;
-  }
-}
+
 
