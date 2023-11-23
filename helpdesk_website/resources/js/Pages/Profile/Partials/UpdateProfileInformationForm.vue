@@ -9,6 +9,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import Swal from 'sweetalert2'
 
 const props = defineProps({
   user: Object,
@@ -41,6 +42,13 @@ const updateProfileInformation = () => {
     errorBag: 'updateProfileInformation',
     preserveScroll: true,
     onSuccess: () => clearPhotoFileInput(),
+    onError: (error) => {
+      Swal.fire({
+        icon: "error",
+        title: error.photo? 'Kesalahan pada foto' : 'Error' ,
+        html: error.photo ? 'Ukuran gambar terlalu besar. Gambar tidak boleh lebih besar dari <b>1MB</b>.' : 'Error',
+      });
+    },
   });
 };
 

@@ -17,15 +17,17 @@ import {
     uniEnvelopeAdd,
     uniInfoCircle,
     uniClock,
-    uniApps, 
+    uniApps,
     uniQuestionCircle,
-    uniBellSchool, 
+    uniBellSchool,
     uniSignOutAlt,
     uniUser,
-    uniBringFront, 
-    uniNotebooks, 
+    uniBringFront,
+    uniNotebooks,
     uniTimes,
-    uniEnvelopeAlt, uniKeySkeletonAlt
+    uniEnvelopeAlt,
+    uniKeySkeletonAlt,
+    uniCreateDashboard,
 } from "vue-unicons/dist/icons";
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle";
 
@@ -39,21 +41,25 @@ Unicon.add([
     uniEnvelopeAdd,
     uniInfoCircle,
     uniClock,
-    uniApps, 
+    uniApps,
     uniQuestionCircle,
     uniBellSchool,
     uniSignOutAlt,
     uniUser,
-    uniBringFront, 
-    uniNotebooks, 
+    uniBringFront,
+    uniNotebooks,
     uniTimes,
-    uniEnvelopeAlt, uniKeySkeletonAlt
+    uniEnvelopeAlt,
+    uniKeySkeletonAlt,
+    uniCreateDashboard,
 ]);
 
 createInertiaApp({
     title: (title) => {
         const isAdminRoute = window.location.pathname.startsWith("/admin");
-        return isAdminRoute ? `${title} - Helpdesk Admin` : `${title} - Helpdesk`;
+        return isAdminRoute
+            ? `${title} - Helpdesk Admin`
+            : `${title} - Helpdesk`;
     },
     resolve: (name) =>
         resolvePageComponent(

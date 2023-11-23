@@ -102,19 +102,25 @@ const logout = () => {
           </a>
           <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0" id="settings">
             <li>
+              <Link class="dropdown-item" :href="route('admin.dashboard')">
+              <unicon name="create-dashboard" class="me-2" width="18" fill="var(--text-color)" />
+              <span>Admin Dashboard</span>
+              </Link>
+            </li>
+            <li>
               <Link class="dropdown-item" :href="route('profile.show')">
-                <unicon name="user" class="me-2" width="18" fill="var(--text-color)"/>
-                <span>Lihat Profil</span>
-            </Link>
-          </li>
-          <li>
+              <unicon name="user" class="me-2" width="18" fill="var(--text-color)" />
+              <span>Lihat Profil</span>
+              </Link>
+            </li>
+            <li>
               <hr class="dropdown-divider" />
             </li>
             <li>
               <form @submit.prevent="logout">
                 <button class="dropdown-item" type="submit" id="logout">
-                    <unicon name="sign-out-alt" class="me-2 unicon" width="18" fill="var(--text-color)"/>
-                    <span>Keluar</span>
+                  <unicon name="sign-out-alt" class="me-2 unicon" width="18" fill="var(--text-color)" />
+                  <span>Keluar</span>
                 </button>
               </form>
             </li>
