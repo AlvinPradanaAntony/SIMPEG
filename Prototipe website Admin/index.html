@@ -275,7 +275,8 @@
               
               <div class="row">
                 <div class="center-top">
-                  <input type="month" />
+                  <input type="month" id="month" name="month" onchange="updateChart()">
+                  
                 </div>
                 <div class="col-6">
                   <canvas id="myChart" style="width: 500px; max-width: 4700px; height:290px;"></canvas>
@@ -388,15 +389,15 @@
  //=======================================================//
      //Tiket Yang masuk ke bidang perbulannya (myChart)
 
-  function downloadChartReport(reportType) {
-    const chartCanvas = document.getElementById('myChart');
-    html2canvas(chartCanvas).then(canvas => {
-      const pdf = new jsPDF();
-      const imgData = canvas.toDataURL('image/png');
-      pdf.addImage(imgData, 'PNG', 10, 10, 190, 100);
-      pdf.save(`chart_report_${reportType}.pdf`);
-    });
-  }
+  // function downloadChartReport(reportType) {
+  //   const chartCanvas = document.getElementById('myChart');
+  //   html2canvas(chartCanvas).then(canvas => {
+  //     const pdf = new jsPDF();
+  //     const imgData = canvas.toDataURL('image/png');
+  //     pdf.addImage(imgData, 'PNG', 10, 10, 190, 100);
+  //     pdf.save(`chart_report_${reportType}.pdf`);
+  //   });
+  // }
   
 
 // const singleData = { x: 'Bidang satu', y: 4 };
@@ -408,7 +409,7 @@ new Chart(ctx, {
       {
         label: 'Bidang satu',
         data: [
-          { x: 'Bidang satu', y: 4 },
+          { x: 'Bidang satu', y: 4, date: '2023-10' },
         ],
         backgroundColor: 'rgba(109, 161, 62, 100)', // Warna Bidang 1
         borderColor: 'rgba(109, 161, 62, 100)',
@@ -420,7 +421,7 @@ new Chart(ctx, {
       {
         label: 'Bidang dua',
         data: [
-          { x: 'Bidang dua', y: 5 },
+          { x: 'Bidang dua', y: 5, date: '2023-10' },
         ],
         backgroundColor: 'rgba(19, 128, 255, 1)', // Warna Bidang 2
         borderColor: 'rgba(19, 128, 255, 1)',
@@ -432,7 +433,7 @@ new Chart(ctx, {
       {
         label: 'Bidang tiga',
         data: [
-          { x: 'Bidang tiga', y: 8 },
+          { x: 'Bidang tiga', y: 8, date: '2023-10' },
         ],
         backgroundColor: 'rgba(212, 89, 0, 1)', // Warna Bidang 3
         borderColor: 'rgba(212, 89, 0, 1)',
@@ -444,7 +445,7 @@ new Chart(ctx, {
       {
         label: 'Bidang empat',
         data: [
-          { x: 'Bidang empat', y: 5.1 },
+          { x: 'Bidang empat', y: 5.1, date: '2023-10' },
         ],
         backgroundColor: 'rgba(251, 212, 65, 1)', // Warna Bidang 4
         borderColor: 'rgba(251, 212, 65, 1)',
@@ -456,7 +457,7 @@ new Chart(ctx, {
       {
         label: 'Bidang lima',
         data: [
-          { x: 'Bidang lima', y: 4 },
+          { x: 'Bidang lima', y: 4, date: '2023-10' },
         ],
         backgroundColor: 'rgba(151, 71, 255, 1)', // Warna Bidang 5
         borderColor: 'rgba(151, 71, 255, 1)',
@@ -516,6 +517,10 @@ new Chart(ctx, {
   }
 });
 
+
+
+
+
   function colorItems(tooltipItem) {
     console.log(tooltipItem.tooltip.labelColors[0].borderColor);
     const tooltipBackgroundColor = tooltipItem.tooltip.labelColors[0].
@@ -563,6 +568,7 @@ new Chart(ctx, {
       }
     }
   });
+  
 
   //=======================================================//
         //Rating Pelayanan tiket perbidang (myChart2)
