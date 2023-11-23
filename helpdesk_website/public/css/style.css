@@ -692,6 +692,11 @@ input[type="search"]:focus {
   margin-top: -3rem;
   text-align: center;
 }
+.profile_page .card .profile_image img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
 .profile_page .card .profile_image .custom{
   width: 90px !important;
   height: 90px !important;

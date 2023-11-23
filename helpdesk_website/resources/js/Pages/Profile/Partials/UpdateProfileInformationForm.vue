@@ -89,7 +89,6 @@ const clearPhotoFileInput = () => {
   <div>
     <FormSection @submitted="updateProfileInformation">
       <template #cardProfile>
-        <!-- <CardProfile :user="user"/> -->
         <CardProfile>
           <template #photoPreview>
             <div class="profile_image">
