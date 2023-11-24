@@ -28,6 +28,8 @@ import {
     uniEnvelopeAlt,
     uniKeySkeletonAlt,
     uniCreateDashboard,
+    uniAngleRight,
+    uniBars,
 } from "vue-unicons/dist/icons";
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle";
 
@@ -52,6 +54,8 @@ Unicon.add([
     uniEnvelopeAlt,
     uniKeySkeletonAlt,
     uniCreateDashboard,
+    uniAngleRight,
+    uniBars,
 ]);
 
 createInertiaApp({

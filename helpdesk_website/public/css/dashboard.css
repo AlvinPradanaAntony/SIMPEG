@@ -268,18 +268,15 @@ input[type="search"]:focus {
 .sidebar .nav-item .menu-arrow {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.2s ease, visibility 0.2s ease !important;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
-.sidebar .nav-item .menu-arrow {
-  transition: opacity 1s ease, visibility 1s ease !important;
-}
-.sidebar .menu-arrow {
+.sidebar span.menu-arrow {
   -webkit-transition: -webkit-transform 0.15s;
   transition: -webkit-transform 0.15s;
-  transition: transform 0.15s;
-  transition: transform 0.15s, -webkit-transform 0.15s;
+  transition: opacity 2s ease, transform 0.15s, -webkit-transform 0.15s !important;
   position: absolute;
   right: 15px;
+  margin-top: 4px;
   display: inline-block;
   line-height: 1.5rem;
   font-size: var(--h3-font-size);
@@ -287,13 +284,11 @@ input[type="search"]:focus {
   transform: translate(0, 0);
 }
 .sidebar .nav-item > a[aria-expanded="true"] {
-  color: var(--text-color);
-  font-weight: var(--font-bold) !important;
-  transition: none !important;
+  font-weight: var(--font-bold);
 }
 .sidebar .nav-item > a[aria-expanded="true"] > span.menu-arrow {
   -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
+  transform: rotate(90deg) ;
 }
 .sidebar .nav-item:hover {
   border-radius: 25px;
@@ -302,17 +297,7 @@ input[type="search"]:focus {
 .sidebar .nav-item-active {
   border-radius: 18px !important;
   background-color: var(--input-color) !important;
-  transition: none !important;
-  color: #ffffff !important;
-}
-.sidebar .nav-item-active .nav-link .unicon{
-  fill: #ffffff !important;
-}
-.sidebar .nav-item-active .nav-link {
-  border-radius: 18px;
-  background-color: var(--first-color) !important;
   transition: all 0.5s ease;
-  color: #ffffff !important;
 }
 .sidebar .nav-item-active:hover {
   border-radius: 18px;
@@ -340,6 +325,9 @@ input[type="search"]:focus {
 }
 .sidebar.close .nav-item {
   border-radius: 10px !important;
+}
+.sidebar.close .nav-link.active{
+  border-radius: 10px;
 }
 .sidebar.close .nav-item:hover {
   border-radius: 10px;
@@ -433,23 +421,21 @@ input[type="search"]:focus {
 
 
 /*==================== ITEM ACTIVE in SIDEBAR ====================*/
-.sidebar .nav-item.active {
+.sidebar .nav-link.active{
   border-radius: 25px;
+  transition: all 0.5s ease;
   background-color: var(--first-color);
+  color: #ffffff;
+  font-weight: var(--font-bold);
+}
+.sidebar .nav-item.nav-item.nav-item-active > .nav-link.active {
+  border-radius: 16px;
   transition: all 0.5s ease;
 }
-.sidebar .nav-item.active .nav-link {
-  color: #ffffff !important;
-  font-weight: var(--font-extra-bold) !important;
-}
-.sidebar .nav-item.active .nav-link .unicon{
+.sidebar .nav-link.active .unicon{
   fill: #ffffff;
   stroke: #ffffff;
   stroke-width: 0.5px;
-}
-.sidebar .nav-item.active:hover {
-  border-radius: 25px;
-  background-color: var(--first-color);
 }
 
 /*==================== SUBMENU in SIDEBAR ====================*/
