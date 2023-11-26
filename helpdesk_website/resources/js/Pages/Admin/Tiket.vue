@@ -20,7 +20,7 @@ import StatusCard from '@/Pages/Admin/Partials/StatusCard.vue';
         <StatusCard icon="notebooks" title="Tiket Tertutup" data="0" color1="#bb2929" color2="#e76666"/>
       </div>
     </div>
-    <div class="card">
+    <div class="card custom">
       <div class="card-body">
         <h3 class="m-0 fw-bold fs-5">Halaman Manajemen Tiket</h3>
       </div>
