@@ -1,5 +1,4 @@
 /*========== SHOW/HIDE PASSWORD INPUT ==========*/
-import $ from "jquery";
 import moment from "moment";
 
 const scriptDashboard = () => {
