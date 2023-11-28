@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.189/pdf_viewer.min.css" integrity="sha512-9uknW5oN7ouvfOCw5wxRC3O9LmGrH3jhuCjcHnAHNvkP4s7Z5X0rWXxHHM0LcyWT/aBIMan/lCJHJtQx8eEAyg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.189/pdf.min.mjs"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
   
 
 </head>
@@ -401,6 +402,14 @@
   
 
 // const singleData = { x: 'Bidang satu', y: 4 };
+
+const datapoint = [4, 5, 8, 5.1, 0.2 ];
+
+const bidangsatu = [{ x: 'Bidang satu', y: datapoint[0], }];
+const bidangdua = [{ x: 'Bidang dua', y: datapoint[1], date: '2023-10' }];
+const bidangtiga = [{ x: 'Bidang tiga', y: datapoint[2], date: '2023-10' }];
+const bidangempat = [{ x: 'Bidang empat', y: datapoint[3], date: '2023-10' }];
+const bidanglima = [{ x: 'Bidang lima', y: datapoint[4], date: '2023-10' }];
 const ctx = document.getElementById('myChart');
 new Chart(ctx, {
   type: 'bar',
@@ -408,9 +417,7 @@ new Chart(ctx, {
     datasets: [
       {
         label: 'Bidang satu',
-        data: [
-          { x: 'Bidang satu', y: 4, date: '2023-10' },
-        ],
+        data: bidangsatu,
         backgroundColor: 'rgba(109, 161, 62, 100)', // Warna Bidang 1
         borderColor: 'rgba(109, 161, 62, 100)',
         fill: false,
@@ -420,9 +427,7 @@ new Chart(ctx, {
       },
       {
         label: 'Bidang dua',
-        data: [
-          { x: 'Bidang dua', y: 5, date: '2023-10' },
-        ],
+        data:bidangdua,
         backgroundColor: 'rgba(19, 128, 255, 1)', // Warna Bidang 2
         borderColor: 'rgba(19, 128, 255, 1)',
         fill: false,
@@ -432,9 +437,7 @@ new Chart(ctx, {
       },
       {
         label: 'Bidang tiga',
-        data: [
-          { x: 'Bidang tiga', y: 8, date: '2023-10' },
-        ],
+        data: bidangtiga,
         backgroundColor: 'rgba(212, 89, 0, 1)', // Warna Bidang 3
         borderColor: 'rgba(212, 89, 0, 1)',
         fill: false,
@@ -444,9 +447,7 @@ new Chart(ctx, {
       },
       {
         label: 'Bidang empat',
-        data: [
-          { x: 'Bidang empat', y: 5.1, date: '2023-10' },
-        ],
+        data: bidangempat,
         backgroundColor: 'rgba(251, 212, 65, 1)', // Warna Bidang 4
         borderColor: 'rgba(251, 212, 65, 1)',
         fill: false,
@@ -456,9 +457,7 @@ new Chart(ctx, {
       },
       {
         label: 'Bidang lima',
-        data: [
-          { x: 'Bidang lima', y: 4, date: '2023-10' },
-        ],
+        data: bidanglima  ,
         backgroundColor: 'rgba(151, 71, 255, 1)', // Warna Bidang 5
         borderColor: 'rgba(151, 71, 255, 1)',
         fill: false,
@@ -517,10 +516,6 @@ new Chart(ctx, {
   }
 });
 
-
-
-
-
   function colorItems(tooltipItem) {
     console.log(tooltipItem.tooltip.labelColors[0].borderColor);
     const tooltipBackgroundColor = tooltipItem.tooltip.labelColors[0].
@@ -531,7 +526,7 @@ new Chart(ctx, {
          //=======================================================//
               //Tiket Yang masuk ke bidang perbulannya (myChart1)
 
-  const datapoint1 = [4, 5, 8, 5.1, 4, ];
+  // const datapoint1 = [4, 5, 8, 5.1, 4, ];
   const ctx1 = document.getElementById('myChart1');
 
   // Warna yang sesuai dengan jumlah data pada datapoint1
@@ -543,7 +538,7 @@ new Chart(ctx, {
       labels: ['Bidang Satu', 'Bidang Dua', 'Bidang Tiga', 'Bidang Empat', 'Bidang Lima'],
       datasets: [{
         label: '',
-        data: datapoint1,
+        data: datapoint,
         backgroundColor: colors,
         borderWidth: 1
       }]
@@ -560,7 +555,13 @@ new Chart(ctx, {
           display: false,
         },
         labels: {
-          render: 'percentage',
+          render: function (args) {
+          if (args.index === 0) {
+            // Menambahkan teks khusus untuk "Bidang Satu"
+            return 'Bidang Satu';
+          }
+          return args.label;
+        },
           fontColor: 'black',
           fontSize: 10,
           position: 'outside'
@@ -568,6 +569,7 @@ new Chart(ctx, {
       }
     }
   });
+
   
 
   //=======================================================//
@@ -711,118 +713,75 @@ new Chart(ctx, {
     // ];
   
     const data = {
-      labels: ['status'],
-      datasets: [{
-        label: 'Bidang Satu',
-        data: [10],
-        backgroundColor: 'RGB(251, 212, 65)',
-        
-        
-      },
-      {
-        label: 'Pegawai',
-        data: [40],
-        backgroundColor: ' RGB(93, 167, 184)',
-        
-        
-      }]
-    };
-  
-    const config = {
-      type: 'bar',
-      data: data,
-      options: {
-      indexAxis: 'y',
-      aspectRatio: 9,
-      scales: {
-        y: {
-          beginAtZero: true,
-            stacked: true,
-          ticks: {
-            display: false,
-            stepSize: 1,
-            max: 40, 
-            min: 0
-          }
-        },
-        x: {
-          beginAtZero: true,
+  labels: ['status'],
+  datasets: [
+    {
+      label: 'Bidang Satu',
+      data: [10],
+      backgroundColor: 'RGB(251, 212, 65)',
+    },
+    {
+      label: 'Pegawai',
+      data: [20], // Nilai persentase bidang lain diatur ke 0
+      backgroundColor: 'RGB(93, 167, 184)',
+    }
+  ]
+};
+
+const config = {
+  type: 'bar',
+  data: data,
+  options: {
+    indexAxis: 'y',
+    aspectRatio: 9,
+    scales: {
+      y: {
+        beginAtZero: true,
+        stacked: true,
+        ticks: {
           display: false,
-          grid: {
-            display: false,
-          }
+          stepSize: 1,
+          max: 40,
+          min: 0,
         },
-        
       },
-      plugins: {
-        labels: {
-          render: 'percentage',
-          fontColor: 'black',
-          fontSize: 13,
-          position: 'outside',
-          textMargin: 1,
-          
-          
-        },
-        legend: {
+      x: {
+        beginAtZero: true,
+        display: false,
+        grid: {
           display: false,
         },
       },
     },
-    };
+    plugins: {
+      labels: {
+        render: function (args) {
+          // Menampilkan persentase hanya untuk Bidang Satu
+          if (args.dataset.label === 'Bidang Satu') {
+            return args.value + '% membuat tiket';
+          } else {
+            return ''; // Tidak menampilkan teks untuk bidang lainnya
+          }
+        },
+        fontColor: 'black',
+        fontSize: 13,
+        position: 'outside',
+        textMargin: 1,
+      },
+      legend: {
+        display: false,
+      },
+    },
+  },
+};
+
+
 
     const myChart = new Chart(
       document.getElementById('myChart3'),
       config
     );
-  // const ctx3 = document.getElementById('');
-
-  // new Chart(ctx3, {
-  // type: 'bar',
-  // data: {
-  //   labels: ['Red', 'Blue'],
-  //   datasets: [{
-  //     label: '# of Votes',
-  //     data: [4,3],
-  //     borderWidth: 1,
-  //     barPercentage: 0.5,
-  //     categoryPercentage: 1.0,
-  //     backgroundColor: ['rgba(93, 167, 184)', 'rgba(226, 28, 28)'], 
-  //     borderColor: ['rgba(93, 167, 184)', 'rgba(226, 28, 28)'], 
-  //     fill: false,
-  //   }]
-  // },
-  //   options: {
-  //     indexAxis: 'y',
-  //     scales: {
-  //       y: {
-  //         beginAtZero: true,
-  //           stacked: true,
-  //         ticks: {
-  //           display: false,
-  //           stepSize: 1,
-  //           max: 40, 
-  //           min: 0
-  //         }
-  //       },
-  //       x: {
-  //         beginAtZero: true,
-  //         display: false,
-  //         grid: {
-  //           display: false,
-  //         }
-  //       },
-        
-  //     },
-  //     plugins: {
-  //       legend: {
-  //         display: false,
-  //       },
-  //     },
-  //   },
-    
-    
-  // });
+  
 </script>
 
 <!-- /*==================== LORDICON ====================*/ -->
