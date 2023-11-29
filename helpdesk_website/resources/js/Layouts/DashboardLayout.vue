@@ -1,6 +1,11 @@
 <script setup>
 import { Head, Link, router } from '@inertiajs/vue3';
-import "../../../public/css/dashboard.css";
+import '../../../public/css/dashboard.css';
+import '../../../public/vendor/jquery-3.7.1.min.js';
+import '../../../public/vendor/datatables/DataTables-1.13.8/js/jquery.dataTables.min.js';
+import '../../../public/vendor/datatables/DataTables-1.13.8/js/dataTables.bootstrap5.min.js';
+import '../../../public/vendor/datatables/Buttons-2.4.2/js/dataTables.buttons.min.js';
+import '../../../public/vendor/datatables/Buttons-2.4.2/js/buttons.bootstrap5.min.js';
 
 
 defineProps({
@@ -105,7 +110,7 @@ export default {
     <section class="home-section">
       <div class="home-navbar sticky-top mb-4" id="sticky-element">
         <nav class="navbar-custom navbar-expand-lg shadowNavbar">
-          <div class="container-fluid d-flex align-items-center">
+          <div class="container-fluid d-flex align-items-center px-3">
             <div class="menu" id="menu"><i class="bx bx-menu menu-collapse"></i></div>
             <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
               <ul class="navbar-nav mb-2 mb-lg-0">
