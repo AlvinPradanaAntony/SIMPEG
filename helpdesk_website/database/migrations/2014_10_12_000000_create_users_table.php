@@ -22,8 +22,7 @@ return new class extends Migration
             $table->string('marital_status')->nullable();
             $table->string('department_id')->nullable();
             $table->string('position_id')->nullable();
-            $table->integer('level_id')->nullable();
-            $table->string('category_id')->nullable();
+            $table->integer('level_id');
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('email')->unique()->nullable();

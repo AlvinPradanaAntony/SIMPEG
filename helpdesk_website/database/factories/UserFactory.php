@@ -32,7 +32,6 @@ class UserFactory extends Factory
             'department_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
             'position_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
             'level_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
-            'category_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
             'phone' => $this->faker->phoneNumber(),
             'address' => $this->faker->address(),
             'email' => $this->faker->unique()->safeEmail(),
