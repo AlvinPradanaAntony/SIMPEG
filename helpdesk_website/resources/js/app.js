@@ -32,6 +32,7 @@ import {
     uniCreateDashboard,
     uniAngleRight,
     uniBars,
+    uniSearch
 } from "vue-unicons/dist/icons";
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle";
 
@@ -58,6 +59,7 @@ Unicon.add([
     uniCreateDashboard,
     uniAngleRight,
     uniBars,
+    uniSearch
 ]);
 
 createInertiaApp({

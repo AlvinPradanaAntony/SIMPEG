@@ -249,6 +249,7 @@ a {
   border-radius: 12px;
   background-color: var(--input-color);
   transition: all 0.5s ease;
+  padding-right: 42px;
 }
 #panel-login .card-body button {
   background-color: var(--first-color);
@@ -302,7 +303,7 @@ a {
 .show {
   display: inline-block;
 }
-.show-hide{
+.show-hide {
   cursor: pointer;
 }
 
@@ -311,7 +312,7 @@ a {
   height: 100vh;
   overflow: auto;
 } */
-.navbar{
+.navbar {
   padding: 10px !important;
 }
 .navbar.shadowNavbar {
@@ -382,12 +383,12 @@ a {
   font-weight: 600;
   color: var(--title-color);
 }
-.navbar .nav-item .dropdown-item:active#logout{
+.navbar .nav-item .dropdown-item:active#logout {
   color: var(--text-color);
   background-color: #f8f8f8;
 }
 .navbar .nav-item .dropdown-item#logout,
-.navbar .nav-item .dropdown-item#logout .unicon{
+.navbar .nav-item .dropdown-item#logout .unicon {
   color: #fd5353;
   fill: #fd5353;
 }
@@ -414,10 +415,10 @@ a {
 .custom-rounded li .dropdown-divider {
   border-color: #f1f1f1;
 }
-.dropdown-menu.dropdown-menu-end{
+.dropdown-menu.dropdown-menu-end {
   transform: translate(0, 13px);
 }
-.dropdown-menu.dropdown-menu-end#settings{
+.dropdown-menu.dropdown-menu-end#settings {
   transform: translate(0, 15px);
 }
 .dropdown-menu.dropdown-menu-center {
@@ -501,35 +502,22 @@ a {
   margin-bottom: 30px;
 }
 .search-banner .form-control {
-  padding-left: 20px;
+  padding-left: 45px;
   padding-right: 20px;
   font-size: 1rem;
   border: none;
   height: 46px;
-  border-radius: 6px;
+  border-radius: 8px !important;
 }
 .search-banner .form-control:focus {
   box-shadow: none !important;
 }
-.search-banner .btn {
-  background: #fff;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  color: var(--text-color);
-  border-radius: 6px;
-  border: none;
-}
-.search-banner .btn:active {
-  background: #fff;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  color: var(--first-color);
-  border-radius: 6px;
-  border: none;
-}
-.search-banner .btn:hover {
-  color: var(--first-color);
-  font-weight: 600;
+.search-banner .icon_search {
+  height: 100%;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  z-index: 10;
 }
 .btn-create-ticket {
   font-weight: var(--font-semi-bold);
@@ -607,7 +595,6 @@ a {
   color: #adb5bd;
 }
 
-
 /*==================== Sweetalert Custom ====================*/
 .swal2-popup {
   border-radius: 20px;
@@ -660,40 +647,38 @@ input[type="search"]:focus {
   transition: 0.4s ease-in-out !important;
 }
 
-
-
 /*==================== Profile Pages ====================*/
-.profile_page{
+.profile_page {
   min-height: 100vh;
   background-color: var(--body-color2);
 }
 
-.profile_page .card{
+.profile_page .card {
   border-radius: 12px;
   border: none;
   box-shadow: 2px 0px 20px rgb(69 69 69 / 8%);
 }
-.profile_page .card .background-cover{
+.profile_page .card .background-cover {
   position: relative;
 }
-.profile_page .card .background-cover img{
+.profile_page .card .background-cover img {
   border-radius: 8px 8px 0 0;
   width: 100%;
   height: 180px;
   object-fit: cover;
   filter: brightness(0.7) blur(0.5px);
 }
-.profile_page .card .profile_image{
+.profile_page .card .profile_image {
   position: relative !important;
   margin-top: -3rem;
   text-align: center;
 }
-.profile_page .card .profile_image img{
+.profile_page .card .profile_image img {
   width: 100px;
   height: 100px;
   object-fit: cover;
 }
-.profile_page .card .profile_image .custom{
+.profile_page .card .profile_image .custom {
   width: 90px !important;
   height: 90px !important;
   background-repeat: no-repeat;
@@ -702,65 +687,64 @@ input[type="search"]:focus {
 }
 
 .profile_page .card small,
-.profile_page .card .status-ticket p{
+.profile_page .card .status-ticket p {
   color: var(--text-color-light);
 }
-.profile_page .card .status-ticket p{
+.profile_page .card .status-ticket p {
   font-size: var(--h6-font-size);
 }
-.card.detail_profile .card-title{
+.card.detail_profile .card-title {
   font-family: NunitoSansExtraBold;
   letter-spacing: -0.75px;
 }
-.section-border{
+.section-border {
   border-bottom: 1px solid rgba(128, 128, 128, 0.295) !important;
 }
-.btn-custom{
+.btn-custom {
   border-radius: 6px !important;
 }
-.footer-form-action{
-  background-color: #F9FAFB;
-  border-radius:  0 0 12px 12px;
-}
-.session_ip{
-  font-size: 0.75rem
-}
-.session_ip span{
-  color: #28C365;
-}
-
-
-.dialogModal .modal-content{
-  border-radius: 12px !important;
-}
-.dialogModal .modal-header{
-  font-family: NunitoSansExtraBold;
-}
-.dialogModal .modal-footer{
-  background-color: #F9FAFB;
+.footer-form-action {
+  background-color: #f9fafb;
   border-radius: 0 0 12px 12px;
 }
-.dialogModal .modal-header button{
-  width: 18px  !important;
+.session_ip {
+  font-size: 0.75rem;
+}
+.session_ip span {
+  color: #28c365;
+}
+
+.dialogModal .modal-content {
+  border-radius: 12px !important;
+}
+.dialogModal .modal-header {
+  font-family: NunitoSansExtraBold;
+}
+.dialogModal .modal-footer {
+  background-color: #f9fafb;
+  border-radius: 0 0 12px 12px;
+}
+.dialogModal .modal-header button {
+  width: 18px !important;
   height: 18px !important;
   padding: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.dialogModal .modal-header .close{
+.dialogModal .modal-header .close {
   width: 18px;
   height: 18px !important;
 }
 
 /*==================== Media Query ====================*/
 @media (max-width: 576px) {
-  #panel-login{
+  #panel-login {
     width: 100% !important;
     transition: all 0.5s ease;
   }
 }
-@media (min-width: 576px){
+@media (min-width: 576px) {
   .dialogModal .modal-dialog {
     max-width: 42rem !important;
   }
@@ -774,5 +758,3 @@ input[type="search"]:focus {
     transition: ease-in-out 0.5s;
   }
 }
-
-
