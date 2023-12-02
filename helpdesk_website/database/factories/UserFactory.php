@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'marital_status' => $this->faker->randomElement(['Belum Menikah', 'Menikah', 'Cerai Hidup', 'Cerai Mati']),
             'department_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
             'position_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
-            'level_id' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
+            'level_id' => 1,
             'phone' => $this->faker->phoneNumber(),
             'address' => $this->faker->address(),
             'email' => $this->faker->unique()->safeEmail(),
