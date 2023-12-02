@@ -20,7 +20,7 @@ import StatusCard from '@/Pages/Admin/Partials/StatusCard.vue';
         <StatusCard icon="notebooks" title="Jumlah Kategori" data="0" color1="#f64c18" color2="#ee9539"/>
       </div>
     </div>
-    <div class="card custom">
+    <div class="card custom mb-3 px-2">
       <div class="card-body">
         <h3 class="m-0 fw-bold fs-5">Halaman Dashboard</h3>
       </div>

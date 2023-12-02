@@ -1,6 +1,11 @@
 <script setup>
 import { Head, Link, router } from '@inertiajs/vue3';
-import "../../../public/css/dashboard.css";
+import '../../../public/css/dashboard.css';
+import '../../../public/vendor/jquery-3.7.1.min.js';
+import '../../../public/vendor/datatables/DataTables-1.13.8/js/jquery.dataTables.min.js';
+import '../../../public/vendor/datatables/DataTables-1.13.8/js/dataTables.bootstrap5.min.js';
+import '../../../public/vendor/datatables/Buttons-2.4.2/js/dataTables.buttons.min.js';
+import '../../../public/vendor/datatables/Buttons-2.4.2/js/buttons.bootstrap5.min.js';
 
 
 defineProps({
@@ -91,12 +96,16 @@ export default {
         <div class="setting mt-5">
           <hr class="sidebar-divider">
           <li class="nav-item sign-out">
-            <a href="#" class="nav-link">
-              <unicon name="sign-out-alt" class="me-2 unicon" width="20" height="30" />
-              <span style="vertical-align: middle" class="link_name">Logout</span>
-            </a>
+            <form @submit.prevent="logout">
+              <button class="nav-link" type="submit" id="logout">
+                <unicon name="sign-out-alt" class="me-2 unicon" width="20" height="30" fill="var(--text-color)" />
+                <span style="vertical-align: middle" class="link_name">Keluar</span>
+              </button>
+            </form>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Logout</a></li>
+              <li>
+                <a class="link_name" href="#">Logout</a>
+              </li>
             </ul>
           </li>
         </div>
@@ -105,7 +114,7 @@ export default {
     <section class="home-section">
       <div class="home-navbar sticky-top mb-4" id="sticky-element">
         <nav class="navbar-custom navbar-expand-lg shadowNavbar">
-          <div class="container-fluid d-flex align-items-center">
+          <div class="container-fluid d-flex align-items-center px-3">
             <div class="menu" id="menu"><i class="bx bx-menu menu-collapse"></i></div>
             <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
               <ul class="navbar-nav mb-2 mb-lg-0">
@@ -132,20 +141,22 @@ export default {
                   <ul class="dropdown-menu dropdown-menu-end me-1 border border-0 custom-rounded"
                     aria-labelledby="navbarDropdown" style="">
                     <li>
-                      <a class="text-decoration-none" href="/profile">
-                        <div class="dropdown-item custom-item-dropdown d-flex align-items-center">
-                          <unicon name="user" class="me-2 unicon" width="14" height="14" />
-                          <span class="nameItem">My Profile</span>
-                        </div>
-                      </a>
+                      <Link class="text-decoration-none" :href="route('admin.profile')">
+                      <div class="dropdown-item custom-item-dropdown d-flex align-items-center">
+                        <unicon name="user" class="me-2 unicon" width="14" height="14" fill="var(--text-color)" />
+                        <span class="nameItem">My Profile</span>
+                      </div>
+                      </Link>
                     </li>
                     <li>
-                      <a class="text-decoration-none" href="/profile">
-                        <div class="dropdown-item custom-item-dropdown d-flex align-items-center">
-                          <unicon name="sign-out-alt" class="me-2 unicon" width="14" height="14" />
-                          <span class="nameItem">Logout</span>
-                        </div>
-                      </a>
+                      <form @submit.prevent="logout">
+                        <button class="dropdown-item custom-item-dropdown d-flex align-items-center" type="submit"
+                          id="logout">
+                          <unicon name="sign-out-alt" class="me-2 unicon" width="14" height="14"
+                            fill="var(--text-color)" />
+                          <span>Keluar</span>
+                        </button>
+                      </form>
                     </li>
                   </ul>
                 </li>

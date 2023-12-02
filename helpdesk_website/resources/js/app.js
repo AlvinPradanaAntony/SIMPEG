@@ -1,6 +1,8 @@
 import "./bootstrap";
 import "../../public/css/style.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "../../public/vendor/datatables/DataTables-1.13.8/css/dataTables.bootstrap5.min.css";
+import "../../public/vendor/datatables/Buttons-2.4.2/css/buttons.bootstrap5.min.css";
 // import '../css/app.css';
 
 import { createApp, h } from "vue";
@@ -30,6 +32,7 @@ import {
     uniCreateDashboard,
     uniAngleRight,
     uniBars,
+    uniSearch,
 } from "vue-unicons/dist/icons";
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle";
 
@@ -56,6 +59,7 @@ Unicon.add([
     uniCreateDashboard,
     uniAngleRight,
     uniBars,
+    uniSearch,
 ]);
 
 createInertiaApp({

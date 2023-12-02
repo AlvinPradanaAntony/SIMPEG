@@ -31,6 +31,16 @@ class ProfileController extends Controller
             'canLogin' => Route::has('login'),
         ]);
     }
+    public function showOnDashboard(Request $request)
+    {
+        $this->validateTwoFactorAuthenticationState($request);
+
+        return Jetstream::inertia()->render($request, 'Admin/Profile/Show', [
+            'confirmsTwoFactorAuthentication' => Features::optionEnabled(Features::twoFactorAuthentication(), 'confirm'),
+            'sessions' => $this->sessions($request)->all(),
+            'canLogin' => Route::has('login'),
+        ]);
+    }
 
     /**
      * Get the current sessions.

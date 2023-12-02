@@ -10,6 +10,7 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FaqController;
+use App\Models\Faq;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::get('/', function () {
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
+        'faqs' => Faq::all(),
     ]);
 })->name('landingpage');
 
@@ -74,6 +76,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/user/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/user/profile', [ProfileController::class, 'showOnDashboard'])->name('admin.profile');
 });
 
 Route::get("/detail_tickets", [DetailTicketController::class, 'index']);

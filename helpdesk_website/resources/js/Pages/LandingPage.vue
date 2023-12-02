@@ -3,27 +3,33 @@ import { Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Footer from '@/Components/Footer.vue';
 import axios from 'axios';
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watchEffect } from 'vue';
 import customScript from '../../../public/js/custom';
 
-defineProps({
+const props = defineProps({
   canLogin: Boolean,
+  faqs: Array,
 });
-
-const faqs = ref([]);
-
-onMounted(async () => {
-  const response = await axios.get('/faqs');
-  faqs.value = response.data.data;
+const createTicketSection = ref(null);
+// const faqs = ref([]);
+onMounted(() => {
+  customScript();
 });
+watchEffect(()=>{
+  if(props.faqs.length === 0){
+    createTicketSection.value.style.display = 'block';
+  }
+})
+// onMounted(async () => {
+//   const response = await axios.get('/faqs');
+//   faqs.value = response.data.data;
+// });
 
 const handlePopstate = (event) => {
   const title = `Helpdesk App`;
   $inertia.reload();
   document.title = title;
 };
-
-customScript();
 
 window.addEventListener('popstate', handlePopstate);
 </script>
@@ -52,35 +58,32 @@ export default {
         <h1 class="text-center">Hai, Ada yang bisa kami bantu?</h1>
         <div class="input-group">
           <input type="text" class="form-control form-control-lg" id="search_faq" placeholder="Cari informasi anda disini...." />
-          <button type="submit" class="btn btn-lg" title="Search"><i class="ui uil-search"></i></button>
+          <unicon name="search" class="icon_search" fill="var(--text-color)"></unicon>
         </div>
       </div>
     </div>
     <div class="container py-5 faq-content">
       <div class="row">
-        <div class="col-12" v-for="faq in faqs" :key="faq.id">
+        <div class="col-12">
           <div class="accordion accordion-custom" id="accordionExample">
-            <div class="accordion-item mb-3">
-              <h2 class="accordion-header" id="headingOne">
+            <div class="accordion-item mb-3" v-for="faq in faqs" :key="faq.id">
+              <h2 class="accordion-header" :id="'heading' + faq.id">
                 <button class="accordion-button text-body fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  :data-bs-target="'#collapse' + faq.id" aria-expanded="false" :aria-controls="'collapse' + faq.id">
                   <i class="uil uil-question-circle me-2"></i>
                   {{ faq.question }}
                 </button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              <div :id="'collapse' + faq.id" class="accordion-collapse collapse" :aria-labelledby="'heading' + faq.id"
                 data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <strong>Jawaban : </strong> {{ faq.answer }}
-                </div>
+                <div class="accordion-body" v-html="faq.answer"></div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
     </div>
-    <div class="create-tiket pb-5 mb-5">
+    <div ref="createTicketSection" class="create-tiket pb-5 mb-5">
       <div class="container">
         <div class="justify-content-center text-center">
           <img src="img/abstract_question.svg" alt="" height="300">

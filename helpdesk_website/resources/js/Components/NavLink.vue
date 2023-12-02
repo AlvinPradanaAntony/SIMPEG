@@ -160,13 +160,13 @@ const getStatusBadgeClass = (status) => {
           <ul class="dropdown-menu dropdown-menu-end custom-rounded border-0" id="settings">
             <li>
               <Link class="dropdown-item" :href="route('admin.dashboard')">
-              <unicon name="create-dashboard" class="me-2" width="18" fill="var(--text-color)" />
+              <unicon name="create-dashboard" class="me-2" width="14" height="14" fill="var(--text-color)" />
               <span>Admin Dashboard</span>
               </Link>
             </li>
             <li>
               <Link class="dropdown-item" :href="route('profile.show')">
-              <unicon name="user" class="me-2" width="18" fill="var(--text-color)" />
+              <unicon name="user" class="me-2" width="14" height="14" fill="var(--text-color)" />
               <span>Lihat Profil</span>
               </Link>
             </li>
@@ -176,7 +176,7 @@ const getStatusBadgeClass = (status) => {
             <li>
               <form @submit.prevent="logout">
                 <button class="dropdown-item" type="submit" id="logout">
-                  <unicon name="sign-out-alt" class="me-2 unicon" width="18" fill="var(--text-color)" />
+                  <unicon name="sign-out-alt" class="me-2 unicon" width="14" height="14" fill="var(--text-color)" />
                   <span>Keluar</span>
                 </button>
               </form>
