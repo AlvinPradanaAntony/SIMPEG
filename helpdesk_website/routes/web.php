@@ -84,6 +84,8 @@ Route::get("/categories", [CategoryController::class, 'index']);
 Route::get("/categories", [CategoryController::class, 'index'])->name('categories.index');
 Route::get("/faqs", [FaqController::class, 'index'])->name('faqs.index');
 
+Route::get('/last-ticket-id', [TicketController::class, 'getLastTicketId']);
+
 Route::post('/detail_tickets', [DetailTicketController::class, 'create']);
 Route::post('/tickets', [TicketController::class, 'create']);
 Route::post('/faqs', [FaqController::class, 'create']);

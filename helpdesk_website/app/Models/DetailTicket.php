@@ -38,13 +38,7 @@ class DetailTicket extends Model
     }
 
     protected $fillable = [
-        'subject',
         'question',
-        'user_id_employee',
-        'user_id_department',
-        'category_id',
-        'status_id',
-        'review_id',
         'ticket_id'
     ];
 }

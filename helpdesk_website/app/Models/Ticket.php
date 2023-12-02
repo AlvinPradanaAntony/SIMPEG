@@ -38,6 +38,7 @@ class Ticket extends Model
     }
 
     protected $fillable = [
+        // 'ticket_id',
         'subject',
         'user_id_employee',
         'user_id_department',

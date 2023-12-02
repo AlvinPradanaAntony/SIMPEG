@@ -94,7 +94,8 @@ const getDepartmentName = (categoryId) => {
                     id="category1"
                     :value="category.id"
                     v-model="selectedCategory" />
-                  {{ category.category }} </label>
+                    {{ category.category }} 
+                  </label>
                 </div>
                 <!-- <img src="assets/img/kesekretariatan.png" alt="kesekretariatan" width="100" height="100">
                         <div class="category-name">Sekretariat</div>
@@ -144,7 +145,7 @@ const getDepartmentName = (categoryId) => {
                   </div>
                   <div class="mb-3">
                     <label class="form-label fw-bold" for="subjek">ID</label>
-                    <input v-model="newTicket.ticket_id" type="number" class="form-control" id="ticket_id" required />
+                    <input v-model="lastTicketId" type="number" class="form-control" id="ticket_id" required/> 
                   </div>
                   <div class="mb-3">
                     <label class="form-label fw-bold" for="subjek">User Employee</label>
@@ -168,7 +169,7 @@ const getDepartmentName = (categoryId) => {
                   </div>
                   <div class="mb-3">
                     <label class="form-label fw-bold" for="pesan">Pesan*</label>
-                    <textarea v-model="newTicket.question" class="form-control" id="question" rows="5" required></textarea>
+                    <textarea v-model="newDetailTicket.question" class="form-control" id="question" rows="5" required></textarea>
                   </div>
                   <div class="col-md-8">
                     <label for="file" class="form-label fw-bold">Unggah Berkas</label>
@@ -207,12 +208,8 @@ const getDepartmentName = (categoryId) => {
 export default {
   data() {
     return {
+      lastTicketId: null,
       newTicket: {
-        // ticket_id: '',
-        // question: '',
-        // answer: '',
-        // file_name: '',
-        // file_data: '',
         user_id_employee: '',
         user_id_department: '',
         subject: '',
@@ -223,29 +220,32 @@ export default {
       newDetailTicket: {
         ticket_id: null,
         question: '',
-        user_id_employee: '',
-        user_id_department: '',
-        subject: '',
-        category_id: '',
-        status_id: '',
-        review_id: '',
       },
     };
+  },
+
+  mounted() {
+      this.getLastTicketId();
   },
   methods: {
     async createTicket() {
       try {
-        const response = await axios.post('/tickets', this.newTicket);
-        const ticketId = response.data.ticket.id;
+        // Post to tickets table
+        const ticketResponse = await axios.post('/tickets', this.newTicket);
+        const ticketId = ticketResponse.data.ticket.id;
+        
+        // Get ticket_id from tickets table
+        // const response = await axios.get('/last-ticket-id');
+        // this.lastId = response.data.last_ticket_id;
+        // this.lastTicketId = this.lastId;
+        
+        // Post to detail_tickets table
         this.newDetailTicket.ticket_id = ticketId;
-        await axios.post('/detail_tickets', this.newDetailTicket);
-        console.log('Ticket created:', response.data);
+        // this.newDetailTicket.ticket_id = ticketId;
+        const detailTicketResponse =  await axios.post('/detail_tickets', this.newDetailTicket);
+        console.log('Ticket created:', detailTicketResponse.data);
+
         this.newTicket = {
-          // ticket_id: '',
-          // question: '',
-          // answer: '',
-          // file_name: '',
-          // file_data: '',
           user_id_employee: '',
           user_id_department: '',
           subject: '',
@@ -255,18 +255,23 @@ export default {
         };
         this.newDetailTicket = {
           ticket_id: null,
-          user_id_employee: '',
-          user_id_department: '',
-          category_id: '',
-          status_id: '',
-          review_id: '',
-          subject: '',
           question: '',
         };
+        await this.getLastTicketId();
       } catch (error) {
         console.error('Error creating Ticket:', error);
       }
     },
+    async getLastTicketId() {
+      try {
+        const response = await axios.get('/last-ticket-id');
+        this.lastId = response.data.last_ticket_id;
+        this.lastTicketId = this.lastId;
+        // this.newTicket.ticket_id = lastTicketId;
+      } catch (error) {
+        console.error('Error getting last Ticket ID:', error);
+      }
+    }
   },
 };
 </script>
