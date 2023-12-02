@@ -4,6 +4,12 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DetailTicketController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\LevelController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +76,18 @@ Route::middleware([
     Route::get('/user/profile', [ProfileController::class, 'show'])->name('profile.show');
 });
 
+Route::get("/detail_tickets", [DetailTicketController::class, 'index']);
+Route::get("/tickets", [TicketController::class, 'index']);
+Route::get("/statuses", [StatusController::class, 'index']);
+Route::get("/levels", [LevelController::class, 'index']);
+Route::get("/categories", [CategoryController::class, 'index']);
+Route::get("/categories", [CategoryController::class, 'index'])->name('categories.index');
+Route::get("/faqs", [FaqController::class, 'index'])->name('faqs.index');
 
+Route::post('/detail_tickets', [DetailTicketController::class, 'create']);
+Route::post('/tickets', [TicketController::class, 'create']);
+Route::post('/faqs', [FaqController::class, 'create']);
+Route::post('/categories', [CategoryController::class, 'create']);
 
 
 // Route::middleware([

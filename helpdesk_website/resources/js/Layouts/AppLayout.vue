@@ -31,7 +31,7 @@ const logout = () => {
           <span class="navbar-toggler-icon"> </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <nav-link :canLogin="canLogin" class="ms-auto mb-2 mb-lg-0" />
+          <nav-link :auth="$page.props.auth.user" :canLogin="canLogin" class="ms-auto mb-2 mb-lg-0" />
         </div>
       </div>
     </nav>

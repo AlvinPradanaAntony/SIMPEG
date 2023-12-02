@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted} from 'vue';
 import { Link, router, useForm } from '@inertiajs/vue3';
 import ActionMessage from '@/Components/ActionMessage.vue';
 import CardProfile from '@/Components/CardProfile.vue';
@@ -9,6 +9,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import axios from 'axios';
 import Swal from 'sweetalert2'
 
 const props = defineProps({
@@ -26,8 +27,21 @@ const form = useForm({
   address: props.user.address,
   phone: props.user.phone,
   religion: props.user.religion,
+  level: props.user.level_id,
   photo: null,
 });
+
+const roles = ref([]);
+
+onMounted(async () => {
+  const response = await axios.get('/levels');
+  roles.value = response.data.data;
+});
+
+const getRoleName = (levelId) => {
+  const role = roles.value.find((role) => role.level_id === levelId);
+  return role ? role.name : 'Role Tidak Diketahui';
+};
 
 const verificationLinkSent = ref(null);
 const photoPreview = ref(null);
@@ -113,7 +127,7 @@ const handleImageError = (event) => {
               </div>
               <div class="py-3 pb-1">
                 <h5 class="mb-0 fw-bolder">{{ user.name }}</h5>
-                <small>Administrator</small>
+                <small> {{ getRoleName(user.level_id) }}</small>
               </div>
             </div>
           </template>
