@@ -13,18 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Faq::factory(2)->create();
         User::factory(5)->create();
-        User::create([
-            'nip' => 'superadmin',
-            'name' => 'Super Admin',
-            'email' => 'superadmin@mail.com',
-            'password' => bcrypt('superadmin'),
-        ]);
-        User::create([
-            'nip' => 'pegawai',
-            'name' => 'Pegawai',
-            'email' => 'pegawai@mail.com',
-            'password' => bcrypt('pegawai'),
+        $this->call([
+            FaqSeeder::class,
+            UsersSeeder::class,
         ]);
     }
 }

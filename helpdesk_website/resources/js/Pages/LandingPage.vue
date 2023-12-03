@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Footer from '@/Components/Footer.vue';
 import axios from 'axios';
-import { ref, onMounted, onBeforeUnmount, watchEffect } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watchEffect, watch } from 'vue';
 import customScript from '../../../public/js/custom';
 
 const props = defineProps({
@@ -11,15 +11,19 @@ const props = defineProps({
   faqs: Array,
 });
 const createTicketSection = ref(null);
-// const faqs = ref([]);
+
 onMounted(() => {
   customScript();
+  if (props.faqs && props.faqs.length === 0) {
+    createTicketSection.value.style.display = 'block';
+  }
 });
 watchEffect(()=>{
-  if(props.faqs.length === 0){
+  if(createTicketSection.value && props.faqs.length === 0){
     createTicketSection.value.style.display = 'block';
   }
 })
+// const faqs = ref([]);
 // onMounted(async () => {
 //   const response = await axios.get('/faqs');
 //   faqs.value = response.data.data;
