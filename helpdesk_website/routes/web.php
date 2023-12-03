@@ -8,11 +8,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DetailTicketController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\StatusController;
-use App\Http\Controllers\LevelController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\ReviewController;
 use App\Models\Faq;
 use App\Models\User;
 
@@ -70,6 +71,24 @@ Route::get('/admin/ticket', function () {
 Route::get('/admin/faq', function () {
     return Inertia::render('Admin/Faq');
 })->name('admin.faq');
+Route::get('/admin/data/bidang', function () {
+    return Inertia::render('Admin/Department');
+})->name('admin.department');
+Route::get('/admin/data/jabatan', function () {
+    return Inertia::render('Admin/Position');
+})->name('admin.position');
+Route::get('/admin/data/kategori', function () {
+    return Inertia::render('Admin/Category');
+})->name('admin.category');
+Route::get('/admin/data/status', function () {
+    return Inertia::render('Admin/Status');
+})->name('admin.status');
+Route::get('/admin/data/ulasan', function () {
+    return Inertia::render('Admin/Review');
+})->name('admin.review');
+Route::get('/admin/data/akses', function () {
+    return Inertia::render('Admin/Role');
+})->name('admin.role');
 Route::get('/admin/dukungan', function () {
     return Inertia::render('Admin/Dukungan');
 })->name('admin.dukungan');
@@ -86,13 +105,14 @@ Route::middleware([
 Route::get("/detail_tickets", [DetailTicketController::class, 'index']);
 Route::get("/tickets", [TicketController::class, 'index']);
 Route::get("/statuses", [StatusController::class, 'index']);
-Route::get("/levels", [LevelController::class, 'index']);
+Route::get("/roles", [RoleController::class, 'index']);
 Route::get("/categories", [CategoryController::class, 'index']);
-Route::get("/categories", [CategoryController::class, 'index'])->name('categories.index');
+// Route::get("/categories", [CategoryController::class, 'index'])->name('categories.index');
 Route::get("/faqs", [FaqController::class, 'index'])->name('faqs.index');
 Route::get("/users", [UserController::class, 'index']);
 Route::get("/departments", [DepartmentController::class, 'index']);
 Route::get("/positions", [PositionController::class, 'index']);
+Route::get("/reviews", [ReviewController::class, 'index']);
 
 Route::get('/last-ticket-id', [TicketController::class, 'getLastTicketId']);
 

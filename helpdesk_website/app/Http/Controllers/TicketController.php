@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ticket;
-use App\Models\Level;
+use App\Models\Role;
 use App\Http\Resources\TicketResource;
 
 class TicketController extends Controller
 {
     public function index(){
-        $tickets = Ticket::with(['users_employee', 'users_department', 'categories', 'statuses', 'reviews', 'levels'])->get();
+        $tickets = Ticket::with(['users_employee', 'users_department', 'categories', 'statuses', 'reviews', 'roles'])->get();
         return TicketResource::collection($tickets);
     }
 

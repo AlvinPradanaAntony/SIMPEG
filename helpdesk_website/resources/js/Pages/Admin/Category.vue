@@ -1,19 +1,14 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import StatusCard from '@/Pages/Admin/Partials/StatusCard.vue';
 import { ref, onMounted, computed, defineProps } from 'vue';
 import axios from 'axios';
 
-const tickets = ref([]);
+const categories = ref([]);
 
-function countTicketsByStatus(status) {
-  return tickets.value.filter(ticket => ticket.status === status).length;
-}
-
-onMounted(async() => {
-  const response = await axios.get('/tickets');
-  tickets.value = response.data.data;
+onMounted(async () => {
+  const response = await axios.get('/categories');
+  categories.value = response.data.data;
   $('#table_user').DataTable({
     dom: 'Bfrtip',
     lengthMenu: [
@@ -40,31 +35,18 @@ onMounted(async() => {
     },
   });
 });
+
 </script>
 <template>
-  <DashboardLayout title="Tiket">
-    <div class="row">
-      <div class="col-xl-3 col-md-6 mb-4">
-        <StatusCard icon="ticket" title="Tiket Baru" :data="countTicketsByStatus('Terkirim')" color1="#29bb89" color2="#66e7ba" />
-      </div>
-      <div class="col-xl-3 col-md-6 mb-4">
-        <StatusCard icon="ticket" title="Tiket Terjawab" :data="countTicketsByStatus('Terjawab')" color1="#bba329" color2="#e7d266" />
-      </div>
-      <div class="col-xl-3 col-md-6 mb-4">
-        <StatusCard icon="ticket" title="Tiket Terbalas" :data="countTicketsByStatus('Terbalas')" color1="#2951bb" color2="#6678e7" />
-      </div>
-      <div class="col-xl-3 col-md-6 mb-4">
-        <StatusCard icon="ticket" title="Tiket Tertutup" :data="countTicketsByStatus('Tertutup')" color1="#bb2929" color2="#e76666" />
-      </div>
-    </div>
+  <DashboardLayout title="Kategori">
     <div class="card custom mb-3 px-2">
       <div class="card-body">
-        <h3 class="m-0 fw-bold fs-5">Halaman Manajemen Tiket</h3>
+        <h3 class="m-0 fw-bold fs-5">Halaman Manajemen Kategori</h3>
       </div>
     </div>
     <div class="card custom">
       <div class="card-header px-4 py-4">
-        <h3 class="m-0 fw-bold fs-5">Data Tiket</h3>
+        <h3 class="m-0 fw-bold fs-5">Data Kategori</h3>
       </div>
       <div class="card-body px-4 custom">
         <div class="table-responsive">
@@ -72,34 +54,29 @@ onMounted(async() => {
             <thead>
               <tr>
                 <th>Aksi</th>
-                <th>ID Tiket</th>
-                <th>Pegawai</th>
-                <th>Petugas</th>
-                <th>Subjek</th>
-                <th>Status</th>
+                <th>ID Kategori</th>
                 <th>Kategori</th>
+                <th>Bidang</th>
                 <th>Tanggal Dibuat</th>
                 <th>Tanggal Diubah</th>
               </tr>
             </thead>
-            <tbody v-for="ticket in tickets" :key="ticket.id">
+            <tbody v-for="category in categories" :key="category.id">
               <tr>
                 <td>
                   <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator">Edit</button>
                   <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator">Hapus</button>
                 </td>
-                <td>{{ ticket.id }}</td>
-                <td>{{ ticket.name_employee }}</td>
-                <td>{{ ticket.name_department }}</td>
-                <td>{{ ticket.subject }}</td>
-                <td>{{ ticket.status }}</td>
-                <td>{{ ticket.category }}</td>
-                <td>{{ ticket.created_at }}</td>
-                <td>{{ ticket.updated_at }}</td>
+                <td>{{ category.id }}</td>
+                <td>{{ category.category }}</td>
+                <td>{{ category.department }}</td>
+                <td>{{ category.created_at }}</td>
+                <td>{{ category.updated_at }}</td>
               </tr>
             </tbody>
           </table>
         </div>
+
       </div>
     </div>
   </DashboardLayout>

@@ -33,8 +33,8 @@ class Ticket extends Model
         return $this->belongsTo(Review::class, 'review_id');
     }
 
-    public function levels(){
-        return $this->belongsTo(Level::class, 'level_id');
+    public function roles(){
+        return $this->belongsTo(Role::class, 'role_id');
     }
 
     protected $fillable = [

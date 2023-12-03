@@ -26,8 +26,8 @@ class User extends Authenticatable
         return $this->belongsTo(Position::class, 'position_id');
     }
 
-    public function levels(){
-        return $this->belongsTo(Level::class, 'level_id');
+    public function roles(){
+        return $this->belongsTo(Role::class, 'role_id');
     }
     /**
      * The attributes that are mass assignable.

@@ -8,7 +8,7 @@ use App\Http\Resources\UserResource;
 class UserController extends Controller
 {
     public function index(){
-        $users = User::with(['departments', 'positions', 'levels'])->get();
+        $users = User::with(['departments', 'positions', 'roles'])->get();
         return UserResource::collection($users);
     }
 

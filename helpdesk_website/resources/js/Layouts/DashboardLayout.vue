@@ -48,13 +48,13 @@ export default {
           </ul>
         </li>
         <li class="nav-item">
-          <a data-bs-toggle="collapse" href="#data" aria-expanded="false" aria-controls="data" class="nav-link"
+          <a data-bs-toggle="collapse" href="#user" aria-expanded="false" aria-controls="user" class="nav-link"
             :class="{ 'active': title === 'Pegawai' || title === 'Petugas' }">
             <unicon name="users-alt" class="me-2 unicon" width="20" height="30" />
             <span style="vertical-align: middle" class="link_name"> Pengguna </span>
             <span class="menu-arrow uil-angle-right"></span>
           </a>
-          <div class="collapse" id="data">
+          <div class="collapse" id="user">
             <ul class="sub-menu">
               <li><a class="link_name" href="#">Pengguna</a></li>
               <li>
@@ -83,6 +83,37 @@ export default {
           <ul class="sub-menu blank">
             <li><a class="link_name" href="#">FAQ</a></li>
           </ul>
+        </li>
+        <li class="nav-item">
+          <a data-bs-toggle="collapse" href="#data" aria-expanded="false" aria-controls="data" class="nav-link"
+            :class="{ 'active': title === 'Bidang' || title === 'Jabatan' || title === 'Kategori' || title === 'Status' || title === 'Ulasan' || title === 'Akses' }">
+            <unicon name="notebooks" class="me-2 unicon" width="20" height="30" />
+            <span style="vertical-align: middle" class="link_name"> Data </span>
+            <span class="menu-arrow uil-angle-right"></span>
+          </a>
+          <div class="collapse" id="data">
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Data</a></li>
+              <li>
+                <Link :href="route('admin.department')" :class="{ 'active': (title === 'Department') }">Bidang</Link>
+              </li>
+              <li>
+                <Link :href="route('admin.position')" :class="{ 'active': (title === 'Position') }">Jabatan</Link>
+              </li>
+              <li>
+                <Link :href="route('admin.category')" :class="{ 'active': (title === 'Category') }">Kategori</Link>
+              </li>
+              <li>
+                <Link :href="route('admin.status')" :class="{ 'active': (title === 'Status') }">Status</Link>
+              </li>
+              <li>
+                <Link :href="route('admin.review')" :class="{ 'active': (title === 'Review') }">Ulasan</Link>
+              </li>
+              <li>
+                <Link :href="route('admin.role')" :class="{ 'active': (title === 'Role') }">Hak Akses</Link>
+              </li>
+            </ul>
+          </div>
         </li>
         <li class="nav-item">
           <Link :href="route('admin.dukungan')" class="nav-link" :class="{ 'active': (title === 'Dukungan') }">

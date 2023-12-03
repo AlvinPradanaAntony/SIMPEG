@@ -4,24 +4,11 @@ import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import { ref, onMounted, computed, defineProps } from 'vue';
 import axios from 'axios';
 
-const users = ref([]);
-
-const fetchDataByRoleId = async (roleId) => {
-  try {
-    const response = await axios.get('/users', {
-      params: { role_id: roleId },
-    });
-    users.value = response.data.data;
-  } catch (error) {
-    console.error('Error fetching users by role_id:', error);
-  }
-};
+const positions = ref([]);
 
 onMounted(async () => {
-  await fetchDataByRoleId(1);
-
-  // const response = await axios.get('/users');
-  // users.value = response.data.data;
+  const response = await axios.get('/positions');
+  positions.value = response.data.data;
   $('#table_user').DataTable({
     dom: 'Bfrtip',
     lengthMenu: [
@@ -48,18 +35,18 @@ onMounted(async () => {
     },
   });
 });
+
 </script>
 <template>
-  <DashboardLayout title="Pegawai">
+  <DashboardLayout title="Jabatan">
     <div class="card custom mb-3 px-2">
       <div class="card-body">
-        <h3 class="m-0 fw-bold fs-5">Halaman Manajemen Pegawai</h3>
+        <h3 class="m-0 fw-bold fs-5">Halaman Manajemen Jabatan</h3>
       </div>
     </div>
     <div class="card custom">
       <div class="card-header px-4 py-4">
-        <h3 class="m-0 fw-bold fs-5">Data Pegawai</h3>
-        <span>role_id : {{  }}</span>
+        <h3 class="m-0 fw-bold fs-5">Data Jabatan</h3>
       </div>
       <div class="card-body px-4 custom">
         <div class="table-responsive">
@@ -67,48 +54,22 @@ onMounted(async () => {
             <thead>
               <tr>
                 <th>Aksi</th>
-                <th>Foto</th>
-                <th>ID User</th>
-                <th>NIP</th>
-                <th>Nama</th>
-                <th>Jenis Kelamin</th>
-                <th>Tempat Lahir</th>
-                <th>Tanggal Lahir</th>
-                <th>Agama</th>
-                <th>Status Perkawinan</th>
-                <th>Bidang</th>
+                <th>ID Jabatan</th>
                 <th>Jabatan</th>
-                <th>Telepon</th>
-                <th>Alamat</th>
-                <th>Email</th>
-                <th>Hak Akses</th>
                 <th>Tanggal Dibuat</th>
                 <th>Tanggal Diubah</th>
               </tr>
             </thead>
-            <tbody v-for="user in users" :key="user.id">
+            <tbody v-for="position in positions" :key="position.id">
               <tr>
                 <td>
                   <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator">Edit</button>
                   <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator">Hapus</button>
                 </td>
-                <td>Foto</td>
-                <td>{{ user.id }}</td>
-                <td>{{ user.nip }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.gender }}</td>
-                <td>{{ user.birth_place }}</td>
-                <td>{{ user.birth_date }}</td>
-                <td>{{ user.religion }}</td>
-                <td>{{ user.marital_status }}</td>
-                <td>{{ user.department }}</td>
-                <td>{{ user.position }}</td>
-                <td>{{ user.phone }}</td>
-                <td>{{ user.address }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.role }}</td>
-                <td>{{ user.created_at }}</td>
-                <td>{{ user.updated_at }}</td>
+                <td>{{ position.id }}</td>
+                <td>{{ position.position }}</td>
+                <td>{{ position.created_at }}</td>
+                <td>{{ position.updated_at }}</td>
               </tr>
             </tbody>
           </table>
