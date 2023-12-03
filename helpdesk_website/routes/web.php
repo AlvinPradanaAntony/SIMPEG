@@ -4,13 +4,17 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\DetailTicketController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\PositionController;
 use App\Http\Controllers\FaqController;
 use App\Models\Faq;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +90,9 @@ Route::get("/levels", [LevelController::class, 'index']);
 Route::get("/categories", [CategoryController::class, 'index']);
 Route::get("/categories", [CategoryController::class, 'index'])->name('categories.index');
 Route::get("/faqs", [FaqController::class, 'index'])->name('faqs.index');
+Route::get("/users", [UserController::class, 'index']);
+Route::get("/departments", [DepartmentController::class, 'index']);
+Route::get("/positions", [PositionController::class, 'index']);
 
 Route::get('/last-ticket-id', [TicketController::class, 'getLastTicketId']);
 
