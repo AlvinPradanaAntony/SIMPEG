@@ -66,28 +66,31 @@ Route::get('/admin/pengguna/petugas', function () {
     return Inertia::render('Admin/Petugas');
 })->name('admin.petugas');
 Route::get('/admin/ticket', function () {
-    return Inertia::render('Admin/Tiket');
+    return Inertia::render('Admin/Ticket/Index');
 })->name('admin.tiket');
+Route::get('/admin/ticket/edit', function () {
+    return Inertia::render('Admin/Ticket/Edit');
+})->name('admin.tiket.edit');
 Route::get('/admin/faq', function () {
     return Inertia::render('Admin/Faq');
 })->name('admin.faq');
 Route::get('/admin/data/bidang', function () {
-    return Inertia::render('Admin/Department');
+    return Inertia::render('Admin/Departments/Index');
 })->name('admin.department');
 Route::get('/admin/data/jabatan', function () {
-    return Inertia::render('Admin/Position');
+    return Inertia::render('Admin/Positions/Index');
 })->name('admin.position');
 Route::get('/admin/data/kategori', function () {
-    return Inertia::render('Admin/Category');
+    return Inertia::render('Admin/Category/Index');
 })->name('admin.category');
 Route::get('/admin/data/status', function () {
-    return Inertia::render('Admin/Status');
+    return Inertia::render('Admin/Status/Index');
 })->name('admin.status');
 Route::get('/admin/data/ulasan', function () {
-    return Inertia::render('Admin/Review');
+    return Inertia::render('Admin/Review/Index');
 })->name('admin.review');
 Route::get('/admin/data/akses', function () {
-    return Inertia::render('Admin/Role');
+    return Inertia::render('Admin/Roles/Index');
 })->name('admin.role');
 Route::get('/admin/dukungan', function () {
     return Inertia::render('Admin/Dukungan');
