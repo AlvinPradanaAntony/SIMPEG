@@ -2,53 +2,53 @@
 import { Link, router } from '@inertiajs/vue3';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import { ref, onMounted, computed, defineProps } from 'vue';
-import axios from 'axios';
 
-const { canLogin, auth } = defineProps([ 
+const { canLogin, auth, tickets} = defineProps([ 
   'canLogin',
-  'auth'
+  'auth',
+  'tickets',
 ]);
-const tickets = ref([]);
+// const tickets = ref([]);
 
-onMounted(async () => {
-  const response = await axios.get('/tickets');
-  tickets.value = response.data.data;
+// onMounted(async () => {
+//   const response = await axios.get('/tickets');
+//   tickets.value = response.data.data;
 
-  tickets.value.forEach((ticket) => {
-    ticket.timeDifference = calculateTimeDifference(ticket.created_at);
-  });
-});
+//   tickets.value.forEach((ticket) => {
+//     ticket.timeDifference = calculateTimeDifference(ticket.created_at);
+//   });
+// });
 
-const user_tickets = computed(() => {
-  return tickets.value.filter(ticket => ticket.user_id_employee === auth.id);
-});
+// const user_tickets = computed(() => {
+//   return tickets.value.filter(ticket => ticket.user_id_employee === auth.id);
+// });
 
-function countTicketsByStatus(status) {
-  return user_tickets.value.filter(ticket => ticket.status === status).length;
-}
+// function countTicketsByStatus(status) {
+//   return user_tickets.value.filter(ticket => ticket.status === status).length;
+// }
 
-const calculateTimeDifference = (createdAt) => {
-  const now = new Date();
-  const createdDate = new Date(createdAt);
+// const calculateTimeDifference = (createdAt) => {
+//   const now = new Date();
+//   const createdDate = new Date(createdAt);
 
-  const diffInMilliseconds = now - createdDate;
-  const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
+//   const diffInMilliseconds = now - createdDate;
+//   const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
 
-  // Hitung selisih waktu dalam format yang diinginkan
-  const minutes = Math.floor(diffInSeconds / 60);
-  const hours = Math.floor(minutes / 60);
-  const days = Math.floor(hours / 24);
+//   // Hitung selisih waktu dalam format yang diinginkan
+//   const minutes = Math.floor(diffInSeconds / 60);
+//   const hours = Math.floor(minutes / 60);
+//   const days = Math.floor(hours / 24);
 
-  if (days > 0) {
-    return `${days} hari yang lalu`;
-  } else if (hours > 0) {
-    return `${hours} jam yang lalu`;
-  } else if (minutes > 0) {
-    return `${minutes} menit yang lalu`;
-  } else {
-    return `Baru saja`;
-  }
-};
+//   if (days > 0) {
+//     return `${days} hari yang lalu`;
+//   } else if (hours > 0) {
+//     return `${hours} jam yang lalu`;
+//   } else if (minutes > 0) {
+//     return `${minutes} menit yang lalu`;
+//   } else {
+//     return `Baru saja`;
+//   }
+// };
 
 const logout = () => {
   router.post(route('logout'));
@@ -57,29 +57,29 @@ const handleImageError = (event) => {
   event.target.src = '/img/placeholder_profile.png'
 };
 
-const getStatusClass = (status) => {
-  switch (status) {
-    case 'Terkirim':
-      return 'bg-success';
-    case 'Terjawab':
-      return 'bg-warning';
-    case 'Terbalas':
-      return 'bg-orange'; 
-    case 'Tertutup':
-      return 'bg-black'; 
-    default:
-      return 'bg-primary'; 
-  }
-};
+// const getStatusClass = (status) => {
+//   switch (status) {
+//     case 'Terkirim':
+//       return 'bg-success';
+//     case 'Terjawab':
+//       return 'bg-warning';
+//     case 'Terbalas':
+//       return 'bg-orange'; 
+//     case 'Tertutup':
+//       return 'bg-black'; 
+//     default:
+//       return 'bg-primary'; 
+//   }
+// };
 
-const getIconClass = (status) => {
-  // Jika Anda ingin menyesuaikan ikon berdasarkan status, lakukan di sini
-  return 'notify-icon ' + getStatusClass(status);
-};
+// const getIconClass = (status) => {
+//   // Jika Anda ingin menyesuaikan ikon berdasarkan status, lakukan di sini
+//   return 'notify-icon ' + getStatusClass(status);
+// };
 
-const getStatusBadgeClass = (status) => {
-  return 'badge ' + getStatusClass(status);
-};
+// const getStatusBadgeClass = (status) => {
+//   return 'badge ' + getStatusClass(status);
+// };
 </script>
 <template>
   <div>
@@ -117,7 +117,7 @@ const getStatusBadgeClass = (status) => {
                 d="M19 13.586V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v3.586l-1.707 1.707A.996.996 0 0 0 3 16v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a.996.996 0 0 0-.293-.707L19 13.586zM19 17H5v-.586l1.707-1.707A.996.996 0 0 0 7 14v-4c0-2.757 2.243-5 5-5s5 2.243 5 5v4c0 .266.105.52.293.707L19 16.414V17zm-7 5a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22z">
               </path>
             </svg>
-            <span class="position-absolute bg-danger badge rounded-pill pb-1"> {{ user_tickets.length }} </span>
+            <span class="position-absolute bg-danger badge rounded-pill pb-1"> 2 </span>
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-center custom-rounded border-0 notification pb-3">
@@ -132,15 +132,14 @@ const getStatusBadgeClass = (status) => {
           </div>
           <div class="noti-body" id="simple-bar">
             <!-- item-->
-            <Link v-for="ticket in user_tickets" :key="ticket.id" href="/" class="dropdown-item notify-item">
-            <div :class="getIconClass(ticket.status)" class="d-flex justify-content-center">
-              <unicon name="info-circle" width="24" fill="white" />
+            <Link  href="/" class="dropdown-item notify-item">
+            <div class="d-flex justify-content-center">sfsd
+              <unicon name="info-circle" width="24" fill="white" />fd
             </div>
             <p class="notify-details">
-              <strong>Tiket TK{{ ticket.id }}</strong> {{ ticket.subject }} <span :class="getStatusBadgeClass(ticket.status)">{{ ticket.status }}</span>
+              <strong>Tiket TK</strong> <span ></span>
               <small class="text-muted">
-                <unicon name="clock" width="12" />
-                {{ ticket.timeDifference }}
+                <unicon name="clock" width="12" />tim
               </small>
             </p>
             </Link>

@@ -23,6 +23,7 @@
         "jquery": "^3.7.1",
         "moment": "^2.29.4",
         "sweetalert2": "^11.10.0",
+        "vue-router": "^4.0.13",
         "vue-unicons": "^3.3.1"
     }
 }

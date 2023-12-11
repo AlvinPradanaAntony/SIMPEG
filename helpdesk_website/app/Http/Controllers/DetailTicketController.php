@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DetailTicket;
 use App\Models\Ticket;
-use App\Http\Resources\DetailTicketResource;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class DetailTicketController extends Controller
 {

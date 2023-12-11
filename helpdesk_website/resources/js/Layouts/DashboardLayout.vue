@@ -115,6 +115,25 @@ export default {
             </ul>
           </div>
         </li>
+        <!-- <li class="nav-item">
+          <a data-bs-toggle="collapse" href="#user_management" aria-expanded="false" aria-controls="user" class="nav-link"
+            :class="{ 'active': title === 'Pegawai' || title === 'Petugas' }">
+            <unicon name="users-alt" class="me-2 unicon" width="20" height="30" />
+            <span style="vertical-align: middle" class="link_name"> Manajemen Pengguna </span>
+            <span class="menu-arrow uil-angle-right"></span>
+          </a>
+          <div class="collapse" id="user_management">
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Pengguna</a></li>
+              <li>
+                <Link :href="route('admin.pegawai')" :class="{ 'active': (title === 'Pegawai') }">Pegawai</Link>
+              </li>
+              <li>
+                <Link :href="route('admin.petugas')" :class="{ 'active': (title === 'Petugas') }">Petugas (Bidang)</Link>
+              </li>
+            </ul>
+          </div>
+        </li> -->
         <li class="nav-item">
           <Link :href="route('admin.dukungan')" class="nav-link" :class="{ 'active': (title === 'Dukungan') }">
           <unicon name="bell-school" class="me-2 unicon" width="20" height="30" />

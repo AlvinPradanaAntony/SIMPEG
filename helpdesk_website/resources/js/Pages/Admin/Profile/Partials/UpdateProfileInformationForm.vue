@@ -27,7 +27,7 @@ const form = useForm({
   address: props.user.address,
   phone: props.user.phone,
   religion: props.user.religion,
-  level: props.user.level_id,
+  level: props.user.role_id,
   photo: null,
 });
 
@@ -39,7 +39,7 @@ onMounted(async () => {
 });
 
 const getRoleName = (levelId) => {
-  const role = roles.value.find((role) => role.level_id === levelId);
+  const role = roles.value.find((role) => role.role_id === levelId);
   return role ? role.name : 'Role Tidak Diketahui';
 };
 
@@ -127,7 +127,7 @@ const handleImageError = (event) => {
               </div>
               <div class="py-3 pb-1">
                 <h5 class="mb-0 fw-bolder">{{ user.name }}</h5>
-                <small> {{ getRoleName(user.level_id) }}</small>
+                <small> {{ getRoleName(user.role_id) }}</small>
               </div>
             </div>
           </template>

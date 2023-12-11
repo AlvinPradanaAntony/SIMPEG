@@ -23,11 +23,6 @@ watchEffect(()=>{
     createTicketSection.value.style.display = 'block';
   }
 })
-// const faqs = ref([]);
-// onMounted(async () => {
-//   const response = await axios.get('/faqs');
-//   faqs.value = response.data.data;
-// });
 
 const handlePopstate = (event) => {
   const title = `Helpdesk App`;
@@ -37,23 +32,6 @@ const handlePopstate = (event) => {
 
 window.addEventListener('popstate', handlePopstate);
 </script>
-<!-- <script>
-import customScript from '../../../public/js/custom';
-export default {
-  mounted() {
-    customScript();
-    window.addEventListener('popstate', this.handlePopstate);
-    
-  },
-  methods: {
-    handlePopstate(event) {
-      const title = `Helpdesk App`;
-      this.$inertia.reload();
-      document.title = title;
-    },
-  },
-};
-</script> -->
 <template>
   <AppLayout :canLogin="canLogin" title="FAQ">
     <div class="search-banner has-bg">

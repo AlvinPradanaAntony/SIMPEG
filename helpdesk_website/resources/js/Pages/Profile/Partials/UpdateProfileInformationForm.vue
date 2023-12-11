@@ -27,7 +27,7 @@ const form = useForm({
   address: props.user.address,
   phone: props.user.phone,
   religion: props.user.religion,
-  level: props.user.level_id,
+  level: props.user.role_id,
   photo: null,
 });
 
@@ -39,7 +39,7 @@ onMounted(async () => {
 });
 
 const getRoleName = (levelId) => {
-  const role = roles.value.find((role) => role.level_id === levelId);
+  const role = roles.value.find((role) => role.role_id === levelId);
   return role ? role.name : 'Role Tidak Diketahui';
 };
 
@@ -127,7 +127,7 @@ const handleImageError = (event) => {
               </div>
               <div class="py-3 pb-1">
                 <h5 class="mb-0 fw-bolder">{{ user.name }}</h5>
-                <small> {{ getRoleName(user.level_id) }}</small>
+                <small> {{ getRoleName(user.role_id) }}</small>
               </div>
             </div>
           </template>
@@ -178,7 +178,7 @@ const handleImageError = (event) => {
             </div>
             <div class="row">
               <div class="col-lg-6 mb-3">
-                <InputLabel for="inputGender" class="form-label small" value="Tempat Lahir" />
+                <InputLabel for="inputGender" class="form-label small" value="Jenis Kelamin" />
                 <select class="form-select" aria-label="Default select example" id="inputGender" v-model="form.gender"
                   required autocomplete="gender">
                   <option value="" selected class="hidden"></option>

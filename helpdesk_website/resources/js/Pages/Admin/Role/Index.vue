@@ -8,47 +8,72 @@ import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
-import axios from 'axios';
 
-const roles = ref([]);
+defineProps({
+  roles: Array,
+});
+
 const roleInput = ref(null);
+
 const form = useForm({
   role: '',
 });
+
 const edit = useForm({
   _method: 'PUT',
-  role: roles,
+  role: '',
 });
-const saveData = () => {
-  form.post(route(''), {
+
+const openEditModal = (role) => {
+  edit.id = role.id;
+  edit.role = role.role;
+  const modalBootstrap = new Modal(document.getElementById('formRoleEdit'));
+  modalBootstrap.show();
+};
+
+const submit = () => {
+  form.post(route('admin.role.store'), {
     preserveScroll: true,
     onSuccess: () => closeModal(),
     onFinish: () => form.reset(),
     onError: (error) => {
       console.log(error);
-      statusInput.value.focus();
+      roleInput.value.focus();
     },
   });
 };
-const updateData = () => {
-  form.post(route(''), {
+
+const update = () => {
+  edit.put(route('admin.role.update', {id:edit.id}), {
     preserveScroll: true,
     onSuccess: () => closeModal(),
-    onFinish: () => form.reset(),
+    onFinish: () => edit.reset(),
     onError: (error) => {
       console.log(error);
-      statusInput.value.focus();
+      roleInput.value.focus();
     },
   });
 };
+
+const deleteRole = (id) => {
+  form.delete(route('admin.role.destroy', { id }), {
+    preserveScroll: true,
+    onSuccess: () => {
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+};
+
 const closeModal = () => {
   form.reset();
   const modalBootstrap = Modal.getOrCreateInstance('#modalLogoutSession')
   modalBootstrap.hide()
 };
+
+
 onMounted(async () => {
-  const response = await axios.get('/roles');
-  roles.value = response.data.data;
   $('#table_user').DataTable({
     dom: 'Bfrtip',
     lengthMenu: [
@@ -94,16 +119,16 @@ onMounted(async () => {
       </div>
       <DialogModal target="formRole" :hasErrors="form.hasErrors">
         <template #title>
-          Buat Role Baru
+          Buat Akses Baru
         </template>
 
         <template #content>
-          <form @submit.prevent="saveData">
+          <form @submit.prevent="submit">
             <div class="row">
               <div class="col-12">
-                <InputLabel for="role" class="form-label small" value="Role" />
+                <InputLabel for="role" class="form-label small" value="Akses" />
                 <TextInput ref="roleInput" type="text" class="form-control" id="role" v-model="form.role" required
-                  autocomplete="role" />
+                  autocomplete="role" @keyup.enter="submit" />
                 <InputError :message="form.errors.role" class="mt-2" />
               </div>
             </div>
@@ -116,17 +141,15 @@ onMounted(async () => {
           </SecondaryButton>
 
           <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
-            :disabled="form.processing">
-            <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+            :disabled="form.processing" @click="submit">
+            <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="role"></span>
             Simpan
           </PrimaryButton>
+          
         </template>
       </DialogModal>
       <div class="card-body px-4 custom">
         <div class="table-responsive">
-          <button class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#formRoleEdit">
-            <span>Edit Data</span>
-          </button>
           <table id="table_user" class="table custom" style="width:100%">
             <thead>
               <tr>
@@ -140,10 +163,10 @@ onMounted(async () => {
             <tbody v-for="role in roles" :key="role.id">
               <tr>
                 <td>
-                  <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal"
-                    data-bs-target="#editDataAdministrator">Edit</button>
-                  <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal"
-                    data-bs-target="#hapusDataAdministrator">Hapus</button>
+                  <button @click="openEditModal(role)" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#formRoleEdit">
+                    <span>Ubah</span>
+                  </button>
+                  <button @click="deleteRole(role)" class="btn btn-danger text-white btn-circle custShadow2 me-2">Hapus</button>
                 </td>
                 <td>{{ role.id }}</td>
                 <td>{{ role.role }}</td>
@@ -153,36 +176,35 @@ onMounted(async () => {
             </tbody>
           </table>
         </div>
-        <DialogModal target="formRoleEdit" :hasErrors="form.hasErrors">
-        <template #title>
-          Edit Role
-        </template>
-
-        <template #content>
-          <form @submit.prevent="saveData">
-            <div class="row">
-              <div class="col-12">
-                <InputLabel for="role" class="form-label small" value="Role" />
-                <TextInput ref="roleInput" type="text" class="form-control" id="role" v-model="form.role" required
-                  autocomplete="role" />
-                <InputError :message="form.errors.role" class="mt-2" />
+        <DialogModal target="formRoleEdit" :hasErrors="edit.hasErrors">
+          <template #title>
+            Edit Akses
+          </template>
+          <template #content>
+            <form @submit.prevent="update">
+              <div class="row">
+                <div class="col-12">
+                  <InputLabel for="role" class="form-label small" value="Akses" />
+                  <TextInput ref="roleInput" type="text" class="form-control" id="role" v-model="edit.role" required
+                    autocomplete="role" @keyup.enter="update"/>
+                  <InputError :message="edit.errors.role" class="mt-2" />
+                </div>
               </div>
-            </div>
-          </form>
-        </template>
+            </form>
+          </template>
 
-        <template #footer>
-          <SecondaryButton @click="closeModal" data-bs-dismiss="modal">
-            Batal
-          </SecondaryButton>
+          <template #footer>
+            <SecondaryButton @click="closeModal" data-bs-dismiss="modal">
+              Batal
+            </SecondaryButton>
 
-          <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
-            :disabled="form.processing">
-            <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
-            Simpan
-          </PrimaryButton>
-        </template>
-      </DialogModal>
+            <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': edit.processing }"
+              :disabled="edit.processing" @click="update">
+              <span v-if="edit.processing" class="spinner-border spinner-border-sm mr-2" role="role"></span>
+              Simpan
+            </PrimaryButton>
+          </template>
+        </DialogModal>
       </div>
     </div>
   </DashboardLayout>

@@ -2,26 +2,51 @@
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import { ref, onMounted, computed, defineProps } from 'vue';
-import axios from 'axios';
 
-const users = ref([]);
+defineProps({
+  users: Array,
+});
 
-const fetchDataByRoleId = async (roleId) => {
-  try {
-    const response = await axios.get('/users', {
-      params: { role_id: roleId },
-    });
-    users.value = response.data.data;
-  } catch (error) {
-    console.error('Error fetching users by role_id:', error);
-  }
+const form = useForm({
+  nip: '',
+  name: '',
+  gender: '',
+  birth_place: '',
+  birth_date: '',
+  religion: '',
+  marital_status: '',
+  department_id: '',
+  position_id: '',
+  role_id: 1,
+  phone: '',
+  address: '',
+  email: '',
+  password: '',
+});
+
+const toEdit = (id) => {
+  form.get(route('admin.pegawai.edit', { id }), {
+    preserveScroll: true,
+    onSuccess: () => {
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
 };
 
-onMounted(async() => {
-  await fetchDataByRoleId(1);
+const deleteEmployee = (id) => {
+  form.delete(route('admin.pegawai.destroy', { id }), {
+    preserveScroll: true,
+    onSuccess: () => {
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+};
 
-  // const response = await axios.get('/users');
-  // users.value = response.data.data;
+onMounted(() => {
   $('#table_user').DataTable({
     dom: 'Bfrtip',
     lengthMenu: [
@@ -50,15 +75,16 @@ onMounted(async() => {
 });
 </script>
 <template>
-  <DashboardLayout title="Petugas">
-    <div class="card custom mb-3">
+  <DashboardLayout title="Pegawai">
+    <div class="card custom mb-3 px-2">
       <div class="card-body">
-        <h3 class="m-0 fw-bold fs-5">Halaman Manajemen Petugas</h3>
+        <h3 class="m-0 fw-bold fs-5">Halaman Manajemen Pegawai</h3>
       </div>
     </div>
     <div class="card custom">
       <div class="card-header px-4 py-4">
-        <h3 class="m-0 fw-bold fs-5">Data Petugas</h3>
+        <h3 class="m-0 fw-bold fs-5">Data Pegawai</h3>
+        <Link :href="route('admin.pegawai.create')" class="btn btn-primary text-white custShadow2 mb-3"><unicon name="plus" fill="white" width="20" class="me-2" />Buat baru</Link>
       </div>
       <div class="card-body px-4 custom">
         <div class="table-responsive">
@@ -88,8 +114,8 @@ onMounted(async() => {
             <tbody v-for="user in users" :key="user.id">
               <tr>
                 <td>
-                  <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator">Edit</button>
-                  <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator">Hapus</button>
+                  <button @click="toEdit(user)" class="btn btn-warning text-white custShadow2 mb-3">Ubah</button>
+                  <button @click="deleteEmployee(user)" class="btn btn-danger text-white btn-circle custShadow2 me-2">Hapus</button>
                 </td>
                 <td>Foto</td>
                 <td>{{ user.id }}</td>
@@ -100,18 +126,19 @@ onMounted(async() => {
                 <td>{{ user.birth_date }}</td>
                 <td>{{ user.religion }}</td>
                 <td>{{ user.marital_status }}</td>
-                <td>{{ user.department }}</td>
-                <td>{{ user.position }}</td>
+                <td>{{ user.departments.department }}</td>
+                <td>{{ user.positions.position }}</td>
                 <td>{{ user.phone }}</td>
                 <td>{{ user.address }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.role }}</td>
+                <td>{{ user.roles.role }}</td>
                 <td>{{ user.created_at }}</td>
                 <td>{{ user.updated_at }}</td>
               </tr>
             </tbody>
           </table>
         </div>
+
       </div>
     </div>
   </DashboardLayout>

@@ -4,43 +4,54 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use App\Models\Category;
 use App\Models\Role;
-use App\Http\Resources\TicketResource;
+use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class TicketController extends Controller
 {
-    public function index(){
-        $tickets = Ticket::with(['users_employee', 'users_department', 'categories', 'statuses', 'reviews', 'roles'])->get();
-        return TicketResource::collection($tickets);
+    public function index() {
+        $tickets = Ticket::with('users_employee', 'users_department', 'categories', 'categories.department', 'statuses', 'reviews')->get();
+        $totalNewTickets = $tickets->where('status_id', '1')->count();
+        $totalAnsweredTickets = $tickets->where('status_id', '2')->count();
+        $totalRepliedTickets = $tickets->where('status_id', '3')->count();
+        $totalClosedTickets = $tickets->where('status_id', '4')->count();
+        return Inertia::render('Admin/Ticket/Index', [
+            'tickets' => $tickets,
+            'totalNewTickets' => $totalNewTickets,
+            'totalAnsweredTickets' => $totalAnsweredTickets,
+            'totalRepliedTickets' => $totalRepliedTickets,
+            'totalClosedTickets' => $totalClosedTickets,
+        ]);
     }
 
-    public function getLastTicketId(){
-        $lastTicketId = Ticket::latest('id')->value('id');
-        return response()->json(['last_ticket_id' => $lastTicketId]);
+    public function indexDashboard(){
+        $tickets = Ticket::with('users_employee', 'users_department', 'categories', 'categories.department', 'statuses', 'reviews')->get();
+        $newTickets = $tickets->where('status_id', '1')->count();
+        $users_employee = User::where('role_id', '1')->get();
+        $categories = Category::all();
+        return Inertia::render('Admin/Index', [
+            'tickets' => $tickets,
+            'newTickets' => $newTickets,
+            'users_employee' => $users_employee,
+            'categories' => $categories,
+        ]);
     }
 
-    public function create(Request $request)
-    {
-        $request->validate([
-            // 'ticket_id' => 'required|integer',
-            'user_id_employee' => 'required|integer',
-            'user_id_department' => 'required|integer',
-            'category_id' => 'required|integer',
-            'status_id' => 'required|integer',
-            'review_id' => 'required|integer',
-            'subject' => 'required|string',
+    public function navlink(){
+        $tickets = Ticket::with('users_employee', 'users_department', 'categories', 'categories.department', 'statuses', 'reviews')->get();
+        return Inertia::render('./Component/NavLink', [
+            'tickets' => $tickets,
         ]);
+    }
 
-        $ticket = Ticket::create([
-            // 'ticket_id' => $request->input('ticket_id'),
-            'user_id_employee' => $request->input('user_id_employee'),
-            'user_id_department' => $request->input('user_id_department'),
-            'category_id' => $request->input('category_id'),
-            'status_id' => $request->input('status_id'),
-            'review_id' => $request->input('review_id'),
-            'subject' => $request->input('subject'),
+    public function formTicket() {
+        $categories = Category::all();
+        return Inertia::render('Ticket/Index', [
+            'categories' => $categories,
         ]);
-        return response()->json(['message' => 'TICKET created successfully', 'ticket' => $ticket], 201);
-    }    
+    }
 }
 

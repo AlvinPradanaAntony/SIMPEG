@@ -34,7 +34,7 @@ class DetailTicket extends Model
     }
 
     public function levels(){
-        return $this->belongsTo(Level::class, 'level_id');
+        return $this->belongsTo(Level::class, 'role_id');
     }
 
     protected $fillable = [

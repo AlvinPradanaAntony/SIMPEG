@@ -8,48 +8,72 @@ import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
-import axios from 'axios';
 
-const positions = ref([]);
+defineProps({
+  positions: Array,
+});
+
 const positionInput = ref(null);
+
 const form = useForm({
   position: '',
 });
+
 const edit = useForm({
   _method: 'PUT',
-  position: positions,
+  position: '',
 });
-const saveData = () => {
-  form.post(route(''), {
+
+const openEditModal = (position) => {
+  edit.id = position.id;
+  edit.position = position.position;
+  const modalBootstrap = new Modal(document.getElementById('formPositionEdit'));
+  modalBootstrap.show();
+};
+
+const submit = () => {
+  form.post(route('admin.position.store'), {
     preserveScroll: true,
     onSuccess: () => closeModal(),
     onFinish: () => form.reset(),
     onError: (error) => {
       console.log(error);
-      statusInput.value.focus();
+      positionInput.value.focus();
     },
   });
 };
-const updateData = () => {
-  form.post(route(''), {
+
+const update = () => {
+  edit.put(route('admin.position.update', {id:edit.id}), {
     preserveScroll: true,
     onSuccess: () => closeModal(),
-    onFinish: () => form.reset(),
+    onFinish: () => edit.reset(),
     onError: (error) => {
       console.log(error);
-      statusInput.value.focus();
+      positionInput.value.focus();
     },
   });
 };
+
+const deletePosition = (id) => {
+  form.delete(route('admin.position.destroy', { id }), {
+    preserveScroll: true,
+    onSuccess: () => {
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+};
+
 const closeModal = () => {
   form.reset();
   const modalBootstrap = Modal.getOrCreateInstance('#modalLogoutSession')
   modalBootstrap.hide()
 };
+
 onMounted(async () => {
-  const response = await axios.get('/positions');
-  positions.value = response.data.data;
-  $('#table_user').DataTable({
+  $('#table_position').DataTable({
     dom: 'Bfrtip',
     lengthMenu: [
       [10, 25, 50],
@@ -87,24 +111,24 @@ onMounted(async () => {
     <div class="card custom">
       <div class="card-header px-4 py-4">
         <h3 class="m-0 fw-bold fs-5">Data Jabatan</h3>
-        <button class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#formstatus">
+        <button class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#formPosition">
           <unicon name="plus" fill="white" width="20" class="me-2" />
           <span>Buat Baru</span>
         </button>
       </div>
-      <DialogModal target="formstatus" :hasErrors="form.hasErrors">
+      <DialogModal target="formPosition" :hasErrors="form.hasErrors">
         <template #title>
           Buat Jabatan Baru
         </template>
 
         <template #content>
-          <form @submit.prevent="saveData">
+          <form @submit.prevent="submit">
             <div class="row">
               <div class="col-12">
                 <InputLabel for="position" class="form-label small" value="Jabatan" />
                 <TextInput ref="positionInput" type="text" class="form-control" id="position" v-model="form.position" required
-                  autocomplete="position" />
-                <InputError :message="form.errors.status" class="mt-2" />
+                  autocomplete="position" @keyup.enter="submit" />
+                <InputError :message="form.errors.position" class="mt-2" />
               </div>
             </div>
           </form>
@@ -116,18 +140,16 @@ onMounted(async () => {
           </SecondaryButton>
 
           <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
-            :disabled="form.processing">
-            <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+            :disabled="form.processing" @click="submit">
+            <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="position"></span>
             Simpan
           </PrimaryButton>
+          
         </template>
       </DialogModal>
       <div class="card-body px-4 custom">
         <div class="table-responsive">
-          <button class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#formPositionEdit">
-            <span>Edit Data</span>
-          </button>
-          <table id="table_user" class="table custom" style="width:100%">
+          <table id="table_position" class="table custom" style="width:100%">
             <thead>
               <tr>
                 <th>Aksi</th>
@@ -140,8 +162,10 @@ onMounted(async () => {
             <tbody v-for="position in positions" :key="position.id">
               <tr>
                 <td>
-                  <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator">Edit</button>
-                  <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator">Hapus</button>
+                  <button @click="openEditModal(position)" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#formPositionEdit">
+                    <span>Ubah</span>
+                  </button>
+                  <button @click="deletePosition(position)" class="btn btn-danger text-white btn-circle custShadow2 me-2">Hapus</button>
                 </td>
                 <td>{{ position.id }}</td>
                 <td>{{ position.position }}</td>
@@ -151,18 +175,18 @@ onMounted(async () => {
             </tbody>
           </table>
         </div>
-        <DialogModal target="formPositionEdit" :hasErrors="form.hasErrors">
+        <DialogModal target="formPositionEdit" :hasErrors="edit.hasErrors">
           <template #title>
             Edit Jabatan
           </template>
           <template #content>
-            <form @submit.prevent="updateData">
+            <form @submit.prevent="update">
               <div class="row">
                 <div class="col-12">
-                  <InputLabel for="status" class="form-label small" value="Status" />
-                  <TextInput ref="statusInput" type="text" class="form-control" id="status" v-model="edit.status" required
-                    autocomplete="status" />
-                  <InputError :message="form.errors.status" class="mt-2" />
+                  <InputLabel for="position" class="form-label small" value="Jabatan" />
+                  <TextInput ref="positionInput" type="text" class="form-control" id="position" v-model="edit.position" required
+                    autocomplete="position" @keyup.enter="update"/>
+                  <InputError :message="edit.errors.position" class="mt-2" />
                 </div>
               </div>
             </form>
@@ -173,9 +197,9 @@ onMounted(async () => {
               Batal
             </SecondaryButton>
 
-            <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
-              :disabled="form.processing">
-              <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+            <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': edit.processing }"
+              :disabled="edit.processing" @click="update">
+              <span v-if="edit.processing" class="spinner-border spinner-border-sm mr-2" role="position"></span>
               Simpan
             </PrimaryButton>
           </template>

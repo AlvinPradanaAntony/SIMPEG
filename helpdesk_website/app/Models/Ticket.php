@@ -9,9 +9,9 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    public function detail_tickets(){
-        return $this->hasMany(DetailTicket::class, 'ticket_id');
-    }
+    // public function detail_tickets(){
+    //     return $this->hasMany(DetailTicket::class, 'ticket_id');
+    // }
 
     public function users_employee(){
         return $this->belongsTo(User::class, 'user_id_employee');
@@ -25,6 +25,10 @@ class Ticket extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
+    public function department()
+    {
+        return $this->belongsToThrough(Department::class, Category::class, 'id', 'id', 'category_id', 'department_id');
+    }
     public function statuses(){
         return $this->belongsTo(Status::class, 'status_id');
     }
@@ -38,7 +42,6 @@ class Ticket extends Model
     }
 
     protected $fillable = [
-        // 'ticket_id',
         'subject',
         'user_id_employee',
         'user_id_department',

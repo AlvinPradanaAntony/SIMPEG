@@ -8,19 +8,31 @@ import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
-import axios from 'axios';
 
-const statuses = ref([]);
+defineProps({
+  statuses: Array,
+});
+
 const statusInput = ref(null);
+
 const form = useForm({
   status: '',
 });
+
 const edit = useForm({
   _method: 'PUT',
-  status: statuses,
+  status: '',
 });
-const saveData = () => {
-  form.post(route(''), {
+
+const openEditModal = (status) => {
+  edit.id = status.id;
+  edit.status = status.status;
+  const modalBootstrap = new Modal(document.getElementById('formStatusEdit'));
+  modalBootstrap.show();
+};
+
+const submit = () => {
+  form.post(route('admin.status.store'), {
     preserveScroll: true,
     onSuccess: () => closeModal(),
     onFinish: () => form.reset(),
@@ -30,26 +42,38 @@ const saveData = () => {
     },
   });
 };
-const updateData = () => {
-  form.post(route(''), {
+
+const update = () => {
+  edit.put(route('admin.status.update', {id:edit.id}), {
     preserveScroll: true,
     onSuccess: () => closeModal(),
-    onFinish: () => form.reset(),
+    onFinish: () => edit.reset(),
     onError: (error) => {
       console.log(error);
       statusInput.value.focus();
     },
   });
 };
+
+const deleteStatus = (id) => {
+  form.delete(route('admin.status.destroy', { id }), {
+    preserveScroll: true,
+    onSuccess: () => {
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+};
+
 const closeModal = () => {
   form.reset();
   const modalBootstrap = Modal.getOrCreateInstance('#modalLogoutSession')
   modalBootstrap.hide()
 };
+
 onMounted(async () => {
-  const response = await axios.get('/statuses');
-  statuses.value = response.data.data;
-  $('#table_user').DataTable({
+  $('#table_status').DataTable({
     dom: 'Bfrtip',
     lengthMenu: [
       [10, 25, 50],
@@ -87,23 +111,23 @@ onMounted(async () => {
     <div class="card custom">
       <div class="card-header px-4 py-4">
         <h3 class="m-0 fw-bold fs-5">Data Status</h3>
-        <button class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#formstatus">
+        <button class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#formStatus">
           <unicon name="plus" fill="white" width="20" class="me-2" />
           <span>Buat Baru</span>
         </button>
       </div>
-      <DialogModal target="formstatus" :hasErrors="form.hasErrors">
+      <DialogModal target="formStatus" :hasErrors="form.hasErrors">
         <template #title>
           Buat Status Baru
         </template>
 
         <template #content>
-          <form @submit.prevent="saveData">
+          <form @submit.prevent="submit">
             <div class="row">
               <div class="col-12">
                 <InputLabel for="status" class="form-label small" value="Status" />
                 <TextInput ref="statusInput" type="text" class="form-control" id="status" v-model="form.status" required
-                  autocomplete="status" />
+                  autocomplete="status" @keyup.enter="submit" />
                 <InputError :message="form.errors.status" class="mt-2" />
               </div>
             </div>
@@ -116,18 +140,16 @@ onMounted(async () => {
           </SecondaryButton>
 
           <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
-            :disabled="form.processing">
+            :disabled="form.processing" @click="submit">
             <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
             Simpan
           </PrimaryButton>
+          
         </template>
       </DialogModal>
       <div class="card-body px-4 custom">
         <div class="table-responsive">
-          <button class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#formstatusEdit">
-            <span>Edit Data</span>
-          </button>
-          <table id="table_user" class="table custom" style="width:100%">
+          <table id="table_status" class="table custom" style="width:100%">
             <thead>
               <tr>
                 <th>Aksi</th>
@@ -140,10 +162,10 @@ onMounted(async () => {
             <tbody v-for="status in statuses" :key="status.id">
               <tr>
                 <td>
-                  <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal"
-                    data-bs-target="#editDataAdministrator">Edit</button>
-                  <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal"
-                    data-bs-target="#hapusDataAdministrator">Hapus</button>
+                  <button @click="openEditModal(status)" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#formStatusEdit">
+                    <span>Ubah</span>
+                  </button>
+                  <button @click="deleteStatus(status)" class="btn btn-danger text-white btn-circle custShadow2 me-2">Hapus</button>
                 </td>
                 <td>{{ status.id }}</td>
                 <td>{{ status.status }}</td>
@@ -153,18 +175,18 @@ onMounted(async () => {
             </tbody>
           </table>
         </div>
-        <DialogModal target="formstatusEdit" :hasErrors="form.hasErrors">
+        <DialogModal target="formStatusEdit" :hasErrors="edit.hasErrors">
           <template #title>
             Edit Status
           </template>
           <template #content>
-            <form @submit.prevent="updateData">
+            <form @submit.prevent="update">
               <div class="row">
                 <div class="col-12">
                   <InputLabel for="status" class="form-label small" value="Status" />
                   <TextInput ref="statusInput" type="text" class="form-control" id="status" v-model="edit.status" required
-                    autocomplete="status" />
-                  <InputError :message="form.errors.status" class="mt-2" />
+                    autocomplete="status" @keyup.enter="update"/>
+                  <InputError :message="edit.errors.status" class="mt-2" />
                 </div>
               </div>
             </form>
@@ -175,9 +197,9 @@ onMounted(async () => {
               Batal
             </SecondaryButton>
 
-            <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
-              :disabled="form.processing">
-              <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+            <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': edit.processing }"
+              :disabled="edit.processing" @click="update">
+              <span v-if="edit.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
               Simpan
             </PrimaryButton>
           </template>

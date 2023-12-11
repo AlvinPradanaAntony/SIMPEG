@@ -18,14 +18,21 @@ class UsersSeeder extends Seeder
             'name' => 'Super Admin',
             'email' => 'superadmin@mail.com',
             'password' => bcrypt('superadmin'),
-            'level_id' => 4,
+            'role_id' => 4,
         ]);
         User::create([
             'nip' => 'pegawai',
             'name' => 'Pegawai',
             'email' => 'pegawai@mail.com',
             'password' => bcrypt('pegawai'),
-            'level_id' => 1,
+            'role_id' => 1,
+        ]);
+        User::create([
+            'nip' => 'khoirul',
+            'name' => 'Khoirul',
+            'email' => 'mkhoirulr97@gmail.com',
+            'password' => bcrypt('khoirul123'),
+            'role_id' => 4,
         ]);
     }
 }
