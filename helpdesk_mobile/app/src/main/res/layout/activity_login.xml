@@ -4,26 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_default"
     tools:context=".ui.login.LoginActivity">
-<!--    <ProgressBar-->
-<!--        android:id="@+id/progress_bar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:visibility="gone"-->
-<!--        android:elevation="15dp"-->
-<!--        tools:visibility="visible"-->
-<!--        android:layout_centerInParent="true"/>-->
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:elevation="15dp"
+        tools:visibility="invisible"
+        android:layout_centerInParent="true"/>
 
-<!--    <View-->
-<!--        android:id="@+id/overlay_bg"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="@color/colorOverlay"-->
-<!--        android:elevation="14dp"-->
-<!--        android:visibility="gone"-->
-<!--        android:clickable="true"-->
-<!--        tools:visibility="visible"-->
-<!--        android:focusable="true" />-->
+    <View
+        android:id="@+id/overlay_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorOverlay"
+        android:elevation="14dp"
+        android:visibility="gone"
+        android:clickable="true"
+        tools:visibility="invisible"
+        android:focusable="true" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,39 +34,59 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <FrameLayout
-                android:id="@+id/frameLayout"
-                android:layout_width="66dp"
-                android:layout_height="66dp"
-                android:layout_marginStart="18dp"
+<!--            <FrameLayout-->
+<!--                android:id="@+id/frameLayout"-->
+<!--                android:layout_width="66dp"-->
+<!--                android:layout_height="66dp"-->
+<!--                android:layout_marginStart="18dp"-->
+<!--                android:layout_marginTop="68dp"-->
+<!--                android:background="@drawable/container_rounded1"-->
+<!--                android:elevation="12dp"-->
+<!--                android:outlineAmbientShadowColor="@color/shadowColor"-->
+<!--                android:outlineSpotShadowColor="@color/shadowColor"-->
+<!--                app:layout_constraintHorizontal_bias="0.046"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                tools:targetApi="p">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:src="@drawable/logo1" />-->
+<!--            </FrameLayout>-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/asset_7"
+                android:contentDescription="@string/abstract1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/logo_app_min"
+                android:layout_width="94dp"
+                android:layout_height="94dp"
                 android:layout_marginTop="68dp"
-                android:background="@drawable/container_rounded1"
-                android:elevation="12dp"
-                android:outlineAmbientShadowColor="@color/shadowColor"
-                android:outlineSpotShadowColor="@color/shadowColor"
-                app:layout_constraintHorizontal_bias="0.046"
+                android:contentDescription="@string/logo_simpeg"
+                android:src="@drawable/asset_6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:targetApi="p">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/logo1" />
-            </FrameLayout>
+                />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:fontFamily="@font/gilroy_bold"
+                android:layout_marginStart="18dp"
+                android:fontFamily="@font/gilroy_extrabold"
                 android:text="@string/HeadlineLogin"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="32sp"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+                app:layout_constraintStart_toStartOf="@+id/logo_app_min"
+                app:layout_constraintTop_toBottomOf="@+id/logo_app_min" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -78,15 +99,6 @@
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-100dp"
-                android:layout_marginEnd="-100dp"
-                android:src="@drawable/abtract1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <com.ims.helpdesk_mobile.ui.customView.CustomEditText
                 android:id="@+id/ed_login_email"
@@ -101,9 +113,8 @@
                 android:inputType="textEmailAddress"
                 android:paddingHorizontal="18dp"
                 android:textColor="@color/textColorCaption"
-                android:textColorHint="@color/textColorCaption2"
+                android:textColorHint="@color/textColorField"
                 android:textSize="12sp"
-                android:alpha="0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.457"
                 app:layout_constraintStart_toStartOf="parent"
@@ -120,25 +131,35 @@
                 android:inputType="textPassword"
                 android:paddingHorizontal="18dp"
                 android:textColor="@color/textColorCaption"
-                android:textColorHint="@color/textColorCaption2"
+                android:textColorHint="@color/textColorField"
                 android:textSize="12sp"
-                android:alpha="0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.514"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ed_login_email" />
 
+            <TextView
+                android:id="@+id/txt_registernow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/textColorCaption2"
+                android:fontFamily="@font/nunito_sans_semibold"
+                android:text="@string/lupa_kata_sandi"
+                app:layout_constraintEnd_toEndOf="@+id/ed_login_password"
+                app:layout_constraintTop_toBottomOf="@+id/ed_login_password"/>
+
             <com.ims.helpdesk_mobile.ui.customView.CustomButton
                 android:id="@+id/button_login"
                 android:layout_width="0dp"
                 android:layout_height="56dp"
-                android:layout_marginTop="52dp"
+                android:layout_marginTop="62dp"
                 android:background="@drawable/style_button"
                 android:fontFamily="@font/nunito_sans_bold"
+                style="?android:attr/borderlessButtonStyle"
                 android:text="@string/btn_login"
                 android:textAllCaps="false"
                 android:textSize="18sp"
-                android:alpha="0"
                 app:layout_constraintEnd_toEndOf="@+id/ed_login_password"
                 app:layout_constraintStart_toStartOf="@+id/ed_login_password"
                 app:layout_constraintTop_toBottomOf="@+id/ed_login_password" />

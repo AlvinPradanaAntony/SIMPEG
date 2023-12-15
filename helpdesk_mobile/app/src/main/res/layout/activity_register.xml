@@ -35,7 +35,7 @@
             android:layout_height="wrap_content">
 
             <FrameLayout
-                android:id="@+id/frameLayout"
+                android:id="@+id/logo_app_min"
                 android:layout_width="66dp"
                 android:layout_height="66dp"
                 android:layout_marginStart="18dp"
@@ -65,8 +65,8 @@
                 android:text="@string/register"
                 android:textColor="#535454"
                 android:textSize="32sp"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+                app:layout_constraintStart_toStartOf="@+id/logo_app_min"
+                app:layout_constraintTop_toBottomOf="@+id/logo_app_min" />
 
             <TextView
                 android:id="@+id/textView2"
