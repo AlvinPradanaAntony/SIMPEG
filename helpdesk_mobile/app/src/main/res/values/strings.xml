@@ -34,4 +34,17 @@
     <string name="abstract1">abstract1</string>
     <string name="logo_simpeg">logo_simpeg</string>
     <string name="lupa_kata_sandi">Lupa Kata Sandi ?</string>
+    <string name="notifikasi">notifikasi</string>
+    <string name="selamat_datang_di_simpeg">Selamat datang di SIMPEG,</string>
+    <string name="name_account">Pegawai 1</string>
+    <string name="nip_account">NIP:</string>
+    <string name="nip_data_account">198101252009091001</string>
+    <string name="text3">Portal Menu</string>
+    <string name="logo_menu">logo_menu</string>
+    <string name="menu_1">SIMPEG</string>
+    <string name="menu_2">SIMPEG SAPK</string>
+    <string name="menu_3">E-KINERJA</string>
+    <string name="menu_4">DMS</string>
+    <string name="menu_5">PENYESUAIAN JABATAN</string>
+    <string name="menu_6">HELPDESK</string>
 </resources>

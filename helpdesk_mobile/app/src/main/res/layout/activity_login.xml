@@ -34,27 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-<!--            <FrameLayout-->
-<!--                android:id="@+id/frameLayout"-->
-<!--                android:layout_width="66dp"-->
-<!--                android:layout_height="66dp"-->
-<!--                android:layout_marginStart="18dp"-->
-<!--                android:layout_marginTop="68dp"-->
-<!--                android:background="@drawable/container_rounded1"-->
-<!--                android:elevation="12dp"-->
-<!--                android:outlineAmbientShadowColor="@color/shadowColor"-->
-<!--                android:outlineSpotShadowColor="@color/shadowColor"-->
-<!--                app:layout_constraintHorizontal_bias="0.046"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                tools:targetApi="p">-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="40dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:src="@drawable/logo1" />-->
-<!--            </FrameLayout>-->
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="600dp"

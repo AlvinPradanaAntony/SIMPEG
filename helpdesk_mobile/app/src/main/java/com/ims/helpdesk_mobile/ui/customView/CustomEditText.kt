@@ -24,9 +24,6 @@ class CustomEditText: AppCompatEditText, View.OnTouchListener {
     private var isError = false
     private var isEmail: Boolean = false
     private var isPassword: Boolean = false
-    private var isEmailRegister: Boolean = false
-    private var isPasswordRegister: Boolean = false
-    private var isConfirmPassword: Boolean = false
 
     constructor(context: Context) : super(context) {
         init()
@@ -39,7 +36,7 @@ class CustomEditText: AppCompatEditText, View.OnTouchListener {
     }
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        if (isPassword || isPasswordRegister || isConfirmPassword){
+        if (isPassword){
             showDrawable()
         }
         background = if (isError) editTextErrorBackground else editTextBackground
@@ -50,19 +47,13 @@ class CustomEditText: AppCompatEditText, View.OnTouchListener {
         email?.isEmail  = true
         val password: CustomEditText? = findViewById(R.id.ed_login_password)
         password?.isPassword = true
-        val emailRegister: CustomEditText? = findViewById(R.id.ed_register_email)
-        emailRegister?.isEmailRegister  = true
-        val passwordRegister: CustomEditText? = findViewById(R.id.ed_register_password)
-        passwordRegister?.isPasswordRegister = true
-        val confrimPassword: CustomEditText? = findViewById(R.id.ed_register_confirmPass)
-        confrimPassword?.isConfirmPassword = true
 
         editTextBackground = ContextCompat.getDrawable(context, R.drawable.style_bg_edittext) as Drawable
         editTextErrorBackground = ContextCompat.getDrawable(context, R.drawable.style_edittext_error) as Drawable
         eyeIcon = ContextCompat.getDrawable(context, R.drawable.ic_eye_off) as Drawable
         lock = ContextCompat.getDrawable(context, R.drawable.ic_lock) as Drawable
 
-        if (isPassword || isPasswordRegister || isConfirmPassword){
+        if (isPassword){
             setOnTouchListener(this)
         }
 
@@ -71,7 +62,7 @@ class CustomEditText: AppCompatEditText, View.OnTouchListener {
                 // Do nothing.
             }
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (isEmail || isEmailRegister) {
+                if (isEmail) {
                     if (s.toString().isNotEmpty() && !isValidEmail(s.toString())) {
                         error = resources.getString(R.string.email_invalid)
                         isError = true
@@ -79,7 +70,7 @@ class CustomEditText: AppCompatEditText, View.OnTouchListener {
                         error = null
                         isError = false
                     }
-                } else if (isPassword || isPasswordRegister || isConfirmPassword) {
+                } else if (isPassword) {
                     if (s.toString().isNotEmpty() && s.toString().length < 8) {
                         error = resources.getString(R.string.password_minimum_character)
                         isError = true
