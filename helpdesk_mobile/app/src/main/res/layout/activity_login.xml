@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_default"
     tools:context=".ui.login.LoginActivity">
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -32,14 +31,17 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp">
 
             <ImageView
+                android:id="@+id/bg_abstract1"
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
+                android:layout_height="0dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/asset_7"
+                android:src="@drawable/asset_11"
                 android:contentDescription="@string/abstract1"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

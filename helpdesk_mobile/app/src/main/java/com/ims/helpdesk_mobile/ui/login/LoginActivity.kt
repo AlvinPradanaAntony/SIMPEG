@@ -1,6 +1,7 @@
 package com.ims.helpdesk_mobile.ui.login
 
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ims.helpdesk_mobile.R
@@ -18,5 +19,23 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()
         }
+        changeBgAbstract()
+    }
+    private fun changeBgAbstract(){
+        val imageView = binding.bgAbstract1
+        val display = windowManager.defaultDisplay
+        val orientation = if (display.width < display.height) {
+            Configuration.ORIENTATION_PORTRAIT
+        } else {
+            Configuration.ORIENTATION_LANDSCAPE
+        }
+
+        val drawableId = if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            R.drawable.asset_11
+        } else {
+            R.drawable.asset_10
+        }
+
+        imageView.setImageResource(drawableId)
     }
 }

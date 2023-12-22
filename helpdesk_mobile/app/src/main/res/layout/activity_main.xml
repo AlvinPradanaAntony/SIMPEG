@@ -4,18 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_default"
     tools:context=".ui.home.MainActivity">
     
     <ImageView
+        android:id="@+id/bg_abstract1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/abstract1"
         android:scaleType="fitXY"
-        android:src="@drawable/asset_7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/asset_7" />
     
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/custom_appbar"
