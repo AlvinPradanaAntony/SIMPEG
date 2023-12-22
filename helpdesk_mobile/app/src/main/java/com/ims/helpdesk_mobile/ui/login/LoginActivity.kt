@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ims.helpdesk_mobile.R
 import com.ims.helpdesk_mobile.databinding.ActivityLoginBinding
-import com.ims.helpdesk_mobile.ui.FaqActivity
 import com.ims.helpdesk_mobile.ui.home.MainActivity
 
 class LoginActivity : AppCompatActivity() {

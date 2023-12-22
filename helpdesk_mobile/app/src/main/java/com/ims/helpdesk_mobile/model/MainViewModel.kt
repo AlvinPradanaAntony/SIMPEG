@@ -1,4 +1,4 @@
-package com.ims.helpdesk_mobile.ui.home
+package com.ims.helpdesk_mobile.model
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -7,8 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.ims.helpdesk_mobile.db.ApiConfig
 import com.ims.helpdesk_mobile.db.TicketAPIResponse
-import com.ims.helpdesk_mobile.model.UserModel
-import com.ims.helpdesk_mobile.model.UserPreferences
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback

@@ -1,4 +1,4 @@
-package com.ims.helpdesk_mobile.ui
+package com.ims.helpdesk_mobile.ui.faq
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

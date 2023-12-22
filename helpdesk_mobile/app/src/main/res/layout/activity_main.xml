@@ -138,6 +138,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/text3">
         
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/menu_simpeg_dashboard"
                     android:layout_width="95dp"
                     android:layout_height="125dp"
                     android:layout_columnWeight="1"
@@ -172,6 +173,7 @@
                 </androidx.cardview.widget.CardView>
         
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/menu_simpeg_sapk"
                     android:layout_width="95dp"
                     android:layout_height="125dp"
                     android:layout_columnWeight="1"
@@ -206,6 +208,7 @@
                 </androidx.cardview.widget.CardView>
         
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/menu_simpeg_ekinerja"
                     android:layout_width="95dp"
                     android:layout_height="125dp"
                     android:layout_columnWeight="1"
@@ -240,6 +243,7 @@
                 </androidx.cardview.widget.CardView>
         
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/menu_simpeg_dms"
                     android:layout_width="95dp"
                     android:layout_height="125dp"
                     android:layout_columnWeight="1"
@@ -275,6 +279,7 @@
                 </androidx.cardview.widget.CardView>
         
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/menu_simpeg_jabatan"
                     android:layout_width="95dp"
                     android:layout_height="125dp"
                     android:layout_columnWeight="1"
@@ -311,6 +316,7 @@
                 </androidx.cardview.widget.CardView>
         
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/menu_simpeg_faq"
                     android:layout_width="95dp"
                     android:layout_height="125dp"
                     android:layout_columnWeight="1"
