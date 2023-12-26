@@ -11,7 +11,7 @@
   --hue-color2: 217;
 
   /* HSL color mode */
-  --first-color: #307bf4;
+  --first-color: rgb(93, 167, 184)    ;
   --first-color-second: #fd5353;
   --first-color-alt: hsl(var(--hue-color2), 57%, 53%);
   --first-color-lighter: hsl(var(--hue-color2), 92%, 85%);
@@ -672,9 +672,6 @@ input[type="search"]:focus {
 #myChart1 {
   width: 200px !important;
   height: 200px !important;
-  margin-left: 100px ;
-  
-  margin-top: 30px;
   
     /* Tambahkan aturan CSS lainnya sesuai keinginan Anda */
 }
@@ -729,15 +726,17 @@ button:active {
   padding: 0px !important;
   margin-top: 10px !important;
   margin-left: 0px !important;
+  background-color: #ffffff !important;
   
 }
 
 .card-chart {
-  padding: 1px !important;
+  padding: 0px !important;
   
 }
 .card-table {
   padding: 1px !important;
+  box-shadow: 20px #000;
 
   
 }
@@ -841,6 +840,7 @@ body {
 table {
   width: 100%;
   text-align: center;
+  margin-top: 50px;
 }
 
 th, td {
@@ -870,3 +870,115 @@ th, td {
 .table-bordered td[colspan="2"] {
   border: none; /* Menghapus border pada elemen dengan colspan="2" (Hapus) */
 }
+
+.tabs-table {
+  padding: 1px !important;
+  margin: 0px !important;
+  border-color: #19b0ec;
+}
+
+.nav-fill {
+  border: #19b0ec;
+  border-color: #19b0ec;
+}
+
+.nav-pills {
+  padding-bottom: 20px;
+  font-size: 14px;
+}
+
+.nav-tabs-item {
+  color: #ffffff !important;
+  background-color: #525760;
+  border-radius:  17px 17px 0px 0px;
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+
+.nav-tabs-item a.nav-link.active {
+  /* Gaya untuk link aktif di sini */
+  color: #000000;
+  background-color: #ffffff;
+  border-radius:  15px 15px 15px 0px;
+  font-weight: bold;
+  font-size: 12px;
+  box-shadow: 0  -5px 5px -5px rgba(0, 0, 0, 0.2), 5px 0 5px -5px rgba(0, 0, 0, 0.2); /* Menambahkan box-shadow */
+}
+
+#searchInput {
+  /* Atur gaya CSS di sini */
+  font-size: 16px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border-color: #19b0ec;
+  /* Tambahkan properti CSS lainnya sesuai kebutuhan */
+}
+
+#dataCount {
+  border-radius: 10px;
+  font-size: 15px;
+  border-color: #19b0ec;
+}
+
+
+.tabs {
+  display: flex;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 13px;
+  
+  font-weight:650
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  align-items: start;
+  margin-right: 10px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgb(93, 167, 184);
+  height: 33px;
+  max-width: 120px;
+  box-shadow: 1px -3px 4px rgb(217, 214, 214);
+  margin-top: 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+
+.tab:hover {
+  background-color: #ddd;
+}
+
+.tab.active {
+  background-color: #ffffff;
+  
+  color:#000000
+ 
+  
+}
+
+.tab-content {
+  display: none;  
+}
+
+.tab-content.active {
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+

@@ -12,6 +12,7 @@
   <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
@@ -240,10 +241,224 @@
           <div class="col-lg-3 m-0"></div>
         </div>
 
+        <div class="container-sm" style="background-color: rgb(255, 255, 255); height: 200px; padding: 1px;"> 
+          <div class="card chart-rating">
+            <div class="tabs">
+              <div class="tab active" onclick="openTab('Bidang1')">Bidang 1</div>
+              <div class="tab" onclick="openTab('Bidang2')">Bidang 2</div>
+              <div class="tab" onclick="openTab('Bidang3')">Bidang 3</div>
+              <div class="tab" onclick="openTab('Bidang4')">Bidang 4</div>
+              <div class="tab" onclick="openTab('Bidang5')">Bidang 5</div>
+          </div>
+          <div class="head-table">
+            <p style="margin-left: 20px; font-size: 14px;">Perlihatkan <label for="dataCount"></label>
+             <select id="dataCount">
+               <option value="5">5</option>
+               <option value="10">10</option>
+               <option value="15">15</option>
+               <!-- Tambahkan opsi lain sesuai kebutuhan -->
+             </select> urutan</p>
+               <label for="search">Cari: <input type="text" id="searchInput" placeholder=""></label>
+           </div> 
+          <div id="Bidang1" class="tab-content active">
+            <table id="dataTable" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col"> <i class="uil uil-direction"></i></th>
+                  <th scope="col">Nama  <i class="uil uil-direction"></i></th>
+                  <th scope="col">NIP <i class="uil uil-direction"></i></th>
+                  <th scope="col">Email<i class="uil uil-direction"></i></th>
+                  <th scope="col">No hp<i class="uil uil-direction"></i></th>
+                  <th scope="col">Alamat<i class="uil uil-direction"></i></th>
+                  <th scope="col">Tiket<i class="uil uil-direction"></i></th>
+                  <th scope="col" colspan="2"></th> 
+                </tr>
+              </thead>
+              <tbody>
+                </tr>
+              </tbody>
+            </table>
+            <p id="dataInfobidang1"></p>
+          </div>
+      
+          <div id="Bidang2" class="tab-content">
+            <table id="dataTable" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col"><i class="uil uil-direction"></i></th>
+                  <th scope="col">Nama  <i class="uil uil-direction"></i></th>
+                  <th scope="col">NIP <i class="uil uil-direction"></i></th>
+                  <th scope="col">Email<i class="uil uil-direction"></i></th>
+                  <th scope="col">No hp<i class="uil uil-direction"></i></th>
+                  <th scope="col">Alamat<i class="uil uil-direction"></i></th>
+                  <th scope="col">Tiket<i class="uil uil-direction"></i></th>
+                  <th scope="col" colspan="2"></th> 
+                </tr>
+              </thead>
+              <tbody>
+                 
+                </tr>
+              </tbody>
+            </table>
+            <p id="dataInfobidang2"></p>
+          </div>
+      
+          <div id="Bidang3" class="tab-content">
+            <table id="dataTable" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col"> <i class="uil uil-direction"></i></th>
+                  <th scope="col">Nama  <i class="uil uil-direction"></i></th>
+                  <th scope="col">NIP <i class="uil uil-direction"></i></th>
+                  <th scope="col">Email<i class="uil uil-direction"></i></th>
+                  <th scope="col">No hp<i class="uil uil-direction"></i></th>
+                  <th scope="col">Alamat<i class="uil uil-direction"></i></th>
+                  <th scope="col">Tiket<i class="uil uil-direction"></i></th>
+                  <th scope="col" colspan="2"></th> 
+                </tr>
+              </thead>
+              <tbody>
+                </tr>
+              </tbody>
+            </table>
+            <p id="dataInfobidang3"></p>
+          </div>
+
+          <div id="Bidang4" class="tab-content">
+            <table id="dataTable" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col"> <i class="uil uil-direction"></i></th>
+                  <th scope="col">Nama  <i class="uil uil-direction"></i></th>
+                  <th scope="col">NIP <i class="uil uil-direction"></i></th>
+                  <th scope="col">Email<i class="uil uil-direction"></i></th>
+                  <th scope="col">No hp<i class="uil uil-direction"></i></th>
+                  <th scope="col">Alamat<i class="uil uil-direction"></i></th>
+                  <th scope="col">Tiket<i class="uil uil-direction"></i></th>
+                  <th scope="col" colspan="2"></th> 
+                </tr>
+              </thead>
+              <tbody>
+                </tr>
+              </tbody>
+            </table>
+            <p id="dataInfobidang4"></p>
+          </div>
+
+          <div id="Bidang5" class="tab-content">
+            <table id="dataTable" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col"> <i class="uil uil-direction"></i></th>
+                  <th scope="col">Nama  <i class="uil uil-direction"></i></th>
+                  <th scope="col">NIP <i class="uil uil-direction"></i></th>
+                  <th scope="col">Email<i class="uil uil-direction"></i></th>
+                  <th scope="col">No hp<i class="uil uil-direction"></i></th>
+                  <th scope="col">Alamat<i class="uil uil-direction"></i></th>
+                  <th scope="col">Tiket<i class="uil uil-direction"></i></th>
+                  <th scope="col" colspan="2"></th> 
+                </tr>
+              </thead>
+              <tbody>
+                </tr>
+              </tbody>
+            </table>
+            <p id="dataInfobidang5"></p>
+          </div>
+          </div>
+        </div>
+
       </div>
     </section>
   </div>
 </body>
+
+<script>
+  $(document).ready(function () {
+   // Data contoh, gantilah sesuai kebutuhan Anda
+   let sampleData = [
+     {
+       name: "Rizqika Aulia Ning",
+       nip: "0389916628551",
+       email: "rizqika1234@gmail.com",
+       phone: "081726371",
+       address: "ds.kraksannn",
+       ticket: 4,
+     },
+     // ... tambahkan data lainnya ...
+   ];
+ 
+   // Fungsi untuk menampilkan data
+   function showData(data) {
+     let tableBody = $('#dataTable tbody');
+     tableBody.empty();
+ 
+     for (let i = 0; i < data.length; i++) {
+       tableBody.append(`
+         <tr>
+           <th scope="row">${i + 1}</th>
+           <td>${data[i].name}</td>
+           <td>${data[i].nip}</td>
+           <td>${data[i].email}</td>
+           <td>${data[i].phone}</td>
+           <td>${data[i].address}</td>
+           <td>${data[i].ticket}</td>
+           <td colspan="1" style="color:rgb(17, 124, 114); font-weight: 700 ;">Detail</td>
+           <td colspan="2" style="color: rgb(226, 28, 28); font-weight: 700;">Hapus</td>
+         </tr>
+       `);
+     }
+ 
+     // Update teks informasi jumlah data
+     $('#dataInfobidang1').text(`Menampilkan 1 s/d ${data.length} dari 50 anggota`);
+     $('#dataInfobidang2').text(`Menampilkan 1 s/d ${data.length} dari 50 anggota`);
+     $('#dataInfobidang3').text(`Menampilkan 1 s/d ${data.length} dari 50 anggota`);
+     $('#dataInfobidang4').text(`Menampilkan 1 s/d ${data.length} dari 50 anggota`);
+     $('#dataInfobidang5').text(`Menampilkan 1 s/d ${data.length} dari 50 anggota`);
+   }
+ 
+   // Inisialisasi data saat halaman dimuat
+   showData(sampleData);
+ 
+   // Tambahkan event listener untuk perubahan dropdown
+   $('#dataCount').change(function () {
+     let selectedCount = $(this).val();
+     // Buat data dengan jumlah yang dipilih sesuai kebutuhan
+     let newData = Array.from({ length: selectedCount }, () => sampleData[0]);
+     showData(newData);
+   });
+ 
+   // Tambahkan event listener untuk input pencarian
+   $('#searchInput').on('input', function () {
+     let searchQuery = $(this).val().toLowerCase();
+     // Filter data sesuai dengan kueri pencarian
+     let filteredData = sampleData.filter(function (data) {
+       return data.name.toLowerCase().includes(searchQuery);
+     });
+     showData(filteredData);
+   });
+ });
+ 
+ 
+ </script>
+ <script>
+  function openTab(tabName) {
+      var i, tabContent, tabLinks;
+      tabContent = document.getElementsByClassName("tab-content");
+      tabLinks = document.getElementsByClassName("tab");
+      
+      for (i = 0; i < tabContent.length; i++) {
+          tabContent[i].style.display = "none";
+      }
+
+      for (i = 0; i < tabLinks.length; i++) {
+          tabLinks[i].classList.remove("active");
+      }
+
+      document.getElementById(tabName).style.display = "block";
+      event.currentTarget.classList.add("active");
+  }
+</script>
 <script src="Assets/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="Assets/Private/js/moment.js"></script>

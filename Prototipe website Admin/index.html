@@ -297,7 +297,20 @@
             <div class="col-md-6 chart-rating">
               <div class="card mb-1 ">
                 <div class="card-body card-chart">
-                  <h2>Rating pelayanan tiket perbidang</h2>
+                  <h2>Rating pelayanan tiket perbidang
+                    <div class="dropdown dropdown-laporan ">
+                      <button class="btn dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Unduh Laporan
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript:void(0);" onclick="downloadReport('mingguan')">Mingguan</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0);" onclick="downloadReport('bulanan')">Bulanan</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0);" onclick="downloadReport('tahunan')">Tahunan</a></li>
+                      </ul>
+                    </div>
+                  
+                  </h2>
+                  
                   <canvas id="myChart2" style="width: 520px; max-width: 500px; height: 230px;"></canvas>
                 </div>
               </div>
@@ -527,7 +540,7 @@ new Chart(ctx, {
               //Tiket Yang masuk ke bidang perbulannya (myChart1)
 
   // const datapoint1 = [4, 5, 8, 5.1, 4, ];
-  const ctx1 = document.getElementById('myChart1');
+  const ctx1 = document.querySelector("#myChart1").getContext("2d"); 
 
   // Warna yang sesuai dengan jumlah data pada datapoint1
   const colors = ['rgba(109, 161, 62, 1)', 'rgba(19, 128, 255, 1)', 'rgba(212, 89, 0, 1)', 'rgba(251, 212, 65, 1)', 'rgba(151, 71, 255, 1)'];
@@ -543,7 +556,7 @@ new Chart(ctx, {
         borderWidth: 1
       }]
     },
-    options: {
+    options: {  
       cutout: '73%',
       elements: {
         arc: {
