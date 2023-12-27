@@ -4,8 +4,22 @@ import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import StatusCard from '@/Pages/Admin/Partials/StatusCard.vue';
 import { ref, onMounted, computed, defineProps } from 'vue';
 
-defineProps({
-  tickets: Array,
+const { tickets } = defineProps(['tickets']);
+
+const newTicketsCount = computed(() => {
+  return tickets.filter(ticket => ticket.status_id === 1).length;
+});
+
+const answeredTicketsCount = computed(() => {
+  return tickets.filter(ticket => ticket.status === 2).length;
+});
+
+const repliedTicketsCount = computed(() => {
+  return tickets.filter(ticket => ticket.status === 3).length;
+});
+
+const closedTicketsCount = computed(() => {
+  return tickets.filter(ticket => ticket.status === 4).length;
 });
 
 onMounted(async() => {
@@ -37,19 +51,19 @@ onMounted(async() => {
 });
 </script>
 <template>
-  <DashboardLayout title="Tiket">
+  <DashboardLayout title="Tiket" :tickets="tickets">
     <div class="row">
       <div class="col-xl-3 col-md-6 mb-4">
-        <StatusCard icon="ticket" title="Tiket Baru" color1="#29bb89" color2="#66e7ba" />
+        <StatusCard icon="ticket" title="Tiket Baru" :data="newTicketsCount" color1="#29bb89" color2="#66e7ba" />
       </div>
       <div class="col-xl-3 col-md-6 mb-4">
-        <StatusCard icon="ticket" title="Tiket Terjawab"  color1="#bba329" color2="#e7d266" />
+        <StatusCard icon="ticket" title="Tiket Terjawab" :data="answeredTicketsCount" color1="#bba329" color2="#e7d266" />
       </div>
       <div class="col-xl-3 col-md-6 mb-4">
-        <StatusCard icon="ticket" title="Tiket Terbalas"  color1="#2951bb" color2="#6678e7" />
+        <StatusCard icon="ticket" title="Tiket Terbalas" :data="repliedTicketsCount" color1="#2951bb" color2="#6678e7" />
       </div>
       <div class="col-xl-3 col-md-6 mb-4">
-        <StatusCard icon="ticket" title="Tiket Tertutup" color1="#bb2929" color2="#e76666" />
+        <StatusCard icon="ticket" title="Tiket Tertutup" :data="closedTicketsCount" color1="#bb2929" color2="#e76666" />
       </div>
     </div>
     <main>

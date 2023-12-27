@@ -4,15 +4,11 @@ import Layout from './Layout.vue';
 
 defineProps({
   tickets: Array,
-  totalNewTickets: Number,
-  totalAnsweredTickets: Number,
-  totalRepliedTickets: Number,
-  totalClosedTickets: Number,
 });
 
 </script>
 <template>
-  <Layout>
+  <Layout :tickets="tickets">
     <div class="card custom mb-3 px-2">
       <div class="card-body">
         <h3 class="m-0 fw-bold fs-5">Halaman Manajemen Tiket</h3>
@@ -21,10 +17,7 @@ defineProps({
     <div class="card custom">
       <div class="card-header px-4 py-4">
         <h3 class="m-0 fw-bold fs-5">Data Tiket</h3>
-        <p>{{ totalNewTickets }}</p>
-        <p>{{ totalAnsweredTickets }}</p>
-        <p>{{ totalRepliedTickets }}</p>
-        <p>{{ totalClosedTickets }}</p>
+        <Link :href="route('admin.tiket.create')" class="btn btn-primary text-white custShadow2 mb-3"><unicon name="plus" fill="white" width="20" class="me-2" />Buat baru</Link>
       </div>
       <div class="card-body px-4 custom">
         <div class="table-responsive">

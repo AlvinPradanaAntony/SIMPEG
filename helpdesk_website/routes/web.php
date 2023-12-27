@@ -14,6 +14,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ReviewController;
 use App\Models\Faq;
+use App\Models\Ticket;
 
 Route::get('/', function () {
     return Inertia::render('LandingPage',[
@@ -22,6 +23,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
         'faqs' => Faq::all(),
+        'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
 })->name('landingpage');
 
@@ -35,20 +37,24 @@ Route::middleware([
     Route::get('/trackingticket', function () {
     return Inertia::render('Ticket/TrackingTicket',[
         'canLogin' => Route::has('login'),
+        'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
+    Route::get('/detailticket/{id}', [TicketController::class, 'edit'])->name('detailticket');
+    Route::delete('/trackingticket/{id}', [TicketController::class, 'destroy'])->name('ticket.destroy');
 })->name('trackingticket');
 
 Route::get('/formticket', function () {
     return Inertia::render('Ticket/Index',[
         'canLogin' => Route::has('login'),
+        'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
 })->name('formticket');
-
-Route::get('/formticket', [TicketController::class, 'formTicket'])->name('formticket');
+Route::post('/formticket', [TicketController::class, 'storeEmployee'])->name('formticket');
 
 Route::get('/detailticket', function () {
     return Inertia::render('Ticket/DetailTicket',[
         'canLogin' => Route::has('login'),
+        'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
 })->name('detailticket');
 
@@ -69,7 +75,8 @@ Route::put('/admin/pengguna/petugas/{id}', [UserController::class, 'updateAdmin'
 Route::delete('/admin/pengguna/petugas/{id}', [UserController::class, 'destroyAdmin'])->name('admin.petugas.destroy');
 
 Route::get('/admin/ticket', [TicketController::class, 'index'])->name('admin.tiket');
-// Route::post('/admin/ticket', [TicketController::class, 'store'])->name('admin.tiket.store');
+Route::get('/admin/ticket/create', [TicketController::class, 'create'])->name('admin.tiket.create');
+Route::post('/admin/ticket', [TicketController::class, 'store'])->name('admin.tiket.store');
 // Route::get('/admin/ticket', [TicketController::class, 'edit'])->name('admin.tiket.edit');
 // Route::put('/admin/ticket/{id}', [TicketController::class, 'update'])->name('admin.tiket.update');
 // Route::delete('/admin/ticket/{id}', [TicketController::class, 'destroy'])->name('admin.tiket.destroy');

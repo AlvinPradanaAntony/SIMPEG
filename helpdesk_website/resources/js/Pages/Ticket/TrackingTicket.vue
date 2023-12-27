@@ -2,50 +2,62 @@
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { ref, onMounted, computed, defineProps } from 'vue';
-import axios from 'axios';
 
-const tickets = ref([]);
-const { auth, canLogin } = defineProps([
-  'auth', 
-  'canLogin'
+const { canLogin, auth, tickets} = defineProps([ 
+  'canLogin',
+  'auth',
+  'tickets',
 ]);
 
-onMounted(async () => {
-  const response = await axios.get('/tickets');
-  tickets.value = response.data.data;
-});
+const toDetailTicket = (id) => {
+  form.get(route('detailticket', { id }), {
+    preserveScroll: true,
+    onSuccess: () => {
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+};
 
-const user_tickets = computed(() => {
-  return tickets.value.filter(ticket => ticket.user_id_employee === auth.user.id);
-});
+const deleteTicket = (id) => {
+  form.delete(route('ticket.destroy', { id }), {
+    preserveScroll: true,
+    onSuccess: () => {
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+};
+
+const userTickets = computed(() => {
+  return tickets.ticket.filter(ticket => ticket.user_id_employee === auth.user.id);
+}); 
 
 const sentTickets = computed(() => {
-  return user_tickets.value.filter(ticket => ticket.status === 'Terkirim');
+  return userTickets.value.filter(ticket => ticket.statuses.status === 'Terkirim');
 });
 
 const missedTickets = computed(() => {
-  return user_tickets.value.filter(ticket => ticket.status === 'Terjawab');
+  return userTickets.value.filter(ticket => ticket.statuses.status === 'Terjawab');
 });
 
 const answeredTickets = computed(() => {
-  return user_tickets.value.filter(ticket => ticket.status === 'Terbalas');
+  return userTickets.value.filter(ticket => ticket.statuses.status === 'Terbalas');
 });
 
 const closedTickets = computed(() => {
-  return user_tickets.value.filter(ticket => ticket.status === 'Tertutup');
+  return userTickets.value.filter(ticket => ticket.statuses.status === 'Tertutup');
 });
 
 function countTicketsByStatus(status) {
-  return user_tickets.value.filter(ticket => ticket.status === status).length;
+  return userTickets.value.filter(ticket => ticket.statuses.status === status).length;
 }
 
-const statusIds = computed(() => {
-  const uniqueStatusIds = [...new Set(user_tickets.value.map(ticket => ticket.status_id))];
-  return uniqueStatusIds;
-});
 </script>
 <template>
-    <AppLayout :canLogin="canLogin" title="Tracking Ticket">
+    <AppLayout :canLogin="canLogin" :tickets="tickets" title="Tracking Ticket">
     <div class="container my-5">
       <div class="align-items-start ">
         <div class="row align-items-start">
@@ -78,7 +90,7 @@ const statusIds = computed(() => {
               </div>
             </div>
             <div class="py-5 bg-white sm:p-6 shadow sm:rounded-md">
-              Semua Tiket : {{ user_tickets.length }}
+              Semua Tiket : {{ userTickets.length }}
               Terkirim : {{ countTicketsByStatus('Terkirim') }}
               Terjawab : {{ countTicketsByStatus('Terjawab') }}
               Terbalas : {{ countTicketsByStatus('Terbalas') }}
@@ -121,7 +133,7 @@ const statusIds = computed(() => {
                             </div>
                             <div class="card-body">
                               <div class="table-responsive">
-                                <table id="myTable1" class="table table-hover dataTable nowrap" width="100%" height="500px">
+                                <table id="myTable1" class="table table-hover dataTable nowrap" width="100%">
                                   <thead>
                                     <tr>
                                       <th>#</th>
@@ -130,22 +142,24 @@ const statusIds = computed(() => {
                                       <th>Nama Petugas</th>
                                       <th>Subjek</th>
                                       <th>Kategori</th>
+                                      <th>Bidang</th>
                                       <th>Status</th>
                                       <th>Tanggal Pengajuan</th>
                                     </tr>
                                   </thead>
-                                  <tbody>
-                                    <tr v-for="ticket in user_tickets" :key="ticket.id">
+                                  <tbody v-for="ticket in userTickets" :key="ticket.id">
+                                    <tr>
                                       <td>
-                                        <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
-                                        <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
+                                        <button @click="toDetailTicket(ticket)" class="btn btn-warning text-white custShadow2 mb-3">Ubah</button>
+                                        <button @click="deleteTicket(ticket)" class="btn btn-danger text-white btn-circle custShadow2 me-2">Hapus</button>
                                       </td>
                                       <td>{{ ticket.id }}</td>
-                                      <td>{{ ticket.name_employee }}</td>
-                                      <td>{{ ticket.name_department }}</td>
+                                      <td>{{ ticket.users_employee.name }}</td>
+                                      <td>{{ ticket.users_department.name }}</td>
                                       <td>{{ ticket.subject }}</td>
-                                      <td>{{ ticket.category }}</td>
-                                      <td>{{ ticket.status }}</td>
+                                      <td>{{ ticket.categories.category }}</td>
+                                      <td>{{ ticket.categories.department.department }}</td>
+                                      <td>{{ ticket.statuses.status }}</td>
                                       <td>{{ ticket.created_at }}</td>
                                     </tr>
                                   </tbody>
@@ -171,7 +185,7 @@ const statusIds = computed(() => {
                             </div>
                             <div class="card-body">
                               <div class="table-responsive">
-                                <table id="myTable" class="display table-hover dataTable nowrap" width="100%" height="500px">
+                                <table id="myTable" class="display table-hover dataTable nowrap" width="100%">
                                   <thead>
                                     <tr>
                                       <th>#</th>
@@ -180,22 +194,24 @@ const statusIds = computed(() => {
                                       <th>Nama Petugas</th>
                                       <th>Subjek</th>
                                       <th>Kategori</th>
+                                      <th>Bidang</th>
                                       <th>Status</th>
                                       <th>Tanggal Pengajuan</th>
                                     </tr>
                                   </thead>
-                                  <tbody>
-                                    <tr v-for="ticket in sentTickets" :key="ticket.id">
+                                  <tbody v-for="ticket in sentTickets" :key="ticket.id">
+                                    <tr >
                                       <td>
                                         <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
                                         <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
                                       </td>
                                       <td>{{ ticket.id }}</td>
-                                      <td>{{ ticket.name_employee }}</td>
-                                      <td>{{ ticket.name_department }}</td>
+                                      <td>{{ ticket.users_employee.name }}</td>
+                                      <td>{{ ticket.users_department.name }}</td>
                                       <td>{{ ticket.subject }}</td>
-                                      <td>{{ ticket.category }}</td>
-                                      <td>{{ ticket.status }}</td>
+                                      <td>{{ ticket.categories.category }}</td>
+                                      <td>{{ ticket.categories.department.department }}</td>
+                                      <td>{{ ticket.statuses.status }}</td>
                                       <td>{{ ticket.created_at }}</td>
                                     </tr>
                                   </tbody>
@@ -221,7 +237,7 @@ const statusIds = computed(() => {
                             </div>
                             <div class="card-body">
                               <div class="table-responsive">
-                                <table id="myTable3" class="table table-hover dataTable nowrap" width="100%" height="500px">
+                                <table id="myTable3" class="table table-hover dataTable nowrap" width="100%" >
                                   <thead>
                                     <tr>
                                       <th>#</th>
@@ -230,22 +246,24 @@ const statusIds = computed(() => {
                                       <th>Nama Petugas</th>
                                       <th>Subjek</th>
                                       <th>Kategori</th>
+                                      <th>Bidang</th>
                                       <th>Status</th>
                                       <th>Tanggal Pengajuan</th>
                                     </tr>
                                   </thead>
-                                  <tbody>
-                                    <tr v-for="ticket in missedTickets" :key="ticket.id">
+                                  <tbody v-for="ticket in missedTickets" :key="ticket.id">
+                                    <tr>
                                       <td>
                                         <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
                                         <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
                                       </td>
                                       <td>{{ ticket.id }}</td>
-                                      <td>{{ ticket.name_employee }}</td>
-                                      <td>{{ ticket.name_department }}</td>
+                                      <td>{{ ticket.users_employee.name }}</td>
+                                      <td>{{ ticket.users_department.name }}</td>
                                       <td>{{ ticket.subject }}</td>
-                                      <td>{{ ticket.category }}</td>
-                                      <td>{{ ticket.status }}</td>
+                                      <td>{{ ticket.categories.category }}</td>
+                                      <td>{{ ticket.categories.department.department }}</td>
+                                      <td>{{ ticket.statuses.status }}</td>
                                       <td>{{ ticket.created_at }}</td>
                                     </tr>
                                   </tbody>
@@ -271,7 +289,7 @@ const statusIds = computed(() => {
                             </div>
                             <div class="card-body">
                               <div class="table-responsive">
-                                <table id="myTable4" class="table table-hover dataTable nowrap" width="100%" height="500px">
+                                <table id="myTable4" class="table table-hover dataTable nowrap" width="100%" >
                                   <thead>
                                     <tr>
                                       <th>#</th>
@@ -280,22 +298,24 @@ const statusIds = computed(() => {
                                       <th>Nama Petugas</th>
                                       <th>Subjek</th>
                                       <th>Kategori</th>
+                                      <th>Bidang</th>
                                       <th>Status</th>
                                       <th>Tanggal Pengajuan</th>
                                     </tr>
                                   </thead>
-                                  <tbody>
-                                    <tr v-for="ticket in answeredTickets" :key="ticket.id">
+                                  <tbody v-for="ticket in answeredTickets" :key="ticket.id">
+                                    <tr>
                                       <td>
                                         <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
                                         <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
                                       </td>
                                       <td>{{ ticket.id }}</td>
-                                      <td>{{ ticket.name_employee }}</td>
-                                      <td>{{ ticket.name_department }}</td>
+                                      <td>{{ ticket.users_employee.name }}</td>
+                                      <td>{{ ticket.users_department.name }}</td>
                                       <td>{{ ticket.subject }}</td>
-                                      <td>{{ ticket.category }}</td>
-                                      <td>{{ ticket.status }}</td>
+                                      <td>{{ ticket.categories.category }}</td>
+                                      <td>{{ ticket.categories.department.department }}</td>
+                                      <td>{{ ticket.statuses.status }}</td>
                                       <td>{{ ticket.created_at }}</td>
                                     </tr>
                                   </tbody>
@@ -321,7 +341,7 @@ const statusIds = computed(() => {
                             </div>
                             <div class="card-body">
                               <div class="table-responsive">
-                                <table id="myTable5" class="table table-hover dataTable nowrap" width="100%" height="500px">
+                                <table id="myTable5" class="table table-hover dataTable nowrap" width="100%">
                                   <thead>
                                     <tr>
                                       <th>#</th>
@@ -330,22 +350,24 @@ const statusIds = computed(() => {
                                       <th>Nama Petugas</th>
                                       <th>Subjek</th>
                                       <th>Kategori</th>
+                                      <th>Bidang</th>
                                       <th>Status</th>
                                       <th>Tanggal Pengajuan</th>
                                     </tr>
                                   </thead>
-                                  <tbody>
-                                    <tr v-for="ticket in closedTickets" :key="ticket.id">
+                                  <tbody v-for="ticket in closedTickets" :key="ticket.id">
+                                    <tr>
                                       <td>
                                         <button class="btn btn-warning text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#editDataAdministrator"><i class="uil uil-edit" data-bs-toggle="tooltip" title="Edit Data"></i></button>
                                         <button class="btn btn-danger text-white btn-circle custShadow2 me-2" data-bs-toggle="modal" data-bs-target="#hapusDataAdministrator"><i class="uil uil-trash-alt" data-bs-toggle="tooltip" title="Hapus Data"></i></button>
                                       </td>
                                       <td>{{ ticket.id }}</td>
-                                      <td>{{ ticket.name_employee }}</td>
-                                      <td>{{ ticket.name_department }}</td>
+                                      <td>{{ ticket.users_employee.name }}</td>
+                                      <td>{{ ticket.users_department.name }}</td>
                                       <td>{{ ticket.subject }}</td>
-                                      <td>{{ ticket.category }}</td>
-                                      <td>{{ ticket.status }}</td>
+                                      <td>{{ ticket.categories.category }}</td>
+                                      <td>{{ ticket.categories.department.department }}</td>
+                                      <td>{{ ticket.statuses.status }}</td>
                                       <td>{{ ticket.created_at }}</td>
                                     </tr>
                                   </tbody>

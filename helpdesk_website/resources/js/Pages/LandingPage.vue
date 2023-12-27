@@ -2,13 +2,13 @@
 import { Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Footer from '@/Components/Footer.vue';
-import axios from 'axios';
 import { ref, onMounted, onBeforeUnmount, watchEffect, watch } from 'vue';
 import customScript from '../../../public/js/custom';
 
 const props = defineProps({
   canLogin: Boolean,
   faqs: Array,
+  tickets: Array,
 });
 const createTicketSection = ref(null);
 
@@ -33,7 +33,7 @@ const handlePopstate = (event) => {
 window.addEventListener('popstate', handlePopstate);
 </script>
 <template>
-  <AppLayout :canLogin="canLogin" title="FAQ">
+  <AppLayout :canLogin="canLogin" :tickets="tickets" title="FAQ">
     <div class="search-banner has-bg">
       <div class="bg-cover" data-paroller="true" data-paroller-factor="0.5" data-paroller-factor-xs="0.01"></div>
       <div class="container">

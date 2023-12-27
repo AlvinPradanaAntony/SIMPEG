@@ -1,13 +1,16 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
-defineProps({
-  canLogin: Boolean,
-});
+
+const { canLogin, auth, tickets} = defineProps([ 
+  'canLogin',
+  'auth',
+  'tickets',
+]);
 
 </script>
 <template>
-  <AppLayout :canLogin="canLogin" title="Detail Ticket">
+  <AppLayout :canLogin="canLogin" :tickets="tickets" title="Detail Ticket">
     <div class="container align-items-start my-4 mb-5">
       <div class="row align-items-start">
         <div class="col-md-4 mb-3">

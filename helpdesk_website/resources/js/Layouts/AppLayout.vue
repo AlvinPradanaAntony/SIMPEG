@@ -5,6 +5,7 @@ import NavLink from '@/Components/NavLink.vue';
 defineProps({
   title: String,
   canLogin: Boolean,
+  tickets: Array,
 });
 
 const logout = () => {
@@ -15,7 +16,7 @@ const logout = () => {
 <template>
   <div>
     <Head :title="title" />
-    <nav class="navbar navbar-expand-lg bg-white shadowNavbar">
+    <nav  class="navbar navbar-expand-lg bg-white shadowNavbar">
       <div class="container">
         <div class="header-logo">
           <Link :href="route('landingpage')" class="navbar-brand p-0">
@@ -31,7 +32,7 @@ const logout = () => {
           <span class="navbar-toggler-icon"> </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <nav-link :auth="$page.props.auth.user" :canLogin="canLogin" class="ms-auto mb-2 mb-lg-0" />
+          <nav-link :auth="$page.props.auth.user" :canLogin="canLogin" :tickets="tickets" class="ms-auto mb-2 mb-lg-0" />
         </div>
       </div>
     </nav>

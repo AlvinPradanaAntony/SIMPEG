@@ -1,84 +1,67 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-// import axios from 'axios';
-defineProps({
-  canLogin: Boolean,
-  categories: Array,
+import InputLabel from '@/Components/InputLabel.vue';
+import InputError from '@/Components/InputError.vue';
+import TextInput from '@/Components/TextInput.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import { ref, onMounted, computed, defineProps } from 'vue';
+
+const { canLogin, auth, tickets } = defineProps([ 
+  'canLogin',
+  'auth',
+  'tickets',
+]);
+
+const ticketInput = ref(null);
+const selectedCategoryId = ref(null);
+
+const form = useForm({
+  user_id_employee: '',
+  user_id_department: '',
+  subject: '',
+  category_id: 1,
+  status_id: 1,
+  review_id: 1,
 });
 
-// const form = useForm({
-//     id: '',
-//     // ticket_id: '',
-//     question: '',
-//     // answer: '',
-//     file: '',
-//     user_id_employee: '',
-//     user_id_department: '',
-//     subject: '',
-//     category_id: '',
-//     status_id: '',
-//     review_id: '',
-//     created_at: '',
-//     // updated_at: '',
-// });
+const submit = () => {
+  form.post(route('formticket'), {
+      preserveScroll: true,
+    onSuccess: () => form.reset(),
+    onError: (error) => {
+      console.log(error);
+      ticketInput.value.focus();
+    },
+  });
+};
 
-// const submit = () => {
-//     form.category_id = selectedCategory;
-    
-//     form.post(route('tickets.store'), {
-//         onFinish: () => {
-//             form.reset('id', 'question', 'file', 'user_id_employee', 'user_id_department', 'subject', 'category_id', 'status_id', 'review_id', 'created_at');
-//         },
-//     });
-// };
+const users_employee = computed(() => {
+  return tickets.users.filter(user => user.role_id === 1);
+});
 
-// const categories = ref([]);
-// const selectedCategory = ref(null);
-// const currentTime = ref(new Date());
-// let intervalId = null;
+const users_departments = computed(() => {
+  return tickets.users.filter(user => user.role_id === 2);
+});
 
-// onBeforeUnmount(() => {
-//   clearInterval(intervalId);
-// });
+const selectedCategory = computed(() => {
+  const selectedCategoryData = tickets.categories.find(category => category.id === selectedCategoryId.value);
+  return selectedCategoryData ? selectedCategoryData.category : '';
+});
 
-// onMounted(async () => {
-//   updateCurrentTime();
-//   intervalId = setInterval(() => {
-//     updateCurrentTime();
-//   }, 1000);
+const selectedDepartmentId = computed(() => {
+  const selectedCategoryData = tickets.categories.find(category => category.id === selectedCategoryId.value);
+  return selectedCategoryData ? selectedCategoryData.department_id : null;
+});
 
-//   const response = await axios.get('/categories');
-//   categories.value = response.data.data;
-// });
+const selectedDepartment = computed(() => {
+  const selectedDepartmentData = tickets.departments.find(department => department.id === selectedDepartmentId.value);
+  return selectedDepartmentData ? selectedDepartmentData.department : '';
+});
 
-// const updateCurrentTime = () => {
-//   currentTime.value = new Date();
-// };
-
-// const updateSelectedCategoryByCategory = (categoryName) => {
-//   const selectedCategoryValue = categories.value.find(category => category.category === categoryName);
-//   selectedCategory.value = selectedCategoryValue ? selectedCategoryValue.id : null;
-// };
-
-// const updateSelectedCategoryByDepartment = (departmentName) => {
-//   const selectedCategoryValue = categories.value.find(category => category.department === departmentName);
-//   selectedCategory.value = selectedCategoryValue ? selectedCategoryValue.id : null;
-// };
-
-// const getCategoryName = (categoryId) => {
-//   const selectedCategoryValue = categories.value.find(category => category.id === categoryId);
-//   return selectedCategoryValue ? selectedCategoryValue.category : '';
-// };
-
-// const getDepartmentName = (categoryId) => {
-//   const selectedCategoryValue = categories.value.find(category => category.id === categoryId);
-//   return selectedCategoryValue ? selectedCategoryValue.department : '';
-// };
 </script>
 <template>
-  <AppLayout :canLogin="canLogin" title="Form Ticket">
+  <AppLayout :canLogin="canLogin" :tickets="tickets" title="Form Ticket">
     <div class="container align-items-start my-4">
       <div class="row align-items-start">
         <div class="col-md-4 mb-3">
@@ -86,19 +69,18 @@ defineProps({
             <div class="card-header d-flex p-3 align-items-center text-white bg-dark">Pilih Kategori untuk membuat tiket baru</div>
             <div class="card-body p-3">
               <div class="category">
-                <div class="form-check">
-                  <label class="form-check-label" for="category1">
+                <div class="form-check" v-for="(category, index) in tickets.categories" :key="index">
+                  <label class="form-check-label" :for="'category' + index">
                     <input 
-                    class="form-check-input" 
-                    type="radio" 
-                    name="categoryRadio" 
-                    id="category1" /> 
+                      class="form-check-input" 
+                      type="radio" 
+                      :id="'category' + index"
+                      :name="'categoryRadio'"
+                      :value="category.id"
+                      v-model="selectedCategoryId"
+                    /> {{ category.category }}
                   </label>
                 </div>
-                <!-- <img src="assets/img/kesekretariatan.png" alt="kesekretariatan" width="100" height="100">
-                        <div class="category-name">Sekretariat</div>
-                        <div class="category-description">Pembuatan Surat, dll</div>
-                        <div class="create-tiket">Buat Tiket</div> -->
               </div>
             </div>
           </div>
@@ -109,7 +91,7 @@ defineProps({
             <div class="card-body px-5">
               <h5 class="d-flex justify-content-center mt-3 mb-4">Formulir Tiket Baru</h5>
 
-              <form>
+              <form @submit.prevent="submit">
                 <div class="card-head p-2 mb-3 row">
                   <label class="col-sm-2 col-form-label fw-bold" for="category-name">Kategori :</label>
                   <div class="col-sm-4">
@@ -119,6 +101,7 @@ defineProps({
                     id="category_id" 
                     name="category"
                     autocomplete="category_id"
+                    v-model="selectedCategory"
                     readonly disabled />
                   </div>
                   <label class="col-sm-2 col-form-label fw-bold" for="department-name">Bidang :</label>
@@ -129,37 +112,34 @@ defineProps({
                     class="form-control"
                     name="department"
                     autocomplete="user_id_bidang"
+                    v-model="selectedDepartment"
                     readonly disabled />
                   </div>
                 </div>
                 <div class="card-form p-2 row">
-                  <div class="mb-3">
-                    <label class="form-label fw-bold" for="subjek">Subjek*</label>
-                    <input  type="text" class="form-control" id="subject" required />
+                  <div class="col-lg-12 mb-3">
+                    <InputLabel for="user_id_employee" class="form-label small" value="User Pegawai" />
+                    <select v-model="form.user_id_employee" class="form-select">
+                      <option v-for="user_employee in users_employee" :key="user_employee.id" :value="user_employee.id">
+                        {{ user_employee.name }}
+                      </option>
+                    </select>
+                    <InputError :message="form.errors.user_id_employee" class="mt-2" />
                   </div>
-                  <div class="mb-3">
-                    <label class="form-label fw-bold" for="subjek">ID</label>
-                    <input  type="number" class="form-control" id="ticket_id" required/> 
+                  <div class="col-lg-12 mb-3">
+                    <InputLabel for="user_id_department" class="form-label small" value="User Bidang" />
+                    <select v-model="form.user_id_department" class="form-select">
+                      <option v-for="user_department in users_departments" :key="user_department.id" :value="user_department.id">
+                        {{ user_department.name }}
+                      </option>
+                    </select>
+                    <InputError :message="form.errors.user_id_department" class="mt-2" />
                   </div>
-                  <div class="mb-3">
-                    <label class="form-label fw-bold" for="subjek">User Employee</label>
-                    <input  type="text" class="form-control" id="ticket_id" required />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label fw-bold" for="subjek">User Department</label>
-                    <input  type="text" class="form-control" id="ticket_id" required />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label fw-bold" for="subjek">Category</label>
-                    <input  type="text" class="form-control" id="ticket_id" required />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label fw-bold" for="subjek">Status</label>
-                    <input type="text" class="form-control" id="ticket_id" required />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label fw-bold" for="subjek">Review</label>
-                    <input type="text" class="form-control" id="ticket_id" required />
+                  <div class="col-lg-12 mb-3">
+                    <InputLabel for="subject" class="form-label small" value="Subjek" />
+                    <TextInput ref="ticketInput" type="text" class="form-control" id="subject" v-model="form.subject" required
+                      autocomplete="subject" @keyup.enter="submit" />
+                    <InputError :message="form.errors.subject" class="mt-2" />
                   </div>
                   <div class="mb-3">
                     <label class="form-label fw-bold" for="pesan">Pesan*</label>
@@ -187,7 +167,13 @@ defineProps({
                 </div>
                 <div class="py-3 d-flex justify-content-between">
                   <button type="button" class="btn-clear">Hapus</button>
-                  <button type="submit" class="btn-submit" data-bs-toggle="modal" data-bs-target="#modalSuccess" id="SweetAlertSuccess">Kirim</button>
+                  <div class="text-end">
+                    <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
+                        :disabled="form.processing" @click="submit">
+                        <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+                        Simpan
+                    </PrimaryButton>
+                  </div>
                 </div>
               </form>
             </div>

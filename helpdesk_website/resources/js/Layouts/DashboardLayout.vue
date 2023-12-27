@@ -7,9 +7,9 @@ import '../../../public/vendor/datatables/DataTables-1.13.8/js/dataTables.bootst
 import '../../../public/vendor/datatables/Buttons-2.4.2/js/dataTables.buttons.min.js';
 import '../../../public/vendor/datatables/Buttons-2.4.2/js/buttons.bootstrap5.min.js';
 
-
 defineProps({
   title: String,
+  tickets: Array,
 });
 
 const logout = () => {

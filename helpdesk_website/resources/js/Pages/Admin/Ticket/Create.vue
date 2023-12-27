@@ -1,102 +1,105 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import Layout from './Layout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
+import { ref, onMounted, computed, defineProps } from 'vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 
+const { users_employee, users_department, category, status, review } = defineProps([
+  'users_employee',
+  'users_department',
+  'category',
+  'status',
+  'review'
+]);
+
+const ticketInput = ref(null);
+
 const form = useForm({
-  pegawai: '',
-  petugas: '',
-  subjek: '',
-  status: '',
-  kategori: ''
+  user_id_employee: '',
+  user_id_department: '',
+  subject: '',
+  category_id: '',
+  status_id: 1,
+  review_id: 1,
 });
+
 const submit = () => {
-  // form.post(route(''), {
-  //   onError: (error) => {
-  //     console.log(error);
-  //   },
-  // });
+  form.post(route('admin.tiket.store'), {
+      preserveScroll: true,
+    onSuccess: () => form.reset(),
+    onError: (error) => {
+      console.log(error);
+      ticketInput.value.focus();
+    },
+  });
 };
+
 </script>
 <template>
-  <Layout>
+  <DashboardLayout title="Tiket Create">
     <div class="card custom mb-3 px-2">
       <div class="card-body">
         <h3 class="m-0 fw-bold fs-5">
           <Link :href="route('admin.tiket')" class="text-decoration-none">Halaman Manajemen Tiket</Link>
-          <span> / </span> Edit
+          <span> / </span> Buat
         </h3>
       </div>
     </div>
     <div class="card custom">
       <div class="card-header px-4 py-4">
-        <h3 class="m-0 fw-bold fs-5">Form Edit Tiket</h3>
+        <h3 class="m-0 fw-bold fs-5">Form Buat Tiket</h3>
       </div>
       <div class="card-body px-4 custom">
         <form @submit.prevent="submit">
           <div class="row">
             <div class="col-lg-6 mb-3">
-              <InputLabel for="inputPegawai" class="form-label small" value="Nama Pegawai" />
-              <TextInput type="text" class="form-control" id="inputPegawai" v-model="form.pegawai" required
-                autocomplete="pegawai" />
-              <InputError :message="form.errors.pegawai" class="mt-2" />
+              <InputLabel for="user_id_employee" class="form-label small" value="Pegawai" />
+              <select v-model="form.user_id_employee" class="form-select">
+                <option v-for="user_employee in users_employee" :key="user_employee.id" :value="user_employee.id">
+                  {{ user_employee.name }}
+                </option>
+              </select>
+              <InputError :message="form.errors.user_id_employee" class="mt-2" />
             </div>
             <div class="col-lg-6 mb-3">
-              <InputLabel for="inputPetugas" class="form-label small" value="Nama" />
-              <TextInput type="text" class="form-control" id="inputPetugas" v-model="form.petugas" required
-                autocomplete="petugas" />
-              <InputError :message="form.errors.petugas" class="mt-2" />
+              <InputLabel for="user_id_department" class="form-label small" value="Admin" />
+              <select v-model="form.user_id_department" class="form-select">
+                <option v-for="user_department in users_department" :key="user_department.id" :value="user_department.id">
+                  {{ user_department.name }}
+                </option>
+              </select>
+              <InputError :message="form.errors.user_id_department" class="mt-2" />
             </div>
           </div>
           <div class="row">
             <div class="col-lg-6 mb-3">
-              <InputLabel for="inputKategori" class="form-label small" value="Kategori" />
-              <TextInput type="text" class="form-control" id="inputKategori" v-model="form.kategori" required
-                autocomplete="kategori" />
-              <InputError :message="form.errors.kategori" class="mt-2" />
+              <InputLabel for="subject" class="form-label small" value="Subjek" />
+              <TextInput ref="ticketInput" type="text" class="form-control" id="subject" v-model="form.subject" required
+                autocomplete="subject" @keyup.enter="submit" />
+              <InputError :message="form.errors.subject" class="mt-2" />
             </div>
             <div class="col-lg-6 mb-3">
-              <InputLabel for="inputSubjek" class="form-label small" value="Subjek" />
-              <TextInput type="text" class="form-control" id="inputSubjek" v-model="form.birth_date" required
-                autocomplete="subjek" />
-              <InputError :message="form.errors.birth_date" class="mt-2" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 mb-3">
-              <InputLabel for="inputStatus" class="form-label small" value="Status" />
-              <select class="form-select" aria-label="Default select example" id="inputStatus" v-model="form.status"
-                required autocomplete="status">
-                <option value="" selected class="hidden"></option>
-                <option value="Terkirim">Terkirim</option>
-                <option value="Terjawab">Terjawab</option>
-                <option value="Terbalas">Terbalas</option>
-                <option value="Tertutup">Tertutup</option>
+              <InputLabel for="category_id" class="form-label small" value="Kategori" />
+              <select v-model="form.category_id" class="form-select">
+                <option v-for="categorys in category" :key="categorys.id" :value="categorys.id">
+                  {{ categorys.category }}
+                </option>
               </select>
-            </div>
-            <div class="col-lg-6 mb-3">
-              <InputLabel for="inputKategori" class="form-label small" value="Kategori" />
-              <select class="form-select" aria-label="Default select example" id="inputKategori" v-model="form.kategori"
-                required autocomplete="kategori">
-                <option value="" selected class="hidden"></option>
-                <option value="Kategori 1">Kategori 1</option>
-                <option value="Kategori 2">Kategori 2</option>
-                <option value="Kategori 3">Kategori 3</option>
-                <option value="Kategori 4">Kategori 4</option>
-              </select>
+              <InputError :message="form.errors.category_id" class="mt-2" />
             </div>
           </div>
           <div class="text-end">
-            <PrimaryButton class="btn btn-primary border-0 p-2 px-4 btn-sm btn-custom ms-auto"
-              :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-              Simpan
+            <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
+                :disabled="form.processing" @click="submit">
+                <span v-if="form.processing" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+                Simpan
             </PrimaryButton>
           </div>
 
         </form>
       </div>
   </div>
-</Layout></template>
+</DashboardLayout></template>
