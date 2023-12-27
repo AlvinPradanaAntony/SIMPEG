@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Helpdesk</string>
-    <string name="title_logo">StoryApp</string>
+    <string name="title_logo">SIMPEG Mobile</string>
     
     <string name="password_minimum_character">Kata Sandi Minimal 8 Karakter</string>
     <string name="password_not_match">Password Tidak sama</string>
