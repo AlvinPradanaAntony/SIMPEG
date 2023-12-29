@@ -9,10 +9,6 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    // public function detail_tickets(){
-    //     return $this->hasMany(DetailTicket::class, 'ticket_id');
-    // }
-
     public function users_employee(){
         return $this->belongsTo(User::class, 'user_id_employee');
     }

@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
 import TextInput from '@/Components/TextInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import DangerButton from '@/Components/DangerButton.vue';
 import { ref, onMounted, computed, defineProps } from 'vue';
 
 const { canLogin, auth, tickets } = defineProps([ 
@@ -13,36 +14,88 @@ const { canLogin, auth, tickets } = defineProps([
   'tickets',
 ]);
 
-const ticketInput = ref(null);
 const selectedCategoryId = ref(null);
+const ticketInput = ref(null);
 
 const form = useForm({
-  user_id_employee: '',
+  user_id_employee: auth.user.id,
   user_id_department: '',
   subject: '',
-  category_id: 1,
+  category_id: '',
   status_id: 1,
-  review_id: 1,
+  review_id: '',
 });
 
-const submit = () => {
-  form.post(route('formticket'), {
+const forms = useForm({
+  ticket_id: '',
+  question: '',
+})
+
+const submit = async () => {
+  try {
+    form.category_id = selectedCategoryId.value;
+    const ticketResponse = await form.post(route('formticket'), {
       preserveScroll: true,
-    onSuccess: () => form.reset(),
-    onError: (error) => {
-      console.log(error);
-      ticketInput.value.focus();
-    },
-  });
+      onError: (error) => {
+        console.log(error);
+        ticketInput.value.focus();
+      },
+    });
+
+    const lastTicketId = ticketResponse.data.last_ticket_id;
+    console.log('Last Ticket ID:', lastTicketId);
+
+    forms.ticket_id = lastTicketId;
+    forms.post(route('formtickets'), {
+      preserveScroll: true,
+      onSuccess: () => forms.reset(),
+      onError: (error) => {
+        console.log(error);
+        ticketInput.value.focus();
+      },
+    });
+  } catch (error) {
+    console.error('Error:', error);
+  }
 };
 
-const users_employee = computed(() => {
-  return tickets.users.filter(user => user.role_id === 1);
-});
 
-const users_departments = computed(() => {
-  return tickets.users.filter(user => user.role_id === 2);
-});
+// const submit = async () => {
+//   form.category_id = selectedCategoryId.value;
+//   form.post(route('formticket'), {
+//       preserveScroll: true,
+//     // onSuccess: () => form.reset(),
+//     onError: (error) => {
+//       console.log(error);
+//       ticketInput.value.focus();
+//     },
+//   });
+
+//   const lastTicketIdResponse = await form.get(route('last-ticket-id'));
+//   const lastTicketId = lastTicketIdResponse.data.last_ticket_id;
+
+//   forms.ticket_id = lastTicketId;
+//   forms.post(route('formticket'), {
+//     preserveScroll: true,
+//     onSuccess: () => forms.reset(),
+//     onError: (error) => {
+//       console.log(error);
+//       ticketInput.value.focus();
+//     },
+//   });
+// };
+
+// const submit = async () => {
+//   form.category_id = selectedCategoryId.value;
+//   form.post(route('formticket'), {
+//       preserveScroll: true,
+//     onSuccess: () => form.reset(),
+//     onError: (error) => {
+//       console.log(error);
+//       ticketInput.value.focus();
+//     },
+//   });
+// };
 
 const selectedCategory = computed(() => {
   const selectedCategoryData = tickets.categories.find(category => category.id === selectedCategoryId.value);
@@ -55,10 +108,9 @@ const selectedDepartmentId = computed(() => {
 });
 
 const selectedDepartment = computed(() => {
-  const selectedDepartmentData = tickets.departments.find(department => department.id === selectedDepartmentId.value);
+  const selectedDepartmentData = tickets.departments.find(department => department.id == selectedDepartmentId.value);
   return selectedDepartmentData ? selectedDepartmentData.department : '';
 });
-
 </script>
 <template>
   <AppLayout :canLogin="canLogin" :tickets="tickets" title="Form Ticket">
@@ -101,8 +153,8 @@ const selectedDepartment = computed(() => {
                     id="category_id" 
                     name="category"
                     autocomplete="category_id"
-                    v-model="selectedCategory"
-                    readonly disabled />
+                    v-model="selectedCategory" 
+                    readonly disabled /> {{ lastTicketId }}
                   </div>
                   <label class="col-sm-2 col-form-label fw-bold" for="department-name">Bidang :</label>
                   <div class="col-sm-4">
@@ -113,37 +165,21 @@ const selectedDepartment = computed(() => {
                     name="department"
                     autocomplete="user_id_bidang"
                     v-model="selectedDepartment"
-                    readonly disabled />
+                    readonly disabled /> 
                   </div>
                 </div>
                 <div class="card-form p-2 row">
                   <div class="col-lg-12 mb-3">
-                    <InputLabel for="user_id_employee" class="form-label small" value="User Pegawai" />
-                    <select v-model="form.user_id_employee" class="form-select">
-                      <option v-for="user_employee in users_employee" :key="user_employee.id" :value="user_employee.id">
-                        {{ user_employee.name }}
-                      </option>
-                    </select>
-                    <InputError :message="form.errors.user_id_employee" class="mt-2" />
-                  </div>
-                  <div class="col-lg-12 mb-3">
-                    <InputLabel for="user_id_department" class="form-label small" value="User Bidang" />
-                    <select v-model="form.user_id_department" class="form-select">
-                      <option v-for="user_department in users_departments" :key="user_department.id" :value="user_department.id">
-                        {{ user_department.name }}
-                      </option>
-                    </select>
-                    <InputError :message="form.errors.user_id_department" class="mt-2" />
-                  </div>
-                  <div class="col-lg-12 mb-3">
-                    <InputLabel for="subject" class="form-label small" value="Subjek" />
+                    <InputLabel for="subject" class="form-label small" value="Subjek*" />
                     <TextInput ref="ticketInput" type="text" class="form-control" id="subject" v-model="form.subject" required
                       autocomplete="subject" @keyup.enter="submit" />
                     <InputError :message="form.errors.subject" class="mt-2" />
                   </div>
-                  <div class="mb-3">
-                    <label class="form-label fw-bold" for="pesan">Pesan*</label>
-                    <textarea  class="form-control" id="question" rows="5" required></textarea>
+                  <div class="col-lg-12 mb-3">
+                    <InputLabel for="question" class="form-label small" value="Pesan*" />
+                    <TextInput ref="ticketInput" type="text" class="form-control" id="question" v-model="forms.question" required
+                      autocomplete="question" @keyup.enter="submit" />
+                    <InputError :message="forms.errors.question" class="mt-2" />
                   </div>
                   <div class="col-md-8">
                     <label for="file" class="form-label fw-bold">Unggah Berkas</label>
@@ -166,7 +202,10 @@ const selectedDepartment = computed(() => {
                   </div>
                 </div>
                 <div class="py-3 d-flex justify-content-between">
-                  <button type="button" class="btn-clear">Hapus</button>
+                  <!-- <button type="button" class="btn-clear">Hapus</button> -->
+                  <DangerButton class="ms-3 btn btn-danger btn-custom btn-sm" @click="deletes">Hapus
+
+                  </DangerButton>
                   <div class="text-end">
                     <PrimaryButton class="ms-3 btn btn-primary btn-custom btn-sm" :class="{ 'opacity-25': form.processing }"
                         :disabled="form.processing" @click="submit">
@@ -184,7 +223,7 @@ const selectedDepartment = computed(() => {
   </AppLayout>
 </template>
 
-<!-- <script>
+<script>
 export default {
   data() {
     return {
@@ -254,4 +293,4 @@ export default {
     }
   },
 };
-</script> -->
+</script>

@@ -39,9 +39,9 @@ Route::middleware([
         'canLogin' => Route::has('login'),
         'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
-    Route::get('/detailticket/{id}', [TicketController::class, 'edit'])->name('detailticket');
-    Route::delete('/trackingticket/{id}', [TicketController::class, 'destroy'])->name('ticket.destroy');
+    
 })->name('trackingticket');
+Route::delete('/trackingticket/{id}', [TicketController::class, 'destroy'])->name('ticket.destroy');
 
 Route::get('/formticket', function () {
     return Inertia::render('Ticket/Index',[
@@ -50,13 +50,16 @@ Route::get('/formticket', function () {
     ]);
 })->name('formticket');
 Route::post('/formticket', [TicketController::class, 'storeEmployee'])->name('formticket');
+Route::post('/formticket', [TicketController::class, 'storeEmployees'])->name('formtickets');
+Route::get('/last-ticket-id', [TicketController::class, 'getLastTicketId'])->name('last-ticket-id');
 
-Route::get('/detailticket', function () {
+Route::get('/detailticket{id}', function () {
     return Inertia::render('Ticket/DetailTicket',[
         'canLogin' => Route::has('login'),
         'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
 })->name('detailticket');
+Route::get('/detailticket/{id}', [TicketController::class, 'edit'])->name('detailtickets');
 
 Route::get('/admin/dashboard', [TicketController::class, 'indexDashboard'])->name('admin.dashboard');
 

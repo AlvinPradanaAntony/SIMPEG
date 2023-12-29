@@ -3,14 +3,23 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { ref, onMounted, computed, defineProps } from 'vue';
 
-const { canLogin, auth, tickets} = defineProps([ 
+const props = defineProps([ 
   'canLogin',
   'auth',
   'tickets',
 ]);
 
+const form = useForm({
+  user_id_employee: '',
+  user_id_department: '',
+  subject: '',
+  category_id: '',
+  status_id: '',
+  review_id: '',
+});
+
 const toDetailTicket = (id) => {
-  form.get(route('detailticket', { id }), {
+  form.get(route('detailtickets', { id }), {
     preserveScroll: true,
     onSuccess: () => {
     },
@@ -32,7 +41,7 @@ const deleteTicket = (id) => {
 };
 
 const userTickets = computed(() => {
-  return tickets.ticket.filter(ticket => ticket.user_id_employee === auth.user.id);
+  return props.tickets.ticket.filter(ticket => ticket.user_id_employee === props.auth.user.id);
 }); 
 
 const sentTickets = computed(() => {
@@ -78,7 +87,6 @@ function countTicketsByStatus(status) {
                           <p class="mb-0">2.3 MB</p>
                         </div>
                         <div class="col-auto">
-                          <!-- Button -->
                           <a href="#" class="btn btn-link btn-lg text-muted">
                             <i class="uil uil-import"></i>
                           </a>

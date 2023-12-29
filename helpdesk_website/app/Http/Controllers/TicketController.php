@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Status;
 use App\Models\Review;
 use App\Models\Department;
+use App\Models\DetailTicket;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 
@@ -56,22 +57,36 @@ class TicketController extends Controller
     {
         $request->validate([
             'user_id_employee' => 'required|integer',
-            'user_id_department' => 'required|integer',
             'subject' => 'required|string',
             'category_id' => 'required|integer',
             'status_id' => 'required|integer',
-            'review_id' => 'required|integer'
         ]);
 
         Ticket::create([
             'user_id_employee' => $request->input('user_id_employee'),
-            'user_id_department' => $request->input('user_id_department'),
             'subject' => $request->input('subject'),
             'category_id' => $request->input('category_id'),
             'status_id' => $request->input('status_id'),
-            'review_id' => $request->input('review_id')
         ]);
         return redirect()->route('formticket')->with('success', 'Ticket created successfully.');
+    }
+
+    public function storeEmployees(Request $request)
+    {
+        $request->validate([
+            'ticket_id' => 'required|integer',
+            'question' => 'required|string',
+        ]);
+        DetailTicket::create([
+            'ticket_id' => $request->input('ticket_id'),
+            'question' => $request->input('question')
+        ]);
+        return redirect()->route('formtickets')->with('success', 'Ticket created successfully.');
+    }
+
+    public function getLastTicketId(){
+        $lastTicket = Ticket::max('id');
+        return response()->json(['last_ticket_id' => $lastTicket]);
     }
 
     public function indexDashboard(){
@@ -106,7 +121,7 @@ class TicketController extends Controller
     }
 
     public function edit($id){
-        return Inertia::render('DetailTicket', [
+        return Inertia::render('Ticket/DetailTicket', [
             'ticket' => Ticket::find($id),
         ]);
     }

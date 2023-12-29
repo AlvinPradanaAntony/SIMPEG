@@ -1,13 +1,39 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { ref, onMounted, computed, defineProps } from 'vue';
+import InputLabel from '@/Components/InputLabel.vue';
+import InputError from '@/Components/InputError.vue';
+import TextInput from '@/Components/TextInput.vue';
 
-const { canLogin, auth, tickets} = defineProps([ 
+const props = defineProps([ 
   'canLogin',
   'auth',
   'tickets',
 ]);
 
+const ticketInput = ref(null);
+
+const edit = useForm({
+  _method: 'PUT',
+  user_id_employee: props.tickets.user_id_employee,
+  user_id_department: props.tickets.user_id_department,
+  subject: props.tickets.subject,
+  category_id: props.tickets.category_id,
+  status_id: props.tickets.status_id,
+  review_id: props.tickets.review_id,
+});
+
+const update = () => {
+  edit.put(route('admin.ticket.update', {id:edit.id}), {
+    preserveScroll: true,
+    onSuccess: () => edit.reset(),
+    onError: (error) => {
+      console.log(error);
+      ticketInput.value.focus();
+    },
+  });
+};
 </script>
 <template>
   <AppLayout :canLogin="canLogin" :tickets="tickets" title="Detail Ticket">
@@ -18,8 +44,41 @@ const { canLogin, auth, tickets} = defineProps([
             <div class="card-body">
               <div class="mb-3 row">
                 <h5 class="col-md-6 col-form-label" for="id">Nomor Tiket :</h5>
-                <div class="col-md-6">
-                  <span id="id">TK0123</span>
+                <div class="col-lg-12 mb-3">
+                  <InputLabel for="user_id_employee" class="form-label small" value="Pertanyaan" />
+                  <TextInput ref="ticketInput" type="text" class="form-control" id="user_id_employee" v-model="edit.user_id_employee" required
+                    autocomplete="user_id_employee" @keyup.enter="update" />
+                  <InputError :message="edit.errors.user_id_employee" class="mt-2" />
+                </div>
+                <div class="col-lg-12 mb-3">
+                  <InputLabel for="user_id_department" class="form-label small" value="Pertanyaan" />
+                  <TextInput ref="ticketInput" type="text" class="form-control" id="user_id_department" v-model="edit.user_id_department" required
+                    autocomplete="user_id_department" @keyup.enter="update" />
+                  <InputError :message="edit.errors.user_id_department" class="mt-2" />
+                </div>
+                <div class="col-lg-12 mb-3">
+                  <InputLabel for="subject" class="form-label small" value="Pertanyaan" />
+                  <TextInput ref="ticketInput" type="text" class="form-control" id="subject" v-model="edit.subject" required
+                    autocomplete="subject" @keyup.enter="update" />
+                  <InputError :message="edit.errors.subject" class="mt-2" />
+                </div>
+                <div class="col-lg-12 mb-3">
+                  <InputLabel for="category_id" class="form-label small" value="Pertanyaan" />
+                  <TextInput ref="ticketInput" type="text" class="form-control" id="category_id" v-model="edit.category_id" required
+                    autocomplete="category_id" @keyup.enter="update" />
+                  <InputError :message="edit.errors.category_id" class="mt-2" />
+                </div>
+                <div class="col-lg-12 mb-3">
+                  <InputLabel for="status_id" class="form-label small" value="Pertanyaan" />
+                  <TextInput ref="ticketInput" type="text" class="form-control" id="status_id" v-model="edit.status_id" required
+                    autocomplete="status_id" @keyup.enter="update" />
+                  <InputError :message="edit.errors.status_id" class="mt-2" />
+                </div>
+                <div class="col-lg-12 mb-3">
+                  <InputLabel for="review_id" class="form-label small" value="Pertanyaan" />
+                  <TextInput ref="ticketInput" type="text" class="form-control" id="review_id" v-model="edit.review_id" required
+                    autocomplete="review_id" @keyup.enter="update" />
+                  <InputError :message="edit.errors.review_id" class="mt-2" />
                 </div>
                 <h5 class="col-md-6 col-form-label" for="department">Bidang :</h5>
                 <div class="col-md-6">
