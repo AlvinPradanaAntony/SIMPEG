@@ -12,6 +12,7 @@ use App\Models\Department;
 use App\Models\DetailTicket;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
 
 class TicketController extends Controller
 {
@@ -121,8 +122,24 @@ class TicketController extends Controller
     }
 
     public function edit($id){
+        $ticket = Ticket::with('users_employee', 'users_department', 'categories', 'categories.department', 'statuses', 'reviews')->get();
+        $users = User::all();
+        $categories = Category::all();
+        $statuses = Status::all();
+        $reviews = Review::all();
+        $departments = Department::all();
+        $tickets = [
+            'ticket' => $ticket,
+            'users' => $users,
+            'categories' => $categories,
+            'statuses' => $statuses,
+            'reviews' => $reviews,
+            'departments' => $departments,
+        ];
         return Inertia::render('Ticket/DetailTicket', [
+            'tickets' => $tickets,
             'ticket' => Ticket::find($id),
+            'canLogin' => Route::has('login'),
         ]);
     }
 

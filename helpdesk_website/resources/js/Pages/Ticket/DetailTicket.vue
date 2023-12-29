@@ -10,18 +10,19 @@ const props = defineProps([
   'canLogin',
   'auth',
   'tickets',
+  'ticket',
 ]);
 
 const ticketInput = ref(null);
 
 const edit = useForm({
   _method: 'PUT',
-  user_id_employee: props.tickets.user_id_employee,
-  user_id_department: props.tickets.user_id_department,
-  subject: props.tickets.subject,
-  category_id: props.tickets.category_id,
-  status_id: props.tickets.status_id,
-  review_id: props.tickets.review_id,
+  user_id_employee: props.ticket.user_id_employee,
+  user_id_department: props.ticket.user_id_department,
+  subject: props.ticket.subject,
+  category_id: props.ticket.category_id,
+  status_id: props.ticket.status_id,
+  review_id: props.ticket.review_id,
 });
 
 const update = () => {
@@ -36,7 +37,7 @@ const update = () => {
 };
 </script>
 <template>
-  <AppLayout :canLogin="canLogin" :tickets="tickets" title="Detail Ticket">
+  <AppLayout :canLogin="canLogin" :tickets="tickets" :ticket="ticket" title="Detail Ticket">
     <div class="container align-items-start my-4 mb-5">
       <div class="row align-items-start">
         <div class="col-md-4 mb-3">
