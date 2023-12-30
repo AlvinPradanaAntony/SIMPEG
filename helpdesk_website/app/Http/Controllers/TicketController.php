@@ -61,33 +61,27 @@ class TicketController extends Controller
             'subject' => 'required|string',
             'category_id' => 'required|integer',
             'status_id' => 'required|integer',
+            'ticket_id' => 'integer',
+            'question' => 'required|string',
         ]);
 
-        Ticket::create([
+        $ticket = Ticket::create([
             'user_id_employee' => $request->input('user_id_employee'),
+            'user_id_department' =>  $request->input('user_id_department'),
             'subject' => $request->input('subject'),
             'category_id' => $request->input('category_id'),
             'status_id' => $request->input('status_id'),
+            'review_id' =>  $request->input('review_id'),
         ]);
-        return redirect()->route('formticket')->with('success', 'Ticket created successfully.');
-    }
+    
+        $ticketId = $ticket->id;
+    
 
-    public function storeEmployees(Request $request)
-    {
-        $request->validate([
-            'ticket_id' => 'required|integer',
-            'question' => 'required|string',
-        ]);
         DetailTicket::create([
-            'ticket_id' => $request->input('ticket_id'),
+            'ticket_id' => $ticketId,
             'question' => $request->input('question')
         ]);
-        return redirect()->route('formtickets')->with('success', 'Ticket created successfully.');
-    }
-
-    public function getLastTicketId(){
-        $lastTicket = Ticket::max('id');
-        return response()->json(['last_ticket_id' => $lastTicket]);
+        return redirect()->route('formticket')->with('success', 'Ticket created successfully.');
     }
 
     public function indexDashboard(){

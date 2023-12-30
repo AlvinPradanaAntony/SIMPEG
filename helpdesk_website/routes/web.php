@@ -50,8 +50,6 @@ Route::get('/formticket', function () {
     ]);
 })->name('formticket');
 Route::post('/formticket', [TicketController::class, 'storeEmployee'])->name('formticket');
-Route::post('/formticket', [TicketController::class, 'storeEmployees'])->name('formtickets');
-Route::get('/last-ticket-id', [TicketController::class, 'getLastTicketId'])->name('last-ticket-id');
 
 Route::get('/detailticket{id}', function () {
     return Inertia::render('Ticket/DetailTicket',[

@@ -19,22 +19,18 @@ const ticketInput = ref(null);
 
 const form = useForm({
   user_id_employee: auth.user.id,
-  user_id_department: '',
+  user_id_department: 1,
   subject: '',
   category_id: '',
   status_id: 1,
-  review_id: '',
-});
-
-const forms = useForm({
-  ticket_id: '',
+  review_id: 1,
   question: '',
-})
+});
 
 const submit = async () => {
   try {
     form.category_id = selectedCategoryId.value;
-    const ticketResponse = await form.post(route('formticket'), {
+    form.post(route('formticket'), {
       preserveScroll: true,
       onError: (error) => {
         console.log(error);
@@ -42,60 +38,10 @@ const submit = async () => {
       },
     });
 
-    const lastTicketId = ticketResponse.data.last_ticket_id;
-    console.log('Last Ticket ID:', lastTicketId);
-
-    forms.ticket_id = lastTicketId;
-    forms.post(route('formtickets'), {
-      preserveScroll: true,
-      onSuccess: () => forms.reset(),
-      onError: (error) => {
-        console.log(error);
-        ticketInput.value.focus();
-      },
-    });
   } catch (error) {
     console.error('Error:', error);
   }
 };
-
-
-// const submit = async () => {
-//   form.category_id = selectedCategoryId.value;
-//   form.post(route('formticket'), {
-//       preserveScroll: true,
-//     // onSuccess: () => form.reset(),
-//     onError: (error) => {
-//       console.log(error);
-//       ticketInput.value.focus();
-//     },
-//   });
-
-//   const lastTicketIdResponse = await form.get(route('last-ticket-id'));
-//   const lastTicketId = lastTicketIdResponse.data.last_ticket_id;
-
-//   forms.ticket_id = lastTicketId;
-//   forms.post(route('formticket'), {
-//     preserveScroll: true,
-//     onSuccess: () => forms.reset(),
-//     onError: (error) => {
-//       console.log(error);
-//       ticketInput.value.focus();
-//     },
-//   });
-// };
-
-// const submit = async () => {
-//   form.category_id = selectedCategoryId.value;
-//   form.post(route('formticket'), {
-//       preserveScroll: true,
-//     onSuccess: () => form.reset(),
-//     onError: (error) => {
-//       console.log(error);
-//       ticketInput.value.focus();
-//     },
-//   });
-// };
 
 const selectedCategory = computed(() => {
   const selectedCategoryData = tickets.categories.find(category => category.id === selectedCategoryId.value);
@@ -177,9 +123,9 @@ const selectedDepartment = computed(() => {
                   </div>
                   <div class="col-lg-12 mb-3">
                     <InputLabel for="question" class="form-label small" value="Pesan*" />
-                    <TextInput ref="ticketInput" type="text" class="form-control" id="question" v-model="forms.question" required
+                    <TextInput ref="ticketInput" type="text" class="form-control" id="question" v-model="form.question" required
                       autocomplete="question" @keyup.enter="submit" />
-                    <InputError :message="forms.errors.question" class="mt-2" />
+                    <InputError :message="form.errors.question" class="mt-2" />
                   </div>
                   <div class="col-md-8">
                     <label for="file" class="form-label fw-bold">Unggah Berkas</label>
@@ -222,75 +168,3 @@ const selectedDepartment = computed(() => {
     </div>
   </AppLayout>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      lastTicketId: null,
-      newTicket: {
-        user_id_employee: '',
-        user_id_department: '',
-        subject: '',
-        category_id: '',
-        status_id: '',
-        review_id: '',
-      },
-      newDetailTicket: {
-        ticket_id: null,
-        question: '',
-      },
-    };
-  },
-
-  mounted() {
-      this.getLastTicketId();
-  },
-  methods: {
-    async createTicket() {
-      try {
-        // Post to tickets table
-        const ticketResponse = await axios.post('/tickets', this.newTicket);
-        const ticketId = ticketResponse.data.ticket.id;
-        
-        // Get ticket_id from tickets table
-        // const response = await axios.get('/last-ticket-id');
-        // this.lastId = response.data.last_ticket_id;
-        // this.lastTicketId = this.lastId;
-        
-        // Post to detail_tickets table
-        this.newDetailTicket.ticket_id = ticketId;
-        // this.newDetailTicket.ticket_id = ticketId;
-        const detailTicketResponse =  await axios.post('/detail_tickets', this.newDetailTicket);
-        console.log('Ticket created:', detailTicketResponse.data);
-
-        this.newTicket = {
-          user_id_employee: '',
-          user_id_department: '',
-          subject: '',
-          category_id: '',
-          status_id: '',
-          review_id: '',
-        };
-        this.newDetailTicket = {
-          ticket_id: null,
-          question: '',
-        };
-        await this.getLastTicketId();
-      } catch (error) {
-        console.error('Error creating Ticket:', error);
-      }
-    },
-    async getLastTicketId() {
-      try {
-        const response = await axios.get('/last-ticket-id');
-        this.lastId = response.data.last_ticket_id;
-        this.lastTicketId = this.lastId;
-        // this.newTicket.ticket_id = lastTicketId;
-      } catch (error) {
-        console.error('Error getting last Ticket ID:', error);
-      }
-    }
-  },
-};
-</script>
