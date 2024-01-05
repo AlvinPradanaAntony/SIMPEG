@@ -27,12 +27,25 @@ Route::get('/', function () {
     ]);
 })->name('landingpage');
 
+Route::get('/user/profile', function () {
+    return Inertia::render('Profile/Show',[
+        'canLogin' => Route::has('login'),
+        'tickets' => app(TicketController::class)->getAllTickets(),
+    ]);
+})->name('profile.show');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/user/profile', [ProfileController::class, 'show'])->name('profile.show');
+    // Route::get('/user/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/user/profile', function () {
+        return Inertia::render('Profile/Show',[
+            'canLogin' => Route::has('login'),
+            'tickets' => app(TicketController::class)->getAllTickets(),
+        ]);
+    })->name('profile.show');
     Route::get('/admin/pengguna/profile', [ProfileController::class, 'showOnDashboard'])->name('admin.profile');
     Route::get('/trackingticket', function () {
     return Inertia::render('Ticket/TrackingTicket',[
@@ -50,8 +63,10 @@ Route::get('/formticket', function () {
     ]);
 })->name('formticket');
 Route::post('/formticket', [TicketController::class, 'storeEmployee'])->name('formticket');
+// Route::post('/formticket', [TicketController::class, 'storeEmployee'])->name('formtickets');
+Route::get('/last-ticket-id', [TicketController::class, 'getLastTicketId'])->name('last-ticket-id');
 
-Route::get('/detailticket{id}', function () {
+Route::get('/detailticket', function () {
     return Inertia::render('Ticket/DetailTicket',[
         'canLogin' => Route::has('login'),
         'tickets' => app(TicketController::class)->getAllTickets(),

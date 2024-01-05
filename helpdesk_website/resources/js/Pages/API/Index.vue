@@ -6,11 +6,14 @@ defineProps({
     tokens: Array,
     availablePermissions: Array,
     defaultPermissions: Array,
+    tickets: Array,
+    canLogin: Boolean,
+    auth: Object,
 });
 </script>
 
 <template>
-    <AppLayout title="API Tokens">
+    <AppLayout title="API Tokens" :tickets="tickets" :canLogin="canLogin" :auth="auth">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 API Tokens

@@ -156,6 +156,12 @@ const calculateTimeDifference = (updatedAt) => {
               </Link>
             </li>
             <li>
+              <Link class="dropdown-item" v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')" :tickets="tickets">
+              <unicon name="user" class="me-2" width="14" height="14" fill="var(--text-color)" />
+              <span>API</span>
+              </Link>
+            </li>
+            <li>
               <hr class="dropdown-divider" />
             </li>
             <li>
