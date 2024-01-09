@@ -14,29 +14,32 @@
         android:theme="@style/Theme.Helpdesk_mobile"
         tools:targetApi="31">
         <activity
+            android:name=".ui.faq.DetailFaqActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.webview.ManagementPositionActivity"
             android:exported="false"
-            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar"/>
+            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar" />
         <activity
             android:name=".ui.webview.DmsActivity"
             android:exported="false"
-            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar"/>
+            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar" />
         <activity
             android:name=".ui.webview.EkinerjaActivity"
             android:exported="false"
-            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar"/>
+            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar" />
         <activity
             android:name=".ui.webview.SimpegSapkActivity"
             android:exported="false"
-            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar"/>
+            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar" />
         <activity
             android:name=".ui.webview.SimpegDashboardActivity"
             android:exported="false"
-            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar"/>
+            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar" />
         <activity
             android:name=".ui.faq.FaqActivity"
             android:exported="false"
-            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar"/>
+            android:theme="@style/Theme.Helpdesk_mobile.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false"
@@ -47,7 +50,7 @@
             android:theme="@style/Theme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-    
+                
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

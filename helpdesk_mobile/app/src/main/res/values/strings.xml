@@ -47,4 +47,27 @@
     <string name="menu_4">DMS</string>
     <string name="menu_5">PENYESUAIAN JABATAN</string>
     <string name="menu_6">HELPDESK</string>
+    <string name="pertanyaan">Pertanyaan</string>
+    
+    <string-array name="data_questions">
+        <item>Bagaimana cara saya mengajukan izin tahunan?</item>
+        <item>Bagaimana cara saya melihat slip gaji saya?</item>
+        <item>Bagaimana cara saya membuat tiket?</item>
+        <item>Bagaimana cara melihat tiket yang sudah dibuat?</item>
+        <item>Bagaimana cara mengubah profil?</item>
+        <item>Apa yang harus saya lakukan jika saya lupa kata sandi?</item>
+        <item>Bagaimana cara mengubungi tim dukungan?</item>
+        <item>Bagaimana proses kenaikan pangkat berlangsung?</item>
+    </string-array>
+    
+    <string-array name="data_description">
+        <item>Untuk mengajukan izin tahunan, silakan akses portal kepegawaian kami dan masuk ke akun Anda. Di sana, Anda akan menemukan opsi "Pengajuan Izin" di mana Anda dapat mengisi formulir pengajuan izin dengan rincian tanggal, alasan, dan durasi izin. Pengajuan Anda akan diproses oleh tim HR dan Anda akan menerima pemberitahuan lebih lanjut.</item>
+        <item>Untuk melihat slip gaji Anda, Anda dapat masuk ke portal kepegawaian kami. Di sana, Anda akan menemukan opsi "Slip Gaji" atau "Penggajian" yang akan memberi Anda akses ke slip gaji Anda. Anda dapat mengunduh dan mencetak slip gaji sesuai kebutuhan.</item>
+        <item>Cara Membuat Tiket: Untuk membuat tiket baru, ikuti langkah-langkah berikut:\n Login ke akun Anda.\n 1. Pilih opsi \'Buat Tiket\' pada halaman utama. \n 2. Isi formulir tiket dengan informasi yang relevan, seperti judul, deskripsi, dan kategori.\n 3. Klik \'Kirim\' untuk mengirimkan tiket Anda.\n 4. Anda akan menerima konfirmasi dan nomor referensi tiket. Kami akan segera meninjau dan menanggapi tiket Anda.\n Kami selalu siap membantu Anda, jadi jangan ragu untuk membuat tiket untuk pertanyaan atau masalah apa pun yang Anda hadapi.</item>
+        <item>Cara Melihat Tiket yang Sudah Dibuat: Untuk melihat tiket yang telah Anda buat, ikuti langkah-langkah berikut: \n 1. Login ke akun Anda.\n 2. Pilih opsi \'Tiket Saya\' atau \'Riwayat Tiket\' pada halaman utama.\n 3. Anda akan melihat daftar tiket yang telah Anda buat, termasuk status dan nomor referensi tiket.\n 4. Klik pada tiket yang ingin Anda lihat untuk melihat detailnya.\n 5. Di halaman tiket, Anda dapat melihat status, tanggapan, dan riwayat percakapan terkait tiket tersebut. Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami melalui tiket tersebut.</item>
+        <item>Untuk mengubah profil Anda, ikuti langkah-langkah berikut: \n 1. Login ke akun Anda.\n 2. Pilih opsi \'Profil\' pada halaman utama.\n 3. Di halaman profil, Anda dapat mengubah informasi pribadi Anda, seperti nama, alamat, dan nomor telepon.\n 4. Klik \'Simpan\' untuk menyimpan perubahan Anda.</item>
+        <item>Jika Anda lupa kata sandi Anda, ikuti langkah-langkah berikut: \n 1. Pilih opsi \'Lupa Kata Sandi\' pada halaman masuk.\n 2. Masukkan alamat email Anda dan klik \'Kirim\'.\n 3. Anda akan menerima email dengan tautan untuk mengatur ulang kata sandi Anda.\n 4. Klik tautan dan masukkan kata sandi baru Anda.\n 5. Klik \'Simpan\' untuk menyimpan kata sandi baru Anda.</item>
+        <item>Untuk menghubungi tim dukungan kami, ikuti langkah-langkah berikut: \n 1. Login ke akun Anda.\n 2. Pilih opsi \'Hubungi Kami\' pada halaman utama.\n 3. Anda akan melihat daftar kontak tim dukungan kami.\n 4. Pilih kontak yang ingin Anda hubungi dan klik \'Hubungi\' untuk menghubungi tim dukungan kami.</item>
+        <item>Proses Kenaikan Pangkat: Proses kenaikan pangkat dijelaskan di bawah ini: \n 1. Pegawai harus memenuhi syarat-syarat yang ditentukan untuk kenaikan pangkat, seperti masa kerja dan penilaian kinerja yang baik. \n 2. Pegawai mengajukan permohonan kenaikan pangkat sesuai dengan prosedur yang berlaku, biasanya melalui sistem helpdesk atau formulir khusus. \n 3. Permohonan akan diproses dan dievaluasi oleh departemen kepegawaian atau unit yang berwenang. \n 4. Jika disetujui, pegawai akan menerima pemberitahuan resmi dan kenaikan pangkat akan diberlakukan sesuai dengan jadwal yang ditentukan. \n 5. Jika permohonan ditolak, pegawai akan menerima pemberitahuan dan dapat meminta klarifikasi atau mengikuti proses perbaikan kinerja jika diperlukan. \n Pastikan untuk selalu memeriksa pedoman dan kebijakan yang berlaku untuk mengetahui persyaratan kenaikan pangkat yang spesifik di organisasi Anda.</item>
+    </string-array>
 </resources>
