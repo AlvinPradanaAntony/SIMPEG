@@ -29,6 +29,7 @@
     <color name="shadowAmbientColor">#80000000</color>
     <color name="shadowSpotColor">#52000000</color>
     <color name="colorSecondaryVariant">#F7F7F7</color>
+    <color name="divider">#95FFFFFF</color>
     
     
 

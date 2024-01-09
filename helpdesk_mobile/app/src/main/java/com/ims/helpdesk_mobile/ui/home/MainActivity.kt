@@ -7,6 +7,8 @@ import android.os.Bundle
 import com.ims.helpdesk_mobile.R
 import com.ims.helpdesk_mobile.databinding.ActivityMainBinding
 import com.ims.helpdesk_mobile.ui.faq.FaqActivity
+import com.ims.helpdesk_mobile.ui.notifikasi.NotificationActivity
+import com.ims.helpdesk_mobile.ui.settings.SettingsActivity
 import com.ims.helpdesk_mobile.ui.webview.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         changeBgAbstract()
         setupAction()
+        optionMenuSetup()
     }
     private fun setupAction(){
         binding.apply {
@@ -56,5 +59,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         imageView.setImageResource(drawableId)
+    }
+    private fun optionMenuSetup(){
+        val menu = binding.topAppBar
+        menu.setOnMenuItemClickListener { menuItem ->
+            when(menuItem.itemId){
+                R.id.notifikasi ->{
+                    val intent = Intent(this, NotificationActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.setting ->{
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else ->{
+                    false
+                }
+            }
+        }
     }
 }
