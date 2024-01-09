@@ -4,12 +4,15 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ims.helpdesk_mobile.R
 import com.ims.helpdesk_mobile.adapter.ListFAQAdapter
 import com.ims.helpdesk_mobile.databinding.ActivityFaqBinding
 import com.ims.helpdesk_mobile.db.FAQResponse
+import com.ims.helpdesk_mobile.ui.notifikasi.NotificationActivity
+import com.ims.helpdesk_mobile.ui.settings.SettingsActivity
 
 class FaqActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFaqBinding
@@ -19,6 +22,7 @@ class FaqActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFaqBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        optionMenuSetup()
         customShadow()
         rvFaq = binding.rvFaq
         list.addAll(getListFAQ())
@@ -30,9 +34,12 @@ class FaqActivity : AppCompatActivity() {
             binding.containerSearch.outlineSpotShadowColor = getColor(R.color.shadowSpotColor)
             binding.search.outlineAmbientShadowColor = getColor(R.color.shadowSpotColor)
             binding.search.outlineSpotShadowColor = getColor(R.color.shadowSpotColor)
+            binding.appbarLayoutId.outlineAmbientShadowColor = getColor(android.R.color.transparent)
+            binding.appbarLayoutId.outlineSpotShadowColor = getColor(android.R.color.transparent)
         } else {
             binding.containerSearch.elevation = 6f
             binding.search.elevation = 0f
+            binding.appbarLayoutId.elevation = 0.5f
         }
     }
     private fun getListFAQ(): ArrayList<FAQResponse> {
@@ -52,12 +59,32 @@ class FaqActivity : AppCompatActivity() {
         rvFaq.layoutManager = LinearLayoutManager(this)
         val listFaqAdapter = ListFAQAdapter(list)
         rvFaq.adapter = listFaqAdapter
-        listFaqAdapter.setOnItemClickCallback(object : ListFAQAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: FAQResponse) {
-                val intent = Intent(this@FaqActivity, DetailFaqActivity::class.java)
-                intent.putExtra("DATA_FAQ", data)
-                startActivity(intent)
+//        listFaqAdapter.setOnItemClickCallback(object : ListFAQAdapter.OnItemClickCallback {
+//            override fun onItemClicked(data: FAQResponse) {
+//                val intent = Intent(this@FaqActivity, DetailFaqActivity::class.java)
+//                intent.putExtra("DATA_FAQ", data)
+//                startActivity(intent)
+//            }
+//        })
+    }
+    private fun optionMenuSetup(){
+        val menu = binding.topAppBar
+        menu.setOnMenuItemClickListener { menuItem ->
+            when(menuItem.itemId){
+                R.id.notifikasi ->{
+                    val intent = Intent(this, NotificationActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.setting ->{
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else ->{
+                    false
+                }
             }
-        })
+        }
     }
 }

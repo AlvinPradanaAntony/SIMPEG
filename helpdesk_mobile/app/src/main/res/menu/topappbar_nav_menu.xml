@@ -9,6 +9,6 @@
     <item
         android:id="@+id/setting"
         android:icon="@drawable/ic_setting"
-        android:title="@string/notifikasi"
+        android:title="@string/settings"
         app:showAsAction="ifRoom"/>
 </menu>

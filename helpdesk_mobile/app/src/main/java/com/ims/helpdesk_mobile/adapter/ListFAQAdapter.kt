@@ -23,7 +23,7 @@ class ListFAQAdapter(private val listData: ArrayList<FAQResponse>): RecyclerView
     override fun onBindViewHolder(holder: ListViewHolders, position: Int) {
         val (question) = listData[position]
         holder.binding.tvItemQuestion.text = question
-        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listData[holder.adapterPosition]) }
+//        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listData[holder.adapterPosition]) }
     }
 
     interface OnItemClickCallback {

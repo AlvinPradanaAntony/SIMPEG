@@ -34,7 +34,7 @@
     <string name="abstract1">abstract1</string>
     <string name="logo_simpeg">logo_simpeg</string>
     <string name="lupa_kata_sandi">Lupa Kata Sandi ?</string>
-    <string name="notifikasi">notifikasi</string>
+    <string name="notifikasi">Notifikasi</string>
     <string name="selamat_datang_di_simpeg">Selamat datang di SIMPEG,</string>
     <string name="name_account">Pegawai 1</string>
     <string name="nip_account">NIP:</string>
@@ -48,6 +48,7 @@
     <string name="menu_5">PENYESUAIAN JABATAN</string>
     <string name="menu_6">HELPDESK</string>
     <string name="pertanyaan">Pertanyaan</string>
+    <string name="settings">Settings</string>
     
     <string-array name="data_questions">
         <item>Bagaimana cara saya mengajukan izin tahunan?</item>
