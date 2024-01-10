@@ -1,11 +1,14 @@
 package com.ims.helpdesk_mobile.ui.settings
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.appbar.MaterialToolbar
 import com.ims.helpdesk_mobile.R
 import com.ims.helpdesk_mobile.databinding.ActivitySettingsBinding
+import com.ims.helpdesk_mobile.ui.profile.ProfileActivity
 
 class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
@@ -16,14 +19,17 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(binding.root)
         changeBgAbstract()
         setupView()
+        setupAction()
     }
-    private fun setupView(){
+
+    private fun setupView() {
         toolbar = binding.topAppBar
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(true)
     }
-    private fun changeBgAbstract(){
+
+    private fun changeBgAbstract() {
         val imageView = binding.bgAbstract1
         val display = windowManager.defaultDisplay
         val orientation = if (display.width < display.height) {
@@ -40,6 +46,27 @@ class SettingsActivity : AppCompatActivity() {
 
         imageView.setImageResource(drawableId)
     }
+
+    private fun setupAction() {
+        binding.apply {
+            menuInformasiPersonal.setOnClickListener {
+                startActivity(Intent(this@SettingsActivity, ProfileActivity::class.java))
+            }
+            menuUbahSandi.setOnClickListener {
+                Toast.makeText(this@SettingsActivity, "Ubah Sandi", Toast.LENGTH_SHORT).show()
+            }
+            menuPusatBantuan.setOnClickListener {
+                Toast.makeText(this@SettingsActivity, "Pusat Bantuan", Toast.LENGTH_SHORT).show()
+            }
+            menuTentangAplikasi.setOnClickListener {
+                Toast.makeText(this@SettingsActivity, "Tentang Aplikasi", Toast.LENGTH_SHORT).show()
+            }
+            menuKeluar.setOnClickListener {
+                Toast.makeText(this@SettingsActivity, "Keluar", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true

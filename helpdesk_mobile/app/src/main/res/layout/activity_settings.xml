@@ -50,7 +50,8 @@
         
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="25dp">
             
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container_account_user"
@@ -133,7 +134,7 @@
                 android:textSize="16sp" />
             
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/menu_akun_1"
+                android:id="@+id/menu_informasi_personal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text1"
@@ -174,10 +175,10 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
             
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/menu_akun_2"
+                android:id="@+id/menu_ubah_sandi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/menu_akun_1"
+                android:layout_below="@id/menu_informasi_personal"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp">
                 
@@ -216,7 +217,7 @@
                 android:id="@+id/text3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/menu_akun_2"
+                android:layout_below="@id/menu_ubah_sandi"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="46dp"
                 android:fontFamily="@font/poppins_extra_bold"
@@ -225,7 +226,7 @@
                 android:textSize="16sp" />
             
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/menu_akun_3"
+                android:id="@+id/menu_pusat_bantuan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text3"
@@ -266,10 +267,10 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
             
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/menu_akun_4"
+                android:id="@+id/menu_tentang_aplikasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/menu_akun_3"
+                android:layout_below="@id/menu_pusat_bantuan"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp">
                 
@@ -307,13 +308,13 @@
             <View
                 android:id="@+id/divider"
                 style="@style/Divider"
-                android:layout_below="@id/menu_akun_4"
+                android:layout_below="@id/menu_tentang_aplikasi"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="46dp"
                 android:layout_marginEnd="24dp" />
             
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/menu_5"
+                android:id="@+id/menu_keluar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/divider"
@@ -352,6 +353,16 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:layout_width="82dp"
+                android:layout_height="17dp"
+                android:layout_below="@+id/menu_keluar"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="95dp"
+                android:contentDescription="@string/logo_simpeg"
+                android:src="@drawable/asset_9" />
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
