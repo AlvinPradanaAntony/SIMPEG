@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent5"
+    tools:context=".ui.profile.EditProfileActivity">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/custom_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent5"
+            android:paddingTop="10dp"
+            app:liftOnScroll="true"
+            >
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationContentDescription="Kembali"
+                app:navigationIcon="@drawable/ic_back"
+                app:navigationIconTint="@color/textColorSecondary"
+                app:title="Edit Profil"
+                app:titleCentered="true"
+                app:titleTextColor="@color/textColorSecondary">
+
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/custom_appbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="25dp"
+            android:paddingTop="16dp"
+            android:paddingHorizontal="24dp">
+            <TextView
+                android:id="@+id/label_nip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NIP"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                />
+            <com.ims.helpdesk_mobile.ui.customView.CustomEditText
+                android:id="@+id/ed_nip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_nip"
+                android:minHeight="56dp"
+                android:drawablePadding="8dp"
+                android:hint="Isikan NIP"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/textColorCaption"
+                android:textColorHint="@color/textColorField"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/label_nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_nip"
+                android:text="Nama"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                />
+            <com.ims.helpdesk_mobile.ui.customView.CustomEditText
+                android:id="@+id/ed_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_nama"
+                android:minHeight="56dp"
+                android:drawablePadding="8dp"
+                android:hint="Isikan Nama"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/textColorCaption"
+                android:textColorHint="@color/textColorField"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/label_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_nama"
+                android:text="Jenis Kelamin"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                />
+            <com.ims.helpdesk_mobile.ui.customView.CustomEditText
+                android:id="@+id/ed_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_gender"
+                android:minHeight="56dp"
+                android:drawablePadding="8dp"
+                android:hint="Isikan Jenis Kelamin"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/textColorCaption"
+                android:textColorHint="@color/textColorField"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/label_birth0fPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_gender"
+                android:text="Tempat Kelahiran"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                />
+            <com.ims.helpdesk_mobile.ui.customView.CustomEditText
+                android:id="@+id/ed_birthOfPlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_birth0fPlace"
+                android:minHeight="56dp"
+                android:drawablePadding="8dp"
+                android:hint="Tempat Lahir"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/textColorCaption"
+                android:textColorHint="@color/textColorField"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/label_birth0fDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_birthOfPlace"
+                android:text="Tanggal Lahir"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                />
+            <com.ims.helpdesk_mobile.ui.customView.CustomEditText
+                android:id="@+id/ed_birthOfDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_birth0fDate"
+                android:minHeight="56dp"
+                android:drawablePadding="8dp"
+                android:hint="Tanggal Lahir"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/textColorCaption"
+                android:textColorHint="@color/textColorField"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/label_religion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_birthOfDate"
+                android:text="Agama"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                />
+            <com.ims.helpdesk_mobile.ui.customView.CustomEditText
+                android:id="@+id/ed_religion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_religion"
+                android:minHeight="56dp"
+                android:drawablePadding="8dp"
+                android:hint="Isikan Agama Anda"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/textColorCaption"
+                android:textColorHint="@color/textColorField"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/label_status_martial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_religion"
+                android:text="Status Perkawinan"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                />
+            <com.ims.helpdesk_mobile.ui.customView.CustomEditText
+                android:id="@+id/ed_status_martial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_status_martial"
+                android:minHeight="56dp"
+                android:drawablePadding="8dp"
+                android:hint="Masukan status Anda"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/textColorCaption"
+                android:textColorHint="@color/textColorField"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/label_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_status_martial"
+                android:text="No. Telepon"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                />
+            <com.ims.helpdesk_mobile.ui.customView.CustomEditText
+                android:id="@+id/ed_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_number"
+                android:minHeight="56dp"
+                android:drawablePadding="8dp"
+                android:hint="Masukan No. Telepon Anda"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/textColorCaption"
+                android:textColorHint="@color/textColorField"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/label_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_number"
+                android:text="Alamat"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                />
+            <com.ims.helpdesk_mobile.ui.customView.CustomEditText
+                android:id="@+id/ed_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_address"
+                android:minHeight="56dp"
+                android:drawablePadding="8dp"
+                android:hint="Masukan Alamat Anda"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/textColorCaption"
+                android:textColorHint="@color/textColorField"
+                android:textSize="12sp" />
+            <com.ims.helpdesk_mobile.ui.customView.CustomButton
+                android:id="@+id/button_edit"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/style_button"
+                android:fontFamily="@font/nunito_sans_bold"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="Simpan Data"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:layout_below="@+id/ed_address"
+                />
+            <ImageView
+                android:layout_width="82dp"
+                android:layout_height="17dp"
+                android:layout_below="@+id/button_edit"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp"
+                android:contentDescription="@string/logo_simpeg"
+                android:src="@drawable/asset_12" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

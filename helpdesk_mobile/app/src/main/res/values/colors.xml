@@ -13,6 +13,7 @@
     <color name="colorAccent2">#1D4154</color>
     <color name="colorAccent3">#1C485A</color>
     <color name="colorAccent4">#22485A</color>
+    <color name="colorAccent5">#DFEBEE</color>
     <color name="red_200">#CF212A</color>
     <color name="colorPrimary">#F79738</color>
     <color name="colorPrimaryLight">#FFC57D</color>
@@ -31,6 +32,7 @@
     <color name="shadowSpotColor">#52000000</color>
     <color name="colorSecondaryVariant">#F7F7F7</color>
     <color name="divider">#95FFFFFF</color>
+
     
     
 
