@@ -21,6 +21,7 @@
     <color name="backgroundColorField">#F1F6FB</color>
     <color name="textColorPrimary">#FFFFFFFF</color>
     <color name="textColorSecondary">#313232</color>
+    <color name="textColorSubtitle">#575757</color>
     <color name="textColorCaption">#848484</color>
     <color name="textColorCaption2">#E5E5E5</color>
     <color name="textColorField">#A1A1A1</color>

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Helpdesk</string>
     <string name="title_logo">SIMPEG Mobile</string>
-    
+
     <string name="password_minimum_character">Kata Sandi Minimal 8 Karakter</string>
     <string name="password_not_match">Password Tidak sama</string>
     <string name="email_invalid">Format Email Tidak Sesuai</string>
@@ -49,7 +49,7 @@
     <string name="menu_6">HELPDESK</string>
     <string name="pertanyaan">Pertanyaan</string>
     <string name="settings">Settings</string>
-    
+
     <string-array name="data_questions">
         <item>Bagaimana cara saya mengajukan izin tahunan?</item>
         <item>Bagaimana cara saya melihat slip gaji saya?</item>
@@ -60,7 +60,7 @@
         <item>Bagaimana cara mengubungi tim dukungan?</item>
         <item>Bagaimana proses kenaikan pangkat berlangsung?</item>
     </string-array>
-    
+
     <string-array name="data_description">
         <item>Untuk mengajukan izin tahunan, silakan akses portal kepegawaian kami dan masuk ke akun Anda. Di sana, Anda akan menemukan opsi "Pengajuan Izin" di mana Anda dapat mengisi formulir pengajuan izin dengan rincian tanggal, alasan, dan durasi izin. Pengajuan Anda akan diproses oleh tim HR dan Anda akan menerima pemberitahuan lebih lanjut.</item>
         <item>Untuk melihat slip gaji Anda, Anda dapat masuk ke portal kepegawaian kami. Di sana, Anda akan menemukan opsi "Slip Gaji" atau "Penggajian" yang akan memberi Anda akses ke slip gaji Anda. Anda dapat mengunduh dan mencetak slip gaji sesuai kebutuhan.</item>

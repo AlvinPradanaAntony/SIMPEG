@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileActivity">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="173dp"
+        android:background="@drawable/bg_default_view" />
+
+    <ImageView
+        android:id="@+id/bg_abstract1"
+        android:layout_width="match_parent"
+        android:layout_height="891dp"
+        android:contentDescription="@string/abstract1"
+        android:scaleType="fitXY"
+        android:src="@drawable/asset_7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/custom_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingTop="10dp"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="0dp"
+                app:navigationContentDescription="Kembali"
+                app:navigationIcon="@drawable/ic_back"
+                app:title="Informasi Personal"
+                app:titleCentered="true"
+                app:titleTextColor="@color/textColorPrimary">
+
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/custom_appbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="25dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_avatar"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="52dp"
+                android:src="@drawable/asset_8" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/container_data_pribadi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_avatar"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="22dp"
+                android:outlineAmbientShadowColor="@color/shadowAmbientColor"
+                android:outlineSpotShadowColor="@color/shadowSpotColor"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="12dp"
+                tools:targetApi="p">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Data Pribadi"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/label_nip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text1"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="NIP"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/text_nip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_nip"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/nip_data_account"
+                        android:textColor="@color/textColorSubtitle"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/label_nama"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_nip"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Nama"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/text_nama"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_nama"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Pegawai 1"
+                        android:textColor="@color/textColorSubtitle"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/label_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_nama"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Jenis Kelamin"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/text_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_gender"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/nip_data_account"
+                        android:textColor="@color/textColorSubtitle"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/label_birth0fdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_gender"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Tempat, Tanggal Lahir"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/text_birthOfdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_birth0fdate"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/nip_data_account"
+                        android:textColor="@color/textColorSubtitle"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/container_data_pegawai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/container_data_pribadi"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="16dp"
+                android:outlineAmbientShadowColor="@color/shadowAmbientColor"
+                android:outlineSpotShadowColor="@color/shadowSpotColor"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="12dp"
+                tools:targetApi="p">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/text2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Data Kepegawaian"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/label_departemen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text2"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Bidang/Departemen"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/text_departemen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_departemen"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="[Kosong]"
+                        android:textColor="@color/textColorSubtitle"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/label_jabatan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_departemen"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Jabatan"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/text_jabatan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_jabatan"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Guru Ahli Madya"
+                        android:textColor="@color/textColorSubtitle"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/container_data_akun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/container_data_pegawai"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="16dp"
+                android:outlineAmbientShadowColor="@color/shadowAmbientColor"
+                android:outlineSpotShadowColor="@color/shadowSpotColor"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="12dp"
+                tools:targetApi="p">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/text3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Akun"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/label_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text3"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Bidang/Departemen"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/text_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_email"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="pegawai1@gmail.com"
+                        android:textColor="@color/textColorSubtitle"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/label_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_email"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Jabatan"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/text_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_status"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/custom_rounded2"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Guru Ahli Madya"
+                        android:padding="2dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <com.ims.helpdesk_mobile.ui.customView.CustomButton
+                android:id="@+id/button_edit"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/style_button"
+                android:fontFamily="@font/nunito_sans_bold"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="Edit Profil"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:layout_below="@+id/container_data_akun"
+                />
+            <ImageView
+                android:layout_width="82dp"
+                android:layout_height="17dp"
+                android:layout_below="@+id/button_edit"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp"
+                android:contentDescription="@string/logo_simpeg"
+                android:src="@drawable/asset_12" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
