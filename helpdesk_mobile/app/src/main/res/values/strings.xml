@@ -49,6 +49,8 @@
     <string name="menu_6">HELPDESK</string>
     <string name="pertanyaan">Pertanyaan</string>
     <string name="settings">Settings</string>
+    <string name="sample_pertanyaan">Bagaimana cara saya mengajukan izin tahunan ?</string>
+    <string name="sample_jawaban">Untuk mengajukan izin tahunan, silakan akses portal kepegawaian kami dan masuk ke akun Anda. Di sana, Anda akan menemukan opsi Pengajuan Izin di mana Anda dapat mengisi formulir pengajuan izin dengan rincian tanggal, alasan, dan durasi izin. Pengajuan Anda akan diproses oleh tim HR dan Anda akan menerima pemberitahuan lebih lanjut.</string>
 
     <string-array name="data_questions">
         <item>Bagaimana cara saya mengajukan izin tahunan?</item>

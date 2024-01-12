@@ -44,10 +44,12 @@ class FaqActivity : AppCompatActivity() {
     }
     private fun getListFAQ(): ArrayList<FAQResponse> {
         val dataQuestion = resources.getStringArray(R.array.data_questions)
+        val dataAnswer = resources.getStringArray(R.array.data_description)
         val listFaq = ArrayList<FAQResponse>()
         for (position in dataQuestion.indices) {
             val faq = FAQResponse(
                 dataQuestion[position],
+                dataAnswer[position]
             )
             listFaq.add(faq)
         }

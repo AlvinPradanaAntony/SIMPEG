@@ -15,18 +15,42 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/container_rounded3"
-        android:padding="12dp">
-        
-        <TextView
-            android:id="@+id/tv_item_question"
+        android:background="@drawable/container_rounded3">
+
+        <LinearLayout
+            android:id="@+id/expand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:orientation="vertical"
+
+            android:padding="14dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/pertanyaan" />
+            card_view:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_item_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="14sp"
+                tools:text="@string/sample_pertanyaan" />
+
+            <TextView
+                android:id="@+id/tv_item_answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/textColorSubtitle"
+                android:textSize="12sp"
+                android:visibility="gone"
+                tools:text="@string/sample_jawaban" />
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

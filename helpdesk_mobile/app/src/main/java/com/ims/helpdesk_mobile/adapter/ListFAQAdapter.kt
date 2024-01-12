@@ -21,9 +21,16 @@ class ListFAQAdapter(private val listData: ArrayList<FAQResponse>): RecyclerView
     override fun getItemCount(): Int = listData.size
 
     override fun onBindViewHolder(holder: ListViewHolders, position: Int) {
-        val (question) = listData[position]
+        val (question, answer) = listData[position]
         holder.binding.tvItemQuestion.text = question
-//        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listData[holder.adapterPosition]) }
+        holder.binding.tvItemAnswer.text = answer
+        holder.binding.expand.setOnClickListener {
+            if (holder.binding.tvItemAnswer.visibility == ViewGroup.GONE) {
+                holder.binding.tvItemAnswer.visibility = ViewGroup.VISIBLE
+            } else {
+                holder.binding.tvItemAnswer.visibility = ViewGroup.GONE
+            }
+        }
     }
 
     interface OnItemClickCallback {
