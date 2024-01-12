@@ -180,7 +180,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/menu_informasi_personal"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp">
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp">
                 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -212,12 +213,49 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-            
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu_myticket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/menu_ubah_sandi"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:src="@drawable/ic_setting_myticket"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="14dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:text="Tiket Saya"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView8"
+                    app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
                 android:id="@+id/text3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/menu_ubah_sandi"
+                android:layout_below="@id/menu_myticket"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="46dp"
                 android:fontFamily="@font/poppins_extra_bold"

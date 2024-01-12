@@ -77,7 +77,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/nunito_sans_regular"
                 android:text="@string/CaptionLogin"
-                android:textColor="@color/textColorCaption2"
+                android:textColor="@color/textColorCaption3"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />

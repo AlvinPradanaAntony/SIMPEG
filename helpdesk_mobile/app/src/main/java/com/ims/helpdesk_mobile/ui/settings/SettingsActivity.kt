@@ -4,11 +4,14 @@ import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.appbar.MaterialToolbar
 import com.ims.helpdesk_mobile.R
 import com.ims.helpdesk_mobile.databinding.ActivitySettingsBinding
 import com.ims.helpdesk_mobile.ui.profile.ProfileActivity
+import com.ims.helpdesk_mobile.ui.ticket.TicketActivity
 
 class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
@@ -53,13 +56,43 @@ class SettingsActivity : AppCompatActivity() {
                 startActivity(Intent(this@SettingsActivity, ProfileActivity::class.java))
             }
             menuUbahSandi.setOnClickListener {
-                Toast.makeText(this@SettingsActivity, "Ubah Sandi", Toast.LENGTH_SHORT).show()
+                val alertDialog = AlertDialog.Builder(this@SettingsActivity)
+                val dialog = alertDialog.create()
+
+                val dialogView = layoutInflater.inflate(R.layout.item_layout_changepw_dialog, null, false)
+                dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+                dialog.setView(dialogView)
+                dialogView.findViewById<View>(R.id.btn_close).setOnClickListener {
+                    dialog.dismiss()
+                }
+                dialog.show()
+            }
+            menuMyticket.setOnClickListener {
+                Toast.makeText(this@SettingsActivity, "Tiket Saya", Toast.LENGTH_SHORT).show()
             }
             menuPusatBantuan.setOnClickListener {
-                Toast.makeText(this@SettingsActivity, "Pusat Bantuan", Toast.LENGTH_SHORT).show()
+                val alertDialog = AlertDialog.Builder(this@SettingsActivity)
+                val dialog = alertDialog.create()
+
+                val dialogView = layoutInflater.inflate(R.layout.item_layout_bantuan_dialog, null, false)
+                dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+                dialog.setView(dialogView)
+                dialogView.findViewById<View>(R.id.btn_close).setOnClickListener {
+                    dialog.dismiss()
+                }
+                dialog.show()
             }
             menuTentangAplikasi.setOnClickListener {
-                Toast.makeText(this@SettingsActivity, "Tentang Aplikasi", Toast.LENGTH_SHORT).show()
+                val alertDialog = AlertDialog.Builder(this@SettingsActivity)
+                val dialog = alertDialog.create()
+
+                val dialogView = layoutInflater.inflate(R.layout.item_layout_info_dialog, null, false)
+                dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+                dialog.setView(dialogView)
+                dialogView.findViewById<View>(R.id.btn_close).setOnClickListener {
+                    dialog.dismiss()
+                }
+                dialog.show()
             }
             menuKeluar.setOnClickListener {
                 Toast.makeText(this@SettingsActivity, "Keluar", Toast.LENGTH_SHORT).show()
