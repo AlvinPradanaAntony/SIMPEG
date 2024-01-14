@@ -80,4 +80,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    public function generateToken()
+    {
+        return $this->createToken('Token Name')->plainTextToken;
+    }
 }

@@ -134,15 +134,7 @@ export default {
             </ul>
           </div>
         </li> -->
-        <li class="nav-item">
-          <Link :href="route('admin.dukungan')" class="nav-link" :class="{ 'active': (title === 'Dukungan') }">
-          <unicon name="bell-school" class="me-2 unicon" width="20" height="30" />
-          <span style="vertical-align: middle" class="link_name"> Dukungan </span>
-          </Link>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Dukungan</a></li>
-          </ul>
-        </li>
+        
         <div class="setting mt-5">
           <hr class="sidebar-divider">
           <li class="nav-item sign-out">

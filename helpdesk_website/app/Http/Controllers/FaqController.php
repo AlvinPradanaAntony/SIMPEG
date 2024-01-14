@@ -13,6 +13,9 @@ class FaqController extends Controller
         return Inertia::render('Admin/Faq/Index', [
             'faqs' => Faq::all(),
         ]);
+        return response()->json([
+            'message' => 'FAQ Berhasil Dimuat',
+        ], 201);
     }
 
     public function create() {

@@ -14,7 +14,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ReviewController;
 use App\Models\Faq;
-use App\Models\Ticket;
 
 Route::get('/', function () {
     return Inertia::render('LandingPage',[

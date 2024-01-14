@@ -14,6 +14,7 @@ use App\Http\Controllers\PositionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\AuthController;
 use App\Models\Faq;
 
 /*
@@ -27,9 +28,11 @@ use App\Models\Faq;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 Route::get('/', function () {
     return Inertia::render('LandingPage',[
         'canLogin' => Route::has('login'),
