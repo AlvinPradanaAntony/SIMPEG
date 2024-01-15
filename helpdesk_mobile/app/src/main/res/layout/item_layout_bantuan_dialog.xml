@@ -55,7 +55,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/logo_simpeg"
-                android:src="@drawable/asset_13"
+                android:src="@drawable/asset_12"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/container_btn_close" />

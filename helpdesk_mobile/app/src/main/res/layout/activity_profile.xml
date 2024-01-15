@@ -19,7 +19,7 @@
         android:layout_height="891dp"
         android:contentDescription="@string/abstract1"
         android:scaleType="fitXY"
-        android:src="@drawable/asset_7"
+        android:src="@drawable/asset_6"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -66,7 +66,7 @@
                 android:layout_height="115dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="52dp"
-                android:src="@drawable/asset_8" />
+                android:src="@drawable/asset_7" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/container_data_pribadi"
@@ -363,7 +363,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="35dp"
                 android:contentDescription="@string/logo_simpeg"
-                android:src="@drawable/asset_12" />
+                android:src="@drawable/asset_11" />
         </RelativeLayout>
     </ScrollView>
 

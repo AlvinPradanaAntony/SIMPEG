@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/abstract1"
         android:scaleType="fitXY"
-        android:src="@drawable/asset_7" />
+        android:src="@drawable/asset_6" />
     
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/custom_appbar"
@@ -68,7 +68,7 @@
                 android:layout_width="115dp"
                 android:layout_height="115dp"
                 android:layout_marginTop="18dp"
-                android:src="@drawable/asset_8"
+                android:src="@drawable/asset_7"
                 app:layout_constraintEnd_toEndOf="@+id/text1"
                 app:layout_constraintStart_toStartOf="@+id/text1"
                 app:layout_constraintTop_toBottomOf="@+id/text1"
@@ -356,7 +356,7 @@
             <ImageView
                 android:layout_width="82dp"
                 android:layout_height="17dp"
-                android:src="@drawable/asset_9"
+                android:src="@drawable/asset_8"
                 android:layout_marginTop="95dp"
                 android:layout_marginBottom="25dp"
                 android:contentDescription="@string/logo_simpeg"

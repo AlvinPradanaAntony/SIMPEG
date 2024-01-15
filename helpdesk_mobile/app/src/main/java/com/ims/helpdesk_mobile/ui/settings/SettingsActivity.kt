@@ -11,7 +11,6 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.ims.helpdesk_mobile.R
 import com.ims.helpdesk_mobile.databinding.ActivitySettingsBinding
 import com.ims.helpdesk_mobile.ui.profile.ProfileActivity
-import com.ims.helpdesk_mobile.ui.ticket.TicketActivity
 
 class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
@@ -42,9 +41,9 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         val drawableId = if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            R.drawable.asset_7
+            R.drawable.asset_6
         } else {
-            R.drawable.asset_10
+            R.drawable.asset_9
         }
 
         imageView.setImageResource(drawableId)

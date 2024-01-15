@@ -53,9 +53,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         val drawableId = if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            R.drawable.asset_7
+            R.drawable.asset_6
         } else {
-            R.drawable.asset_10
+            R.drawable.asset_9
         }
 
         imageView.setImageResource(drawableId)

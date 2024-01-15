@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/abstract1"
         android:scaleType="fitXY"
-        android:src="@drawable/asset_7" />
+        android:src="@drawable/asset_6" />
     
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/custom_appbar"
@@ -66,7 +66,7 @@
                     android:id="@+id/iv_avatar"
                     android:layout_width="78dp"
                     android:layout_height="78dp"
-                    android:src="@drawable/asset_8"
+                    android:src="@drawable/asset_7"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -365,7 +365,7 @@
                     android:id="@+id/imageView7"
                     android:layout_width="46dp"
                     android:layout_height="46dp"
-                    android:src="@drawable/ic_keluar"
+                    android:src="@drawable/ic_settings_keluar"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -400,7 +400,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="95dp"
                 android:contentDescription="@string/logo_simpeg"
-                android:src="@drawable/asset_9" />
+                android:src="@drawable/asset_8" />
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

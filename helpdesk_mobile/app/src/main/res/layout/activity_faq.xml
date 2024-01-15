@@ -51,7 +51,7 @@
                 android:layout_height="891dp"
                 android:contentDescription="@string/abstract1"
                 android:scaleType="fitXY"
-                android:src="@drawable/asset_7"
+                android:src="@drawable/asset_6"
                 app:layout_constraintTop_toTopOf="parent" />
             
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -107,7 +107,7 @@
                     android:id="@+id/iv_avatar"
                     android:layout_width="78dp"
                     android:layout_height="78dp"
-                    android:src="@drawable/asset_8"
+                    android:src="@drawable/asset_7"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -229,7 +229,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="35dp"
                 android:contentDescription="@string/logo_simpeg"
-                android:src="@drawable/asset_12" />
+                android:src="@drawable/asset_11" />
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

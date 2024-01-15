@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/asset_11"
+                android:src="@drawable/asset_10"
                 android:contentDescription="@string/abstract1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,7 @@
                 android:layout_height="94dp"
                 android:layout_marginTop="68dp"
                 android:contentDescription="@string/logo_simpeg"
-                android:src="@drawable/asset_6"
+                android:src="@drawable/asset_5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 />

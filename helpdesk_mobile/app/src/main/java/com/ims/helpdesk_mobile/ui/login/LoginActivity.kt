@@ -30,9 +30,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         val drawableId = if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            R.drawable.asset_11
-        } else {
             R.drawable.asset_10
+        } else {
+            R.drawable.asset_9
         }
 
         imageView.setImageResource(drawableId)
