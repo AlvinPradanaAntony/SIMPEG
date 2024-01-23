@@ -6,23 +6,43 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function register(Request $request){
+    public function register(Request $request)
+    {
+        $request->validate([
+            'nip' => 'required',
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'role_id' => 'required'
+        ]);
+        $checkUser = User::where('nip', $request->nip)->orWhere('email', $request->email)->first();
+
+        if ($checkUser) {
+            return response()->json([
+                'error' => true,
+                'message' => 'Akun ini sudah terdaftar'
+            ]);
+        }
         $user = User::create([
             'nip' => $request->nip,
             'name' => $request->name,
-            'email'=> $request->email,
-            'password'=> bcrypt($request->password),
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'role_id' => $request->role_id
         ]);
         return response()->json([
+            'error' => false,
             'message' => 'User Berhasil Dibuat',
             'user' => $user
-        ], 201);
+        ]);
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $request->validate([
             'nip' => 'required',
             'password' => 'required'
@@ -32,19 +52,33 @@ class AuthController extends Controller
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
-                'message' => 'NIP atau Password Salah',
-                'error' => 'Unauthorized',
-            ], 401);
+                'error' => true,
+                'message' => !$user ? 'NIP tidak ditemukan' : 'Password salah',
+            ]);
         }
 
-        $token = $user->generateToken();
-
+        $token = $user->createToken('auth-token')->plainTextToken;
         return response()->json([
+            'error' => false,
             'message' => 'Login berhasil',
             'access_token' => $token,
-            'token_type' => 'Bearer',
-            'expires_in' => null, // Sesuaikan sesuai kebutuhan Anda
-            'user' => $user
+            'user' => $user,
         ]);
+    }
+    
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json([
+            'error' => false,
+            'message' => 'Logout berhasil'
+        ]);
+    }
+
+    public function tokenLogin(Request $request)
+    {
+        $user = Auth::user();
+        // $ticket = Ticket::where('user_id', $user->id);
+        return response()->json($user);
     }
 }

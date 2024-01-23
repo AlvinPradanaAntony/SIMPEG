@@ -15,17 +15,22 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Faq::factory(2)->create();
-        User::factory(5)->create();
-        
+   
+
         $this->call([
-            DepartmentsSeeder::class,
-            CategorySeeder::class,
-            StatusSeeder::class,
-            ReviewSeeder::class,
             RolesSeeder::class,
+            StatusSeeder::class,
+            DepartmentsSeeder::class,
+            PositionSeeder::class,
+            CategorySeeder::class,
+            ReviewSeeder::class,
             FaqSeeder::class,
             UsersSeeder::class,
-            PositionSeeder::class,
+        ]);
+        // User::factory(5)->create();
+        $this->call([
+            TicketSeeder::class,
+            // CommentSeeder::class,
         ]);
     }
 }

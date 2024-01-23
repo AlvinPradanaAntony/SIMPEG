@@ -18,38 +18,12 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    public function departments(){
-        return $this->belongsTo(Department::class, 'department_id');
-    }
-
-    public function positions(){
-        return $this->belongsTo(Position::class, 'position_id');
-    }
-
-    public function roles(){
-        return $this->belongsTo(Role::class, 'role_id');
-    }
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'nip',
-        'name',
-        'gender',
-        'birth_place',
-        'birth_date',
-        'religion',
-        'marital_status',
-        'department_id',
-        'position_id',
-        'role_id',
-        'phone',
-        'address',
-        'email',
-        'password',
-    ];
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -83,5 +57,22 @@ class User extends Authenticatable
     public function generateToken()
     {
         return $this->createToken('Token Name')->plainTextToken;
+    }
+
+    
+    public function departments(){
+        return $this->belongsTo(Department::class, 'department_id');
+    }
+
+    public function positions(){
+        return $this->belongsTo(Position::class, 'position_id');
+    }
+
+    public function roles(){
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function tickets(){
+        return $this->hasMany(Ticket::class);
     }
 }

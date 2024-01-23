@@ -20,9 +20,9 @@ return new class extends Migration
             $table->date('birth_date')->nullable();
             $table->string('religion')->nullable();
             $table->string('marital_status')->nullable();
-            $table->string('department_id')->nullable();
-            $table->string('position_id')->nullable();
-            $table->integer('role_id')->nullable();
+            $table->foreignId('department_id')->nullable()->constrained();
+            $table->foreignId('position_id')->nullable()->constrained();
+            $table->foreignId('role_id')->constrained();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('email')->unique()->nullable();

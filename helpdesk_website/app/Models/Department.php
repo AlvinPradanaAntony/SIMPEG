@@ -9,7 +9,12 @@ class Department extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'department',
-    ];
+    protected $guarded = ['id'];
+
+    public function category(){
+        return $this->hasMany(Category::class);
+    }
+    public function user(){
+        return $this->hasMany(User::class);
+    }
 }

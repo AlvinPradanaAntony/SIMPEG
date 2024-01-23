@@ -60,7 +60,7 @@ Route::get('/formticket', function () {
         'canLogin' => Route::has('login'),
         'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
-})->name('formticket');
+})->name('formtickets');
 Route::post('/formticket', [TicketController::class, 'storeEmployee'])->name('formticket');
 // Route::post('/formticket', [TicketController::class, 'storeEmployee'])->name('formtickets');
 Route::get('/last-ticket-id', [TicketController::class, 'getLastTicketId'])->name('last-ticket-id');

@@ -22,5 +22,11 @@ class PositionSeeder extends Seeder
         Position::create([
             'position' => 'Jabatan 3',
         ]);
+        Position::create([
+            'position' => 'Jabatan 4',
+        ]);
+        Position::create([
+            'position' => 'Jabatan 5',
+        ]);
     }
 }
