@@ -110,7 +110,7 @@ class ProfileActivity : AppCompatActivity() {
 //                    position == "Belum ada jabatan"
 //                }
 //                profileViewModel.saveUser(UserModel(name, nip, position, photoUrl,token, true))
-            }
+//            }
         }
     }
 
