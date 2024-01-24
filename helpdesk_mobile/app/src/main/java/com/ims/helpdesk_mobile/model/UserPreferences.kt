@@ -14,7 +14,9 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         return dataStore.data.map { preferences ->
             UserModel(
                 preferences[NAME_KEY] ?:"",
-                preferences[EMAIL_KEY] ?:"",
+                preferences[NIP_KEY] ?:"",
+                preferences[POSITION_KEY] ?:"",
+                preferences[PHOTO_URL_KEY] ?:"",
                 preferences[TOKEN_KEY] ?:"",
                 preferences[STATE_KEY] ?: false
             )
@@ -24,7 +26,9 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
     suspend fun saveUser(user: UserModel) {
         dataStore.edit { preferences ->
             preferences[NAME_KEY] = user.name
-            preferences[EMAIL_KEY] = user.email
+            preferences[NIP_KEY] = user.nip
+            preferences[POSITION_KEY] = user.position?: ""
+            preferences[PHOTO_URL_KEY] = user.photoUrl
             preferences[TOKEN_KEY] = user.token
             preferences[STATE_KEY] = user.isLogin
         }
@@ -42,7 +46,9 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         private var INSTANCE: UserPreferences? = null
 
         private val NAME_KEY = stringPreferencesKey("name")
-        private val EMAIL_KEY = stringPreferencesKey("email")
+        private val NIP_KEY = stringPreferencesKey("nip")
+        private val POSITION_KEY = stringPreferencesKey("position")
+        private val PHOTO_URL_KEY = stringPreferencesKey("photo_url")
         private val TOKEN_KEY = stringPreferencesKey("token")
         private val STATE_KEY = booleanPreferencesKey("state")
 

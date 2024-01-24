@@ -159,7 +159,7 @@
                         android:layout_below="@id/label_gender"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="@string/nip_data_account"
+                        android:text="@string/kosong"
                         android:textColor="@color/textColorSubtitle"
                         android:textSize="14sp" />
 
@@ -173,14 +173,112 @@
                         android:textColor="@color/textColorSecondary"
                         android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/text_birthOfdate"
+                    <LinearLayout
+                        android:id="@+id/container_birth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         android:layout_below="@id/label_birth0fdate"
+                        android:layout_marginBottom="8dp">
+                        <TextView
+                            android:id="@+id/text_birthOfPlace"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/kosong"
+                            android:textColor="@color/textColorSubtitle"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/text_birthOfdate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/kosong"
+                            android:textColor="@color/textColorSubtitle"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                    
+                    <TextView
+                        android:id="@+id/label_religion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/container_birth"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Agama"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/text_religion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_religion"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="@string/nip_data_account"
+                        android:text="@string/kosong"
+                        android:textColor="@color/textColorSubtitle"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/label_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_religion"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Status"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/text_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_status"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/kosong"
+                        android:textColor="@color/textColorSubtitle"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/label_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_status"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="No. Telepon"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/text_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_phone"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/kosong"
+                        android:textColor="@color/textColorSubtitle"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/label_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_phone"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Alamat"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="14sp" />
+                    
+                    <TextView
+                        android:id="@+id/text_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_address"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/kosong"
                         android:textColor="@color/textColorSubtitle"
                         android:textSize="14sp" />
                 </RelativeLayout>
@@ -234,7 +332,7 @@
                         android:layout_below="@id/label_departemen"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="[Kosong]"
+                        android:text="@string/kosong"
                         android:textColor="@color/textColorSubtitle"
                         android:textSize="14sp" />
 
@@ -255,7 +353,7 @@
                         android:layout_below="@id/label_jabatan"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Guru Ahli Madya"
+                        android:text="@string/kosong"
                         android:textColor="@color/textColorSubtitle"
                         android:textSize="14sp" />
                 </RelativeLayout>
@@ -298,7 +396,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/text3"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Bidang/Departemen"
+                        android:text="Email"
                         android:textColor="@color/textColorSecondary"
                         android:textSize="14sp" />
 
@@ -309,32 +407,32 @@
                         android:layout_below="@id/label_email"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="pegawai1@gmail.com"
+                        android:text="@string/kosong"
                         android:textColor="@color/textColorSubtitle"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/label_status"
+                        android:id="@+id/label_level"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/text_email"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Jabatan"
+                        android:text="Level"
                         android:textColor="@color/textColorSecondary"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/text_status"
+                        android:id="@+id/text_level"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/label_status"
+                        android:layout_below="@id/label_level"
                         android:layout_marginBottom="8dp"
                         android:background="@drawable/custom_rounded2"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Guru Ahli Madya"
+                        android:text="Pegawai"
                         android:padding="2dp"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
                         android:textColor="@color/textColorPrimary"
                         android:textSize="12sp" />
                 </RelativeLayout>
@@ -350,6 +448,7 @@
                 android:background="@drawable/style_button"
                 android:fontFamily="@font/nunito_sans_bold"
                 style="?android:attr/borderlessButtonStyle"
+                android:textColor="@color/textColorPrimary"
                 android:text="Edit Profil"
                 android:textAllCaps="false"
                 android:textSize="18sp"

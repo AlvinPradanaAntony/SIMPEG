@@ -83,6 +83,7 @@
                     app:layout_constraintTop_toTopOf="@+id/iv_avatar">
                     
                     <TextView
+                        android:id="@+id/username_account"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_extra_bold"
@@ -175,49 +176,10 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
             
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/menu_ubah_sandi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/menu_informasi_personal"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp">
-                
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="46dp"
-                    android:layout_height="46dp"
-                    android:src="@drawable/ic_setting_password"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-                
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="14dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center"
-                    android:text="Ubah Kata Sandi"
-                    android:textColor="@color/textColorPrimary"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView4"
-                    app:layout_constraintTop_toTopOf="@+id/imageView4" />
-                
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:src="@drawable/ic_arrow_right"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/menu_myticket"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/menu_ubah_sandi"
+                android:layout_below="@id/menu_informasi_personal"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp">
 
@@ -288,7 +250,7 @@
                     android:layout_marginStart="14dp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
-                    android:text="Pusat Bantuan"
+                    android:text="Lapor Masalah"
                     android:textColor="@color/textColorPrimary"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"

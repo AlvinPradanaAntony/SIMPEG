@@ -1,5 +1,9 @@
 package com.ims.helpdesk_mobile.db
 
+import com.ims.helpdesk_mobile.db.data.HelpdeskAPIResponse
+import com.ims.helpdesk_mobile.db.data.LoginResponse
+import com.ims.helpdesk_mobile.db.data.RegisterResponse
+import com.ims.helpdesk_mobile.db.data.UserAPIResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -9,6 +13,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("register")
     fun register(
+        @Field("nip") nip: String,
         @Field("name") name: String,
         @Field("email") email: String,
         @Field("password") password: String
@@ -17,27 +22,19 @@ interface ApiService {
     @FormUrlEncoded
     @POST("login")
     fun login(
-        @Field("email") email: String,
+        @Field("nip") nip: String,
         @Field("password") password: String
     ) : Call<LoginResponse>
 
-    @GET("stories")
-    fun getStories(
-        @Header("Authorization") header: String
-    ) : Call<TicketAPIResponse>
+    @GET("faq")
+    fun getDataFaq(
+        @Header("Accept") accept: String,
+    ) : Call<HelpdeskAPIResponse>
 
-    @Multipart
-    @POST("stories")
-    fun uploadImage(
-        @Header("Authorization") header: String,
-        @Part file: MultipartBody.Part,
-        @Part("description") description: RequestBody,
-    ): Call<FileUploadResponse>
+    @GET("profile")
+    fun getDataUser(
+        @Header("Accept") accept: String,
+        @Header("Authorization") token: String
+    ) : Call<UserAPIResponse>
 
-    @Multipart
-    @POST("/v1/stories/guest")
-    fun uploadImageGuest(
-        @Part file: MultipartBody.Part,
-        @Part("description") description: RequestBody,
-    ): Call<FileUploadResponse>
 }

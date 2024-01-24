@@ -1,32 +1,47 @@
 package com.ims.helpdesk_mobile.ui.faq
 
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
 import com.ims.helpdesk_mobile.R
-import com.ims.helpdesk_mobile.adapter.ListFAQAdapter
+import com.ims.helpdesk_mobile.ViewModelFactory
+import com.ims.helpdesk_mobile.adapter.FaqAdapter
 import com.ims.helpdesk_mobile.databinding.ActivityFaqBinding
 import com.ims.helpdesk_mobile.db.FAQResponse
+import com.ims.helpdesk_mobile.db.data.ListFaqItem
+import com.ims.helpdesk_mobile.model.FaqViewModel
+import com.ims.helpdesk_mobile.model.UserPreferences
 import com.ims.helpdesk_mobile.ui.notifikasi.NotificationActivity
 import com.ims.helpdesk_mobile.ui.settings.SettingsActivity
 
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "session")
 class FaqActivity : AppCompatActivity() {
+    private lateinit var faqViewModel: FaqViewModel
     private lateinit var binding: ActivityFaqBinding
     private lateinit var rvFaq: RecyclerView
-    private val list = ArrayList<FAQResponse>()
+    private val list = ArrayList<ListFaqItem>()
+    private val adapter: FaqAdapter by lazy {
+        FaqAdapter(list)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFaqBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setupViewModel()
+        observeErrorMessage()
         optionMenuSetup()
         customShadow()
-        rvFaq = binding.rvFaq
-        list.addAll(getListFAQ())
-        showRecyclerList()
     }
     private fun customShadow() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -42,33 +57,42 @@ class FaqActivity : AppCompatActivity() {
             binding.appbarLayoutId.elevation = 0.5f
         }
     }
-    private fun getListFAQ(): ArrayList<FAQResponse> {
-        val dataQuestion = resources.getStringArray(R.array.data_questions)
-        val dataAnswer = resources.getStringArray(R.array.data_description)
-        val listFaq = ArrayList<FAQResponse>()
-        for (position in dataQuestion.indices) {
-            val faq = FAQResponse(
-                dataQuestion[position],
-                dataAnswer[position]
-            )
-            listFaq.add(faq)
+
+    private fun setupViewModel() {
+        faqViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(UserPreferences.getInstance(dataStore))
+        )[FaqViewModel::class.java]
+
+        faqViewModel.getUser().observe(this) { user ->
+            val name = user.name
+            binding.txtUsername.text = name.replaceFirstChar { it.uppercase() }
+            Glide.with(this)
+                .load("https://ui-avatars.com/api/?name=$name&size=128&background=random")
+                .placeholder(R.drawable.ic_placeholder_photo)
+                .error(R.drawable.ic_placeholder_photo)
+                .into(binding.ivPhoto)
         }
-        return listFaq
+        getFaq()
     }
-    private fun showRecyclerList() {
-        rvFaq.setHasFixedSize(true)
-        rvFaq.isNestedScrollingEnabled = false
-        rvFaq.layoutManager = LinearLayoutManager(this)
-        val listFaqAdapter = ListFAQAdapter(list)
-        rvFaq.adapter = listFaqAdapter
-//        listFaqAdapter.setOnItemClickCallback(object : ListFAQAdapter.OnItemClickCallback {
-//            override fun onItemClicked(data: FAQResponse) {
-//                val intent = Intent(this@FaqActivity, DetailFaqActivity::class.java)
-//                intent.putExtra("DATA_FAQ", data)
-//                startActivity(intent)
-//            }
-//        })
+
+    private fun getFaq() {
+        faqViewModel.getDataFaq()
+        faqViewModel.isDataFaq.observe(this) { user ->
+            if (user != null) {
+                adapter.setListFaq(user.listFaq)
+                setRecycleView()
+            }
+        }
     }
+
+    private fun setRecycleView() {
+        val layoutManager = LinearLayoutManager(this)
+        binding.rvFaq.layoutManager = layoutManager
+        binding.rvFaq.setHasFixedSize(true)
+        binding.rvFaq.adapter = adapter
+    }
+
     private fun optionMenuSetup(){
         val menu = binding.topAppBar
         menu.setOnMenuItemClickListener { menuItem ->
@@ -89,4 +113,13 @@ class FaqActivity : AppCompatActivity() {
             }
         }
     }
+    private fun observeErrorMessage() {
+        faqViewModel.isError.observe(this) {
+            showSnackBar(it)
+        }
+    }
+    private fun showSnackBar(value: String) {
+        Snackbar.make(binding.root, value, Snackbar.LENGTH_SHORT).show()
+    }
 }
+

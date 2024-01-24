@@ -2,7 +2,7 @@
     <string name="app_name">Helpdesk</string>
     <string name="title_logo">SIMPEG Mobile</string>
 
-    <string name="password_minimum_character">Kata Sandi Minimal 8 Karakter</string>
+    <string name="password_minimum_character">Kata Sandi Minimal 6 Karakter</string>
     <string name="password_not_match">Password Tidak sama</string>
     <string name="email_invalid">Format Email Tidak Sesuai</string>
     <string name="HeadlineLogin">Selamat Datang !</string>
@@ -51,7 +51,8 @@
     <string name="settings">Settings</string>
     <string name="sample_pertanyaan">Bagaimana cara saya mengajukan izin tahunan ?</string>
     <string name="sample_jawaban">Untuk mengajukan izin tahunan, silakan akses portal kepegawaian kami dan masuk ke akun Anda. Di sana, Anda akan menemukan opsi Pengajuan Izin di mana Anda dapat mengisi formulir pengajuan izin dengan rincian tanggal, alasan, dan durasi izin. Pengajuan Anda akan diproses oleh tim HR dan Anda akan menerima pemberitahuan lebih lanjut.</string>
-
+    <string name="kosong">[Kosong]</string>
+    
     <string-array name="data_questions">
         <item>Bagaimana cara saya mengajukan izin tahunan?</item>
         <item>Bagaimana cara saya melihat slip gaji saya?</item>

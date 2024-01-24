@@ -43,8 +43,7 @@ class CustomEditText: AppCompatEditText, View.OnTouchListener {
     }
 
     private fun init() {
-        val email: CustomEditText? = findViewById(R.id.ed_login_email)
-        email?.isEmail  = true
+        val email: CustomEditText? = findViewById(R.id.ed_login_nip)
         val password: CustomEditText? = findViewById(R.id.ed_login_password)
         password?.isPassword = true
 
@@ -71,7 +70,7 @@ class CustomEditText: AppCompatEditText, View.OnTouchListener {
                         isError = false
                     }
                 } else if (isPassword) {
-                    if (s.toString().isNotEmpty() && s.toString().length < 8) {
+                    if (s.toString().isNotEmpty() && s.toString().length < 6) {
                         error = resources.getString(R.string.password_minimum_character)
                         isError = true
                     } else {

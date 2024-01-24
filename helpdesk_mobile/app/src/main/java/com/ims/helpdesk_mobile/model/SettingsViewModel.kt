@@ -15,8 +15,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel(private val pref: UserPreferences) : ViewModel() {
+class SettingsViewModel(private val pref: UserPreferences) : ViewModel() {
     fun getUser(): LiveData<UserModel> {
         return pref.getUser().asLiveData()
+    }
+
+    fun logout() {
+        viewModelScope.launch {
+            pref.logout()
+        }
     }
 }

@@ -1,16 +1,20 @@
 package com.ims.helpdesk_mobile.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ims.helpdesk_mobile.databinding.ItemsRowFaqBinding
 import com.ims.helpdesk_mobile.db.FAQResponse
+import com.ims.helpdesk_mobile.db.data.ListFaqItem
 
-class ListFAQAdapter(private val listData: ArrayList<FAQResponse>): RecyclerView.Adapter<ListFAQAdapter.ListViewHolders>()  {
+class FaqAdapter(private val listData: ArrayList<ListFaqItem>): RecyclerView.Adapter<FaqAdapter.ListViewHolders>()  {
     private lateinit var onItemClickCallback: OnItemClickCallback
+
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
     }
+
     class ListViewHolders(var binding: ItemsRowFaqBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolders {
@@ -31,6 +35,13 @@ class ListFAQAdapter(private val listData: ArrayList<FAQResponse>): RecyclerView
                 holder.binding.tvItemAnswer.visibility = ViewGroup.GONE
             }
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setListFaq(faq: ArrayList<ListFaqItem>) {
+        listData.clear()
+        listData.addAll(faq)
+        notifyDataSetChanged()
     }
 
     interface OnItemClickCallback {
