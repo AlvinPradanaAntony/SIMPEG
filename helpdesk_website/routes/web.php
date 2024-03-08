@@ -22,14 +22,14 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
         'faqs' => Faq::all(),
-        'tickets' => app(TicketController::class)->getAllTickets(),
+        // 'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
 })->name('landingpage');
 
 Route::get('/user/profile', function () {
     return Inertia::render('Profile/Show',[
         'canLogin' => Route::has('login'),
-        'tickets' => app(TicketController::class)->getAllTickets(),
+        // 'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
 })->name('profile.show');
 
@@ -42,14 +42,14 @@ Route::middleware([
     Route::get('/user/profile', function () {
         return Inertia::render('Profile/Show',[
             'canLogin' => Route::has('login'),
-            'tickets' => app(TicketController::class)->getAllTickets(),
+            // 'tickets' => app(TicketController::class)->getAllTickets(),
         ]);
     })->name('profile.show');
     Route::get('/admin/pengguna/profile', [ProfileController::class, 'showOnDashboard'])->name('admin.profile');
     Route::get('/trackingticket', function () {
     return Inertia::render('Ticket/TrackingTicket',[
         'canLogin' => Route::has('login'),
-        'tickets' => app(TicketController::class)->getAllTickets(),
+        // 'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
     
 })->name('trackingticket');
@@ -58,7 +58,7 @@ Route::delete('/trackingticket/{id}', [TicketController::class, 'destroy'])->nam
 Route::get('/formticket', function () {
     return Inertia::render('Ticket/Index',[
         'canLogin' => Route::has('login'),
-        'tickets' => app(TicketController::class)->getAllTickets(),
+        // 'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
 })->name('formtickets');
 Route::post('/formticket', [TicketController::class, 'storeEmployee'])->name('formticket');
@@ -68,7 +68,7 @@ Route::get('/last-ticket-id', [TicketController::class, 'getLastTicketId'])->nam
 Route::get('/detailticket', function () {
     return Inertia::render('Ticket/DetailTicket',[
         'canLogin' => Route::has('login'),
-        'tickets' => app(TicketController::class)->getAllTickets(),
+        // 'tickets' => app(TicketController::class)->getAllTickets(),
     ]);
 })->name('detailticket');
 Route::get('/detailticket/{id}', [TicketController::class, 'edit'])->name('detailtickets');

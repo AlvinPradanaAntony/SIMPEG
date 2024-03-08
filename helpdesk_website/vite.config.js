@@ -23,4 +23,7 @@ export default defineConfig({
             '@js': path.resolve(__dirname, 'public/js'),
         },
     },
+    server: {
+        host: '192.168.1.8',
+    },
 });

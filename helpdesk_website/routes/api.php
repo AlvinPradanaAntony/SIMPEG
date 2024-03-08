@@ -24,6 +24,7 @@ use App\Http\Middleware\CustomAuthError;
 // });
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
+  Route::get('/profile', [AuthController::class, 'profile']);
   Route::get('/tickets', [TicketController::class, 'index']);
   Route::get('/tickets/{id}', [TicketController::class, 'show']);
   Route::post('/tickets', [TicketController::class, 'store']);
@@ -33,6 +34,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
   Route::patch('/comment/{id}', [CommentsController::class, 'update'])->middleware('my-comments');
   Route::delete('/comment/{id}', [CommentsController::class, 'destroy'])->middleware('my-comments');
   Route::get('/logout', [AuthController::class, 'logout']);
+  Route::put('/profile/{id}', [AuthController::class, 'update']);
 });
 
 Route::post('/login', [AuthController::class, 'login'] );
@@ -40,3 +42,5 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/faq',[FaqController::class, 'index']);
 Route::get('/faq/{id}',[FaqController::class, 'edit']);
+
+

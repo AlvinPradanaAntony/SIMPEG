@@ -41,12 +41,5 @@ class TicketSeeder extends Seeder
             'category_id' => 4,
             'status_id' => 4,
         ]);
-        // Ticket::create([
-        //     'subject' => 'Aplikasi Error',
-        //     'description' => 'Saya tidak bisa login ke aplikasi. Mohon bantuannya.',
-        //     'user_id' => 7,
-        //     'category_id' => 3,
-        //     'status_id' => 2,
-        // ]);
     }
 }

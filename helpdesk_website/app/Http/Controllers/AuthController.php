@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
-use App\Http\Controllers;
 use App\Models\User;
+use App\Http\Controllers;
+use App\Http\Resources\ProfileResources;
+use Illuminate\Http\Request;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -43,18 +46,24 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nip' => 'required',
-            'password' => 'required'
+            'password' => 'required|min:6'
         ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => true,
+                'message' => $validator->errors()
+            ],422);
+        }
 
-        $user = User::where('nip', $request->nip)->first();
 
+        $user = User::firstWhere('nip', $request->nip);
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'error' => true,
                 'message' => !$user ? 'NIP tidak ditemukan' : 'Password salah',
-            ]);
+            ],401);
         }
 
         $token = $user->createToken('auth-token')->plainTextToken;
@@ -62,7 +71,7 @@ class AuthController extends Controller
             'error' => false,
             'message' => 'Login berhasil',
             'access_token' => $token,
-            'user' => $user,
+            'user' => UserResource::make($user),
         ]);
     }
     
@@ -75,10 +84,31 @@ class AuthController extends Controller
         ]);
     }
 
-    public function tokenLogin(Request $request)
+    public function profile()
     {
-        $user = Auth::user();
+        $currentUser = Auth::user();
         // $ticket = Ticket::where('user_id', $user->id);
-        return response()->json($user);
+        $user = User::firstWhere('id', $currentUser->id);
+        
+        return response()->json([
+            'error' => false,
+            'message' => 'Berhasil memuat informasi personal',
+            // 'user' => $user->loadMissing('departments:id,department','positions:id,position')
+            'user' => ProfileResources::make($user),
+        ]);
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'nip' => 'required|string',
+            'name' => 'required|string',
+        ]);
+        $user = User::findOrFail($id);
+        $user->update(request()->all());
+        return response()->json([
+            'error' => false,
+            'message' => 'User Berhasil Diupdate',
+            // 'user' => $user->loadMissing('departments:id,department','positions:id,position')
+        ]);
     }
 }

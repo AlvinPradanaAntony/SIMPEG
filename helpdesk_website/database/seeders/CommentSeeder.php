@@ -26,7 +26,12 @@ class CommentSeeder extends Seeder
         Comments::create([
             'comment' => 'Mohon ditunggu, kami akan segera menginformasikan kenaikan gaji.',
             'ticket_id' => 3,
-            'user_id' => 8,
+            'user_id' => 7,
+        ]);
+        Comments::create([
+            'comment' => 'Testing ini comment utk ticket 3',
+            'ticket_id' => 3,
+            'user_id' => 7,
         ]);
     }
 }

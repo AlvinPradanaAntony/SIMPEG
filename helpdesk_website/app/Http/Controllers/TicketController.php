@@ -199,7 +199,7 @@ class TicketController extends Controller
 
     // public function getAllTickets()
     // {
-    //     $ticket = Ticket::with('users_employee', 'users_department', 'categories', 'categories.department', 'statuses', 'reviews')->get();
+    //     $ticket = Ticket::with('user', 'users_department', 'categories', 'categories.department', 'statuses', 'reviews')->get();
     //     $users = User::all();
     //     $categories = Category::all();
     //     $statuses = Status::all();

@@ -14,9 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Faq::factory(2)->create();
-   
-
         $this->call([
             RolesSeeder::class,
             StatusSeeder::class,
@@ -27,10 +24,10 @@ class DatabaseSeeder extends Seeder
             FaqSeeder::class,
             UsersSeeder::class,
         ]);
-        // User::factory(5)->create();
+        User::factory(5)->create();
         $this->call([
             TicketSeeder::class,
-            // CommentSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }
